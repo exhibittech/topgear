@@ -168,7 +168,7 @@
         <!-- Author Name -->
         <div class="space-y-2">
             <label for="Author" class="block text-sm font-semibold text-gray-700">Author Name</label>
-            <input type="text" name="Author" disabled value="{{ $review->Author }}" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            <input type="text" name="Author" readonly  value="{{ $review->Author }}" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
         </div>
 
         <!-- Publish Date -->
@@ -204,7 +204,7 @@
 </div>
 
 <!-- Add TinyMCE CDN -->
-<script src="https://cdn.tiny.cloud/1/u401ssr4kqb7eo68dsbitofyye9xyg1dgr3vqkbkkqcu4fdz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 <!-- JavaScript for handling Meta Title/Description, Tabs, Image Preview, etc. -->
 <script>
@@ -271,6 +271,14 @@ document.getElementById('MenuID').addEventListener('change', function () {
             selector: '.tiny-editor',
             plugins: 'link image code',
             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+            convert_urls: false,
+            relative_urls: false,
+            remove_script_host: false,
+            link_assume_external_targets: false,
+            default_link_target: '_blank', 
+            entity_encoding: 'raw',
+            allow_script_urls: true,
+
             height: 300
         });
 
@@ -421,6 +429,14 @@ tinymce.init({
     selector: 'textarea',
     plugins: 'link image code',
     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+    convert_urls: false,
+        relative_urls: false,
+        remove_script_host: false,
+        link_assume_external_targets: false,
+        default_link_target: '_blank', 
+        entity_encoding: 'raw',
+        allow_script_urls: true,
+
     height: 300
 });
 

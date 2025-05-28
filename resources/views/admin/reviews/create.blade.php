@@ -178,7 +178,7 @@
     </div>
 
     <!-- Add TinyMCE CDN -->
-    <script src="https://cdn.tiny.cloud/1/u401ssr4kqb7eo68dsbitofyye9xyg1dgr3vqkbkkqcu4fdz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
     <!-- Meta Title and Meta Description Character Counter Script -->
     <script>
@@ -250,6 +250,14 @@
                     selector: '.tiny-editor',
                     plugins: 'link image code',
                     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+                    convert_urls: false,
+                    relative_urls: false,
+                    remove_script_host: false,
+                    link_assume_external_targets: false,
+                    default_link_target: '_blank', 
+                    entity_encoding: 'raw',
+                    allow_script_urls: true,
+
                     height: 300
                 });
     
@@ -358,6 +366,14 @@
             selector: 'textarea',
             plugins: 'link image code',
             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+            convert_urls: false,
+            relative_urls: false,
+            remove_script_host: false,
+            link_assume_external_targets: false,
+            default_link_target: '_blank', 
+            entity_encoding: 'raw',
+            allow_script_urls: true,
+
             height: 300
         });
     </script>

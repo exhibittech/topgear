@@ -223,7 +223,7 @@ class AdminReviewController extends Controller
             'MetaTitle' => 'nullable|string|max:60',
             'MetaDescription' => 'nullable|string|max:160',
             'Keyword' => 'nullable|string|max:255',
-            'Author' => 'required|string|max:255',
+            'Author' => 'nullable|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
             'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
@@ -233,7 +233,8 @@ class AdminReviewController extends Controller
     
         // Fetch the existing review
         $review = Review::findOrFail($id);
-    
+        $validatedData['Author'] = $review->Author; // Keep old value
+
         // Update review data
         $review->fill($validatedData);
     
