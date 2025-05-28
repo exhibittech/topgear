@@ -1,0 +1,29 @@
+.plu{
+    padding-left: 950px;
+}
+/* tr {
+border-bottom: 1pt solid black;
+}
+thead {
+border-bottom: 1pt solid black;
+}
+tbody {
+border-bottom: 1pt solid black;
+}
+td {
+border-bottom: 1pt solid black;
+}
+th {
+border-bottom: 1pt solid black;
+} */
+/* table {
+    border-collapse: collapse;
+    background-color: #b2d3ae45;
+} */
+.w-40 {
+    width: 100px;
+    height: 80px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+  }

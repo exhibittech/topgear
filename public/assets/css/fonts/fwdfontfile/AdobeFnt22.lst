@@ -1,0 +1,790 @@
+%!Adobe-FontList 1.22
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FreightTextProBlack-Regular
+FamilyName:FreightText Pro
+StyleName:Black
+FullName:FreightText Pro Black
+MenuName:FreightText Pro Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\GarageFonts - FreightText Pro Black.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:93624
+FileModTime:1582670166
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,FreightText Pro Black
+NameArray:0,Win,1,FreightText Pro Black
+NameArray:0,Win,16,FreightText Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FreightTextProBook-Italic
+FamilyName:FreightText Pro
+StyleName:Book Italic
+FullName:FreightText Pro Book Italic
+MenuName:FreightText Pro Book
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\GarageFonts - FreightText Pro Book Italic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:106652
+FileModTime:1582670166
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,FreightText Pro Book Italic
+NameArray:0,Win,1,FreightText Pro Book
+NameArray:0,Win,16,FreightText Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FreightTextProBook-Regular
+FamilyName:FreightText Pro
+StyleName:Book
+FullName:FreightText Pro Book
+MenuName:FreightText Pro Book
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\GarageFonts - FreightText Pro Book.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:110648
+FileModTime:1582670166
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,FreightText Pro Book
+NameArray:0,Win,1,FreightText Pro Book
+NameArray:0,Win,16,FreightText Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FreightTextProSemibold-Italic
+FamilyName:FreightText Pro
+StyleName:Semibold Italic
+FullName:FreightText Pro Semibold Italic
+MenuName:FreightText Pro Semibold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\GarageFonts - FreightText Pro Semibold Italic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:106604
+FileModTime:1582670166
+WeightClass:600
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,FreightText Pro Semibold Italic
+NameArray:0,Win,1,FreightText Pro Semibold
+NameArray:0,Win,16,FreightText Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FreightTextProSemibold-Regular
+FamilyName:FreightText Pro
+StyleName:Semibold
+FullName:FreightText Pro Semibold
+MenuName:FreightText Pro Semibold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\GarageFonts - FreightText Pro Semibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:95552
+FileModTime:1582670166
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,FreightText Pro Semibold
+NameArray:0,Win,1,FreightText Pro Semibold
+NameArray:0,Win,16,FreightText Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:GriffithGothic-Bold
+FamilyName:Griffith Gothic
+StyleName:Bold
+FullName:Griffith Gothic Bold
+MenuName:Griffith Gothic
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Griffith_Gothic_Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:74840
+FileModTime:1576841683
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Griffith Gothic Bold
+NameArray:0,Mac,4,Griffith Gothic Bold
+NameArray:0,Win,1,Griffith Gothic
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:GriffithGothic-Light
+FamilyName:Griffith Gothic
+StyleName:Light
+FullName:Griffith Gothic Light
+MenuName:Griffith Gothic
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Griffith_Gothic_Light.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:75600
+FileModTime:1576841746
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Griffith Gothic Light
+NameArray:0,Mac,4,Griffith Gothic Light
+NameArray:0,Win,1,Griffith Gothic
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HelveticaNeueLTStd-BdCn
+FamilyName:Helvetica Neue LT Std
+StyleName:77 Bold Condensed
+FullName:Helvetica Neue LT Std 77 Bold Condensed
+MenuName:HelveticaNeueLT Std Cn
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\HelveticaNeueLTStd-BdCn.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:29268
+FileModTime:1337580308
+WeightClass:700
+WidthClass:3
+AngleClass:0
+NameArray:0,Mac,18,HelveticaNeueLT Std Bold Cn
+NameArray:0,Mac,4,Helvetica Neue LT Std 77 Bold Condensed
+NameArray:0,Win,1,HelveticaNeueLT Std Cn
+NameArray:0,Win,16,Helvetica Neue LT Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HelveticaNeueLTStd-Roman
+FamilyName:Helvetica Neue LT Std
+StyleName:55 Roman
+FullName:Helvetica Neue LT Std 55 Roman
+MenuName:HelveticaNeueLT Std
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\HelveticaNeueLTStd-Roman.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:27476
+FileModTime:1337580300
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,HelveticaNeueLT Std
+NameArray:0,Mac,4,Helvetica Neue LT Std 55 Roman
+NameArray:0,Win,1,HelveticaNeueLT Std
+NameArray:0,Win,16,Helvetica Neue LT Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Industry-Black
+FamilyName:Industry-Black
+StyleName:?
+FullName:Industry-Black
+MenuName:Industry-Black
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Industry-Black.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:50196
+FileModTime:1537744272
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry-Black
+NameArray:0,Win,1,Industry-Black
+NameArray:0,Win,16,Industry-Black
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:IndustryTG-Black
+FamilyName:Industry TG
+StyleName:Black
+FullName:Industry TG Black
+MenuName:Industry TG Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\IndustryTG-Black.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:43032
+FileModTime:1555585302
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry TG Black
+NameArray:0,Win,1,Industry TG Black
+NameArray:0,Win,16,Industry TG
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:IndustryTG-Bold
+FamilyName:Industry TG
+StyleName:Bold
+FullName:Industry TG Bold
+MenuName:Industry TG Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\IndustryTG-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:42632
+FileModTime:1555585302
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry TG Bold
+NameArray:0,Win,1,Industry TG Bold
+NameArray:0,Win,16,Industry TG
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:IndustryTG-Book
+FamilyName:Industry TG
+StyleName:Book
+FullName:Industry TG Book
+MenuName:Industry TG Book
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\IndustryTG-Book.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:39200
+FileModTime:1555585296
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry TG Book
+NameArray:0,Win,1,Industry TG Book
+NameArray:0,Win,16,Industry TG
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:IndustryTG-Demi
+FamilyName:Industry TG
+StyleName:Demi
+FullName:Industry TG Demi
+MenuName:Industry TG Demi
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\IndustryTG-Demi.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:41400
+FileModTime:1555585302
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry TG Demi
+NameArray:0,Win,1,Industry TG Demi
+NameArray:0,Win,16,Industry TG
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:IndustryTG-Medium
+FamilyName:Industry TG
+StyleName:Medium
+FullName:Industry TG Medium
+MenuName:Industry TG Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\IndustryTG-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:40388
+FileModTime:1555585296
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry TG Medium
+NameArray:0,Win,1,Industry TG Medium
+NameArray:0,Win,16,Industry TG
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:IndustryTG-Ultra
+FamilyName:Industry TG
+StyleName:Ultra
+FullName:Industry TG Ultra
+MenuName:Industry TG Ultra
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\IndustryTG-Ultra.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:41276
+FileModTime:1555585302
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Industry TG Ultra
+NameArray:0,Win,1,Industry TG Ultra
+NameArray:0,Win,16,Industry TG
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+FullName:Minion Pro
+MenuName:Minion Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:218640
+FileModTime:1363344932
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Rupee
+FamilyName:Rupee
+StyleName:Regular
+FullName:Rupee
+MenuName:Rupee
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Rupee.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:14800
+FileModTime:1374469950
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Rupee
+NameArray:0,Win,1,Rupee
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:RupeeForadian
+FamilyName:Rupee Foradian
+StyleName:Regular
+FullName:Rupee Foradian
+MenuName:Rupee Foradian
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Rupee_Foradian.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:60640
+FileModTime:1280483950
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Rupee Foradian
+NameArray:0,Win,1,Rupee Foradian
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Times
+FamilyName:Times
+StyleName:Regular
+FullName:Times
+MenuName:Times
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\TIMESR.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:44340
+FileModTime:1625741953
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Times
+NameArray:0,Win,1,Times
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Kaleko105-Bold
+FamilyName:Kaleko 105
+StyleName:Bold
+FullName:Kaleko 105 Bold
+MenuName:Kaleko 105
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Talbot Type - Kaleko105-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:59916
+FileModTime:1582671704
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Kaleko 105 Bold
+NameArray:0,Win,1,Kaleko 105
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Kaleko105-BoldOblique
+FamilyName:Kaleko 105
+StyleName:Bold Oblique
+FullName:Kaleko 105 Bold Oblique
+MenuName:Kaleko 105
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Talbot Type - Kaleko105-BoldOblique.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:61956
+FileModTime:1582671704
+WeightClass:700
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Kaleko 105 Bold Oblique
+NameArray:0,Win,1,Kaleko 105
+NameArray:0,Win,16,Kaleko 105
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Kaleko105-Book
+FamilyName:Kaleko 105
+StyleName:Book
+FullName:Kaleko 105
+MenuName:Kaleko 105
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Talbot Type - Kaleko105-Book.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:66384
+FileModTime:1582671704
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Kaleko 105
+NameArray:0,Win,1,Kaleko 105
+NameArray:0,Win,16,Kaleko 105
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Kaleko105-BookOblique
+FamilyName:Kaleko 105
+StyleName:Book Oblique
+FullName:Kaleko 105 Book Oblique
+MenuName:Kaleko 105 Book
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Talbot Type - Kaleko105-BookOblique.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:68512
+FileModTime:1582671704
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Kaleko 105 Book Oblique
+NameArray:0,Win,1,Kaleko 105 Book
+NameArray:0,Win,16,Kaleko 105
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Kaleko105-Heavy
+FamilyName:Kaleko 105
+StyleName:Heavy
+FullName:Kaleko 105 Heavy
+MenuName:Kaleko 105 Heavy
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Talbot Type - Kaleko105-Heavy.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:70968
+FileModTime:1582671704
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Kaleko 105 Heavy
+NameArray:0,Win,1,Kaleko 105 Heavy
+NameArray:0,Win,16,Kaleko 105
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Kaleko105-HeavyOblique
+FamilyName:Kaleko 105
+StyleName:Heavy Oblique
+FullName:Kaleko 105 Heavy Oblique
+MenuName:Kaleko 105 Heavy
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Talbot Type - Kaleko105-HeavyOblique.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:72360
+FileModTime:1582671704
+WeightClass:900
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Kaleko 105 Heavy Oblique
+NameArray:0,Win,1,Kaleko 105 Heavy
+NameArray:0,Win,16,Kaleko 105
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Tungsten-Bold
+FamilyName:Tungsten
+StyleName:Bold
+FullName:Tungsten-Bold
+MenuName:Tungsten Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\Tungsten-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:45792
+FileModTime:1482698824
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Tungsten-Bold
+NameArray:0,Win,1,Tungsten Bold
+NameArray:0,Win,16,Tungsten
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:TungstenCompressed-Bold
+FamilyName:Tungsten Compressed
+StyleName:Bold
+FullName:Tungsten Compressed Bold
+MenuName:Tungsten Compressed Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\TungstenComp-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:63728
+FileModTime:1394121568
+WeightClass:400
+WidthClass:2
+AngleClass:0
+NameArray:0,Mac,4,Tungsten Compressed Bold
+NameArray:0,Win,1,Tungsten Compressed Bold
+NameArray:0,Win,16,Tungsten Compressed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:TungstenCondensed-Bold
+FamilyName:Tungsten Condensed
+StyleName:Bold
+FullName:Tungsten Condensed Bold
+MenuName:Tungsten Condensed Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\TungstenCond-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:66540
+FileModTime:1394121604
+WeightClass:400
+WidthClass:3
+AngleClass:0
+NameArray:0,Mac,4,Tungsten Condensed Bold
+NameArray:0,Win,1,Tungsten Condensed Bold
+NameArray:0,Win,16,Tungsten Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:TungstenCondensed-Semibold
+FamilyName:Tungsten Condensed
+StyleName:Semibold
+FullName:Tungsten Condensed Semibold
+MenuName:Tungsten Condensed Semibold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\TungstenCond-Semibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:72472
+FileModTime:1394121622
+WeightClass:373
+WidthClass:3
+AngleClass:0
+NameArray:0,Mac,4,Tungsten Condensed Semibold
+NameArray:0,Win,1,Tungsten Condensed Semibold
+NameArray:0,Win,16,Tungsten Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:rupee-symbol-font-Regular
+FamilyName:rupee symbol font
+StyleName:Regular
+FullName:rupee symbol font
+MenuName:rupee symbol font
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Admin\Desktop\TG JULY 21package file Folder\Document fonts\rupeefont.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:2200
+FileModTime:1570219514
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,rupee symbol font
+NameArray:0,Win,1,rupee symbol font
+%EndFont
+

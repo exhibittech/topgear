@@ -1,0 +1,1147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@font-face {
+    font-family: 'industry_tg';
+    src: url('fonts/industry_tg_book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'industry_tg_bold';
+    src: url('fonts/industry_tg_bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'industry_tg_ultra';
+    src: url('fonts/industry_tg_ultra.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #091F29;
+    color: #eee;
+    font-family: 'industry_tg', sans-serif;
+    font-size: 15px;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'industry_tg_bold', sans-serif;
+}
+iframe{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    color: inherit;
+}
+b{
+    font-family: 'industry_tg_bold';
+}
+table{
+    width: 100%;
+    border: 1px solid;
+}
+tbody, td, tfoot, th, thead, tr{
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    padding: 2px 5px;
+}
+nav.bg-dark {
+    background-color: rgb(13, 46, 61) !important;
+}
+.navbar-dark .navbar-brand {
+    position: relative;
+    padding: 0 2rem 0 3.5rem;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    display: inline-block;
+    justify-self: start;
+}
+.navbar{
+    flex-direction: column;
+    border-bottom: 1px solid rgba(157, 157, 157, 0.2);
+    padding: 0;
+}
+.tg-header-banner{
+    width: 100%;
+    height: 175px;
+    position: relative;
+}
+.kjgearstripes-wrap{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.tg-stripes{
+    background: url(https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/stripes.svg) right top / contain no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+}
+.tg-gear-wrap{
+    max-width: 1280px;
+    display: flex;
+    position: relative;
+    margin: auto;
+}
+.tg-gear-wrap img{
+    width: 745px;
+    transform: translateX(-87px);
+}
+.tg-header-banner .container{
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.tg-brand-wrap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(rgba(9, 31, 41, 0) 0%, rgb(9, 31, 41) 100%);
+    /* background-image: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/header-banner.jpg"); */
+}
+.tg-subscribe{
+    position: relative;
+    width: 300px;
+}
+.tg-subscribe h2{
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.03em;
+}
+.tg-subscribe p{
+    font-size: 14px;
+    font-family: ReithSans, Helvetica, Arial, sans-serif;
+}
+.tg-subscribe a{
+    text-transform: uppercase;
+    font-weight: bold;
+    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    padding: 4px 40px;
+    display: inline-block;
+    color: #000;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+    font-size: 12px;
+    border-radius: 30px;
+}
+.navbar>.container{
+    flex-direction: column;
+    align-items: initial;
+}
+#navbar-menu .nav-item{
+    margin-right: 10px;
+}
+.tg-nav-container{
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid rgba(157, 157, 157, 0.2);
+}
+.nav-search .tg-search{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+.dropdown-menu {
+    min-width: max-content;
+    width: 100%;
+}
+.tg-searchform{
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    transition: visibility 0.6s ease .6s;
+}
+.tg-searchform.show{
+    visibility: visible;
+    transition: visibility 0.6s ease 0s;
+}
+.tg-searchform .container{
+    display: flex;
+    padding-top: 10px;
+}
+.tg-searchform input{
+    border: 2px solid rgb(121, 214, 242);
+    border-radius: unset;
+}
+.tg-searchform button, .tg-newsletter .btn, .tg-btn {
+    height: 40px;
+    border: none;
+    border-radius: unset;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    padding: 5px 30px;
+    display: inline-block;
+    color: #000;
+    margin-top: 15px;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+}
+.tg-searchform button:hover, .tg-newsletter .btn:hover, .tg-subscribe a:hover, .tg-btn:hover{
+    background-position: left bottom;
+    color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link, .tgrev-tab .nav-link{
+    font-family: 'industry_tg_bold', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+}
+.dropdown-menu li {
+    position: relative;
+    }
+    .dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    }
+    .dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+    }
+    .dropdown-menu>li:hover div.dropdown-submenu{
+    display: block !important;
+    }
+    .tg-dropdown-wrap{
+        height: 0px;
+        transition: height 0.6s ease 0s;
+    }
+    .tg-dropdown-wrap.active{
+        height: 65px;
+    }
+@media only screen and (min-width: 992px) {
+    .tg-reviews-latest .row>* {
+        padding-right: calc(var(--bs-gutter-x) * .2);
+        padding-left: calc(var(--bs-gutter-x) * .2);
+    }
+    .dropdown .dropdown-menu li {
+        display: inline;
+        float: left;
+    }
+    .tg-nav-container{
+        height: 45px;
+    }    
+}
+.tgrev-tab{
+    border-top: 1px solid #79d6f2;
+    border-bottom: 1px solid #79d6f2;
+}
+.tgrev-tab .nav-link{
+    margin: 5px 10px;
+}
+.tgrev-tab .nav-link.tg-k{
+    background-color: #79d6f2;
+    color: #091f29;
+}
+.tgrev-tab .nav-link:hover{
+    background-color: #0d2e3d;
+    color: #fff;
+}
+.kjwrap{
+    margin: 20px 5px;
+    overflow: hidden;
+}
+.kjwrap img{
+    transition: transform 0.2s ease 0s, opacity 0.5s ease 0s, background-color 0.2s ease-in-out 0s;
+}
+.kjwrap:hover img{
+    opacity: 0.5;
+}
+.kjwrap:hover .tg-txt h2.tg-review-title{
+    color: #79d6f2;
+    text-decoration: underline;
+}
+/* Banner */
+.hero-slider{
+    margin: 25px 0 0;
+}
+.hero-slider .carousel-item {
+    height: 480px;
+    min-height: 300px;
+    max-height: 800px;
+}
+.hero-slider .tg-magazine{
+	position: relative;
+	bottom: 17.5%;
+}
+.carousel-caption {
+    bottom: 0px;
+    background: linear-gradient(to top, #0d2e3d, 65%, transparent );
+    width: 100%;
+    right: 0;
+    left: 0;
+    padding: 40px 0 50px;
+}
+
+.carousel-caption h3 {
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+}
+
+.carousel-caption p {
+    width: 85%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+.caption p a {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    padding: 12px 30px;
+    display: inline-block;
+    color: #000;
+    margin-top: 15px;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+}
+.carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' stroke='currentColor' fill='white' stroke-width='0' width='1em' height='1em' data-testid='SvgGelIconChevronLeft'%3E%3Cpath d='M10.4 14.3L26.5 31h-6.4L5.5 16 20.1 1h6.4L10.4 17.7v-3.4z' stroke='none'%3E%3C/path%3E%3C/svg%3E");
+}
+.carousel-control-next-icon{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' stroke='currentColor' fill='white' stroke-width='0' width='1em' height='1em' data-testid='SvgGelIconChevronRight'%3E%3Cpath d='M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z' stroke='none'%3E%3C/path%3E%3C/svg%3E");
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 0px 4px);
+    transition: all 0.2s ease-out 0s;
+    height: 45px;
+}
+.carousel-control-prev-icon:hover, .carousel-control-next-icon:hover{
+    background-color: rgb(9, 31, 41);
+    color: rgb(121, 214, 242);
+}
+.w-100 {
+    height: auto;
+}
+
+@media only screen and (max-width: 767px) {
+    section{
+        padding: 2rem 0;
+    }
+    .carousel-caption{
+        padding: 40px 30px 50px;
+    }
+    .carousel-caption h5 {
+        font-size: 15px;
+    }
+    .carousel-caption a {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+    .caption p a{
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+    .w-100 {
+        height: auto;
+    }
+    .kjrev{
+        flex-direction: column-reverse;
+    }
+}
+
+section {
+    padding: 3rem 2rem 0;
+}
+.tg-media a:first-child {
+    height: 227px;
+    display: flex !important;
+    align-items: center;
+}
+.article-item img, .tab-content img, .tg-media img {
+    width: 100%;
+}
+.article-item img, .tg-media img {
+	height: inherit;
+    object-fit: cover;
+}
+.title {
+    margin-bottom: 35px;
+}
+
+.title h2 {
+    margin: 40px 0 5px;
+}
+
+.title span {
+    color: #aaa;
+    font-size: 14px;
+}
+.tgsection-title{
+    border-top: 0.8px solid rgb(121, 214, 242);
+    padding: 0 !important;
+    margin: 2rem 15px 1.6rem;
+    text-transform: uppercase;
+}
+.tgsection-title h1{
+    width: fit-content;
+    border-top: 8px solid rgb(121, 214, 242);
+}
+
+/*
+.article-item:hover img{
+    transform: scale(1.3);
+	transition: all .3s ease-in-out;
+}
+*/
+
+.popup-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+}
+
+.popup-icon button {
+    background-color: #fe8b00;
+    padding: 10px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+}
+
+.popup-icon button i {
+    color: #fff;
+    font-size: 30px;
+}
+
+.popup {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 380px;
+    padding: 20px 30px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
+}
+
+@media only screen and (max-width: 400px) {
+    .popup {
+        width: 320px;
+    }
+    .tgsection-title{
+        width: 95%;
+    }
+}
+
+.popup.active {
+    display: block;
+    position: fixed;
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
+    z-index: 999999;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #222;
+    cursor: pointer;
+}
+
+.popup .popup-form h4 {
+    text-align: center;
+    color: #222;
+    margin: 10px 0 20px;
+    font-size: 26px;
+}
+
+.popup .popup-form .form-element input,
+.popup .popup-form .form-element textarea,
+input {
+    width: 100%;
+    margin: 15px 0;
+    padding-left: 5px;
+    resize: none;
+}
+
+.popup .popup-form .form-element button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background: #222;
+    color: #eee;
+}
+
+.wrap-form, .tg-car-review-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px 40px 40px;
+    margin-top: 5rem;
+}
+::placeholder{
+    color: #ccc !important;
+    opacity: 1; /* Firefox */
+}
+select, input{
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #aaa;
+}
+select{    
+    margin-bottom: 20px;
+    
+}
+select:focus-visible{
+    outline: 1px solid #aaa;
+    border-bottom: none;
+}
+option{
+    color: rgb(1, 1, 1);
+}
+.form {
+    display: flex;
+    align-items: center;
+    height: 570px;
+    background-color: rgb(255 255 255 / 15%);
+    margin: 50px 15px;
+    padding: 30px 40px;
+    transition: height 0.2s ease;
+}
+
+.form .sign-in {
+    display: none;
+}
+
+.form.active .sign-in {
+    display: block;
+}
+
+.form.active {
+    height: 370px;
+}
+
+.form.active .sign-up {
+    display: none;
+}
+
+.sign-up,
+.sign-in {
+    width: 100%;
+    transition: display 0.18s ease;
+}
+
+.form input {
+    height: 30px;
+}
+
+.form [type="submit"],
+input[type="submit"] {
+    width: 200px;
+    color: #fff;
+    margin: 35px auto;
+}
+input:disabled {
+    background: #333;
+    cursor: no-drop;
+}
+[type="checkbox"],
+[type="radio"] {
+    width: auto;
+    height: 13px !important;
+    margin-right: 5px;
+}
+#car-review #variant{
+    display: none;
+}
+/* Compare Cars */
+.tg_wrap_form .tg_compare_car_form{
+    box-shadow: 1px 1px 5px 0 #79d6f275, 0px 0px 5px #79d6f278;
+    padding: 20px 20px 5px;
+    margin: 0 0 15px;
+    background: linear-gradient(rgba(9, 31, 41, 0) 0%, rgb(13 46 61) 100%);
+}
+.kjsticky-title{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background-color: #091F29;
+    padding: 5px 2px;
+    box-shadow: 0px 0px 0px 0 #79d6f275, 0px 2px 1px #79d6f278;
+  }
+.tg_cars_spec_wrap{
+    display: none;
+    transition: display 0.6s ease 0s;
+}
+.tg_cars_spec_wrap.active{
+    display: block;
+}
+.tg-spec-table-wrap .accordion-body{
+    padding: 0;
+}
+.tg-spec-table-wrap table{
+    border: none;
+}
+.accordion-body tr:nth-child(2n) {
+    background-color: rgb(13 46 61);
+}
+.tg-spec-table-wrap tbody, .tg-spec-table-wrap td, .tg-spec-table-wrap tr{
+    border-right: none;
+    border-bottom: none;
+    padding: 14px 18px;
+}
+.tg-spec-table-wrap th{
+    width: 20%;
+    font-family: 'industry_tg_bold';
+    border-right-color: #79d6f2;
+    border-bottom: none;
+    padding: 14px 18px;
+}
+.tg-spec-table-wrap td{
+    width: 20%;
+}
+.accordion-item{
+    /* box-shadow: 3px 3px 15px rgb(85 85 85 / 50%), -3px -3px 15px rgb(85 85 85 / 50%); */
+    border: 1px solid #264351 !important;
+    margin: 35px 0px;
+}
+.accordion-button:not(.collapsed), .accordion-item, .accordion-button{
+    background-color: transparent;
+}
+.accordion-button{
+    color: #eee;
+}
+.accordion-button:not(.collapsed){
+    border-bottom: 1px solid #79d6f2;
+    color: #79d6f2;
+}
+.accordion-button:focus{
+    box-shadow: 0 0 0 0.25rem rgb(121 214 242 / 25%);
+}
+.accordion-button::after{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' stroke='white' fill='currentColor' stroke-width='0' width='2em' height='2em' focusable='false' aria-hidden='true' data-testid='Add'%3E%3Cline x1='20' y1='50' x2='80' y2='50' stroke-width='5'%3E%3C/line%3E%3Cline x1='50' y1='20' x2='50' y2='80' stroke-width='5'%3E%3C/line%3E%3C/svg%3E");
+}
+.accordion-button:not(.collapsed)::after{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' stroke='white' fill='currentColor' stroke-width='0' width='2em' height='2em' focusable='false' aria-hidden='true' data-testid='Minus'%3E%3Cline x1='20' y1='50' x2='80' y2='50' stroke-width='5'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.form p {
+    font-size: 18px;
+}
+
+.form a {
+    color: #fe8b00;
+    font-weight: 600;
+}
+.kjnewsletter{
+    background: url(https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg) 115% 30px / 35% no-repeat;
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(rgb(121 214 242), rgb(41, 80, 99));
+}
+.tg-newsletter-wrap{
+    display: flex;
+}
+.newsletter-header{
+    position: relative;
+    top: -20px;
+    left: -10px;
+    background: linear-gradient(to right, #091f29 228px, transparent 228px);
+    padding-right: 20px;
+    flex: 3;
+}
+.newsletter-form{
+    padding: 10px 15px 1.5rem;
+    flex: 2;
+}
+.tg-newsletter input {
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+}
+#footer {
+    border-top: 2px solid #222;
+    background-color: #fff;
+    padding: 20px 0px 0px;
+    color: #000;
+}
+#footer a{
+    color: #091f29;
+    padding: 20px 15px 0 0px;
+    display: inline-block;
+    font-weight: 600;
+}
+.bbc-wrap h5{
+    font-size: 14px;
+}
+.bbc-wrap h5 img{
+    margin-right: 15px;
+}
+#footer a i{
+    font-size: 16px;
+}
+#footer i {
+    margin: 0 10px;
+    padding-right: 5px;
+    color: #000;
+    font-size: 20px;
+}
+.tg-bottom{
+    background-color: #eee;
+    margin-top: 20px;
+    padding: 11px 15px 15px;
+}
+.footer-bottom{
+    max-width: 1320px;
+    margin: auto;
+}
+#footer .tg-social{
+    margin-top: -10px;
+}
+/* section{
+    padding-left: 0;
+    padding-right: 0;
+} */
+.tg-review-form-wrap{
+    padding: 0;
+    background-image: url("../imgs/reviews.jpg");
+    background-size: cover;
+    height: 30vh;
+    background-position: center;
+}
+.kjgradient{
+    background: linear-gradient(to bottom right, #0d2e3d, 50%, transparent );
+    padding: 0 0 4rem;
+    height: 100%;
+}
+.tg-car-review-form h1{
+    color: #091f29;
+    margin: 0 0 35px 10px;
+}
+.tg-reviews-latest, .tgnews-latest{
+    padding: 2rem 0;
+}
+.tg-media{
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(9, 31, 41);
+}
+.tg-txt .tg-review-tag, .tg-media .tgnews-tag{
+    font-size: 12px;
+    margin: 0 0 5px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.tgbrand-item{
+    text-align: center;
+    color: #79d6f2;
+    font-size: 18px;
+    font-family: 'industry_tg_bold';
+    border-bottom: 3px solid;
+    padding-bottom: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.tg-txt{
+    background-image: linear-gradient(to bottom, rgb(13 46 61), #091f29);
+    padding: 10px 10px 20px;
+    position: relative;
+}
+.tg-txt::after{
+    content: "";
+    position: absolute;
+    display: block;
+    left: 12px;
+    bottom: 0px;
+    width: 60px;
+    max-width: 96px;
+    height: 2px;
+    background-color: rgb(121, 214, 242);
+}
+.tgnews-tag{
+    font-size: 12px;
+    color: rgb(121, 214, 242);
+    margin: 5px 0;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.tg-review-tag{
+    color: rgb(121, 214, 242);
+    font-size: 16px;
+    font-weight: bold;    
+    margin: 0 5px;
+}
+#trending .tg-review-tag{
+    margin: 0;
+}
+.kjtrending{
+    display: flex;
+}
+#trending .tg-number {
+    width: 100px;
+    flex: inherit;
+}
+.tg-trending {
+    counter-reset: kjnumber;
+}
+.tg-number::before{
+    counter-increment: kjnumber;
+    content: "0"counter(kjnumber);
+    font-size: 70px;
+    position: relative;
+    bottom: 25px;
+    border-bottom: 3px solid rgb(121, 214, 242);
+    -webkit-text-fill-color: #091f29;
+    text-shadow: rgb(255 255 255) -2px 0px, rgb(255 255 255) 0px 2px, rgb(255 255 255) 2px 0px, rgb(255 255 255) 0px -2px;
+    font-weight: 600;
+}
+.tg-review-tag:hover,.tg-author a:hover, .tg-article-link:hover, .tg-share a i:hover, h2.tg-review-title:hover{
+    color: rgb(121, 214, 242) !important;
+}
+.tg-price{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: rgb(121, 214, 242);
+}
+.tg-metadata-wrap{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 10px;
+}
+.tg-title{
+    font-size: 2.75rem;
+    text-transform: uppercase;
+}
+h1.tg-review-title{
+    display: block;
+}
+h1.tg-review-title::after, h1.tg-title::after {
+    content: "";
+    position: relative;
+    display: block;
+    left: 0;
+    top: 15px;
+    width: 100px;
+    max-width: 120px;
+    height: 2px;
+    background-color: rgb(121, 214, 242);
+    margin-bottom: 40px;
+}
+h2.tg-review-title{
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    line-height: 1.75rem;
+}
+.tg-txt .tg-tooltip {
+    visibility: hidden;
+    width: 95%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 9999;
+    bottom: 110px;
+  }
+  
+.tg-txt .tg-review-title:hover + .tg-tooltip {
+    visibility: visible;
+  }
+.tg-author a, .tg-article-link{
+    color: #fff;
+    font-weight: bold;
+}
+.tg-share a i{
+    color: #ccc;
+    padding: 0 5px;
+}
+.carousel-item{
+    height: auto;
+}
+#carousel-thumbnail .carousel-indicators{
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    position: relative;
+}
+.carousel .thumbnail{
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    max-width: 200px;
+}
+.tg-heading h2{
+    margin-bottom: 20px;
+}
+.tg-heading h2 span{
+color: rgb(137, 150, 159);
+    font-size: 2rem;
+    font-family: 'industry_tg_bold';
+    text-transform: uppercase;
+}
+.nav-tabs .nav-link.active{
+    color: #fff;
+    background-color: #0d2e3d;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: none;
+    font-family: 'industry_tg_bold';
+}
+.tg-review-body h3{
+    margin-bottom: 25px;
+    color: #0d2e3d;
+}
+.tg-subheading h3{
+    margin-bottom: 25px;
+    color: #fff;
+}
+.tg-subheading h3::after, .tg-review-body h3::after{
+    content: "";
+    position: relative;
+    display: block;
+    max-width: 96px;
+    height: 2px;
+    background-color: rgb(121, 214, 242);
+    margin: 15px 0 5px;
+}
+.tg-highlight-wrap{
+    background: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg") -20.8rem 2rem no-repeat, linear-gradient(to top, rgb(41, 80, 99) 0%, rgb(0, 121, 139) 100%) 0px 0px;
+    color: #fff;
+    padding: 40px 0;
+}
+.tg-highlight-wrap .tg-subheading h3{
+    color: inherit;
+    text-align: center;
+}
+.tg-highlight-wrap .tg-subheading h3::after{
+    margin: 15px auto 5px;
+}
+.tg-highlight{
+    display: flex;
+    justify-content: space-between;
+}
+.tg-highlight .good-stuff, .tg-highlight .bad-stuff{
+    display: flex;
+    flex: 1;
+    margin-top: 25px;
+}
+.tg-sicon img{
+    width: 60px;
+    margin: 0px 15px 0 0;
+}
+.tg-review-body, .tg-rel-reviews{
+    background-color: #fff;
+    color: #4b4b4b;
+}
+.tg-review-body img {
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+}
+.tg-review-body p span img{
+    width: unset;
+}
+.tg-review-body .wrap-ad{
+    background-color: #aaa;
+    height: 500px;
+    top: 20px !important;
+    margin-bottom: 20px;
+}
+.tg-nextprev{
+    text-transform: uppercase;
+}
+.tg-nextprev .kjnext a{
+    display: block;
+    width: 45%;
+    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    min-width: 200px;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 16px;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+}
+.tg-nextprev .kjnext a:hover, .caption p a:hover{
+    background-position: left bottom;
+    color: #fff;
+}
+.tg-prev{
+    padding-right: 25px;
+}
+.tg-next{
+    padding-left: 25px;
+}
+.tg-rel-reviews .nav-link{
+    color: #0d2e3d;
+    font-size: 16px;
+    font-family: 'industry_tg_bold';
+}
+.tab-content{
+    background-color: #0d2e3d;
+    padding: 2rem 0;
+}
+#more-articles .carousel-item{
+    min-height: unset;
+}
+.carousel-item .card{
+    background-color: transparent;
+    margin: 15px;
+}
+#tg-awards{
+    padding: 3rem 2rem;
+}
+#tg-awards .kjvideo{
+    margin: 20px 10px;
+}
+@media (max-width: 1399px) and (min-width: 1200px){
+    .tg-media a:first-child{
+        height: 200px;
+    }
+}
+@media (max-width: 1199px) and (min-width: 992px){
+    .tg-media a:first-child{
+        height: 170px;
+    }
+}
+@media( max-width: 991px){    
+    .hero-slider .carousel-item {
+        height: auto;
+        min-height: 280px;
+    }
+    .tg-media a:first-child{
+        height: auto;
+    }
+    .tg-header-banner{
+        height: auto;
+    }
+    .tg-gear-wrap img{
+        width: 165px;
+        transform: translateX(40px);
+    }
+    .navbar-brand img{
+        width: 110px;
+    }
+    .tg-stripes, .tg-subscribe h2, .tg-subscribe p{
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    #carousel-thumbnail .carousel-indicators{
+        overflow: scroll;
+        justify-content: unset;
+    }
+    .carousel .thumbnail{
+        min-width: 80px;
+    }
+    #more-articles .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    #more-articles .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+    .tg-newsletter-wrap{
+        flex-direction: column;
+    }
+}
+#more-articles .carousel-inner .carousel-item.active,
+#more-articles .carousel-inner .carousel-item-next,
+#more-articles .carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+    #more-articles .carousel-inner .carousel-item-end.active,
+    #more-articles .carousel-inner .carousel-item-next {
+        transform: translateX(33%);
+    }
+    #more-articles .carousel-inner .carousel-item-start.active, 
+    #more-articles .carousel-inner .carousel-item-prev {
+        transform: translateX(-33%);
+    }
+}
+#more-articles .carousel-inner .carousel-item-end,
+#more-articles .carousel-inner .carousel-item-start { 
+    transform: translateX(0);
+} 
+
+@media only screen and (max-width: 450px){
+    .tg-metadata-wrap{
+        flex-direction: column;
+    }
+    .tg-car-review-form{
+        padding: 25px 20px;
+    }
+    .tg-number::before{
+        font-size: 60px;
+        bottom: 20px;
+    }
+    .tg-spec-table-wrap th{
+        display: block!important;
+        padding: 15px 0;
+        width: 100%!important;
+        text-align: center;
+        border: none;
+    }
+    .tg-spec-table-wrap td{
+        text-align: center;
+        width: 25%!important;
+        display: inline-block!important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .carousel-item{
+        min-height: unset;
+    }
+    .tg-highlight{
+        flex-direction: column;
+    }
+}

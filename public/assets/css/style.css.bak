@@ -1,0 +1,672 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+@font-face {
+    font-family: 'industry_tgbold';
+    src: url('../font/industrytg-bold-webfont.woff2') format('woff2'),
+         url('../font/industrytg-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+			
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+			font-family: 'Open Sans', sans-serif;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        /* common styles */
+        body {
+            background: #f1f1f1;
+            color: #000;
+			font-family: 'Open Sans', sans-serif;
+        }
+        .page {
+            background: #fff;
+            width: 100px;
+            margin: 0 auto;
+            padding: 20px 20px 0 20px;
+            overflow: hidden;
+        }
+        .font-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+        h1 {
+            position: relative; 
+            font-size: 35px;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 -20px 12px -20px;
+			
+        }
+		h1:hover {
+  color: #79D6F2;
+}
+		
+		h2{
+		
+            position: relative;
+            font-size: 24px;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 -20px 12px -20px;
+     
+		
+		}
+		h2:hover {
+  color: #79D6F2;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family: 'industry_tgbold';
+}
+		
+	
+        p{
+		font-size: 16px;
+		color: #fff;
+		
+		}
+		
+		
+        .letters {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .s10:before {
+            content: '10px';
+        }
+        .s11:before {
+            content: '11px';
+        }
+        .s12:before {
+            content: '12px';
+        }
+        .s14:before {
+            content: '14px';
+        }
+        .s18:before {
+            content: '18px';
+        }
+        .s24:before {
+            content: '24px';
+        }
+        .s30:before {
+            content: '30px';
+        }
+        .s36:before {
+            content: '36px';
+        }
+        .s48:before {
+            content: '48px';
+        }
+        .s60:before {
+            content: '60px';
+        }
+        .s72:before {
+            content: '72px';
+        }
+        .s10:before, .s11:before, .s12:before, .s14:before,
+        .s18:before, .s24:before, .s30:before, .s36:before,
+        .s48:before, .s60:before, .s72:before {
+          
+            font-size: 10px;
+            font-weight: normal;
+            font-style: normal;
+            color: #999;
+            padding-right: 6px;
+        }
+        pre {
+            display: block;
+            position: relative;
+            padding: 9px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.428571429;
+            color: #333;
+
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+        pre:after {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            content: 'Usage';
+            line-height: 1;
+            padding: 5px 8px;
+            font-size: 12px;
+            color: #767676;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 4px 0 4px;
+            z-index: 10;
+        }
+        /* responsive */
+        @media (max-width: 959px) {
+            .page {
+                width: auto;
+                margin: 0;
+            }
+        }
+body {
+
+    padding: 50px;
+    margin: 20px;
+    height: 125vh;
+    background-color: #091F29 ;
+      margin-top: 80px;
+    padding: 30px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #0D2E3D; 
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+   font-family: 'industry_tgbold';
+}
+ .navbar a:hover:not(.active) {
+  background-color:#79D6F2;
+}
+
+.navbar a:hover {
+  background-color: #091F29;
+}
+
+.active {
+  background-color: #091F29 ;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+.subnav .active {
+  background-color: #091F29 ;
+}
+
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: #0D2E3D;
+  margin: 0;
+   font-family: 'industry_tgbold';
+  
+}
+.subnav .subnavbtn .active {
+  background-color: #091F29 ;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #0D2E3D;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #0D2E3D;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #79D6F2;
+  color: white;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+   font-family: 'industry_tgbold';
+}
+
+.subnav1 {
+  float: left;
+  overflow: hidden;
+}
+.subnav1 .active {
+  background-color: #091F29 ;
+}
+.subnav1 .subnavbtn1 {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: #0D2E3D;
+  margin: 0; font-family: 'industry_tgbold';
+}
+.subnav1 .subnavbtn1 .active {
+  background-color: #091F29 ;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #0D2E3D;
+}
+
+.subnav1-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #0D2E3D;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav1-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-family: 'industry_tgbold';
+}
+
+.subnav1-content a:hover {
+  background-color: #79D6F2;
+  color: white;
+}
+
+.subnav1:hover .subnav1-content {
+  display: block;
+}
+ .logo {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+img {
+ 
+  display: block;
+  max-width: 100%;
+}
+img:hover {
+  opacity: 0.5;
+}
+
+/* Setup for date flexbox */
+.date-wrapper {
+  align-items: baseline;
+  color: #fff;
+  display: inline-flex;
+   font-family: 'industry_tgbold';
+}
+.date-year,
+.date-month,
+.date-day {
+  display: inline-block;
+}
+
+/* Set date display order */
+.date-year   { order: 3; }
+.date-month  { order: 1; }
+.date-day    { order: 2; }
+.date-suffix { order: 4; }
+
+/* Display dates based on "val" custom attribute in HTML */
+.date-year::after,
+.date-month::after,
+.date-day::after {
+  content: attr(val);
+}
+
+/* Add separators */
+.date-year::before { content: ", "; }
+.date-day::before { content: "\00a0"; }   /* \00a0 is a non-breaking space */
+
+/* Convert month numbers to month text */
+.date-month[ val="1"]:after{ content: "Jan"; }
+.date-month[ val="2"]:after{ content: "Feb"; }
+.date-month[ val="3"]:after{ content: "Mar"; }
+.date-month[ val="4"]:after{ content: "Apr"; }
+.date-month[ val="5"]:after{ content: "May"; }
+.date-month[ val="6"]:after{ content: "June"; }
+.date-month[ val="7"]:after{ content: "July"; }
+.date-month[ val="8"]:after{ content: "Aug"; }
+.date-month[ val="9"]:after{ content: "Sept"; }
+.date-month[val="10"]:after{ content: "Oct"; }
+.date-month[val="11"]:after{ content: "Nov"; }
+.date-month[val="12"]:after{ content: "Dec"; }
+
+/* Add leading zero to days */
+.date-day[val="1"]:after{ content: "01"; }
+.date-day[val="2"]:after{ content: "02"; }
+.date-day[val="3"]:after{ content: "03"; }
+.date-day[val="4"]:after{ content: "04"; }
+.date-day[val="5"]:after{ content: "05"; }
+.date-day[val="6"]:after{ content: "06"; }
+.date-day[val="7"]:after{ content: "07"; }
+.date-day[val="8"]:after{ content: "08"; }
+.date-day[val="9"]:after{ content: "09"; }
+
+/* Display 4-digit years as 2-digit years (e.g. 1994 becomes '94) */
+/* As far as I can tell, doing this fully requires 100 lines of CSS which kinda sucks */
+.date-year[val="1990"]:after{ content: "'90"; }
+.date-year[val="1991"]:after{ content: "'91"; }
+.date-year[val="1992"]:after{ content: "'92"; }
+.date-year[val="1993"]:after{ content: "'93"; }
+.date-year[val="1994"]:after{ content: "'94"; }
+.date-year[val="1995"]:after{ content: "'95"; }
+.date-year[val="1996"]:after{ content: "'96"; }
+.date-year[val="1997"]:after{ content: "'97"; }
+.date-year[val="1998"]:after{ content: "'98"; }
+.date-year[val="1999"]:after{ content: "'99"; }
+
+
+
+.hero {
+    overflow: hidden;
+    color: #fff;
+}
+
+#home-section {
+ 
+    width: 100%;
+    height: 500px;
+    opacity: 0.9;
+}
+ * {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  column-gap: 40px;
+  line-height: 1.5;
+    margin-top: 35px;
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  grid-gap: 20px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  grid-gap: 20px;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.content {
+    overflow: hidden;
+    margin: 5em 5em 0 5em;
+    padding: 5%;
+   }
+#content-home {
+    animation-name: slidein;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+
+}
+#blog-section {
+
+    width: 100%;
+    height: 500px;
+    opacity: 0.9;
+}
+* {
+  box-sizing: border-box;
+}
+.column1 {
+  column-gap: 20px;
+  line-height: 1.5;
+  margin-top: 50px;
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  grid-gap: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  grid-gap: 20px;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #F5F5F5;
+  color: black;
+}
+
+
+
+
+
+/*******************************/
+/********* Footer CSS **********/
+/*******************************/
+
+/*
+.footer {
+    position: relative;
+    margin-top: 45px;
+    padding-top: 90px;
+    background: #202C45;
+}
+
+.footer .footer-contact,
+.footer .footer-link,
+.footer .footer-newsletter {
+    position: relative;
+    margin-bottom: 45px;
+    color: #ffffff;
+}
+
+.footer .footer-contact h2,
+.footer .footer-link h2,
+.footer .footer-newsletter h2 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #E81C2E;
+}
+
+.footer .footer-link a {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+    transition: .3s;
+}
+
+.footer .footer-link a::before {
+    position: relative;
+    content: "\f105";
+    font-family: "industry_tgmedium";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .footer-link a:hover {
+    color: #E81C2E;
+    letter-spacing: 1px;
+}
+
+.footer .footer-contact p i {
+    width: 25px;
+}
+
+.footer .footer-social {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+}
+
+.footer .footer-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #202C45;
+    background: #ffffff;
+    border-radius: 40px;
+    margin-right: 5px;
+    transition: .5s;
+}
+
+.footer .footer-social a:last-child {
+    margin: 0;
+}
+
+.footer .footer-social a:hover {
+    color: #ffffff;
+    background: #E81C2E;
+}
+
+.footer .footer-newsletter form {
+    position: relative;
+    width: 100%;
+}
+
+.footer .footer-newsletter input {
+    margin-bottom: 15px;
+    height: 45px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+.footer .footer-newsletter label {
+    margin-top: 5px;
+    color: #777777;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.footer .footer-newsletter .btn.btn-custom {
+    width: 100%;
+    color: #202C45;
+    background: #ffffff;
+    box-shadow: inset 0 0 0 0 #E81C2E;
+}
+
+.footer .footer-newsletter .btn:hover {
+    color: #ffffff;
+    background: #E81C2E;
+    box-shadow: inset 200px 0 0 0 #E81C2E;
+}
+
+.footer .copyright {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 45px;
+}
+
+.footer .copyright p {
+    margin: 0;
+    color: #ffffff;
+}
+
+.footer .copyright p a {
+    color: #E81C2E;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.footer .copyright p a:hover {
+    color: #ffffff;
+}
+*/
