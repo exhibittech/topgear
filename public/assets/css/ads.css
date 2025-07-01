@@ -198,3 +198,8 @@
 	display:none;
 }
 }
+@media (max-width: 425px){
+    .adnm-creative.adnm-creative__postbanner{
+        height: 100px;
+    }
+}

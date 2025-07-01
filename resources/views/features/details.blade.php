@@ -72,6 +72,17 @@
 </section>
 
 <section class="tg-review-body">
+    <div id="kj-roadblock">
+  <ins class="adnm-tag"
+       style="display:inline-block;width:100%;height:300px;"
+       data-adnm-cc="cac57449-4c04-4846-989e-47e598ffcd49"
+       data-adnm-session="${CACHEBUSTER}"
+       data-adnm-click="${CLICK_URL}"
+       data-adnm-type="canvasmobile"
+       ... >
+     <script async src="https://macro.adnami.io/macro/gen/adnm.ads.v2.js"></script>
+  </ins>
+</div>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
