@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/ads.css') }}">
     <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('assets/imgs/favicon.ico') }}">
     @yield('styles')
@@ -46,6 +47,7 @@
     <!-- own js -->
     <script src="{{ asset('assets/js/dropdown.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/ads.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

@@ -49,3 +49,11 @@
       </div>
     </div>
 </footer>
+<!-- Anchor Ad Banner -->
+<!--    <div class="kjanchor-ad" id="kjanchor-ad">
+        <a class="d-flex" href="https://www.youtube.com/@TopGearMagIndia/?sub_confirmation=1" target="_blank">
+        <img src="/uploads/Banners/anchor-ad.jpg" width="100%"/>
+        </a>
+        <button class="kjad-close" id="kjad-close" aria-label="Close ad">×</button>
+    </div>
+-->
