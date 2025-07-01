@@ -199,7 +199,10 @@
 }
 }
 @media (max-width: 425px){
-    .adnm-creative.adnm-creative__postbanner{
-        height: 100px;
+    #kj-roadblock{
+        margin: 0 0 20px 0;
+    }
+    .adnm-creative.adnm-creative__prebanner,.adnm-creative.adnm-creative__postbanner{
+        height: 100px !important;
     }
 }
