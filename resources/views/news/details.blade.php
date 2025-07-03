@@ -71,6 +71,7 @@
     </div>
 </section>
 <section class="tg-review-body">
+    <img src="https://www.topgearmag.in/tracker/impression.php?id=turtlewaxjun25" width="1" height="1" style="display:none;" alt="">
     <div id="kj-roadblock">
   <ins class="adnm-tag"
        style="display:inline-block;width:100%;height:300px;"

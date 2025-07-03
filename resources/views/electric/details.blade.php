@@ -73,7 +73,8 @@
 
 <section class="tg-review-body">
     <div id="kj-roadblock">
-  <ins class="adnm-tag"
+  <img src="https://www.topgearmag.in/tracker/impression.php?id=turtlewaxjun25" width="1" height="1" style="display:none;" alt="">
+<ins class="adnm-tag"
        style="display:inline-block;width:100%;height:300px;"
        data-adnm-cc="cac57449-4c04-4846-989e-47e598ffcd49"
        data-adnm-session="${CACHEBUSTER}"
