@@ -16,6 +16,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\VotingController;
 use App\Http\Controllers\PollResultsController;
+use App\Http\Controllers\ImpressionController; //Turtle Wax Ad cretive Impression
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,9 @@ Route::get('/winners24', [StaticPageController::class, 'winners24'])->name('winn
 Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winners25');
 
 Route::get('/tg-score', [PollResultsController::class, 'showResults'])->name('poll.results');
+
+//Turtle Wax Ad cretive Impression
+Route::post('/track-impression', [ImpressionController::class, 'store'])->name('track.impression');
 
 //Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
 //Route::post('/signup', [VotingController::class, 'storeUser'])->name('signup.store');

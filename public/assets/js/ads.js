@@ -1,59 +1,39 @@
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
 
-        // Check if ad was closed in this session
-        let adClosed = false;
+  function trackImpression() {
+    const ad = document.getElementById('adnmCreative');
+    if (!ad || ad.dataset.tracked) return;
 
-        // Get elements
-        const anchorAd = document.getElementById('kjanchor-ad');
-        const closeBtn = document.getElementById('kjad-close');
-        const parallaxBanner = document.getElementById('parallax-banner');
+    if (isInViewport(ad)) {
+      ad.dataset.tracked = 'true';
 
-        // Close button functionality
-        closeBtn.addEventListener('click', function() {
-            anchorAd.classList.add('hidden');
-            adClosed = true;
-        });
+      // Send POST using standard form-encoded request
+      const formData = new FormData();
+      
+      const token = document.querySelector('meta[name="csrf-token"]').content;
+      formData.append('_token', token);
+      formData.append('creative_id', ad.getAttribute('data-adnm-cc'));
+      formData.append('session_id', ad.getAttribute('data-adnm-session'));
+      formData.append('type', ad.getAttribute('data-adnm-type'));
 
-        // Check if parallax banner is in view (now checks the spacer element)
-        function checkParallaxVisibility() {
-            if (adClosed) return;
+      fetch('/track-impression', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.ok ? res.json() : Promise.reject(res))
+      .then(data => console.log('Impression logged:', data))
+      .catch(err => console.error('Tracking failed:', err));
+    }
+  }
 
-            const spacer = document.querySelector('.parallax-spacer');
-            const rect = spacer.getBoundingClientRect();
-            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-            
-            if (isInView) {
-                anchorAd.classList.add('hidden');
-            } else {
-                anchorAd.classList.remove('hidden');
-            }
-        }
-
-        // Remove parallax scroll effect as banner is now fixed
-        function updateParallax() {
-            // No longer needed as the banner is fixed
-        }
-
-        // Throttle function for performance
-        function throttle(func, limit) {
-            let inThrottle;
-            return function() {
-                const args = arguments;
-                const context = this;
-                if (!inThrottle) {
-                    func.apply(context, args);
-                    inThrottle = true;
-                    setTimeout(() => inThrottle = false, limit);
-                }
-            }
-        }
-
-        // Scroll event listener with throttling
-        window.addEventListener('scroll', throttle(function() {
-            checkParallaxVisibility();
-        }, 16)); // ~60fps
-
-        // Initial check
-        checkParallaxVisibility();
-
-        // Add smooth scrolling for better UX
-        document.documentElement.style.scrollBehavior = 'smooth';
+  window.addEventListener('scroll', trackImpression);
+  window.addEventListener('load', trackImpression);
+  window.addEventListener('resize', trackImpression);
