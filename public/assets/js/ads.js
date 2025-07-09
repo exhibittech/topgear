@@ -9,34 +9,34 @@ function isInViewport(el) {
   }
 
   function trackImpressions() {
-    const ads = document.querySelectorAll('.adnm-tag');
-    ads.forEach(ad => {
+    document.querySelectorAll('.adnm-tag').forEach(ad => {
       if (ad.dataset.tracked === 'true') return;
+
       if (isInViewport(ad)) {
         ad.dataset.tracked = 'true';
+        console.log('👁️ Tracking impression for:', ad);
 
         const formData = new FormData();
         const token = document.querySelector('meta[name="csrf-token"]').content;
         formData.append('_token', token);
-        formData.append('creative_id', ad.getAttribute('data-adnm-cc'));
-        formData.append('session_id', ad.getAttribute('data-adnm-session'));
-        formData.append('type', ad.getAttribute('data-adnm-type'));
+        formData.append('action', 'impression');
 
         fetch('/track-impression', {
           method: 'POST',
           body: formData
         })
         .then(res => res.ok ? res.json() : Promise.reject(res))
-        .then(data => console.log('👁️ Impression logged:', data))
+        .then(data => console.log('✅ Impression logged:', data))
         .catch(err => console.error('❌ Impression tracking failed:', err));
       }
     });
   }
 
   function bindClickTracking() {
-    const ads = document.querySelectorAll('.adnm-tag');
-    ads.forEach(ad => {
-      ad.addEventListener('click', function () {
+    document.querySelectorAll('.adnm-creative').forEach(el => {
+      el.addEventListener('click', function () {
+        console.log('🖱️ Click detected on .adnm-creative');
+
         const formData = new FormData();
         const token = document.querySelector('meta[name="csrf-token"]').content;
         formData.append('_token', token);
@@ -47,15 +47,15 @@ function isInViewport(el) {
           body: formData
         })
         .then(res => res.ok ? res.json() : Promise.reject(res))
-        .then(data => console.log('🖱️ Click logged:', data))
+        .then(data => console.log('✅ Click tracked:', data))
         .catch(err => console.error('❌ Click tracking failed:', err));
       });
     });
   }
 
   window.addEventListener('scroll', trackImpressions);
+  window.addEventListener('resize', trackImpressions);
   window.addEventListener('load', function () {
     trackImpressions();
-    bindClickTracking(); // bind after DOM is ready
+    bindClickTracking(); // attach click handlers
   });
-  window.addEventListener('resize', trackImpressions);
