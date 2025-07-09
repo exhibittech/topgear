@@ -15,35 +15,39 @@ class ImpressionController extends Controller
         $action = $request->input('action', 'impression');
 
         try {
-            // Read and parse log
             $lines = \File::exists($logPath) ? explode("\n", trim(\File::get($logPath))) : [];
 
+            // Build array (not collection) to avoid mutation issue
             $data = collect($lines)->filter(fn($line) => str_contains($line, ':'))
                 ->mapWithKeys(function ($line) {
                     [$date, $rest] = explode(': ', $line, 2);
-                    [$impressions, $clicks] = array_pad(explode(' | ', $rest), 2, 0);
+                    [$imp, $click] = array_pad(explode(' | ', $rest), 2, 0);
                     return [$date => [
-                        'impressions' => (int) $impressions,
-                        'clicks' => (int) $clicks
+                        'impressions' => (int) $imp,
+                        'clicks' => (int) $click,
                     ]];
-                });
+                })->toArray(); // ✅ Convert to regular PHP array
 
-            // Ensure today has default counts
-            if (!isset($data[$today])) {
-                $data[$today] = ['impressions' => 0, 'clicks' => 0];
-            }
+            // Safely update today's data
+            $todayData = $data[$today] ?? ['impressions' => 0, 'clicks' => 0];
 
             if ($action === 'click') {
-                $data[$today]['clicks'] += 1;
-                \Log::info("🖱️ Click counted: {$data[$today]['clicks']}");
+                $todayData['clicks'] += 1;
+                \Log::info("🖱️ Click counted for $today: " . $todayData['clicks']);
             } else {
-                $data[$today]['impressions'] += 1;
-                \Log::info("👁️ Impression counted: {$data[$today]['impressions']}");
+                $todayData['impressions'] += 1;
+                \Log::info("👁️ Impression counted for $today: " . $todayData['impressions']);
             }
 
-            // Save back
-            $content = $data->map(fn($counts, $date) => "$date: {$counts['impressions']} | {$counts['clicks']}")->implode("\n");
+            $data[$today] = $todayData;
+
+            // Write back to log
+            $content = collect($data)->map(fn($counts, $date) =>
+                "$date: {$counts['impressions']} | {$counts['clicks']}"
+            )->implode("\n");
+
             \File::put($logPath, $content);
+            \Log::info("✅ Log updated for $today");
 
             return response()->json(['status' => 'ok']);
         } catch (\Exception $e) {
