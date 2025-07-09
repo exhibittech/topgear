@@ -12,33 +12,43 @@ class ImpressionController extends Controller
 
         $logPath = storage_path('logs/daily-impressions.log');
         $today = now()->format('Y-m-d');
-
-        \Log::info("📅 Today is: $today");
-        \Log::info("📄 Log file path: $logPath");
+        $action = $request->input('action', 'impression'); // default to impression
 
         try {
+            // Read log file safely
             $lines = \File::exists($logPath) ? explode("\n", trim(\File::get($logPath))) : [];
 
-            // Safely parse lines
             $data = collect($lines)->filter(function ($line) {
-                return str_contains($line, ': ');
+                return str_contains($line, ':');
             })->mapWithKeys(function ($line) {
-                [$date, $count] = explode(': ', $line, 2); // safe split
-                return [$date => (int) $count];
+                [$date, $rest] = explode(': ', $line, 2);
+                [$impressions, $clicks] = explode(' | ', $rest . ' | 0'); // fallback click = 0
+                return [$date => [
+                    'impressions' => (int) $impressions,
+                    'clicks' => (int) $clicks,
+                ]];
             });
 
-            \Log::info('📊 Parsed existing data:', $data->toArray());
+            // Initialize or update count
+            $current = $data[$today] ?? ['impressions' => 0, 'clicks' => 0];
+            if ($action === 'click') {
+                $current['clicks'] += 1;
+                \Log::info("🖱️ Click added for $today. Total now: " . $current['clicks']);
+            } else {
+                $current['impressions'] += 1;
+                \Log::info("👁️ Impression added for $today. Total now: " . $current['impressions']);
+            }
 
-            // Update today's count
-            $data[$today] = isset($data[$today]) ? $data[$today] + 1 : 1;
+            $data[$today] = $current;
 
-            \Log::info("✅ Updated count for $today: " . $data[$today]);
+            // Rebuild log content
+            $content = $data->map(function ($counts, $date) {
+                return "$date: {$counts['impressions']} | {$counts['clicks']}";
+            })->implode("\n");
 
-            // Save
-            $content = $data->map(fn($count, $date) => "$date: $count")->implode("\n");
             \File::put($logPath, $content);
+            \Log::info("✅ Log updated: $today = {$current['impressions']} | {$current['clicks']}");
 
-            \Log::info('💾 Log file updated successfully');
             return response()->json(['status' => 'ok']);
         } catch (\Exception $e) {
             \Log::error('❌ Error in ImpressionController: ' . $e->getMessage());
