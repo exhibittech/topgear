@@ -8,55 +8,54 @@ function isInViewport(el) {
     );
   }
 
-  function trackImpression() {
-    const ad = document.getElementById('adnmCreative');
-    if (!ad || ad.dataset.tracked) return;
+  function trackImpressions() {
+    const ads = document.querySelectorAll('.adnm-tag');
+    ads.forEach(ad => {
+      if (ad.dataset.tracked === 'true') return;
+      if (isInViewport(ad)) {
+        ad.dataset.tracked = 'true';
 
-    if (isInViewport(ad)) {
-      ad.dataset.tracked = 'true';
+        const formData = new FormData();
+        const token = document.querySelector('meta[name="csrf-token"]').content;
+        formData.append('_token', token);
+        formData.append('creative_id', ad.getAttribute('data-adnm-cc'));
+        formData.append('session_id', ad.getAttribute('data-adnm-session'));
+        formData.append('type', ad.getAttribute('data-adnm-type'));
 
-      const formData = new FormData();
-      const token = document.querySelector('meta[name="csrf-token"]').content;
-      formData.append('_token', token);
-      formData.append('creative_id', ad.getAttribute('data-adnm-cc'));
-      formData.append('session_id', ad.getAttribute('data-adnm-session'));
-      formData.append('type', ad.getAttribute('data-adnm-type'));
-
-      // Impression only
-      fetch('/track-impression', {
-        method: 'POST',
-        body: formData
-      })
-      .then(res => res.ok ? res.json() : Promise.reject(res))
-      .then(data => console.log('👁️ Impression logged:', data))
-      .catch(err => console.error('❌ Impression tracking failed:', err));
-    }
-  }
-
-  function trackClick() {
-    const ad = document.getElementById('adnmCreative');
-    if (!ad) return;
-
-    ad.addEventListener('click', function () {
-      const formData = new FormData();
-      const token = document.querySelector('meta[name="csrf-token"]').content;
-      formData.append('_token', token);
-      formData.append('action', 'click'); // Important flag for backend
-
-      fetch('/track-impression', {
-        method: 'POST',
-        body: formData
-      })
-      .then(res => res.ok ? res.json() : Promise.reject(res))
-      .then(data => console.log('🖱️ Click logged:', data))
-      .catch(err => console.error('❌ Click tracking failed:', err));
+        fetch('/track-impression', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(res))
+        .then(data => console.log('👁️ Impression logged:', data))
+        .catch(err => console.error('❌ Impression tracking failed:', err));
+      }
     });
   }
 
-  // Run on scroll, load, resize
-  window.addEventListener('scroll', trackImpression);
+  function bindClickTracking() {
+    const ads = document.querySelectorAll('.adnm-tag');
+    ads.forEach(ad => {
+      ad.addEventListener('click', function () {
+        const formData = new FormData();
+        const token = document.querySelector('meta[name="csrf-token"]').content;
+        formData.append('_token', token);
+        formData.append('action', 'click');
+
+        fetch('/track-impression', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(res))
+        .then(data => console.log('🖱️ Click logged:', data))
+        .catch(err => console.error('❌ Click tracking failed:', err));
+      });
+    });
+  }
+
+  window.addEventListener('scroll', trackImpressions);
   window.addEventListener('load', function () {
-    trackImpression();
-    trackClick(); // bind click after page load
+    trackImpressions();
+    bindClickTracking(); // bind after DOM is ready
   });
-  window.addEventListener('resize', trackImpression);
+  window.addEventListener('resize', trackImpressions);
