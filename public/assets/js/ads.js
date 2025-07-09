@@ -32,30 +32,45 @@ function isInViewport(el) {
     });
   }
 
-  function bindClickTracking() {
-    document.querySelectorAll('.adnm-creative').forEach(el => {
-      el.addEventListener('click', function () {
-        console.log('🖱️ Click detected on .adnm-creative');
+  // Prevent duplicate click tracking
+  const trackedElements = new WeakSet();
 
-        const formData = new FormData();
-        const token = document.querySelector('meta[name="csrf-token"]').content;
-        formData.append('_token', token);
-        formData.append('action', 'click');
+  function attachClickTracking(el) {
+    if (trackedElements.has(el)) return;
+    trackedElements.add(el);
 
-        fetch('/track-impression', {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => res.ok ? res.json() : Promise.reject(res))
-        .then(data => console.log('✅ Click tracked:', data))
-        .catch(err => console.error('❌ Click tracking failed:', err));
-      });
+    el.addEventListener('click', function () {
+      console.log('🖱️ Click detected on .adnm-creative:', el);
+
+      const formData = new FormData();
+      const token = document.querySelector('meta[name="csrf-token"]').content;
+      formData.append('_token', token);
+      formData.append('action', 'click');
+
+      fetch('/track-impression', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.ok ? res.json() : Promise.reject(res))
+      .then(data => console.log('✅ Click tracked:', data))
+      .catch(err => console.error('❌ Click tracking failed:', err));
+    });
+  }
+
+  function observeAdCreatives() {
+    const observer = new MutationObserver(() => {
+      document.querySelectorAll('.adnm-creative').forEach(attachClickTracking);
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
   }
 
   window.addEventListener('scroll', trackImpressions);
   window.addEventListener('resize', trackImpressions);
   window.addEventListener('load', function () {
-    trackImpressions();
-    bindClickTracking(); // attach click handlers
+    trackImpressions();     // initial impression check
+    observeAdCreatives();   // start watching for .adnm-creative dynamically
   });
