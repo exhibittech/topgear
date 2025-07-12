@@ -48,7 +48,8 @@
     <!-- own js -->
     <script src="{{ asset('assets/js/dropdown.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    <script src="{{ asset('assets/js/ads.js') }}"></script>
+    
     @yield('scripts')
+    <script src="{{ asset('assets/js/ads.js') }}"></script>
 </body>
 </html>

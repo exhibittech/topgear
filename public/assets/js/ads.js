@@ -1,3 +1,4 @@
+// ✅ Impression Tracking
 function isInViewport(el) {
   const rect = el.getBoundingClientRect();
   return (
@@ -32,22 +33,15 @@ function trackImpressions() {
   });
 }
 
-// Creative containers we want to track clicks on
-const creativeSelectors = [
-  '.adnm-creative__prebanner',
-  '.adnm-html-interscroll-tag .adnm-creative', // for video
-  '.adnm-creative__postbanner'
-];
+// ✅ Click Tracking
+const clickTrackedElements = new WeakSet();
 
-const trackedClickContainers = new WeakSet();
+function attachClickObserver(el) {
+  if (clickTrackedElements.has(el)) return;
+  clickTrackedElements.add(el);
 
-function attachClickTracking(container) {
-  if (!container || trackedClickContainers.has(container)) return;
-
-  trackedClickContainers.add(container);
-
-  container.addEventListener('click', () => {
-    console.log('🖱️ Real click tracked on:', container);
+  el.addEventListener('click', function () {
+    console.log('🖱️ Click tracked on .adnm-creative:', el);
 
     const formData = new FormData();
     const token = document.querySelector('meta[name="csrf-token"]').content;
@@ -59,22 +53,25 @@ function attachClickTracking(container) {
       body: formData
     })
     .then(res => res.ok ? res.json() : Promise.reject(res))
-    .then(data => console.log('✅ Click tracked:', data))
+    .then(data => console.log('✅ Click logged:', data))
     .catch(err => console.error('❌ Click tracking failed:', err));
+  }, true); // 👈 useCapture = true to avoid interfering with Adnami handlers
+}
+
+function bindClicksToAllCreatives() {
+  document.querySelectorAll('.adnm-creative').forEach(el => {
+    // Ensure only visible and interactive creatives are counted
+    const style = window.getComputedStyle(el);
+    if (style.display !== 'none' && style.visibility !== 'hidden' && el.offsetHeight > 30 && el.offsetWidth > 30) {
+      attachClickObserver(el);
+    }
   });
 }
 
-function watchAndBindClickTargets() {
-  // Try to bind immediately
-  creativeSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(attachClickTracking);
-  });
-
-  // Watch for dynamically loaded elements
+// ✅ Monitor DOM for dynamic creatives
+function observeDynamicCreatives() {
   const observer = new MutationObserver(() => {
-    creativeSelectors.forEach(selector => {
-      document.querySelectorAll(selector).forEach(attachClickTracking);
-    });
+    bindClicksToAllCreatives();
   });
 
   observer.observe(document.body, {
@@ -83,10 +80,11 @@ function watchAndBindClickTargets() {
   });
 }
 
-// Init everything
-window.addEventListener('load', function () {
+// ✅ Init on Load
+window.addEventListener('load', () => {
   trackImpressions();
-  watchAndBindClickTargets();
+  bindClicksToAllCreatives();
+  observeDynamicCreatives();
 });
 window.addEventListener('scroll', trackImpressions);
 window.addEventListener('resize', trackImpressions);
