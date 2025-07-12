@@ -32,21 +32,22 @@ function trackImpressions() {
   });
 }
 
-// Track clicks on specific creatives by ID
-const clickIds = [
-  'adsm-iframe-midscroll_mobile_prebanner_placeholder-aaf8b3afb1',
-  'adsm-iframe-aaf8b3afb1',
-  'adsm-iframe-midscroll_mobile_postbanner_placeholder-aaf8b3afb1'
+// Creative containers we want to track clicks on
+const creativeSelectors = [
+  '.adnm-creative__prebanner',
+  '.adnm-html-interscroll-tag .adnm-creative', // for video
+  '.adnm-creative__postbanner'
 ];
 
-function attachClickTrackingById(id) {
-  const el = document.getElementById(id);
-  if (!el || el.dataset.clickTracked === 'true') return;
+const trackedClickContainers = new WeakSet();
 
-  el.dataset.clickTracked = 'true';
+function attachClickTracking(container) {
+  if (!container || trackedClickContainers.has(container)) return;
 
-  el.addEventListener('click', () => {
-    console.log('🖱️ Click tracked on element ID:', id);
+  trackedClickContainers.add(container);
+
+  container.addEventListener('click', () => {
+    console.log('🖱️ Real click tracked on:', container);
 
     const formData = new FormData();
     const token = document.querySelector('meta[name="csrf-token"]').content;
@@ -63,28 +64,29 @@ function attachClickTrackingById(id) {
   });
 }
 
-function initClickTracking() {
-  clickIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      attachClickTrackingById(id);
-    } else {
-      // Watch for late-load
-      const observer = new MutationObserver(() => {
-        const lateEl = document.getElementById(id);
-        if (lateEl) {
-          attachClickTrackingById(id);
-          observer.disconnect();
-        }
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
-    }
+function watchAndBindClickTargets() {
+  // Try to bind immediately
+  creativeSelectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(attachClickTracking);
+  });
+
+  // Watch for dynamically loaded elements
+  const observer = new MutationObserver(() => {
+    creativeSelectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(attachClickTracking);
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
   });
 }
 
-window.addEventListener('scroll', trackImpressions);
-window.addEventListener('resize', trackImpressions);
+// Init everything
 window.addEventListener('load', function () {
   trackImpressions();
-  initClickTracking();
+  watchAndBindClickTargets();
 });
+window.addEventListener('scroll', trackImpressions);
+window.addEventListener('resize', trackImpressions);
