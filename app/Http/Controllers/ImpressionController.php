@@ -10,7 +10,7 @@ class ImpressionController extends Controller
     {
         \Log::info('🎯 ImpressionController hit');
 
-        $logPath = storage_path('logs/daily-impressions.log');
+        $logPath = app_path('track/daily-impressions.log');
         $today = now()->format('Y-m-d');
         $action = $request->input('action', 'impression');
 
