@@ -37,7 +37,7 @@
             @endforeach
         </div>
 	<div class="mt-5">
-            <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/2131752" target="_blank"><img alt="TopGear Magazine August 2025" src="/uploads/Banners/tgmagzter-aug2025.jpg" width="100%" /></a>
+            <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/2131752" target="_blank"><img alt="TopGear Magazine September 2025" src="/uploads/Banners/tgmagzter-sep2025.png" width="100%" /></a>
           </div>
     </div>
 </section>
