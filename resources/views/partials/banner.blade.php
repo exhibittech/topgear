@@ -34,7 +34,7 @@
 
             <!-- Custom Banner -->
             <div class="carousel-item">
-                <img alt="TopGear India Magazine September 2025" class="d-block w-100" src="https://www.topgearmag.in/uploads/Banners/tgbanner-sep2025.png">
+                <img alt="TopGear India Magazine October 2025" class="d-block w-100" src="https://www.topgearmag.in/uploads/Banners/tgbanner-oct2025.jpg">
                 <div class="caption tg-magazine">
                     <p class="text-center"><a href="https://www.exhibitstore.in" target="_blank">Buy Now</a></p>
                 </div>

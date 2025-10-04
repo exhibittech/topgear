@@ -71,17 +71,6 @@
     </div>
 </section>
 <section class="tg-review-body">
-    <div id="kj-roadblock">
-    <ins class="adnm-tag" id="adnmCreative"
-       style="display:inline-block;width:100%;height:300px;"
-       data-adnm-cc="cac57449-4c04-4846-989e-47e598ffcd49"
-       data-adnm-session="${CACHEBUSTER}"
-       data-adnm-click="${CLICK_URL}"
-       data-adnm-type="canvasmobile"
-       ... >
-     <script async src="https://macro.adnami.io/macro/gen/adnm.ads.v2.js"></script>
-  </ins>
-</div>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -94,7 +83,7 @@
             <div class="col-md-4">
                 <div class="wrap-ad sticky-top">
                     <a href="https://www.exhibitstore.in/" target="_blank">
-                        <img src="https://www.topgearmag.in/uploads/Banners/tgissue-sep2025.webp" width="100%" alt="TopGear Magazine September 2025" />
+                        <img src="https://www.topgearmag.in/uploads/Banners/tgissue-oct2025.webp" width="100%" alt="TopGear Magazine October 2025" />
                     </a>
                     <div style="padding-top: 20px;">
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2979269950522014" crossorigin="anonymous"></script>
