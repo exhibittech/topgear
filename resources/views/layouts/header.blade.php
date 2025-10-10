@@ -44,7 +44,17 @@
                             </a>
                             @if($item->submenus->isNotEmpty() || ($item->ID == 3 && $item->dynamicSubmenus->isNotEmpty()))
                                 <ul class="dropdown-menu" aria-labelledby="{{ $item->Name }}">
-                                    @foreach($item->submenus as $submenu)
+                                    @php
+                                        // Ensure "Cars" appears first only under the News dropdown, keep others' order
+                                        if (isset($item->Name) && strtolower($item->Name) === 'news') {
+                                            $carsFirst = $item->submenus->filter(function ($s) { return strtolower($s->Name) === 'cars'; });
+                                            $others = $item->submenus->reject(function ($s) { return strtolower($s->Name) === 'cars'; });
+                                            $submenusOrdered = $carsFirst->concat($others);
+                                        } else {
+                                            $submenusOrdered = $item->submenus;
+                                        }
+                                    @endphp
+                                    @foreach($submenusOrdered as $submenu)
 					<!--<li class="kjmulti-dropdown nav-item dropdown">-->
                                         <li class="kjmulti-dropdown nav-item dropdown">
                                             <a class="dropdown-item {{ $submenu->reviewSubmenus->isNotEmpty() ? 'dropdown-toggle' : '' }}"
