@@ -64,7 +64,17 @@
                                             </a>
                                             @if($submenu->reviewSubmenus->isNotEmpty())
                                                 <ul class="dropdown-menu">
-                                                    @foreach($submenu->reviewSubmenus as $reviewSubmenu)
+                                                    @php
+                                                        // For Bikes/Scooters, move "First Ride" to the top and keep others' order
+                                                        if (isset($submenu->Name) && strtolower($submenu->Name) === 'bikes/scooters') {
+                                                            $firstRide = $submenu->reviewSubmenus->filter(function ($r) { return strtolower($r->Name) === 'first ride'; });
+                                                            $otherReviews = $submenu->reviewSubmenus->reject(function ($r) { return strtolower($r->Name) === 'first ride'; });
+                                                            $reviewSubmenusOrdered = $firstRide->concat($otherReviews);
+                                                        } else {
+                                                            $reviewSubmenusOrdered = $submenu->reviewSubmenus;
+                                                        }
+                                                    @endphp
+                                                    @foreach($reviewSubmenusOrdered as $reviewSubmenu)
                                                         <li>
                                                            <a class="dropdown-item" href="{{ url('reviews/' . $submenu->Code . '/' . $reviewSubmenu->Code) }}">
                                                                 {{ $reviewSubmenu->Name }}
