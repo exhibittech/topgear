@@ -104,8 +104,13 @@
 
                   <!-- Tabs Navigation and Content -->
                 <div>
+                    <h3 class="text-xl font-semibold leading-6 text-gray-900 border-b pb-2 mb-4">Content Tabs</h3>
                     <ul class="flex border-b" id="tab-list"></ul>
-                    <div id="tab-content" class="p-4 bg-gray-50 rounded-lg mt-2"></div>
+                    <div id="tab-content" class="p-4 bg-gray-50 rounded-lg mt-2">
+                        <div id="tab-placeholder" class="text-center text-gray-500 py-8">
+                            <p>Please select a category (Car or Bike) above to load content tabs.</p>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -169,20 +174,167 @@
 
                 <!-- Submit Button -->
                 <div class="text-center pt-6">
-                    <button type="submit" class="inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Create
+                    <button type="submit" id="submit-btn" class="inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="submit-text">Create</span>
+                        <span id="submit-loading" class="hidden">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Creating...
+                        </span>
                     </button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Add TinyMCE CDN -->
+    <!-- Add TinyMCE Local -->
 <script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+<script>
+    // Test if TinyMCE loaded
+    window.addEventListener('load', function() {
+        console.log('Page loaded. TinyMCE available:', typeof tinymce !== 'undefined');
+        if (typeof tinymce !== 'undefined') {
+            console.log('TinyMCE version:', tinymce.majorVersion + '.' + tinymce.minorVersion);
+        }
+    });
+</script>
 
     <!-- Meta Title and Meta Description Character Counter Script -->
     <script>
-         document.getElementById('MenuID').addEventListener('change', function () {
+        // Wait for TinyMCE to load
+        function waitForTinyMCE(callback, maxAttempts = 50) {
+            if (typeof tinymce !== 'undefined') {
+                callback();
+            } else if (maxAttempts > 0) {
+                setTimeout(() => waitForTinyMCE(callback, maxAttempts - 1), 100);
+            } else {
+                console.error('TinyMCE failed to load after 5 seconds');
+                // Show error message to user
+                const tabContent = document.getElementById('tab-content');
+                if (tabContent) {
+                    tabContent.innerHTML = '<div class="text-center text-red-500 py-8"><p>Error: TinyMCE editor failed to load. Please refresh the page.</p></div>';
+                }
+            }
+        }
+        // Function to initialize TinyMCE
+        function initializeTinyMCE() {
+            console.log('Initializing TinyMCE...');
+            console.log('TinyMCE available:', typeof tinymce !== 'undefined');
+            console.log('Textareas found:', document.querySelectorAll('.tiny-editor').length);
+            
+            if (typeof tinymce === 'undefined') {
+                console.error('TinyMCE is not loaded!');
+                return;
+            }
+            
+            tinymce.remove('.tiny-editor'); // Remove any existing instances
+            tinymce.init({
+                selector: '.tiny-editor',
+                plugins: [
+                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                    'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                    'insertdatetime', 'media', 'table', 'help', 'wordcount', 'emoticons',
+                    'codesample', 'autosave', 'save', 'directionality', 'visualchars',
+                    'nonbreaking', 'pagebreak', 'quickbars'
+                ],
+                toolbar: [
+                    'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media youtube table link anchor codesample | ltr rtl'
+                ].join(' | '),
+                toolbar_mode: 'sliding',
+                contextmenu: 'link image imagetools table spellchecker configurepermanentpen',
+                menubar: 'file edit view insert format tools table help',
+                menu: {
+                    file: { title: 'File', items: 'newdocument restoredraft | preview | export print | deleteallconversations' },
+                    edit: { title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall | searchreplace' },
+                    view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen | showcomments' },
+                    insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor | insertdatetime' },
+                    format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | blocks fontfamily fontsize align lineheight | forecolor backcolor | removeformat' },
+                    tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | a11ycheck code wordcount' },
+                    table: { title: 'Table', items: 'inserttable | cell row column | advtablesort | tableprops deletetable' },
+                    help: { title: 'Help', items: 'help' }
+                },
+                content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; }',
+                convert_urls: false,
+                relative_urls: false,
+                remove_script_host: false,
+                link_assume_external_targets: false,
+                default_link_target: '_blank',
+                entity_encoding: 'raw',
+                allow_script_urls: true,
+                allow_html_in_named_anchor: true,
+                allow_unsafe_link_target: true,
+                height: 400,
+                branding: false,
+                promotion: false,
+                resize: true,
+                autosave_ask_before_unload: true,
+                autosave_interval: '30s',
+                autosave_prefix: '{path}{query}-{id}-',
+                autosave_retention: '2m',
+                image_advtab: true,
+                image_caption: true,
+                image_description: true,
+                image_title: true,
+                media_live_embeds: true,
+                media_url_resolver: function (data, resolve) {
+                    var url = data.url;
+                    if (url.indexOf('youtube.com') !== -1 || url.indexOf('youtu.be') !== -1) {
+                        // Convert YouTube URLs to embed format
+                        var videoId = '';
+                        if (url.indexOf('youtu.be/') !== -1) {
+                            videoId = url.split('youtu.be/')[1].split('?')[0];
+                        } else if (url.indexOf('youtube.com/watch?v=') !== -1) {
+                            videoId = url.split('v=')[1].split('&')[0];
+                        } else if (url.indexOf('youtube.com/embed/') !== -1) {
+                            videoId = url.split('embed/')[1].split('?')[0];
+                        }
+                        
+                        if (videoId) {
+                            var embedHtml = '<iframe src="https://www.youtube.com/embed/' + videoId + '" width="560" height="315" frameborder="0" allowfullscreen></iframe>';
+                            resolve({ html: embedHtml });
+                        } else {
+                            resolve({ html: '' });
+                        }
+                    } else {
+                        resolve({ html: '' });
+                    }
+                },
+                setup: function (editor) {
+                    console.log('TinyMCE editor initialized for:', editor.id);
+                    
+                    // Add custom button for YouTube
+                    editor.ui.registry.addButton('youtube', {
+                        text: 'YouTube',
+                        tooltip: 'Insert YouTube Video',
+                        onAction: function () {
+                            var url = prompt('Enter YouTube URL:');
+                            if (url) {
+                                // Convert YouTube URLs to embed format
+                                var videoId = '';
+                                if (url.indexOf('youtu.be/') !== -1) {
+                                    videoId = url.split('youtu.be/')[1].split('?')[0];
+                                } else if (url.indexOf('youtube.com/watch?v=') !== -1) {
+                                    videoId = url.split('v=')[1].split('&')[0];
+                                } else if (url.indexOf('youtube.com/embed/') !== -1) {
+                                    videoId = url.split('embed/')[1].split('?')[0];
+                                }
+                                
+                                if (videoId) {
+                                    var embedHtml = '<iframe src="https://www.youtube.com/embed/' + videoId + '" width="560" height="315" frameborder="0" allowfullscreen></iframe>';
+                                    editor.insertContent(embedHtml);
+                                } else {
+                                    alert('Invalid YouTube URL. Please enter a valid YouTube link.');
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        document.getElementById('MenuID').addEventListener('change', function () {
             const menuId = this.value;
             const categoryDropdown = document.getElementById('ReviewsCategoryID');
     
@@ -217,13 +369,27 @@
             .then(tabs => {
                 const tabList = document.getElementById('tab-list');
                 const tabContent = document.getElementById('tab-content');
+                const tabPlaceholder = document.getElementById('tab-placeholder');
     
                 // Clear previous tabs and content
                 tabList.innerHTML = '';
                 tabContent.innerHTML = '';
+                
+                // Remove placeholder
+                if (tabPlaceholder) {
+                    tabPlaceholder.remove();
+                }
+    
+                // Check if we have tabs
+                if (!tabs || tabs.length === 0) {
+                    tabContent.innerHTML = '<div class="text-center text-gray-500 py-8"><p>No tabs available for this category.</p></div>';
+                    return;
+                }
     
                 // Loop through the fetched tabs and create the tab navigation and content
+                console.log('Creating tabs:', tabs);
                 tabs.forEach((tab, index) => {
+                    console.log('Creating tab:', tab.Name, 'ID:', tab.TabID);
                     // Create Tab Navigation Button with remove icon
                     const isActive = index === 0 ? 'active' : ''; // Set the first tab as active by default
                     tabList.innerHTML += `
@@ -239,26 +405,19 @@
                     // Create Tab Content (Textarea for each tab)
                     tabContent.innerHTML += `
                         <div class="tab-content-item ${isActive}" id="tab_${tab.TabID}" style="${index === 0 ? 'display: block;' : 'display: none;'}">
-                            <textarea name="tabscontent[${tab.TabID}]" class="tiny-editor"></textarea>
+                            <textarea name="tabscontent[${tab.TabID}]" class="tiny-editor" id="editor_${tab.TabID}"></textarea>
                         </div>
                     `;
                 });
+                
+                console.log('Tabs created. Total textareas:', document.querySelectorAll('.tiny-editor').length);
     
                 // Reinitialize TinyMCE editors for dynamically added textareas
-                tinymce.remove('.tiny-editor'); // Clear previous TinyMCE instances
-                tinymce.init({
-                    selector: '.tiny-editor',
-                    plugins: 'link image code',
-                    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-                    convert_urls: false,
-                    relative_urls: false,
-                    remove_script_host: false,
-                    link_assume_external_targets: false,
-                    default_link_target: '_blank', 
-                    entity_encoding: 'raw',
-                    allow_script_urls: true,
-
-                    height: 300
+                // Wait for TinyMCE to be available and DOM to be ready
+                waitForTinyMCE(() => {
+                    setTimeout(() => {
+                        initializeTinyMCE();
+                    }, 100);
                 });
     
                 // Add tab switching functionality
@@ -283,6 +442,15 @@
                         event.stopPropagation(); // Prevent triggering the tab switch event
                         const tabId = this.getAttribute('data-remove');
     
+                        // Get the tab content element to remove its TinyMCE instance
+                        const tabContentElement = document.getElementById(`tab_${tabId}`);
+                        if (tabContentElement) {
+                            const textarea = tabContentElement.querySelector('textarea');
+                            if (textarea && textarea.id) {
+                                tinymce.remove(`#${textarea.id}`);
+                            }
+                        }
+
                         // Remove the tab and its content
                         document.querySelector(`[data-tab="${tabId}"]`).parentElement.remove(); // Remove tab from list
                         document.getElementById(`tab_${tabId}`).remove(); // Remove content
@@ -292,12 +460,19 @@
                         if (firstTab) {
                             firstTab.classList.add('active');
                             const firstTabId = firstTab.getAttribute('data-tab');
-                            document.getElementById(`tab_${firstTabId}`).style.display = 'block';
+                            const firstTabContent = document.getElementById(`tab_${firstTabId}`);
+                            if (firstTabContent) {
+                                firstTabContent.style.display = 'block';
+                            }
                         }
                     });
                 });
             })
-            .catch(error => console.error('Error fetching tabs:', error));
+            .catch(error => {
+                console.error('Error fetching tabs:', error);
+                const tabContent = document.getElementById('tab-content');
+                tabContent.innerHTML = '<div class="text-center text-red-500 py-8"><p>Error loading tabs. Please try again.</p></div>';
+            });
         });
         document.getElementById('MetaTitle').addEventListener('input', function() {
             let counter = document.getElementById('metaTitleCounter');
@@ -361,20 +536,25 @@
             });
         });
 
-        // Initialize TinyMCE for textarea fields
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'link image code',
-            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-            convert_urls: false,
-            relative_urls: false,
-            remove_script_host: false,
-            link_assume_external_targets: false,
-            default_link_target: '_blank', 
-            entity_encoding: 'raw',
-            allow_script_urls: true,
-
-            height: 300
+        // Handle form submission with loading indicator
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+            
+            // Optional: Add a timeout to re-enable button if form takes too long
+            setTimeout(() => {
+                if (submitBtn.disabled) {
+                    submitBtn.disabled = false;
+                    submitText.classList.remove('hidden');
+                    submitLoading.classList.add('hidden');
+                }
+            }, 30000); // 30 seconds timeout
         });
     </script>
     <style>
@@ -397,6 +577,30 @@
     
     .remove-tab:hover {
         color: #dc2626; /* Tailwind Red-600 */
+    }
+    
+    /* Loading Animation */
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    .animate-spin {
+        animation: spin 1s linear infinite;
+    }
+    
+    /* Submit Button Loading State */
+    #submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    
+    #submit-btn:disabled:hover {
+        background-color: #4f46e5;
     }
     
     </style>

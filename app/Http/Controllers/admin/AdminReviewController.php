@@ -133,11 +133,14 @@ class AdminReviewController extends Controller
 
         if ($request->has('tabscontent')) {
             foreach ($request->input('tabscontent') as $tabID => $content) {
-                ReviewContent::create([
-                    'ReviewsID' => $review->ReviewsID,
-                    'TabID' => $tabID,
-                    'Content' => $content
-                ]);
+                // Only save tabs with non-empty content
+                if (!empty(trim($content))) {
+                    ReviewContent::create([
+                        'ReviewsID' => $review->ReviewsID,
+                        'TabID' => $tabID,
+                        'Content' => $content
+                    ]);
+                }
             }
         }
         if ($review->IsActive == 1) {
@@ -274,11 +277,14 @@ class AdminReviewController extends Controller
             ReviewContent::where('ReviewsID', $review->ReviewsID)->delete();
             
             foreach ($request->input('tabscontent') as $tabID => $content) {
-                ReviewContent::create([
-                    'ReviewsID' => $review->ReviewsID,
-                    'TabID' => $tabID,
-                    'Content' => $content
-                ]);
+                // Only save tabs with non-empty content
+                if (!empty(trim($content))) {
+                    ReviewContent::create([
+                        'ReviewsID' => $review->ReviewsID,
+                        'TabID' => $tabID,
+                        'Content' => $content
+                    ]);
+                }
             }
         }
     
