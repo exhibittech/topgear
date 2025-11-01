@@ -73,7 +73,7 @@
             </div>
             @foreach($reviewslisthome as $review)
             @php
-                $imageName = preg_replace('/_/', ' ', pathinfo($review->images->first()->ImagePath ?? $review->ImagePath, PATHINFO_FILENAME));
+                $imageName = preg_replace('/_/', ' ', pathinfo($review->ImagePath, PATHINFO_FILENAME));
                 $altText = ucwords(trim(preg_replace('/\bReviews\b/i', '', $imageName)));
                 $altText = substr($altText, 0, -10);
             @endphp
@@ -81,7 +81,7 @@
                 <div class="kjwrap tg-article-item">
                     <div class="tg-media">
                         <a class="d-block" href="{{ url('reviews/' . $review->menu->Code . '/' . $review->category->Code . '/' . $review->Code) }}">
-                            <img src="{{ url($review->images->first()->ImagePath ?? $review->ImagePath) }}" alt="{{ $altText }}">
+                            <img src="{{ url($review->ImagePath) }}" alt="{{ $altText }}">
                         </a>
                     </div>
                     <div class="tg-txt">

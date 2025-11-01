@@ -112,6 +112,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/{id}/edit', [AdminReviewController::class, 'edit'])->name('adminreviews.edit');
         Route::put('/{id}', [AdminReviewController::class, 'update'])->name('adminreviews.update');
         Route::delete('/{id}', [AdminReviewController::class, 'destroy'])->name('adminreviews.destroy');
+        Route::post('/update-image-order', [AdminReviewController::class, 'updateImageOrder'])->name('adminreviews.updateImageOrder');
     });
 
 });

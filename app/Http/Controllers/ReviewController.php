@@ -69,8 +69,10 @@ class ReviewController extends Controller
         // Retrieve the main review record based on the provided code
         $record = Review::where('Code', $code)->firstOrFail();
 
-        // Retrieve associated images
-        $images = ReviewImage::where('ReviewsID', $record->ReviewsID)->get();
+        // Retrieve associated images ordered by DisplayOrder
+        $images = ReviewImage::where('ReviewsID', $record->ReviewsID)
+            ->orderBy('DisplayOrder', 'asc')
+            ->get();
 
         // Increment the view count by a random number between 1 and 15
         $increment = rand(1, 15);

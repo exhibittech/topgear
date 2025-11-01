@@ -13,5 +13,5 @@ class ReviewImage extends Model
     protected $primaryKey = 'ReviewsImageID';
     public $incrementing = true;
     public $timestamps = false;
-    protected $fillable = ['ReviewsID', 'ImagePath', 'ImageName', 'Title'];
+    protected $fillable = ['ReviewsID', 'ImagePath', 'ImageName', 'Title', 'DisplayOrder'];
 }

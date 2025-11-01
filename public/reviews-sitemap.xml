@@ -1,6 +1,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
         <url>
+            <loc>http://127.0.0.1:8000/reviews/cars/sdgfh</loc>
+            <lastmod>2025-11-01</lastmod>
+            <priority>0.64</priority>
+        </url>
+
+        <url>
+            <loc>http://127.0.0.1:8000/reviews/cars/2024-audi-q7-2024-first-drive-review</loc>
+            <lastmod>2025-11-01</lastmod>
+            <priority>0.64</priority>
+        </url>
+
+        <url>
+            <loc>http://127.0.0.1:8000/reviews/cars/2024-audi-q7-2024-first-drive-review</loc>
+            <lastmod>2025-10-27</lastmod>
+            <priority>0.64</priority>
+        </url>
+
+        <url>
+            <loc>http://127.0.0.1:8000/reviews/cars/sdf</loc>
+            <lastmod>2025-10-17</lastmod>
+            <priority>0.64</priority>
+        </url>
+
+        <url>
             <loc>https://topgearmag.in/reviews/bikes/ducati-scrambler-icon-long-term-report</loc>
             <lastmod>2025-06-01</lastmod>
             <priority>0.64</priority>

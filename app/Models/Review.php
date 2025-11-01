@@ -39,7 +39,7 @@ class Review extends Model
 
     public function images()
     {
-        return $this->hasMany(ReviewImage::class, 'ReviewsID', 'ReviewsID');
+        return $this->hasMany(ReviewImage::class, 'ReviewsID', 'ReviewsID')->orderBy('DisplayOrder', 'asc');
     }
 
     public function content()

@@ -117,16 +117,18 @@ class AdminReviewController extends Controller
         $review = Review::create($reviewData);
 
         if ($request->hasFile('Image')) {
+            $order = 0;
             foreach ($request->file('Image') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
                 $imagePath = $image->move(public_path('uploads/Reviews/Image/'), $imageName);
 
-                // Save image to ReviewImage table
+                // Save image to ReviewImage table with sequential order
                 ReviewImage::create([
                     'ReviewsID' => $review->ReviewsID,
                     'ImagePath' => 'uploads/Reviews/Image/' . $imageName,
                     'ImageName' => 'Review Image',
                     'Title' => 'Review Image',
+                    'DisplayOrder' => $order++
                 ]);
             }
         }
@@ -193,8 +195,10 @@ class AdminReviewController extends Controller
     {
         $review = Review::findOrFail($id);
     
-        // Retrieve related images
-        $images = ReviewImage::where('ReviewsID', $review->ReviewsID)->get();
+        // Retrieve related images ordered by DisplayOrder
+        $images = ReviewImage::where('ReviewsID', $review->ReviewsID)
+            ->orderBy('DisplayOrder', 'asc')
+            ->get();
         
         // Retrieve tab contents for the review
         $tabContents = ReviewContent::where('ReviewsID', $review->ReviewsID)->get();
@@ -257,16 +261,18 @@ class AdminReviewController extends Controller
             // Remove old images
             ReviewImage::where('ReviewsID', $review->ReviewsID)->delete();
             
+            $order = 0;
             foreach ($request->file('Image') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
                 $imagePath = $image->move(public_path('uploads/Reviews/Image/'), $imageName);
     
-                // Save new images
+                // Save new images with sequential order
                 ReviewImage::create([
                     'ReviewsID' => $review->ReviewsID,
                     'ImagePath' => 'uploads/Reviews/Image/' . $imageName,
                     'ImageName' => 'Review Image',
                     'Title' => 'Review Image',
+                    'DisplayOrder' => $order++
                 ]);
             }
         }
@@ -291,6 +297,17 @@ class AdminReviewController extends Controller
         // Flash success message and redirect
         Session::flash('succ_msg', 'Review updated successfully.');
         return redirect()->route('adminreviews.index');
+    }
+
+    // Update image order via AJAX
+    public function updateImageOrder(Request $request)
+    {
+        $imageOrder = $request->input('order');
+        foreach ($imageOrder as $index => $imageId) {
+            ReviewImage::where('ReviewsImageID', $imageId)
+                ->update(['DisplayOrder' => $index]);
+        }
+        return response()->json(['success' => true]);
     }
 
     // Delete a review

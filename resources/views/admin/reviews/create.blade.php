@@ -97,6 +97,7 @@
                         <div class="space-y-2">
                             <label for="Image" class="block text-sm font-semibold text-gray-700">Slider Images (Upload multiple) <span class="text-gray-500 text-sm">(1300 x 728, Max: 428KB per image)</span></label>
                             <input type="file" name="Image[]" id="Image" multiple class="block w-full text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <p class="text-xs text-blue-600 mt-1">💡 Note: After submitting, you can rearrange the images in the edit page</p>
                             <div id="imagePreview" class="mt-3 flex flex-wrap gap-4"></div>
                         </div>
                     </div>
