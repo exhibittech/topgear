@@ -1,13 +1,13 @@
 <!-- resources/views/layouts/header.blade.php -->
 
-<!--<div class="container">
+<div class="container">
     <div class="my-3 text-center">
-        <a href="{{ url('https://youtube.com/playlist?list=PLzUw3tuoAJk-pzXQNaBuoXOT3M381VY0J&si=GeFXRD6zTNwoOPeA') }}" target="_blank">
-            <img src="{{ asset('uploads/imgs/tgif-banner.jpg') }}" width="90%">
+        <a href="https://youtu.be/3kiDJ3hqQ74?si=9h8Qs6RfAuTWzfl4" target="_blank">
+            <img src="/uploads/Banners/cws-s2.png" alt="Cars With Stars Season 2" width="100%">
         </a>
     </div>
 </div>
--->
+
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
