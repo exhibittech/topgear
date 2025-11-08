@@ -94,7 +94,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Featured Image -->
                         <div class="space-y-2">
-                            <label for="Thumbimage" class="block text-sm font-semibold text-gray-700">Upload Featured Image</label>
+                            <label for="Thumbimage" class="block text-sm font-semibold text-gray-700">Upload Featured Image <span class="text-gray-500 text-sm">(Recommended: 1300 x 728, Max: 428KB)</span></label>
                             <input type="file" name="Thumbimage" id="Thumbimage" class="block w-full text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                             <div id="featuredImagePreview" class="mt-3">
                                 @if ($review->ImagePath)
@@ -105,7 +105,7 @@
 
                         <!-- Slider Images -->
                         <div class="space-y-2">
-                            <label for="Image" class="block text-sm font-semibold text-gray-700">Slider Images (Upload multiple)</label>
+                            <label for="Image" class="block text-sm font-semibold text-gray-700">Slider Images (Upload multiple) <span class="text-gray-500 text-sm">(Recommended: 1300 x 728, Max: 428KB per image)</span></label>
                             <input type="file" name="Image[]" id="Image" multiple class="block w-full text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                             <p class="text-xs text-green-600 mt-1">💡 Tip: Drag and drop the images below to reorder - changes save automatically!</p>
                             
