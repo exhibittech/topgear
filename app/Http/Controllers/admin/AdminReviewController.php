@@ -89,9 +89,14 @@ class AdminReviewController extends Controller
             'Author' => 'required|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'Image.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:19096', // For multiple images
-            'tabscontent.*' => 'nullable|string' // Content of tabs
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950',
+            'Image' => 'nullable|array|max:30',
+            'Image.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800',
+            'tabscontent.*' => 'nullable|string'
+        ], [
+            'Image.max' => 'You can upload up to 30 slider images per review.',
+            'Thumbimage.dimensions' => 'Featured image must be at least 1900px wide and 1064px tall.',
+            'Image.*.dimensions' => 'Slider images must be at least 1900px wide and 1064px tall.'
         ]);
 
 
@@ -110,8 +115,19 @@ class AdminReviewController extends Controller
         if ($request->hasFile('Thumbimage')) {
             $thumbImage = $request->file('Thumbimage');
             $thumbImageName = time() . '-' . $thumbImage->getClientOriginalName();
-            $thumbImagePath = $thumbImage->move(public_path('uploads/Reviewsthumb/Image/'), $thumbImageName);
-            $reviewData['ImagePath'] = 'uploads/Reviewsthumb/Image/' . $thumbImageName;
+            $destinationDir = public_path('uploads/Reviewsthumb/Image/');
+            $thumbImage->move($destinationDir, $thumbImageName);
+            $absoluteThumbPath = $destinationDir . $thumbImageName;
+            $webpAbsolutePath = $this->generateWebpVariant($absoluteThumbPath);
+
+            if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                if ($webpAbsolutePath !== $absoluteThumbPath && file_exists($absoluteThumbPath)) {
+                    @unlink($absoluteThumbPath);
+                }
+                $reviewData['ImagePath'] = $relative;
+            } else {
+                $reviewData['ImagePath'] = 'uploads/Reviewsthumb/Image/' . $thumbImageName;
+            }
         }
         // Create and save the Review
         $review = Review::create($reviewData);
@@ -120,12 +136,22 @@ class AdminReviewController extends Controller
             $order = 0;
             foreach ($request->file('Image') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
-                $imagePath = $image->move(public_path('uploads/Reviews/Image/'), $imageName);
+                $destinationDir = public_path('uploads/Reviews/Image/');
+                $image->move($destinationDir, $imageName);
+                $absoluteImagePath = $destinationDir . $imageName;
+                $webpAbsolutePath = $this->generateWebpVariant($absoluteImagePath);
+                $relativePath = 'uploads/Reviews/Image/' . $imageName;
 
-                // Save image to ReviewImage table with sequential order
+                if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                    if ($webpAbsolutePath !== $absoluteImagePath && file_exists($absoluteImagePath)) {
+                        @unlink($absoluteImagePath);
+                    }
+                    $relativePath = $relative;
+                }
+
                 ReviewImage::create([
                     'ReviewsID' => $review->ReviewsID,
-                    'ImagePath' => 'uploads/Reviews/Image/' . $imageName,
+                    'ImagePath' => $relativePath,
                     'ImageName' => 'Review Image',
                     'Title' => 'Review Image',
                     'DisplayOrder' => $order++
@@ -233,9 +259,14 @@ class AdminReviewController extends Controller
             'Author' => 'nullable|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'Image.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:9096',
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950',
+            'Image' => 'nullable|array|max:30',
+            'Image.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800',
             'tabscontent.*' => 'nullable|string'
+        ], [
+            'Image.max' => 'You can upload up to 30 slider images per review.',
+            'Thumbimage.dimensions' => 'Featured image must be at least 1900px wide and 1064px tall.',
+            'Image.*.dimensions' => 'Slider images must be at least 1900px wide and 1064px tall.'
         ]);
     
         // Fetch the existing review
@@ -249,8 +280,19 @@ class AdminReviewController extends Controller
         if ($request->hasFile('Thumbimage')) {
             $thumbImage = $request->file('Thumbimage');
             $thumbImageName = time() . '-' . $thumbImage->getClientOriginalName();
-            $thumbImagePath = $thumbImage->move(public_path('uploads/Reviewsthumb/Image/'), $thumbImageName);
-            $review->ImagePath = 'uploads/Reviewsthumb/Image/' . $thumbImageName;
+            $destinationDir = public_path('uploads/Reviewsthumb/Image/');
+            $thumbImage->move($destinationDir, $thumbImageName);
+            $absoluteThumbPath = $destinationDir . $thumbImageName;
+            $webpAbsolutePath = $this->generateWebpVariant($absoluteThumbPath);
+
+            if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                if ($webpAbsolutePath !== $absoluteThumbPath && file_exists($absoluteThumbPath)) {
+                    @unlink($absoluteThumbPath);
+                }
+                $review->ImagePath = $relative;
+            } else {
+                $review->ImagePath = 'uploads/Reviewsthumb/Image/' . $thumbImageName;
+            }
         }
     
         // Save the updated review
@@ -264,12 +306,22 @@ class AdminReviewController extends Controller
             $order = 0;
             foreach ($request->file('Image') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
-                $imagePath = $image->move(public_path('uploads/Reviews/Image/'), $imageName);
-    
-                // Save new images with sequential order
+                $destinationDir = public_path('uploads/Reviews/Image/');
+                $image->move($destinationDir, $imageName);
+                $absoluteImagePath = $destinationDir . $imageName;
+                $webpAbsolutePath = $this->generateWebpVariant($absoluteImagePath);
+                $relativePath = 'uploads/Reviews/Image/' . $imageName;
+
+                if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                    if ($webpAbsolutePath !== $absoluteImagePath && file_exists($absoluteImagePath)) {
+                        @unlink($absoluteImagePath);
+                    }
+                    $relativePath = $relative;
+                }
+
                 ReviewImage::create([
                     'ReviewsID' => $review->ReviewsID,
-                    'ImagePath' => 'uploads/Reviews/Image/' . $imageName,
+                    'ImagePath' => $relativePath,
                     'ImageName' => 'Review Image',
                     'Title' => 'Review Image',
                     'DisplayOrder' => $order++
@@ -317,5 +369,72 @@ class AdminReviewController extends Controller
         $review->IsDeleted = 1;
         $review->save();
         return redirect()->route('adminreviews.index')->with('succ_msg', 'Review deleted successfully.');
+    }
+
+    protected function relativePublicPath(string $absolutePath): ?string
+    {
+        $publicPath = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, public_path());
+        $normalizedAbsolute = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $absolutePath);
+
+        if (!str_starts_with($normalizedAbsolute, $publicPath)) {
+            return null;
+        }
+
+        $relative = ltrim(substr($normalizedAbsolute, strlen($publicPath)), DIRECTORY_SEPARATOR);
+        return str_replace(DIRECTORY_SEPARATOR, '/', $relative);
+    }
+
+    protected function generateWebpVariant(string $absolutePath, int $quality = 100): ?string
+    {
+        if (!function_exists('imagewebp') || !file_exists($absolutePath)) {
+            Log::warning('WebP conversion skipped: missing imagewebp support or source file.', ['path' => $absolutePath]);
+            return null;
+        }
+
+        $extension = strtolower(pathinfo($absolutePath, PATHINFO_EXTENSION));
+        if ($extension === 'webp') {
+            return $absolutePath;
+        }
+
+        $webpPath = preg_replace('/\.(jpe?g|png)$/i', '.webp', $absolutePath);
+        if (!$webpPath || $webpPath === $absolutePath) {
+            return null;
+        }
+
+        if (file_exists($webpPath)) {
+            return $webpPath;
+        }
+
+        $imageInfo = getimagesize($absolutePath);
+        if (!$imageInfo) {
+            return null;
+        }
+
+        $mime = $imageInfo['mime'] ?? '';
+        $resource = match ($mime) {
+            'image/jpeg' => imagecreatefromjpeg($absolutePath),
+            'image/png' => imagecreatefrompng($absolutePath),
+            default => null,
+        };
+
+        if (!$resource) {
+            return null;
+        }
+
+        if ($mime === 'image/png') {
+            imagepalettetotruecolor($resource);
+            imagealphablending($resource, true);
+            imagesavealpha($resource, true);
+        }
+
+        $result = imagewebp($resource, $webpPath, $quality);
+        imagedestroy($resource);
+
+        if (!$result) {
+            Log::warning('WebP conversion failed.', ['path' => $absolutePath]);
+            return null;
+        }
+
+        return $webpPath;
     }
 }

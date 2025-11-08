@@ -44,7 +44,17 @@
                                     $altText = substr($altText, 0, -10);
                                 @endphp
                                 <div class="carousel-item {{ !$i_key ? 'active' : '' }}">
-                                    <img src="{{ url($i_value->ImagePath) }}" class="d-block w-100" alt="{{ $altText }}">
+                                    @php
+                                        $imageRelativePath = $i_value->ImagePath;
+                                        $webpRelativePath = preg_replace('/\.(jpe?g|png)$/i', '.webp', $imageRelativePath);
+                                        $webpAvailable = $webpRelativePath !== $imageRelativePath && file_exists(public_path($webpRelativePath));
+                                    @endphp
+                                    <picture>
+                                        @if ($webpAvailable)
+                                            <source type="image/webp" srcset="{{ asset($webpRelativePath) }}">
+                                        @endif
+                                        <img src="{{ asset($imageRelativePath) }}" class="d-block w-100" alt="{{ $altText }}" loading="lazy">
+                                    </picture>
                                 </div>
                             @endforeach
                         </div>
@@ -71,7 +81,17 @@
                                         $altText = substr($altText, 0, -10);
                                     @endphp
                                     <button type="button" data-bs-target="#carousel-thumbnail" data-bs-slide-to="{{ $index }}" class="thumbnail {{ $index === 0 ? 'active' : '' }}" aria-label="Slide {{ $index + 1 }}">
-                                        <img src="{{ asset($imageItem->ImagePath) }}" class="d-block w-100" alt="{{ $altText }}">
+                                        @php
+                                            $thumbRelativePath = $imageItem->ImagePath;
+                                            $thumbWebpRelativePath = preg_replace('/\.(jpe?g|png)$/i', '.webp', $thumbRelativePath);
+                                            $thumbWebpAvailable = $thumbWebpRelativePath !== $thumbRelativePath && file_exists(public_path($thumbWebpRelativePath));
+                                        @endphp
+                                        <picture>
+                                            @if ($thumbWebpAvailable)
+                                                <source type="image/webp" srcset="{{ asset($thumbWebpRelativePath) }}">
+                                            @endif
+                                            <img src="{{ asset($thumbRelativePath) }}" class="d-block w-100" alt="{{ $altText }}" loading="lazy">
+                                        </picture>
                                     </button>
                                 @endforeach
                             </div>
