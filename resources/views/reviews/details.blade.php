@@ -89,7 +89,7 @@
                         <!-- Google AdSense Ad Unit 1 -->
                         <div class="ad-unit" style="margin-bottom: 15px;">
                             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2979269950522014" crossorigin="anonymous"></script>
-                            <ins class="adsbygoogle" style="display:block; height: 150px; max-height: 150px;" data-ad-client="ca-pub-2979269950522014" data-ad-slot="9681431780" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-2979269950522014" data-ad-slot="9681431780" data-ad-format="auto" data-full-width-responsive="true"></ins>
                             <script>
                                 (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
@@ -302,7 +302,9 @@
 
 .wrap-ad-sidebar .adsbygoogle {
     max-width: 100%;
+    width: 100%;
     overflow: hidden;
+    display: block;
 }
 
 /* Mobile responsive adjustments */
@@ -325,6 +327,13 @@
     .wrap-ad-sidebar {
         max-height: none;
         margin-top: 20px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wrap-ad.sticky-top {
+        position: static;
     }
 }
 </style>
