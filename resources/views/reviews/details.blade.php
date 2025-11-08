@@ -400,14 +400,19 @@
                     activeThumbnail.classList.add('active');
                     
                     // Auto-scroll to show active thumbnail
-                    const thumbnailRect = activeThumbnail.getBoundingClientRect();
-                    const containerRect = thumbnailScroll.getBoundingClientRect();
-                    
-                    if (thumbnailRect.left < containerRect.left || thumbnailRect.right > containerRect.right) {
-                        activeThumbnail.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest',
-                            inline: 'center'
+                    const containerScrollLeft = thumbnailScroll.scrollLeft;
+                    const containerWidth = thumbnailScroll.clientWidth;
+                    const thumbnailLeft = activeThumbnail.offsetLeft;
+                    const thumbnailWidth = activeThumbnail.offsetWidth;
+
+                    const isOutOfViewLeft = thumbnailLeft < containerScrollLeft;
+                    const isOutOfViewRight = (thumbnailLeft + thumbnailWidth) > (containerScrollLeft + containerWidth);
+
+                    if (isOutOfViewLeft || isOutOfViewRight) {
+                        const targetScroll = thumbnailLeft - (containerWidth - thumbnailWidth) / 2;
+                        thumbnailScroll.scrollTo({
+                            left: Math.max(targetScroll, 0),
+                            behavior: 'smooth'
                         });
                     }
                 }
