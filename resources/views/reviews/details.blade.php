@@ -154,8 +154,8 @@
 	<div class="col-md-4">
                 <div class="wrap-ad sticky-top">
 		            <a href="https://www.exhibitstore.in/" target="_blank">
-                        <img src="https://www.topgearmag.in/uploads/Banners/tgissue-oct2025.webp" width="100%" alt="TopGear Magazine October 2025" />
-                    </a>                </div>
+                        <img src="https://www.topgearmag.in/uploads/Banners/tgissue-nov2025.png" width="100%" alt="TopGear Magazine November 2025" />
+                    </a>              </div>
 	</div>	
 </div>
 </div>
