@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="my-3 text-center">
-        <a href="https://youtu.be/3kiDJ3hqQ74?si=9h8Qs6RfAuTWzfl4" target="_blank">
+        <a href="https://youtu.be/yeGXHJcf8mQ" target="_blank">
             <img src="/uploads/Banners/cws-s2.png" alt="Cars With Stars Season 2" width="100%">
         </a>
     </div>
