@@ -128,6 +128,9 @@ Route::get('/magazine', function () {
     return redirect()->away('https://exhibitstore.in');
 });
 
+Route::get('/awards2026', function () {
+    return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfOtGLJQAwViD-mxlnypf0E4Xd2V8D3wolMsUx9uBS6vExgMg/viewform');
+});
 Route::get('/signup', function () {
     return redirect()->away('http://www.topgearmag.in/awards25');
 });
