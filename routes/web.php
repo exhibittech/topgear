@@ -16,7 +16,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\VotingController;
 use App\Http\Controllers\PollResultsController;
-use App\Http\Controllers\ImpressionController; //Turtle Wax Ad cretive Impression
+//use App\Http\Controllers\ImpressionController; //Turtle Wax Ad cretive Impression
 
 use Illuminate\Support\Facades\Route;
 
@@ -32,25 +32,27 @@ Route::get('/editorial', [EditorialController::class, 'list'])->name('editorial.
 Route::get('/editorial/{code}', [EditorialController::class, 'details'])->name('editorial.details');
 
 Route::get('/awards', [StaticPageController::class, 'awards'])->name('awards');
-Route::get('/awards25', [StaticPageController::class, 'awards25'])->name('awards25');
 
 Route::get('/winners23', [StaticPageController::class, 'winners23'])->name('winners23');
 Route::get('/winners24', [StaticPageController::class, 'winners24'])->name('winners24');
 Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winners25');
 
-Route::get('/tg-score', [PollResultsController::class, 'showResults'])->name('poll.results');
+//Route::get('/tg-score', [PollResultsController::class, 'showResults'])->name('poll.results');
 
 //Turtle Wax Ad cretive Impression
-Route::post('/track-impression', [ImpressionController::class, 'store'])->name('track.impression');
+//Route::post('/track-impression', [ImpressionController::class, 'store'])->name('track.impression');
 
 //Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
 //Route::post('/signup', [VotingController::class, 'storeUser'])->name('signup.store');
 
-Route::get('/tgcars', [VotingController::class, 'showVoting'])->name('awards.voting');
-Route::post('/tgcars', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
+// Route::get('/tgcars', [VotingController::class, 'showVoting'])->name('awards.voting');
+// Route::post('/tgcars', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
 //Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
 //Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');
+
+Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
+//Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
@@ -132,18 +134,8 @@ Route::get('/awards2026', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfOtGLJQAwViD-mxlnypf0E4Xd2V8D3wolMsUx9uBS6vExgMg/viewform');
 });
 Route::get('/signup', function () {
-    return redirect()->away('http://www.topgearmag.in/awards25');
+    return redirect()->away('http://www.topgearmag.in/awards');
 });
-Route::get('/voting', function () {
-    return redirect()->away('http://www.topgearmag.in/awards25');
-});
-Route::get('/bikes', function () {
-    return redirect()->away('http://www.topgearmag.in/awards25');
-});
-Route::get('/votenow', function () {
-    return redirect()->away('http://www.topgearmag.in/awards25');
-});
-
 Route::get('/rsvp', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeFi5LAJDBavK4SXAaOGn7LhBad6gkTL0jto2EbEfo8YTHfbg/viewform?usp=header');
 });

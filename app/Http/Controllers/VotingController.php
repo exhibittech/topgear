@@ -37,7 +37,7 @@ class VotingController extends Controller
 
         session(['voting_user_id' => $user->id]);
 
-        return redirect()->route('awards.voting'); // Redirect to car voting page
+        return redirect()->route('awards.voting26'); // Redirect to car voting page
     }
 
     public function showVoting()
@@ -49,9 +49,9 @@ class VotingController extends Controller
         $menu = MenuController::loadMenu();
 
         $seodata = [
-            'MetaTitle' => 'TopGear Awards 2025',
-            'MetaDescription' => 'Vote for the TopGear Awards 2025.',
-            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards,Auto Awards 2025 Awards',
+            'MetaTitle' => 'TopGear Awards 2026',
+            'MetaDescription' => 'Vote for the TopGear Awards 2026.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards,Auto Awards 2026 Awards',
         ];
 
         $carVote = CarVote::where('voting_user_id', $userId)->first();
