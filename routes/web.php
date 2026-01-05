@@ -42,7 +42,7 @@ Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winn
 //Turtle Wax Ad cretive Impression
 //Route::post('/track-impression', [ImpressionController::class, 'store'])->name('track.impression');
 
-//Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
+Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
 //Route::post('/signup', [VotingController::class, 'storeUser'])->name('signup.store');
 
 // Route::get('/tgcars', [VotingController::class, 'showVoting'])->name('awards.voting');
@@ -133,9 +133,9 @@ Route::get('/magazine', function () {
 Route::get('/awards2026', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfOtGLJQAwViD-mxlnypf0E4Xd2V8D3wolMsUx9uBS6vExgMg/viewform');
 });
-Route::get('/signup', function () {
-    return redirect()->away('http://www.topgearmag.in/awards');
-});
+// Route::get('/signup', function () {
+//     return redirect()->away('http://www.topgearmag.in/awards');
+// });
 Route::get('/rsvp', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeFi5LAJDBavK4SXAaOGn7LhBad6gkTL0jto2EbEfo8YTHfbg/viewform?usp=header');
 });

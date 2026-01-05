@@ -14,9 +14,9 @@ class VotingController extends Controller
             $menu = MenuController::loadMenu();
     
             $seodata = [
-                'MetaTitle' => 'TopGear Awards 2025 Register',
-                'MetaDescription' => 'awards.signup to vote for the TopGear Awards 2025.',
-                'Keyword' => 'TopGear Awards, Car Awards, Bike Awards,Auto Awards 2025 Awards',
+                'MetaTitle' => 'TopGear Awards 2026 Register',
+                'MetaDescription' => 'awards.signup to vote for the TopGear Awards 2026.',
+                'Keyword' => 'TopGear Awards, Car Awards, Bike Awards,Auto Awards 2026 Awards',
             ];
     
             return view('awards.signup', compact('seodata', 'menu'));
