@@ -35,12 +35,24 @@ class StaticPageController extends Controller
         $menu = MenuController::loadMenu();
 
         $seodata = [
-            'MetaTitle' => 'TopGear Awards 2026',
+            'MetaTitle' => 'TopGear Awards 2026 | Cars',
             'MetaDescription' => 'Winners of TopGear Awards India will be announced in February 2026',
             'Keyword' => 'TopGear Awards 2026, Winners of TopGear Awards India',
         ];
 
         return view('awards.voting26', compact('seodata', 'menu'));
+    }
+    public function bikes26()
+    {
+        $menu = MenuController::loadMenu();
+
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 | Bikes',
+            'MetaDescription' => 'Winners of TopGear Awards India will be announced in February 2026',
+            'Keyword' => 'TopGear Awards 2026, Winners of TopGear Awards India',
+        ];
+
+        return view('awards.bikes26', compact('seodata', 'menu'));
     }
 
     public function winners24()

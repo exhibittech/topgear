@@ -9,20 +9,20 @@
         <div class="tg-banner-wrap">
                 <img src="https://www.topgearmag.in/uploads/awards26/awards26.jpg" width="100%">
         </div>
-        <div class="kjbar-wrap">
+        <!-- <div class="kjbar-wrap">
 
-                <div class="kjleft">
-                        <div class="kjcar active"><a href="#">Vote For Cars <i class="fa fa-car" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="kjbike"><a href="/voting-bikes">Vote For Bikes <i class="fa fa-motorcycle"
-                                                aria-hidden="true"></i></a></div>
-                </div>
-        </div>
+                                <div class="kjleft">
+                                        <div class="kjcar active"><a href="#">Vote For Cars <i class="fa fa-car" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="kjbike"><a href="/voting-bikes">Vote For Bikes <i class="fa fa-motorcycle"
+                                                                aria-hidden="true"></i></a></div>
+                                </div>
+                        </div> -->
         <div class="tg-voting-wrap">
                 <div class="container">
                         <div class="kjbar-wrap">
                         </div>
-                        <form id="tga-25" method="get" action="https://www.topgearmag.in/voting-bikes">
+                        <form id="tga-25" method="get" action="https://www.topgearmag.in/bikes26">
                                 <!-- cat1 -->
                                 <div class="row">
                                         <div class="tgsection-title kjcat-question">
@@ -60,7 +60,7 @@
                                                         <input type="radio" id="kj04" name="cat1"
                                                                 value="Maruti Suzuki Victoris" />
                                                         <label for="kj04"><img
-                                                                        src="uploads/awards26/cars/Maruti-Suzuki-Victoris.jpg"
+                                                                        src="uploads/awards26/cars/Maruti-Suzuki-Victoris.jpeg"
                                                                         alt="Maruti Suzuki Victoris" />
                                                                 <p>Maruti Suzuki Victoris</p>
                                                         </label>
@@ -166,7 +166,7 @@
                                                         <input type="radio" id="kj14" name="cat3"
                                                                 value="Maruti Suzuki Victoris" />
                                                         <label for="kj14"><img
-                                                                        src="uploads/awards26/cars/Maruti-Suzuki-Victoris.jpg"
+                                                                        src="uploads/awards26/cars/Maruti-Suzuki-Victoris.jpeg"
                                                                         alt="Maruti Suzuki Victoris" />
                                                                 <p>Maruti Suzuki Victoris</p>
                                                         </label>
@@ -183,10 +183,10 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj16" name="cat3" value="Vinfast VF6" />
-                                                        <label for="kj16"><img src="uploads/awards26/cars/Vinfast-VF6.jpg"
-                                                                        alt="Vinfast VF6" />
-                                                                <p>Vinfast VF6</p>
+                                                        <input type="radio" id="kj16" name="cat3" value="Vinfast VF 6" />
+                                                        <label for="kj16"><img src="uploads/awards26/cars/Vinfast-VF-6.jpg"
+                                                                        alt="Vinfast VF 6" />
+                                                                <p>Vinfast VF 6</p>
                                                         </label>
                                                 </div>
                                         </div>
@@ -287,10 +287,10 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj26" name="cat5" value="Vinfast VF7" />
-                                                        <label for="kj26"><img src="uploads/awards26/cars/Vinfast-VF7.jpg"
-                                                                        alt="Vinfast VF7" />
-                                                                <p>Vinfast VF7</p>
+                                                        <input type="radio" id="kj26" name="cat5" value="Vinfast VF 7" />
+                                                        <label for="kj26"><img src="uploads/awards26/cars/Vinfast-VF-7.jpg"
+                                                                        alt="Vinfast VF 7" />
+                                                                <p>Vinfast VF 7</p>
                                                         </label>
                                                 </div>
                                         </div>
@@ -522,17 +522,17 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj47" name="cat10" value="Vinfast VF6" />
-                                                        <label for="kj47"><img src="uploads/awards26/cars/Vinfast-VF6.jpg"
-                                                                        alt="Vinfast VF6" />
-                                                                <p>Vinfast VF6</p>
+                                                        <input type="radio" id="kj47" name="cat10" value="Vinfast VF 6" />
+                                                        <label for="kj47"><img src="uploads/awards26/cars/Vinfast-VF-6.jpg"
+                                                                        alt="Vinfast VF 6" />
+                                                                <p>Vinfast VF 6</p>
                                                         </label>
                                                 </div>
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj48" name="cat10" value="Vinfast VF7" />
-                                                        <label for="kj48"><img src="uploads/awards26/cars/Vinfast-VF7.jpg"
+                                                        <label for="kj48"><img src="uploads/awards26/cars/Vinfast-VF-7.jpg"
                                                                         alt="Vinfast VF7" />
                                                                 <p>Vinfast VF7</p>
                                                         </label>
@@ -576,19 +576,21 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj53" name="cat10" value="Mahindra XEV 9S" />
-                                                        <label for="kj53"><img src="uploads/awards26/cars/Mahindra-XEV-9S.jpg"
-                                                                        alt="Mahindra XEV 9S" />
-                                                                <p>Mahindra XEV 9S</p>
+                                                        <input type="radio" id="kj53" name="cat10" value="Mahindra XEV 9s" />
+                                                        <label for="kj53"><img src="uploads/awards26/cars/Mahindra-XEV-9s.jpg"
+                                                                        alt="Mahindra XEV 9s" />
+                                                                <p>Mahindra XEV 9s</p>
                                                         </label>
                                                 </div>
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj54" name="cat10" value="Kia Clavis EV" />
-                                                        <label for="kj54"><img src="uploads/awards26/cars/Kia-Clavis-EV.jpg"
-                                                                        alt="Kia Clavis EV" />
-                                                                <p>Kia Clavis EV</p>
+                                                        <input type="radio" id="kj54" name="cat10"
+                                                                value="Kia Carens Clavis EV" />
+                                                        <label for="kj54"><img
+                                                                        src="uploads/awards26/cars/Kia-Carens-Clavis-EV.jpg"
+                                                                        alt="Kia Carens Clavis EV" />
+                                                                <p>Kia Carens Clavis EV</p>
                                                         </label>
                                                 </div>
                                         </div>
@@ -601,19 +603,17 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj55" name="cat11" value="Vinfast VF6" />
-                                                        <label for="kj55"><img
-                                                                        src="uploads/awards26/cars/Vinfast-VF6.jpg"
-                                                                        alt="Vinfast VF6" />
-                                                                <p>Vinfast VF6</p>
+                                                        <input type="radio" id="kj55" name="cat11" value="Vinfast VF 6" />
+                                                        <label for="kj55"><img src="uploads/awards26/cars/Vinfast-VF-6.jpg"
+                                                                        alt="Vinfast VF 6" />
+                                                                <p>Vinfast VF 6</p>
                                                         </label>
                                                 </div>
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj56" name="cat11" value="Vinfast VF7" />
-                                                        <label for="kj56"><img
-                                                                        src="uploads/awards26/cars/Vinfast-VF7.jpg"
+                                                        <label for="kj56"><img src="uploads/awards26/cars/Vinfast-VF-7.jpg"
                                                                         alt="Vinfast VF7" />
                                                                 <p>Vinfast VF7</p>
                                                         </label>
@@ -622,8 +622,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj57" name="cat11" value="Mahindra BE 6" />
-                                                        <label for="kj57"><img
-                                                                        src="uploads/awards26/cars/Mahindra-BE-6.jpg"
+                                                        <label for="kj57"><img src="uploads/awards26/cars/Mahindra-BE-6.jpg"
                                                                         alt="Mahindra BE 6" />
                                                                 <p>Mahindra BE 6</p>
                                                         </label>
@@ -632,8 +631,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj58" name="cat11" value="Mahindra XEV 9e" />
-                                                        <label for="kj58"><img
-                                                                        src="uploads/awards26/cars/Mahindra-XEV-9e.jpg"
+                                                        <label for="kj58"><img src="uploads/awards26/cars/Mahindra-XEV-9e.jpg"
                                                                         alt="Mahindra XEV 9e" />
                                                                 <p>Mahindra XEV 9e</p>
                                                         </label>
@@ -642,8 +640,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj59" name="cat11" value="Tata Harrier EV" />
-                                                        <label for="kj59"><img
-                                                                        src="uploads/awards26/cars/Tata-Harrier-EV.jpg"
+                                                        <label for="kj59"><img src="uploads/awards26/cars/Tata-Harrier-EV.jpg"
                                                                         alt="Tata Harrier EV" />
                                                                 <p>Tata Harrier EV</p>
                                                         </label>
@@ -652,8 +649,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj60" name="cat11" value="BYD Sealion" />
-                                                        <label for="kj60"><img
-                                                                        src="uploads/awards26/cars/BYD-Sealion.jpg"
+                                                        <label for="kj60"><img src="uploads/awards26/cars/BYD-Sealion.jpg"
                                                                         alt="BYD Sealion" />
                                                                 <p>BYD Sealion</p>
                                                         </label>
@@ -661,11 +657,10 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj61" name="cat11" value="Mahindra XEV 9S" />
-                                                        <label for="kj61"><img
-                                                                        src="uploads/awards26/cars/Mahindra-XEV-9S.jpg"
-                                                                        alt="Mahindra XEV 9S" />
-                                                                <p>Mahindra XEV 9S</p>
+                                                        <input type="radio" id="kj61" name="cat11" value="Mahindra XEV 9s" />
+                                                        <label for="kj61"><img src="uploads/awards26/cars/Mahindra-XEV-9s.jpg"
+                                                                        alt="Mahindra XEV 9s" />
+                                                                <p>Mahindra XEV 9s</p>
                                                         </label>
                                                 </div>
                                         </div>
@@ -678,8 +673,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj62" name="cat12" value="Volvo EX30" />
-                                                        <label for="kj62"><img
-                                                                        src="uploads/awards26/cars/Volvo-EX30.jpg"
+                                                        <label for="kj62"><img src="uploads/awards26/cars/Volvo-EX30.jpg"
                                                                         alt="Volvo EX30" />
                                                                 <p>Volvo EX30</p>
                                                         </label>
@@ -687,7 +681,8 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj63" name="cat12" value="Porsche Macan Electric" />
+                                                        <input type="radio" id="kj63" name="cat12"
+                                                                value="Porsche Macan Electric" />
                                                         <label for="kj63"><img
                                                                         src="uploads/awards26/cars/Porsche-Macan-Electric.jpg"
                                                                         alt="Porsche Macan Electric" />
@@ -698,8 +693,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj64" name="cat12" value="BMW iX1 LWB" />
-                                                        <label for="kj64"><img
-                                                                        src="uploads/awards26/cars/BMW-iX1-LWB.jpg"
+                                                        <label for="kj64"><img src="uploads/awards26/cars/BMW-iX1-LWB.jpg"
                                                                         alt="BMW iX1 LWB" />
                                                                 <p>BMW iX1 LWB</p>
                                                         </label>
@@ -707,7 +701,8 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj65" name="cat12" value="MINI Countryman JCW" />
+                                                        <input type="radio" id="kj65" name="cat12"
+                                                                value="MINI Countryman JCW" />
                                                         <label for="kj65"><img
                                                                         src="uploads/awards26/cars/MINI-Countryman-JCW.jpg"
                                                                         alt="MINI Countryman JCW" />
@@ -718,8 +713,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj66" name="cat12" value="BMW X3" />
-                                                        <label for="kj66"><img
-                                                                        src="uploads/awards26/cars/BMW-X3.jpg"
+                                                        <label for="kj66"><img src="uploads/awards26/cars/BMW-X3.jpg"
                                                                         alt="BMW X3" />
                                                                 <p>BMW X3</p>
                                                         </label>
@@ -744,8 +738,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj68" name="cat13" value="Audi RS Q8" />
-                                                        <label for="kj68"><img
-                                                                        src="uploads/awards26/cars/Audi-RS-Q8.jpg"
+                                                        <label for="kj68"><img src="uploads/awards26/cars/Audi-RS-Q8.jpg"
                                                                         alt="Audi RS Q8" />
                                                                 <p>Audi RS Q8</p>
                                                         </label>
@@ -754,8 +747,7 @@
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
                                                         <input type="radio" id="kj69" name="cat13" value="Tesla Model Y" />
-                                                        <label for="kj69"><img
-                                                                        src="uploads/awards26/cars/Tesla-Model-Y.jpg"
+                                                        <label for="kj69"><img src="uploads/awards26/cars/Tesla-Model-Y.jpg"
                                                                         alt="Tesla Model Y" />
                                                                 <p>Tesla Model Y</p>
                                                         </label>
@@ -763,7 +755,8 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj70" name="cat13" value="Land Rover Defender Octa" />
+                                                        <input type="radio" id="kj70" name="cat13"
+                                                                value="Land Rover Defender Octa" />
                                                         <label for="kj70"><img
                                                                         src="uploads/awards26/cars/Land-Rover-Defender-Octa.jpg"
                                                                         alt="Land Rover Defender Octa" />
@@ -773,7 +766,8 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj71" name="cat13" value="Mercedes-Benz G450d" />
+                                                        <input type="radio" id="kj71" name="cat13"
+                                                                value="Mercedes-Benz G450d" />
                                                         <label for="kj71"><img
                                                                         src="uploads/awards26/cars/Mercedes-Benz-G450d.jpg"
                                                                         alt="Mercedes-Benz G450d" />
@@ -793,7 +787,8 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj73" name="cat13" value="Range Rover Sport SV" />
+                                                        <input type="radio" id="kj73" name="cat13"
+                                                                value="Range Rover Sport SV" />
                                                         <label for="kj73"><img
                                                                         src="uploads/awards26/cars/Range-Rover-Sport-SV.jpg"
                                                                         alt="Range Rover Sport SV" />
@@ -819,7 +814,8 @@
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj75" name="cat14" value="Mercedes-Benz G450d" />
+                                                        <input type="radio" id="kj75" name="cat14"
+                                                                value="Mercedes-Benz G450d" />
                                                         <label for="kj75"><img
                                                                         src="uploads/awards26/cars/Mercedes-Benz-G450d.jpg"
                                                                         alt="Mercedes-Benz G450d" />

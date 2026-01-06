@@ -56,7 +56,8 @@ Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
 
 //Voting 2026
 Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
-
+Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
+//end
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
 Route::get('/career', [StaticPageController::class, 'career'])->name('career');
