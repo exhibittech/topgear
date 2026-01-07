@@ -911,7 +911,7 @@
                                 <!-- cat15 -->
                                 <div class="row">
                                         <div class="tgsection-title kjcat-question">
-                                                <h2>Category 15</h2>
+                                                <h2>Suv of the Year</h2>
                                         </div>
                                         <div class="col-lg-3 col-6">
                                                 <div class="kjchocie-wrap">

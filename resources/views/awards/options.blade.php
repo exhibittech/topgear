@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="tg-banner-wrap">
-<img src="https://www.topgearmag.in/uploads/awards25/awards25.webp" width="100%">
+<img src="https://www.topgearmag.in/uploads/awards26/awards26.jpg" width="100%">
 </div>
 
 <div class="tg-voting-wrap">
@@ -27,7 +27,6 @@
         <div class="kj-options-wrap">
             <div class="tgsection-title kjcat-question">
                 <h2>Choose Your Category</h2>
-                <p>Select a category to cast your vote</p>
             </div>
             
             <div class="row justify-content-center">
