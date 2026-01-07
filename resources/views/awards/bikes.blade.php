@@ -216,7 +216,7 @@
         <div class="col-lg-3 col-6">
         <div class="kjchocie-wrap">
                 <input required type="radio" id="bkj22" name="bcat2" value="Simple One Gen 1.5" />      
-                <label for="bkj22"><img src="uploads/awards26/bikes/Simple-One-Gen-1.5.jpg" alt="Simple One Gen 1.5"/>
+                <label for="bkj22"><img src="uploads/awards26/bikes/Simple-One-Gen.jpg" alt="Simple One Gen 1.5"/>
                 <p>Simple One Gen 1.5</p>
                 </label>
         </div>
