@@ -11,7 +11,7 @@
 </div>
 <div class="kjbar-wrap">
     <div class="kjleft">
-      <div class="kjcar active"><a href="{{ route('awards.voting') }}">Vote For Cars <i class="fa fa-car" aria-hidden="true"></i></a></div>
+      <div class="kjcar active"><a href="{{ route('awards.voting26') }}">Vote For Cars <i class="fa fa-car" aria-hidden="true"></i></a></div>
     </div>
 </div>
 <div class="tg-voting-wrap">

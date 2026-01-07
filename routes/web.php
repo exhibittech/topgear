@@ -41,22 +41,23 @@ Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winn
 
 //Turtle Wax Ad cretive Impression
 //Route::post('/track-impression', [ImpressionController::class, 'store'])->name('track.impression');
-
-Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
-//Route::post('/signup', [VotingController::class, 'storeUser'])->name('signup.store');
-
 // Route::get('/tgcars', [VotingController::class, 'showVoting'])->name('awards.voting');
 // Route::post('/tgcars', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
-//Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
-//Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');
+Route::get('/voting26', [VotingController::class, 'showSignup'])->name('signup');
+Route::post('/voting26', [VotingController::class, 'storeUser'])->name('signup.store');
 
-//Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
-//Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
+Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
+Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');
+
+Route::get('/options', [VotingController::class, 'showOptions'])->name('awards.options');
+
+Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
+Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
 //Voting 2026
-Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
-Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
+// Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
+// Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
 //end
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
