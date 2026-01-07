@@ -12,7 +12,7 @@
 <div class="kjbar-wrap">
 	  
 	<div class="kjleft">
-                <div class="kjcar "><a href="{{ route('awards.voting') }}">Vote For Cars <i class="fa fa-car" aria-hidden="true"></i></a></div>
+                <div class="kjcar "><a href="{{ route('awards.voting26') }}">Vote For Cars <i class="fa fa-car" aria-hidden="true"></i></a></div>
                 <div class="kjbike active"><a href={{ route('awards.bikes') }}>Vote For Bikes <i class="fa fa-motorcycle" aria-hidden="true"></i></a></div>
 	</div>
 </div>

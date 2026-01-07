@@ -37,7 +37,27 @@ class VotingController extends Controller
 
         session(['voting_user_id' => $user->id]);
 
-        return redirect()->route('awards.voting26'); // Redirect to car voting page
+        return redirect()->route('awards.options'); // Redirect to options page
+    }
+
+    public function showOptions()
+    {
+        $userId = session('voting_user_id');
+        if (!$userId) {
+            return redirect()->route('signup');
+        }
+        $menu = MenuController::loadMenu();
+
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 - Choose Category',
+            'MetaDescription' => 'Choose your category to vote for the TopGear Awards 2026.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards, Auto Awards 2026',
+        ];
+
+        $carVote = CarVote::where('voting_user_id', $userId)->first();
+        $bikeVote = BikeVote::where('voting_user_id', $userId)->first();
+
+        return view('awards.options', compact('seodata', 'menu', 'carVote', 'bikeVote'));
     }
 
     public function showVoting()
@@ -68,7 +88,7 @@ class VotingController extends Controller
             $request->only(['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8', 'cat9', 'cat10', 'cat11', 'cat12', 'cat13', 'cat14', 'cat15', 'cat16', 'cat17', 'cat18', 'cat19'])
         );
 
-        return redirect()->route('awards.bikes')->with('success', 'Car votes submitted!');
+        return redirect()->route('awards.options')->with('success', 'Car votes submitted successfully!');
     }
 
     public function showBikes()
@@ -105,21 +125,8 @@ class VotingController extends Controller
             $request->only(['bcat1', 'bcat2', 'bcat3', 'bcat4', 'bcat5', 'bcat6', 'bcat7', 'bcat8', 'bcat9', 'bcat10'])
         );
     
-        // Check if both car and bike votes are submitted
-        $carVote = CarVote::where('voting_user_id', $userId)->first();
-        $bikeVote = BikeVote::where('voting_user_id', $userId)->first();
-    
-        if (!$carVote) {
-            // If bike vote is done but car vote is missing, redirect to car voting page
-            return redirect()->route('awards.voting')->with('success', 'Thank you for your bike votes! Now please vote for cars.');
-        }
-    
-        if ($carVote && $bikeVote) {
-            // If both votes are done, redirect to signup page with a thank-you message
-            return redirect()->route('signup')->with('success', 'Thank you for submitting both your car and bike votes!');
-        }
-    
-        return redirect()->route('signup')->with('success', 'Thank you for your bike votes!');
+        // Redirect back to options page with success message
+        return redirect()->route('awards.options')->with('success', 'Bike votes submitted successfully!');
     }
     
 
