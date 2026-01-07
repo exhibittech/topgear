@@ -12,7 +12,7 @@
     <div class="row">
         <div class="offset-lg-3 offset-md-1 col-lg-6 col-md-10 form">                
             <div class="sign-up">
-                <h3>Registration Form</h3>
+                <h3>Register / Login</h3>
                 <form class="kjsignupform" method="POST" autocomplete="off" action="{{ route('signup.store') }}" id="signup-form">
                     @csrf
                     <!-- Name input: allows only alphabets -->
@@ -26,7 +26,7 @@
                     <label for="policy">I agree to the <b>Terms and Policy</b></label><br/>
                     
                     <div class="kjformoption">
-                        <button type="submit" class="tg-btn">Sign Up</button>
+                        <button type="submit" class="tg-btn">Submit</button>
                     </div>
                 </form>
                 
