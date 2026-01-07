@@ -5,7 +5,13 @@
 <h1 class="d-none">Car and Bike Reviews, News & Auto Magazine in India</h1>
 @include('partials.banner')
 
-
+<div class="container">
+    <div class="my-2 text-center">
+        <a href="https://vinfastauto.in/en/schedule-a-test-drive?utm_source=topgear&utm_medium=website&utm_campaign=jan" target="_blank">
+            <img src="/uploads/Banners/vinfast.jpg" alt="Vinfast" width="100%">
+        </a>
+    </div>
+</div>
 <section class="tg-reviews-latest">
     <div class="container">
         <div class="row">
