@@ -1022,252 +1022,139 @@
                                                                         alt="Mahindra XEV 9s" />
                                                                 <p>Mahindra XEV 9s</p>
                                                         </label>
-                                        <!-- cat15 -->
-                                        <div class="row">
-                                                <div class="tgsection-title kjcat-question">
-                                                        <h2>Category 15</h2>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj80" name="cat15"
-                                                                        value="Maruti Suzuki Victoris" />
-                                                                <label for="kj80"><img
-                                                                                src="uploads/awards26/cars/Maruti-Suzuki-Victoris.jpeg"
-                                                                                alt="Maruti Suzuki Victoris" />
-                                                                        <p>Maruti Suzuki Victoris</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj81" name="cat15" value="Tata Sierra" />
-                                                                <label for="kj81"><img src="uploads/awards26/cars/Tata-Sierra.jpg"
-                                                                                alt="Tata Sierra" />
-                                                                        <p>Tata Sierra</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj82" name="cat15" value="Kia Syros" />
-                                                                <label for="kj82"><img src="uploads/awards26/cars/Kia-Syros.jpg"
-                                                                                alt="Kia Syros" />
-                                                                        <p>Kia Syros</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj83" name="cat15" value="Skoda Kylaq" />
-                                                                <label for="kj83"><img src="uploads/awards26/cars/Skoda-Kylaq.jpg"
-                                                                                alt="Skoda Kylaq" />
-                                                                        <p>Skoda Kylaq</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj84" name="cat15" value="Hyundai Venue" />
-                                                                <label for="kj84"><img src="uploads/awards26/cars/Hyundai-Venue.jpg"
-                                                                                alt="Hyundai Venue" />
-                                                                        <p>Hyundai Venue</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj85" name="cat15" value="Vinfast VF 6" />
-                                                                <label for="kj85"><img src="uploads/awards26/cars/Vinfast-VF-6.jpg"
-                                                                                alt="Vinfast VF 6" />
-                                                                        <p>Vinfast VF 6</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj86" name="cat15" value="Vinfast VF 7" />
-                                                                <label for="kj86"><img src="uploads/awards26/cars/Vinfast-VF-7.jpg"
-                                                                                alt="Vinfast VF 7" />
-                                                                        <p>Vinfast VF 7</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj87" name="cat15" value="Mahindra BE 6" />
-                                                                <label for="kj87"><img src="uploads/awards26/cars/Mahindra-BE-6.jpg"
-                                                                                alt="Mahindra BE 6" />
-                                                                        <p>Mahindra BE 6</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj88" name="cat15" value="Mahindra XEV 9e" />
-                                                                <label for="kj88"><img src="uploads/awards26/cars/Mahindra-XEV-9e.jpg"
-                                                                                alt="Mahindra XEV 9e" />
-                                                                        <p>Mahindra XEV 9e</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj89" name="cat15" value="Tata Harrier EV" />
-                                                                <label for="kj89"><img src="uploads/awards26/cars/Tata-Harrier-EV.jpg"
-                                                                                alt="Tata Harrier EV" />
-                                                                        <p>Tata Harrier EV</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj90" name="cat15" value="BYD Sealion 7" />
-                                                                <label for="kj90"><img src="uploads/awards26/cars/BYD-Sealion.jpg"
-                                                                                alt="BYD Sealion 7" />
-                                                                        <p>BYD Sealion 7</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj91" name="cat15" value="Mahindra XEV 9s" />
-                                                                <label for="kj91"><img src="uploads/awards26/cars/Mahindra-XEV-9s.jpg"
-                                                                                alt="Mahindra XEV 9s" />
-                                                                        <p>Mahindra XEV 9s</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj92" name="cat15" value="BMW iX1 LWB" />
-                                                                <label for="kj92"><img src="uploads/awards26/cars/BMW-iX1-LWB.jpg"
-                                                                                alt="BMW iX1 LWB" />
-                                                                        <p>BMW iX1 LWB</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj93" name="cat15" value="Volvo EX30" />
-                                                                <label for="kj93"><img src="uploads/awards26/cars/Volvo-EX30.jpg"
-                                                                                alt="Volvo EX30" />
-                                                                        <p>Volvo EX30</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj94" name="cat15"
-                                                                        value="Porsche Macan Electric" />
-                                                                <label for="kj94"><img
-                                                                                src="uploads/awards26/cars/Porsche-Macan-Electric.jpg"
-                                                                                alt="Porsche Macan Electric" />
-                                                                        <p>Porsche Macan Electric</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj95" name="cat15"
-                                                                        value="MINI Countryman JCW" />
-                                                                <label for="kj95"><img
-                                                                                src="uploads/awards26/cars/MINI-Countryman-JCW.jpg"
-                                                                                alt="MINI Countryman JCW" />
-                                                                        <p>MINI Countryman JCW</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj96" name="cat15" value="BMW X3" />
-                                                                <label for="kj96"><img src="uploads/awards26/cars/BMW-X3.jpg"
-                                                                                alt="BMW X3" />
-                                                                        <p>BMW X3</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj97" name="cat15" value="Mercedes-Benz G580" />
-                                                                <label for="kj97"><img
-                                                                                src="uploads/awards26/cars/Mercedes-Benz-G580.jpg"
-                                                                                alt="Mercedes-Benz G580" />
-                                                                        <p>Mercedes-Benz G580</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj98" name="cat15" value="Audi RS Q8" />
-                                                                <label for="kj98"><img src="uploads/awards26/cars/Audi-RS-Q8.jpg"
-                                                                                alt="Audi RS Q8" />
-                                                                        <p>Audi RS Q8</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj99" name="cat15" value="Tesla Model Y" />
-                                                                <label for="kj99"><img src="uploads/awards26/cars/Tesla-Model-Y.jpg"
-                                                                                alt="Tesla Model Y" />
-                                                                        <p>Tesla Model Y</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj100" name="cat15"
-                                                                        value="Land Rover Defender Octa" />
-                                                                <label for="kj100"><img
-                                                                                src="uploads/awards26/cars/Land-Rover-Defender-Octa.jpg"
-                                                                                alt="Land Rover Defender Octa" />
-                                                                        <p>Land Rover Defender Octa</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj101" name="cat15"
-                                                                        value="Mercedes-Benz G450d" />
-                                                                <label for="kj101"><img
-                                                                                src="uploads/awards26/cars/Mercedes-Benz-G450d.jpg"
-                                                                                alt="Mercedes-Benz G450d" />
-                                                                        <p>Mercedes-Benz G450d</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj102" name="cat15"
-                                                                        value="Land Cruiser LC300" />
-                                                                <label for="kj102"><img
-                                                                                src="uploads/awards26/cars/Land-Cruiser-LC300.jpg"
-                                                                                alt="Land Cruiser LC300" />
-                                                                        <p>Land Cruiser LC300</p>
-                                                                </label>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-3 col-6">
-                                                        <div class="kjchocie-wrap">
-                                                                <input type="radio" id="kj103" name="cat15"
-                                                                        value="Range Rover Sport SV" />
-                                                                <label for="kj103"><img
-                                                                                src="uploads/awards26/cars/Range-Rover-Sport-SV.jpg"
-                                                                                alt="Range Rover Sport SV" />
-                                                                        <p>Range Rover Sport SV</p>
-                                                                </label>
-                                                        </div>
                                                 </div>
                                         </div>
-
-                                        <div class="text-center mt-3 mb-5">
-                                                <button class="tg-btn" type="submit">Vote</button>
-                                                <div id="error-message" style="display:none;"></div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj92" name="cat15" value="BMW iX1 LWB" />
+                                                        <label for="kj92"><img src="uploads/awards26/cars/BMW-iX1-LWB.jpg"
+                                                                        alt="BMW iX1 LWB" />
+                                                                <p>BMW iX1 LWB</p>
+                                                        </label>
+                                                </div>
                                         </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj93" name="cat15" value="Volvo EX30" />
+                                                        <label for="kj93"><img src="uploads/awards26/cars/Volvo-EX30.jpg"
+                                                                        alt="Volvo EX30" />
+                                                                <p>Volvo EX30</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj94" name="cat15"
+                                                                value="Porsche Macan Electric" />
+                                                        <label for="kj94"><img
+                                                                        src="uploads/awards26/cars/Porsche-Macan-Electric.jpg"
+                                                                        alt="Porsche Macan Electric" />
+                                                                <p>Porsche Macan Electric</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj95" name="cat15"
+                                                                value="MINI Countryman JCW" />
+                                                        <label for="kj95"><img
+                                                                        src="uploads/awards26/cars/MINI-Countryman-JCW.jpg"
+                                                                        alt="MINI Countryman JCW" />
+                                                                <p>MINI Countryman JCW</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj96" name="cat15" value="BMW X3" />
+                                                        <label for="kj96"><img src="uploads/awards26/cars/BMW-X3.jpg"
+                                                                        alt="BMW X3" />
+                                                                <p>BMW X3</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj97" name="cat15" value="Mercedes-Benz G580" />
+                                                        <label for="kj97"><img
+                                                                        src="uploads/awards26/cars/Mercedes-Benz-G580.jpg"
+                                                                        alt="Mercedes-Benz G580" />
+                                                                <p>Mercedes-Benz G580</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj98" name="cat15" value="Audi RS Q8" />
+                                                        <label for="kj98"><img src="uploads/awards26/cars/Audi-RS-Q8.jpg"
+                                                                        alt="Audi RS Q8" />
+                                                                <p>Audi RS Q8</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj99" name="cat15" value="Tesla Model Y" />
+                                                        <label for="kj99"><img src="uploads/awards26/cars/Tesla-Model-Y.jpg"
+                                                                        alt="Tesla Model Y" />
+                                                                <p>Tesla Model Y</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj100" name="cat15"
+                                                                value="Land Rover Defender Octa" />
+                                                        <label for="kj100"><img
+                                                                        src="uploads/awards26/cars/Land-Rover-Defender-Octa.jpg"
+                                                                        alt="Land Rover Defender Octa" />
+                                                                <p>Land Rover Defender Octa</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj101" name="cat15"
+                                                                value="Mercedes-Benz G450d" />
+                                                        <label for="kj101"><img
+                                                                        src="uploads/awards26/cars/Mercedes-Benz-G450d.jpg"
+                                                                        alt="Mercedes-Benz G450d" />
+                                                                <p>Mercedes-Benz G450d</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj102" name="cat15"
+                                                                value="Land Cruiser LC300" />
+                                                        <label for="kj102"><img
+                                                                        src="uploads/awards26/cars/Land-Cruiser-LC300.jpg"
+                                                                        alt="Land Cruiser LC300" />
+                                                                <p>Land Cruiser LC300</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj103" name="cat15"
+                                                                value="Range Rover Sport SV" />
+                                                        <label for="kj103"><img
+                                                                        src="uploads/awards26/cars/Range-Rover-Sport-SV.jpg"
+                                                                        alt="Range Rover Sport SV" />
+                                                                <p>Range Rover Sport SV</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                </div>
+
+                        <div class="text-center mt-3 mb-5">
+                                <button class="tg-btn" type="submit">Vote</button>
+                                <div id="error-message" style="display:none;"></div>
+                        </div>
 
 
 
-                                </form>
+                </form>
                         @endif
                 </div>
         </div>
