@@ -44,8 +44,8 @@ Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winn
 // Route::get('/tgcars', [VotingController::class, 'showVoting'])->name('awards.voting');
 // Route::post('/tgcars', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
-Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
-Route::post('/signup', [VotingController::class, 'storeUser'])->name('signup.store');
+Route::get('/voting26', [VotingController::class, 'showSignup'])->name('signup');
+Route::post('/voting26', [VotingController::class, 'storeUser'])->name('signup.store');
 
 Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
 Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');

@@ -23,54 +23,54 @@
                 <p>We appreciate your participation in TopGear Awards 2026!</p>
             </div>
         </div>
-    @endif
-
-    <div class="kj-options-wrap">
-        <div class="tgsection-title kjcat-question">
-            <h2>Choose Your Category</h2>
-            <p>Select a category to cast your vote</p>
-        </div>
-        
-        <div class="row justify-content-center">
-            <!-- Car Option -->
-            <div class="col-lg-4 col-md-5 col-6">
-                <a href="{{ route('awards.voting26') }}" class="kj-option-card {{ $carVote ? 'voted' : '' }}">
-                    <div class="kj-option-icon">
-                        <i class="fa fa-car" aria-hidden="true"></i>
-                    </div>
-                    <h3>Vote for Cars</h3>
-                    @if($carVote)
-                        <div class="kj-voted-badge">
-                            <i class="fa fa-check" aria-hidden="true"></i> Voted
-                        </div>
-                    @else
-                        <div class="kj-pending-badge">
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i> Cast Vote
-                        </div>
-                    @endif
-                </a>
+    @else
+        <div class="kj-options-wrap">
+            <div class="tgsection-title kjcat-question">
+                <h2>Choose Your Category</h2>
+                <p>Select a category to cast your vote</p>
             </div>
             
-            <!-- Bike Option -->
-            <div class="col-lg-4 col-md-5 col-6">
-                <a href="{{ route('awards.bikes') }}" class="kj-option-card {{ $bikeVote ? 'voted' : '' }}">
-                    <div class="kj-option-icon">
-                        <i class="fa fa-motorcycle" aria-hidden="true"></i>
-                    </div>
-                    <h3>Vote for Bikes</h3>
-                    @if($bikeVote)
-                        <div class="kj-voted-badge">
-                            <i class="fa fa-check" aria-hidden="true"></i> Voted
+            <div class="row justify-content-center">
+                <!-- Car Option -->
+                <div class="col-lg-4 col-md-5 col-sm-6 col-12">
+                    <a href="{{ route('awards.voting26') }}" class="kj-option-card {{ $carVote ? 'voted' : '' }}">
+                        <div class="kj-option-icon">
+                            <i class="fa fa-car" aria-hidden="true"></i>
                         </div>
-                    @else
-                        <div class="kj-pending-badge">
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i> Cast Vote
+                        <h3>Vote for Cars</h3>
+                        @if($carVote)
+                            <div class="kj-voted-badge">
+                                <i class="fa fa-check" aria-hidden="true"></i> Voted
+                            </div>
+                        @else
+                            <div class="kj-pending-badge">
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i> Cast Vote
+                            </div>
+                        @endif
+                    </a>
+                </div>
+                
+                <!-- Bike Option -->
+                <div class="col-lg-4 col-md-5 col-sm-6 col-12">
+                    <a href="{{ route('awards.bikes') }}" class="kj-option-card {{ $bikeVote ? 'voted' : '' }}">
+                        <div class="kj-option-icon">
+                            <i class="fa fa-motorcycle" aria-hidden="true"></i>
                         </div>
-                    @endif
-                </a>
+                        <h3>Vote for Bikes</h3>
+                        @if($bikeVote)
+                            <div class="kj-voted-badge">
+                                <i class="fa fa-check" aria-hidden="true"></i> Voted
+                            </div>
+                        @else
+                            <div class="kj-pending-badge">
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i> Cast Vote
+                            </div>
+                        @endif
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 
 </div>
 </div>
