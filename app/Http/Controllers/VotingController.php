@@ -89,7 +89,7 @@ class VotingController extends Controller
         $domain = $parts[1];
         
         $maskedName = strlen($name) > 1 
-            ? substr($name, 0, 1) . str_repeat('*', min(3, strlen($name) - 1)) 
+            ? substr($name, 0, 1) . str_repeat('*', min(20, strlen($name) - 1)) 
             : '*';
             
         return $maskedName . '@' . $domain;
