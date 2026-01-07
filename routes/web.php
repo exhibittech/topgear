@@ -51,9 +51,13 @@ Route::get('/signup', [VotingController::class, 'showSignup'])->name('signup');
 //Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
 //Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');
 
-Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
+//Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
 //Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
+//Voting 2026
+Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
+Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
+//end
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
 Route::get('/career', [StaticPageController::class, 'career'])->name('career');
@@ -140,4 +144,4 @@ Route::get('/rsvp', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeFi5LAJDBavK4SXAaOGn7LhBad6gkTL0jto2EbEfo8YTHfbg/viewform?usp=header');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

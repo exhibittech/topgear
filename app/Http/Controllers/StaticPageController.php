@@ -16,10 +16,10 @@ class StaticPageController extends Controller
 
         return view('awards.index', compact('seodata', 'menu'));
     }
-	
-	public function winners23()
-	{
-	$menu = MenuController::loadMenu();
+
+    public function winners23()
+    {
+        $menu = MenuController::loadMenu();
 
         $seodata = [
             'MetaTitle' => 'TopGear Awards 2023 Winners',
@@ -28,23 +28,35 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.winners23', compact('seodata', 'menu'));
-	}
+    }
 
-	public function awards25()
-        {
+    public function voting26()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
-            'MetaTitle' => 'TopGear Awards 2025',
-            'MetaDescription' => 'Winners of TopGear Awards India will be announced on 10th February 2025',
-            'Keyword' => 'TopGear Awards 2025, Winners of TopGear Awards India',
+            'MetaTitle' => 'TopGear Awards 2026 | Cars',
+            'MetaDescription' => 'Winners of TopGear Awards India will be announced in February 2026',
+            'Keyword' => 'TopGear Awards 2026, Winners of TopGear Awards India',
         ];
 
-        return view('awards.awards25', compact('seodata', 'menu'));
-        }
+        return view('awards.voting26', compact('seodata', 'menu'));
+    }
+    public function bikes26()
+    {
+        $menu = MenuController::loadMenu();
 
-	public function winners24()
-        {
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 | Bikes',
+            'MetaDescription' => 'Winners of TopGear Awards India will be announced in February 2026',
+            'Keyword' => 'TopGear Awards 2026, Winners of TopGear Awards India',
+        ];
+
+        return view('awards.bikes26', compact('seodata', 'menu'));
+    }
+
+    public function winners24()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -54,10 +66,10 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.winners24', compact('seodata', 'menu'));
-        }
+    }
 
-	public function winners25()
-        {
+    public function winners25()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -67,10 +79,10 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.winners25', compact('seodata', 'menu'));
-        }
-	
-	public function voting()
-        {
+    }
+
+    public function voting()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -80,10 +92,10 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.voting', compact('seodata', 'menu'));
-        }
+    }
 
-	public function bikes()
-        {
+    public function bikes()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -93,10 +105,10 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.bikes', compact('seodata', 'menu'));
-        }
+    }
 
-	public function signup()
-        {
+    public function signup()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -106,10 +118,10 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.signup', compact('seodata', 'menu'));
-        }
-	
-	public function results()
-        {
+    }
+
+    public function results()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -119,10 +131,10 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.results', compact('seodata', 'menu'));
-        }
+    }
 
-	public function about()
-        {
+    public function about()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -132,9 +144,9 @@ class StaticPageController extends Controller
         ];
 
         return view('about', compact('seodata', 'menu'));
-        }	
-	public function contact()
-        {
+    }
+    public function contact()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -144,9 +156,9 @@ class StaticPageController extends Controller
         ];
 
         return view('contact', compact('seodata', 'menu'));
-        }	
-	public function career()
-        {
+    }
+    public function career()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -156,10 +168,10 @@ class StaticPageController extends Controller
         ];
 
         return view('career', compact('seodata', 'menu'));
-        }
-       
-        public function terms()
-        {
+    }
+
+    public function terms()
+    {
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -169,6 +181,6 @@ class StaticPageController extends Controller
         ];
 
         return view('terms-conditions', compact('seodata', 'menu'));
-        }
-	
+    }
+
 }

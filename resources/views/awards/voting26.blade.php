@@ -664,33 +664,6 @@
                                                         </label>
                                                 </div>
                                         </div>
-                                        <div class="col-lg-3 col-6">
-                                                <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj61a" name="cat11" value="BMW iX1 LWB" />
-                                                        <label for="kj61a"><img src="uploads/awards26/cars/BMW-iX1-LWB.jpg"
-                                                                        alt="BMW iX1 LWB" />
-                                                                <p>BMW iX1 LWB</p>
-                                                        </label>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-3 col-6">
-                                                <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj61b" name="cat11" value="Volvo EX30" />
-                                                        <label for="kj61b"><img src="uploads/awards26/cars/Volvo-EX30.jpg"
-                                                                        alt="Volvo EX30" />
-                                                                <p>Volvo EX30</p>
-                                                        </label>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-3 col-6">
-                                                <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj61c" name="cat11" value="Porsche Macan Electric" />
-                                                        <label for="kj61c"><img src="uploads/awards26/cars/Porsche-Macan-Electric.jpg"
-                                                                        alt="Porsche Macan Electric" />
-                                                                <p>Porsche Macan Electric</p>
-                                                        </label>
-                                                </div>
-                                        </div>
                                 </div>
                                 <!-- cat12 -->
                                 <div class="row">
@@ -857,36 +830,6 @@
                                                                         src="uploads/awards26/cars/Land-Cruiser-LC300.jpg"
                                                                         alt="Land Cruiser LC300" />
                                                                 <p>Land Cruiser LC300</p>
-                                                        </label>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-3 col-6">
-                                                <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj76" name="cat14" value="EQS Night Series" />
-                                                        <label for="kj76"><img
-                                                                        src="uploads/awards26/cars/EQS-Night-Series.jpg"
-                                                                        alt="EQS Night Series" />
-                                                                <p>EQS Night Series</p>
-                                                        </label>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-3 col-6">
-                                                <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj76" name="cat14" value="SL Monogram" />
-                                                        <label for="kj76"><img
-                                                                        src="uploads/awards26/cars/SL-Monogram.jpg"
-                                                                        alt="SL Monogram" />
-                                                                <p>SL Monogram</p>
-                                                        </label>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-3 col-6">
-                                                <div class="kjchocie-wrap">
-                                                        <input type="radio" id="kj76" name="cat14" value="GLS Night Series" />
-                                                        <label for="kj76"><img
-                                                                        src="uploads/awards26/cars/GLS-Night-Series.jpg"
-                                                                        alt="GLS Night Series" />
-                                                                <p>GLS Night Series</p>
                                                         </label>
                                                 </div>
                                         </div>
