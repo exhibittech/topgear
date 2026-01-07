@@ -10,17 +10,17 @@ class VotingController extends Controller
 {
     public function showsignup()
     {
-        
-            $menu = MenuController::loadMenu();
-    
-            $seodata = [
-                'MetaTitle' => 'TopGear Awards 2026 Register',
-                'MetaDescription' => 'awards.signup to vote for the TopGear Awards 2026.',
-                'Keyword' => 'TopGear Awards, Car Awards, Bike Awards,Auto Awards 2026 Awards',
-            ];
-    
-            return view('awards.signup', compact('seodata', 'menu'));
-            
+
+        $menu = MenuController::loadMenu();
+
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 Register',
+            'MetaDescription' => 'awards.signup to vote for the TopGear Awards 2026.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards,Auto Awards 2026 Awards',
+        ];
+
+        return view('awards.signup', compact('seodata', 'menu'));
+
     }
 
     public function storeUser(Request $request)
@@ -63,9 +63,9 @@ class VotingController extends Controller
     public function showVoting()
     {
         $userId = session('voting_user_id');
-   //     if (!$userId) {
-     //       return redirect()->route('signup');
-       // }
+        //     if (!$userId) {
+        //       return redirect()->route('signup');
+        // }
         $menu = MenuController::loadMenu();
 
         $seodata = [
@@ -85,7 +85,7 @@ class VotingController extends Controller
 
         CarVote::updateOrCreate(
             ['voting_user_id' => $userId],
-            $request->only(['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8', 'cat9', 'cat10', 'cat11', 'cat12', 'cat13', 'cat14', 'cat15', 'cat16', 'cat17', 'cat18', 'cat19'])
+            $request->only(['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8', 'cat9', 'cat10', 'cat11', 'cat12', 'cat13', 'cat14', 'cat15', 'cat16', 'cat17', 'cat18', 'cat19', 'cat20'])
         );
 
         return redirect()->route('awards.options')->with('success', 'Car votes submitted successfully!');
@@ -114,21 +114,21 @@ class VotingController extends Controller
     public function storeBikeVotes(Request $request)
     {
         $userId = session('voting_user_id');
-    
+
         if (!$userId) {
             return redirect()->route('signup')->with('error', 'Please sign up before voting.');
         }
-    
+
         // Store bike votes
         BikeVote::updateOrCreate(
             ['voting_user_id' => $userId],
-            $request->only(['bcat1', 'bcat2', 'bcat3', 'bcat4', 'bcat5', 'bcat6', 'bcat7', 'bcat8', 'bcat9', 'bcat10'])
+            $request->only(['bcat1', 'bcat2', 'bcat3', 'bcat4', 'bcat5', 'bcat6', 'bcat7', 'bcat8', 'bcat9', 'bcat10', 'bcat11', 'bcat12', 'bcat13', 'bcat14', 'bcat15', 'bcat16', 'bcat17', 'bcat18', 'bcat19', 'bcat20'])
         );
-    
+
         // Redirect back to options page with success message
         return redirect()->route('awards.options')->with('success', 'Bike votes submitted successfully!');
     }
-    
+
 
 
 }
