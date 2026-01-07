@@ -911,6 +911,117 @@
                                                 </div>
                                         </div>
 
+                                <!-- cat15 -->
+                                <div class="row">
+                                        <div class="tgsection-title kjcat-question">
+                                                <h2>Suv of the Year</h2>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj80" name="cat15" value="Maruti Suzuki Victoris" />
+                                                        <label for="kj80"><img src="uploads/awards26/cars/Maruti-Suzuki-Victoris.jpeg"
+                                                                        alt="Maruti Suzuki Victoris" />
+                                                                <p>Maruti Suzuki Victoris</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj81" name="cat15" value="Tata Sierra" />
+                                                        <label for="kj81"><img src="uploads/awards26/cars/Tata-Sierra.jpg"
+                                                                        alt="Tata Sierra" />
+                                                                <p>Tata Sierra</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj82" name="cat15" value="Kia Syros" />
+                                                        <label for="kj82"><img src="uploads/awards26/cars/Kia-Syros.jpg"
+                                                                        alt="Kia Syros" />
+                                                                <p>Kia Syros</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj83" name="cat15" value="Skoda Kylaq" />
+                                                        <label for="kj83"><img src="uploads/awards26/cars/Skoda-Kylaq.jpg"
+                                                                        alt="Skoda Kylaq" />
+                                                                <p>Skoda Kylaq</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj84" name="cat15" value="Hyundai Venue" />
+                                                        <label for="kj84"><img src="uploads/awards26/cars/Hyundai-Venue.jpg"
+                                                                        alt="Hyundai Venue" />
+                                                                <p>Hyundai Venue</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj85" name="cat15" value="Vinfast VF 6" />
+                                                        <label for="kj85"><img src="uploads/awards26/cars/Vinfast-VF-6.jpg"
+                                                                        alt="Vinfast VF 6" />
+                                                                <p>Vinfast VF 6</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj86" name="cat15" value="Vinfast VF 7" />
+                                                        <label for="kj86"><img src="uploads/awards26/cars/Vinfast-VF-7.jpg"
+                                                                        alt="Vinfast VF 7" />
+                                                                <p>Vinfast VF 7</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj87" name="cat15" value="Mahindra BE 6" />
+                                                        <label for="kj87"><img src="uploads/awards26/cars/Mahindra-BE-6.jpg"
+                                                                        alt="Mahindra BE 6" />
+                                                                <p>Mahindra BE 6</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj88" name="cat15" value="Mahindra XEV 9e" />
+                                                        <label for="kj88"><img src="uploads/awards26/cars/Mahindra-XEV-9e.jpg"
+                                                                        alt="Mahindra XEV 9e" />
+                                                                <p>Mahindra XEV 9e</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj89" name="cat15" value="Tata Harrier EV" />
+                                                        <label for="kj89"><img src="uploads/awards26/cars/Tata-Harrier-EV.jpg"
+                                                                        alt="Tata Harrier EV" />
+                                                                <p>Tata Harrier EV</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj90" name="cat15" value="BYD Sealion 7" />
+                                                        <label for="kj90"><img src="uploads/awards26/cars/BYD-Sealion.jpg"
+                                                                        alt="BYD Sealion 7" />
+                                                                <p>BYD Sealion 7</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj91" name="cat15" value="Mahindra XEV 9s" />
+                                                        <label for="kj91"><img src="uploads/awards26/cars/Mahindra-XEV-9s.jpg"
+                                                                        alt="Mahindra XEV 9s" />
+                                                                <p>Mahindra XEV 9s</p>
+                                                        </label>
                                         <!-- cat15 -->
                                         <div class="row">
                                                 <div class="tgsection-title kjcat-question">
@@ -1192,6 +1303,51 @@
                                 }
                         });
 
+        </form>
+        @endif
+</div>
+</div>
+<script>
+        document.getElementById('tga-25').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent form submission for validation
+    
+            let allCategoriesValid = true;
+            const errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.style.display = 'none';  // Hide error message by default
+    
+            // Categories array
+            const categories = [
+                'cat1', 'cat2', 'cat3', 'cat4', 'cat5', 
+                'cat6', 'cat7', 'cat8', 'cat9', 'cat10', 
+                'cat11', 'cat12', 'cat13', 'cat14', 'cat15'
+            ];
+    
+            categories.forEach(function (category) {
+                const radios = document.getElementsByName(category);
+                let isSelected = false;
+    
+                // Check if at least one radio button in the category is selected
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        isSelected = true;
+                        break;
+                    }
+                }
+    
+                if (!isSelected) {
+                    allCategoriesValid = false;
+                }
+            });
+    
+            if (!allCategoriesValid) {
+                errorMessageElement.innerText = "Please select an option in every category.";
+                errorMessageElement.style.display = 'block';  // Show error message
+            } else {
+                this.submit();  // Submit the form if all categories are valid
+            }
+        });
+    </script>
+@endsection
                         if (!allCategoriesValid) {
                                 errorMessageElement.innerText = "Please select an option in every category.";
                                 errorMessageElement.style.display = 'block';  // Show error message
