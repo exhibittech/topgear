@@ -1303,51 +1303,6 @@
                                 }
                         });
 
-        </form>
-        @endif
-</div>
-</div>
-<script>
-        document.getElementById('tga-25').addEventListener('submit', function (event) {
-            event.preventDefault();  // Prevent form submission for validation
-    
-            let allCategoriesValid = true;
-            const errorMessageElement = document.getElementById('error-message');
-            errorMessageElement.style.display = 'none';  // Hide error message by default
-    
-            // Categories array
-            const categories = [
-                'cat1', 'cat2', 'cat3', 'cat4', 'cat5', 
-                'cat6', 'cat7', 'cat8', 'cat9', 'cat10', 
-                'cat11', 'cat12', 'cat13', 'cat14', 'cat15'
-            ];
-    
-            categories.forEach(function (category) {
-                const radios = document.getElementsByName(category);
-                let isSelected = false;
-    
-                // Check if at least one radio button in the category is selected
-                for (const radio of radios) {
-                    if (radio.checked) {
-                        isSelected = true;
-                        break;
-                    }
-                }
-    
-                if (!isSelected) {
-                    allCategoriesValid = false;
-                }
-            });
-    
-            if (!allCategoriesValid) {
-                errorMessageElement.innerText = "Please select an option in every category.";
-                errorMessageElement.style.display = 'block';  // Show error message
-            } else {
-                this.submit();  // Submit the form if all categories are valid
-            }
-        });
-    </script>
-@endsection
                         if (!allCategoriesValid) {
                                 errorMessageElement.innerText = "Please select an option in every category.";
                                 errorMessageElement.style.display = 'block';  // Show error message
