@@ -57,7 +57,7 @@ class VotingController extends Controller
         // Check for excessive registrations from same IP (limit to 3 per IP to allow shared networks)
         $registrationsFromIp = VotingUser::where('ip_address', $ipAddress)->count();
         
-        if ($registrationsFromIp >= 3) {
+        if ($registrationsFromIp >= 100) {
             return redirect()->back()->with('error', 'Maximum registration limit reached from this network. If you believe this is an error, please contact support.');
         }
 
@@ -89,7 +89,7 @@ class VotingController extends Controller
         $domain = $parts[1];
         
         $maskedName = strlen($name) > 1 
-            ? substr($name, 0, 1) . str_repeat('*', min(3, strlen($name) - 1)) 
+            ? substr($name, 0, 1) . str_repeat('*', min(20, strlen($name) - 1)) 
             : '*';
             
         return $maskedName . '@' . $domain;
