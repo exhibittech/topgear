@@ -1199,6 +1199,15 @@
                                                         </label>
                                                 </div>
                                         </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj106" name="cat15" value="Skoda Kodiaq" />
+                                                        <label for="kj106"><img src="uploads/awards26/cars/Skoda-Kodiaq.jpg"
+                                                                        alt="Skoda Kodiaq" />
+                                                                <p>Skoda Kodiaq</p>
+                                                        </label>
+                                                </div>
+                                        </div>
                                 </div>
 
                         <div class="text-center mt-3 mb-5">
