@@ -7,8 +7,8 @@
 
 <div class="container">
     <div class="my-2 text-center">
-        <a href="https://vinfastauto.in/en/schedule-a-test-drive?utm_source=topgear&utm_medium=website&utm_campaign=jan" target="_blank">
-            <img src="/uploads/Banners/vinfast.jpg" alt="Vinfast" width="100%">
+        <a href="/voting26">
+            <img src="/uploads/Banners/votenow.jpg" alt="BBC TopGear India Awards 2026" width="100%">
         </a>
     </div>
 </div>
@@ -43,7 +43,7 @@
             @endforeach
         </div>
 	<div class="mt-5">
-            <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/2248498" target="_blank"><img alt="TopGear Magazine December 2025" src="/uploads/Banners/tgmagzter-dec2025.jpg" width="100%" /></a>
+            <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/2301691" target="_blank"><img alt="TopGear Magazine January 2026" src="/uploads/Banners/tgmagzter-jan2026.jpg" width="100%" /></a>
           </div>
     </div>
 </section>
