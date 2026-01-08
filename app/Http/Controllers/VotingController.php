@@ -45,12 +45,12 @@ class VotingController extends Controller
             return redirect()->route('awards.options');
         }
 
-        // Check for existing registration from same device (fingerprint)
+        // Check for existing registrations from same device (fingerprint) - allow up to 3 per device
         if ($deviceFingerprint) {
-            $existingUserByFingerprint = VotingUser::where('device_fingerprint', $deviceFingerprint)->first();
+            $registrationsFromDevice = VotingUser::where('device_fingerprint', $deviceFingerprint)->count();
             
-            if ($existingUserByFingerprint) {
-                return redirect()->back()->with('error', 'A registration from this device already exists. Please login with your existing email: ' . $this->maskEmail($existingUserByFingerprint->email));
+            if ($registrationsFromDevice >= 3) {
+                return redirect()->back()->with('error', 'Maximum registration limit (3 accounts) reached from this device. Please login with one of your existing emails.');
             }
         }
 
