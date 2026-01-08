@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class VotingUser extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'email'];
+    protected $fillable = ['name', 'email', 'device_fingerprint', 'ip_address', 'user_agent'];
 }

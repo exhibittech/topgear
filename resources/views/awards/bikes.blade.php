@@ -216,7 +216,7 @@
         <div class="col-lg-3 col-6">
         <div class="kjchocie-wrap">
                 <input required type="radio" id="bkj22" name="bcat2" value="Simple One Gen 1.5" />      
-                <label for="bkj22"><img src="uploads/awards26/bikes/Simple-One-Gen-1.5.jpg" alt="Simple One Gen 1.5"/>
+                <label for="bkj22"><img src="uploads/awards26/bikes/Simple-One-Gen.jpg" alt="Simple One Gen 1.5"/>
                 <p>Simple One Gen 1.5</p>
                 </label>
         </div>
@@ -301,9 +301,9 @@
         </div>
         <div class="col-lg-3 col-6">
         <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj32" name="bcat3" value="VIDA VX2" />      
-                <label for="bkj32"><img src="uploads/awards26/bikes/VIDA-VX2.jpg" alt="VIDA VX2"/>
-                <p>VIDA VX2</p>
+                <input required type="radio" id="bkj32" name="bcat3" value="Vida VX2" />      
+                <label for="bkj32"><img src="uploads/awards26/bikes/Vida-VX2.jpg" alt="Vida VX2"/>
+                <p>Vida VX2</p>
                 </label>
         </div>
         </div>
