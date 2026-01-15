@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{id}', [AdminNewsController::class, 'destroy'])->name('adminnews.destroy');
         // Route to remove an image via AJAX
         Route::post('/adminnews/remove-image', [AdminNewsController::class, 'removeImage'])->name('adminnews.removeImage');
+        Route::post('/update-image-order', [AdminNewsController::class, 'updateImageOrder'])->name('adminnews.updateImageOrder');
     });
 
     Route::prefix('adminfeatures')->group(function () {
@@ -97,6 +98,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{id}', [AdminFeatureController::class, 'destroy'])->name('adminfeatures.destroy');
         // Route to remove an image via AJAX
         Route::post('/remove-image', [AdminFeatureController::class, 'removeImage'])->name('adminfeatures.removeImage');
+        Route::post('/update-image-order', [AdminFeatureController::class, 'updateImageOrder'])->name('adminfeatures.updateImageOrder');
     });
 
     Route::prefix('admineditorials')->group(function () {

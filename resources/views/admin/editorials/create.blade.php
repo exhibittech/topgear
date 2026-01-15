@@ -50,7 +50,7 @@
                         <!-- Featured Image -->
                         <div class="space-y-2">
                             <label for="Thumbimage" class="block text-sm font-semibold text-gray-700">
-                                Upload Featured Image <span class="text-gray-500 text-sm">(1300 x 728, Max: 428KB)</span>
+                                Upload Featured Image <span class="text-gray-500 text-sm">(Max: 3.5MB, Max Resolution: 1920x1080)</span>
                             </label>
                             <input type="file" name="Thumbimage" class="block w-full text-sm text-gray-900 border @error('Thumbimage') border-red-500 @else border-gray-300 @enderror rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="Thumbimage">
                             <div id="featuredImagePreview" class="mt-3"></div>

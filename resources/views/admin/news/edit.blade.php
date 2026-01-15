@@ -80,16 +80,37 @@
 
                         <!-- Slider Images -->
                         <div class="space-y-2">
-                            <label for="Image" class="block text-sm font-medium text-gray-700">Slider Images (Upload multiple) (1300 x 728, Max: 428KB per image)</label>
+                            <label for="Image" class="block text-sm font-medium text-gray-700">Slider Images (Upload multiple) <span class="text-gray-500 text-sm">(Recommended: 1900 x 1064, Max: 3.5MB per image, up to 30 images)</span></label>
                             <input type="file" name="Images[]" multiple class="block w-full text-sm text-gray-900 border @error('Images.*') border-red-500 @else border-gray-300 @enderror rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" id="Image" aria-label="Upload slider images">
-                            <div id="imagePreview" class="mt-3 flex flex-wrap gap-4">
-                                @foreach ($news->images as $image)
-                                    <div class="relative">
-                                        <img src="{{ asset($image->ImagePath) }}" alt="Slider Image" class="rounded-md shadow-md max-w-full h-auto object-cover" style="width: 100px; height: 100px;">
-                                        <button type="button" class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs p-1 hover:bg-red-700" data-image-id="{{ $image->NewsImageID }}" onclick="removeImage(this)">X</button>
+                            <p class="text-xs text-green-600 mt-1">💡 Note: Drag and drop the images below to reorder — changes save automatically!</p>
+                            
+                            <!-- Existing Images with Drag & Drop -->
+                            @if($news->images->count() > 0)
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-semibold text-gray-700 mb-3">Current Images (Drag to reorder)</h4>
+                                    <div id="sortableImages" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                        @foreach ($news->images->sortBy('DisplayOrder') as $index => $image)
+                                            <div class="image-item bg-white border-2 border-gray-200 rounded-lg p-2 shadow-sm hover:shadow-md transition-shadow cursor-move" data-image-id="{{ $image->NewsImageID }}">
+                                                <div class="relative">
+                                                    <img src="{{ asset($image->ImagePath) }}" alt="Slider Image" class="w-full h-24 object-cover rounded-md">
+                                                    <div class="absolute top-1 left-1 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                                                        {{ $index + 1 }}
+                                                    </div>
+                                                    <button type="button" class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full hover:bg-red-600 remove-image" data-image-id="{{ $image->NewsImageID }}">
+                                                        ×
+                                                    </button>
+                                                </div>
+                                                <div class="mt-2 text-xs text-gray-600 text-center truncate">
+                                                    {{ basename($image->ImagePath) }}
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                @endforeach
-                            </div>
+                                </div>
+                            @endif
+                            
+                            <!-- New Image Preview -->
+                            <div id="imagePreview" class="mt-3 flex flex-wrap gap-4"></div>
                             @error('Images.*')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -409,9 +430,9 @@
             document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
         }
 
-        // Image removal
+        // Image removal - updated for new structure
         function removeImage(button) {
-            const imageId = button.getAttribute('data-image-id'); // Use NewsImageID
+            const imageId = button.getAttribute('data-image-id');
 
             fetch("{{ route('adminnews.removeImage') }}", {
                 method: 'POST',
@@ -419,7 +440,7 @@
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                body: JSON.stringify({ id: imageId }) // Send NewsImageID in the body
+                body: JSON.stringify({ id: imageId })
             })
             .then(response => {
                 if (!response.ok) {
@@ -429,13 +450,108 @@
             })
             .then(data => {
                 if (data.success) {
-                    button.closest('.relative').remove(); // Remove the image container from the DOM
+                    button.closest('.image-item').remove();
+                    updateOrderNumbers();
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
             });
         }
+
+        // Attach click handlers to remove buttons
+        document.querySelectorAll('.remove-image').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                removeImage(this);
+            });
+        });
     </script>
+
+<!-- Custom Styles for Drag and Drop -->
+<style>
+/* Drag and Drop Styles */
+.image-item {
+    transition: all 0.3s ease;
+}
+
+.image-item:hover {
+    transform: translateY(-2px);
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+}
+
+.sortable-chosen {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+</style>
+
+<!-- Sortable.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<!-- Drag and Drop Functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Sortable for existing images
+    const sortableImages = document.getElementById('sortableImages');
+    if (sortableImages) {
+        new Sortable(sortableImages, {
+            animation: 150,
+            ghostClass: 'sortable-ghost',
+            chosenClass: 'sortable-chosen',
+            onEnd: function(evt) {
+                // Update order numbers
+                updateOrderNumbers();
+                
+                // Send AJAX request to update order
+                updateImageOrder();
+            }
+        });
+    }
+    
+    // Update order numbers display
+    function updateOrderNumbers() {
+        const imageItems = document.querySelectorAll('#sortableImages .image-item');
+        imageItems.forEach((item, index) => {
+            const orderBadge = item.querySelector('.absolute.top-1.left-1');
+            if (orderBadge) {
+                orderBadge.textContent = index + 1;
+            }
+        });
+    }
+    
+    // Make updateOrderNumbers available globally
+    window.updateOrderNumbers = updateOrderNumbers;
+    
+    // Send AJAX request to update image order
+    function updateImageOrder() {
+        const imageItems = document.querySelectorAll('#sortableImages .image-item');
+        const order = Array.from(imageItems).map(item => item.dataset.imageId);
+        
+        fetch('{{ route("adminnews.updateImageOrder") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ order: order })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Image order updated successfully');
+            } else {
+                console.error('Failed to update image order');
+            }
+        })
+        .catch(error => {
+            console.error('Error updating image order:', error);
+        });
+    }
+});
+</script>
 </x-app-layout>
 

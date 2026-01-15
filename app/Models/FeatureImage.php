@@ -13,7 +13,7 @@ class FeatureImage extends Model
 
     protected $table = 'FeaturesImage';
 
-    protected $fillable = ['FeatureID', 'ImagePath', 'ImageName', 'Title', 'CreatedDateTime'];
+    protected $fillable = ['FeatureID', 'ImagePath', 'ImageName', 'Title', 'CreatedDateTime', 'DisplayOrder'];
 
     protected $primaryKey = 'FeaturesImageID';
 

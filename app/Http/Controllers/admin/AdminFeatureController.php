@@ -53,8 +53,12 @@ class AdminFeatureController extends Controller
             'Author' => 'required|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:1024',
-            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:9096',
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950',
+            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800',
+        ], [
+            'Images.max' => 'You can upload up to 30 slider images per feature.',
+            'Thumbimage.dimensions' => 'Featured image must be at least 1700px wide and 950px tall.',
+            'Images.*.dimensions' => 'Slider images must be at least 1400px wide and 800px tall.'
         ]);
 
         // Create a new instance of the Feature model
@@ -78,9 +82,29 @@ class AdminFeatureController extends Controller
         // Handle Featured Image (Thumbimage)
         if ($request->hasFile('Thumbimage')) {
             $thumbImage = $request->file('Thumbimage');
-            $thumbImageName = time().'-'.$thumbImage->getClientOriginalName();
-            $thumbImagePath = $thumbImage->move(public_path('uploads/Featuresthumb/Image/'), $thumbImageName);
-            $feature->ImagePath = 'uploads/Featuresthumb/Image/'.$thumbImageName;
+            $thumbImageName = time() . '-' . $thumbImage->getClientOriginalName();
+            $destinationDir = public_path('uploads/Featuresthumb/Image/');
+
+            if (!file_exists($destinationDir)) {
+                mkdir($destinationDir, 0755, true);
+            }
+
+            $thumbImage->move($destinationDir, $thumbImageName);
+            $absolutePath = $destinationDir . $thumbImageName;
+
+            // Generate WebP variant
+            $webpAbsolutePath = $this->generateWebpVariant($absolutePath);
+            $relativePath = 'uploads/Featuresthumb/Image/' . $thumbImageName;
+
+            if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                // If WebP was generated and path is resolved, use it
+                if ($webpAbsolutePath !== $absolutePath && file_exists($absolutePath)) {
+                    @unlink($absolutePath); // Remove original
+                }
+                $relativePath = $relative;
+            }
+
+            $feature->ImagePath = $relativePath;
         }
 
         // Save the feature first to get the FeatureID
@@ -88,19 +112,50 @@ class AdminFeatureController extends Controller
 
         // Handle Multiple Images
         if ($request->hasFile('Images')) {
+            Log::info('Feature Store: Images found in request.');
+            $order = 0;
             foreach ($request->file('Images') as $image) {
-                $imageName = time().'-'.$image->getClientOriginalName();
-                $imagePath = $image->move(public_path('uploads/Features/Image/'), $imageName); // Updated path
+                try {
+                    $imageName = time() . '-' . $image->getClientOriginalName();
+                    $destinationPath = public_path('uploads/Features/Image/');
 
-                // Create new FeaturesImage records and associate them with the feature
-                $featureImage = new FeatureImage;
-                $featureImage->FeatureID = $feature->FeatureID;  // Set the correct FeatureID
-                $featureImage->ImagePath = 'uploads/Features/Image/'.$imageName;
-                $featureImage->ImageName = 'slider image';
-                $featureImage->Title = 'slider image';
-                $featureImage->CreatedDateTime = now();
-                $featureImage->save();
+                    // Create directory if it doesn't exist
+                    if (!file_exists($destinationPath)) {
+                        mkdir($destinationPath, 0755, true);
+                    }
+
+                    $image->move($destinationPath, $imageName);
+                    $absolutePath = $destinationPath . $imageName;
+
+                    // Generate WebP variant
+                    $webpAbsolutePath = $this->generateWebpVariant($absolutePath);
+                    $relativePath = 'uploads/Features/Image/' . $imageName;
+
+                    if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                        // If WebP was generated and path is resolved, use it
+                        if ($webpAbsolutePath !== $absolutePath && file_exists($absolutePath)) {
+                            @unlink($absolutePath); // Remove original
+                        }
+                        $relativePath = $relative;
+                    }
+
+                    // Create new FeaturesImage records and associate them with the feature
+                    $featureImage = new FeatureImage;
+                    $featureImage->FeatureID = $feature->FeatureID;
+                    $featureImage->ImagePath = $relativePath;
+                    $featureImage->ImageName = 'slider image';
+                    $featureImage->Title = 'slider image';
+                    $featureImage->CreatedDateTime = now();
+                    $featureImage->DisplayOrder = $order++;
+                    $featureImage->save();
+
+                    Log::info('Feature Store: Image saved successfully: ' . $relativePath);
+                } catch (\Exception $e) {
+                    Log::error('Feature Store: Error saving image: ' . $e->getMessage());
+                }
             }
+        } else {
+            Log::info('Feature Store: No images found in request.');
         }
 
         // **Sitemap Update Logic**
@@ -119,7 +174,7 @@ class AdminFeatureController extends Controller
             $category = $categoryMap[$feature->ID] ?? 'others'; // Default to 'others' if category not found
 
             // **Generate URL for the feature item**
-            $url = "https://www.topgearmag.in//features/$category/".$feature->Code;
+            $url = "https://www.topgearmag.in//features/$category/" . $feature->Code;
             $lastmod = date('Y-m-d', strtotime($feature->PublishDate));
             $priority = '0.64';
 
@@ -149,9 +204,9 @@ class AdminFeatureController extends Controller
                 // Save the updated sitemap back to the file
                 file_put_contents($sitemapPath, $sitemapContent);
 
-                Log::info('Sitemap updated successfully with new entry: '.$url);
+                Log::info('Sitemap updated successfully with new entry: ' . $url);
             } else {
-                Log::error('Sitemap file not found at: '.$sitemapPath);
+                Log::error('Sitemap file not found at: ' . $sitemapPath);
             }
         }
 
@@ -183,8 +238,12 @@ class AdminFeatureController extends Controller
             'Keyword' => 'nullable|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:1024',
-            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:9096',
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950|dimensions:max_width=1920,max_height=1080',
+            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800| dimensions:max_width=1920,max_height=1080',
+        ], [
+            'Images.max' => 'You can upload up to 30 slider images per feature.',
+            'Thumbimage.dimensions' => 'The featured image must be at least 1700px wide and 950px tall, and at most 1920px wide and 1080px tall.',
+            'Images.*.dimensions' => 'Slider images must be at least 1400px wide and 800px tall, and at most 1920px wide and 1080px tall.'
         ]);
 
         // Retrieve the feature post
@@ -214,12 +273,32 @@ class AdminFeatureController extends Controller
         // Handle the new featured image (Thumbimage)
         if ($request->hasFile('Thumbimage')) {
             if ($feature->ImagePath && file_exists(public_path($feature->ImagePath))) {
-                unlink(public_path($feature->ImagePath)); // Remove old image
+                @unlink(public_path($feature->ImagePath)); // Remove old image
             }
             $thumbImage = $request->file('Thumbimage');
-            $thumbImageName = time().'-'.$thumbImage->getClientOriginalName();
-            $thumbImagePath = $thumbImage->move(public_path('uploads/Featuresthumb/Image'), $thumbImageName);
-            $feature->ImagePath = 'uploads/Featuresthumb/Image/'.$thumbImageName;
+            $thumbImageName = time() . '-' . $thumbImage->getClientOriginalName();
+            $destinationDir = public_path('uploads/Featuresthumb/Image/');
+
+            if (!file_exists($destinationDir)) {
+                mkdir($destinationDir, 0755, true);
+            }
+
+            $thumbImage->move($destinationDir, $thumbImageName);
+            $absolutePath = $destinationDir . $thumbImageName;
+
+            // Generate WebP variant
+            $webpAbsolutePath = $this->generateWebpVariant($absolutePath);
+            $relativePath = 'uploads/Featuresthumb/Image/' . $thumbImageName;
+
+            if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                // If WebP was generated and path is resolved, use it
+                if ($webpAbsolutePath !== $absolutePath && file_exists($absolutePath)) {
+                    @unlink($absolutePath); // Remove original
+                }
+                $relativePath = $relative;
+            }
+
+            $feature->ImagePath = $relativePath;
         }
 
         // Save the feature data
@@ -227,18 +306,52 @@ class AdminFeatureController extends Controller
 
         // Handle multiple slider images
         if ($request->hasFile('Images')) {
-            foreach ($request->file('Images') as $image) {
-                $imageName = time().'-'.$image->getClientOriginalName();
-                $imagePath = $image->move(public_path('uploads/Features/Image'), $imageName);
+            Log::info('Feature Update: Images found in request.');
+            // Get the current max display order
+            $maxOrder = FeatureImage::where('FeatureID', $feature->FeatureID)->max('DisplayOrder') ?? 0;
+            $order = $maxOrder + 1;
 
-                $featureImage = new FeatureImage;
-                $featureImage->FeatureID = $feature->FeatureID;
-                $featureImage->ImagePath = 'uploads/Features/Image/'.$imageName;
-                $featureImage->ImageName = 'slider image';
-                $featureImage->Title = 'slider image';
-                $featureImage->CreatedDateTime = now();
-                $featureImage->save();
+            foreach ($request->file('Images') as $image) {
+                try {
+                    $imageName = time() . '-' . $image->getClientOriginalName();
+                    $destinationPath = public_path('uploads/Features/Image/');
+
+                    // Create directory if it doesn't exist
+                    if (!file_exists($destinationPath)) {
+                        mkdir($destinationPath, 0755, true);
+                    }
+
+                    $image->move($destinationPath, $imageName);
+                    $absolutePath = $destinationPath . $imageName;
+
+                    // Generate WebP variant
+                    $webpAbsolutePath = $this->generateWebpVariant($absolutePath);
+                    $relativePath = 'uploads/Features/Image/' . $imageName;
+
+                    if ($webpAbsolutePath && ($relative = $this->relativePublicPath($webpAbsolutePath))) {
+                        // If WebP was generated and path is resolved, use it
+                        if ($webpAbsolutePath !== $absolutePath && file_exists($absolutePath)) {
+                            @unlink($absolutePath); // Remove original
+                        }
+                        $relativePath = $relative;
+                    }
+
+                    $featureImage = new FeatureImage;
+                    $featureImage->FeatureID = $feature->FeatureID;
+                    $featureImage->ImagePath = $relativePath;
+                    $featureImage->ImageName = 'slider image';
+                    $featureImage->Title = 'slider image';
+                    $featureImage->CreatedDateTime = now();
+                    $featureImage->DisplayOrder = $order++;
+                    $featureImage->save();
+
+                    Log::info('Feature Update: Image saved successfully: ' . $relativePath);
+                } catch (\Exception $e) {
+                    Log::error('Feature Update: Error saving image: ' . $e->getMessage());
+                }
             }
+        } else {
+            Log::info('Feature Update: No additional images uploaded.');
         }
 
         // Sitemap logic: Only update sitemap if becoming active now or if slug changes
@@ -282,7 +395,7 @@ class AdminFeatureController extends Controller
                 <priority>0.64</priority>
             </url>";
 
-        $sitemap = preg_replace('/(<urlset[^>]*>)/', '$1'.$sitemapEntry, $sitemap);
+        $sitemap = preg_replace('/(<urlset[^>]*>)/', '$1' . $sitemapEntry, $sitemap);
         file_put_contents($sitemapPath, $sitemap);
     }
 
@@ -337,5 +450,85 @@ class AdminFeatureController extends Controller
         $featureImage->delete();
 
         return response()->json(['success' => true, 'message' => 'Image removed successfully.']);
+    }
+
+    /**
+     * Update image order via AJAX.
+     */
+    public function updateImageOrder(Request $request)
+    {
+        $imageOrder = $request->input('order');
+        foreach ($imageOrder as $index => $imageId) {
+            FeatureImage::where('FeaturesImageID', $imageId)
+                ->update(['DisplayOrder' => $index]);
+        }
+        return response()->json(['success' => true]);
+    }
+
+    protected function relativePublicPath(string $absolutePath): ?string
+    {
+        $publicPath = rtrim(public_path(), DIRECTORY_SEPARATOR);
+        $normalizedAbsolute = rtrim($absolutePath, DIRECTORY_SEPARATOR);
+
+        if (!str_starts_with($normalizedAbsolute, $publicPath)) {
+            return null;
+        }
+
+        $relative = ltrim(substr($normalizedAbsolute, strlen($publicPath)), DIRECTORY_SEPARATOR);
+        return str_replace(DIRECTORY_SEPARATOR, '/', $relative);
+    }
+
+    protected function generateWebpVariant(string $absolutePath, int $quality = 70): ?string
+    {
+        if (!function_exists('imagewebp') || !file_exists($absolutePath)) {
+            Log::warning('WebP conversion skipped: missing imagewebp support or source file.', ['path' => $absolutePath]);
+            return null;
+        }
+
+        $extension = strtolower(pathinfo($absolutePath, PATHINFO_EXTENSION));
+        if ($extension === 'webp') {
+            return $absolutePath;
+        }
+
+        $webpPath = preg_replace('/\.(jpe?g|png)$/i', '.webp', $absolutePath);
+        if (!$webpPath || $webpPath === $absolutePath) {
+            return null;
+        }
+
+        if (file_exists($webpPath)) {
+            return $webpPath;
+        }
+
+        $imageInfo = getimagesize($absolutePath);
+        if (!$imageInfo) {
+            return null;
+        }
+
+        $mime = $imageInfo['mime'] ?? '';
+        $resource = match ($mime) {
+            'image/jpeg' => imagecreatefromjpeg($absolutePath),
+            'image/png' => imagecreatefrompng($absolutePath),
+            default => null,
+        };
+
+        if (!$resource) {
+            return null;
+        }
+
+        if ($mime === 'image/png') {
+            imagepalettetotruecolor($resource);
+            imagealphablending($resource, true);
+            imagesavealpha($resource, true);
+        }
+
+        $result = imagewebp($resource, $webpPath, $quality);
+        imagedestroy($resource);
+
+        if (!$result) {
+            Log::warning('WebP conversion failed.', ['path' => $absolutePath]);
+            return null;
+        }
+
+        return $webpPath;
     }
 }

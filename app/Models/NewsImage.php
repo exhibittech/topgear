@@ -17,7 +17,7 @@ class NewsImage extends Model
 
     protected $primaryKey = 'NewsImageID';
 
-    protected $fillable = ['NewsID', 'ImagePath'];
+    protected $fillable = ['NewsID', 'ImagePath', 'ImageName', 'Title', 'DisplayOrder'];
 
     public function news()
     {
