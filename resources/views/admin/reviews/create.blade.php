@@ -19,8 +19,13 @@
                 </div>
             @endif
 
-            <form action="{{ route('adminreviews.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
+            <form action="{{ route('adminreviews.store') }}" method="POST" enctype="multipart/form-data"
+                class="space-y-8">
                 @csrf
+                <input type="hidden" id="oldReviewsCategoryID" value="{{ old('ReviewsCategoryID') }}">
+                <script>
+                    var oldTabsContent = @json(old('tabscontent', []));
+                </script>
 
                 <!-- Section: Basic Information -->
                 <div class="space-y-6">
@@ -28,18 +33,24 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- MenuID Dropdown -->
                         <div class="space-y-2">
-                            <label for="MenuID" class="block text-sm font-semibold text-gray-700">Select Category</label>
-                            <select name="MenuID" id="MenuID" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <label for="MenuID" class="block text-sm font-semibold text-gray-700">Select
+                                Category</label>
+                            <select name="MenuID" id="MenuID"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
                                 <option value="" selected>Select Category (Car or Bike)</option>
-                                <option value="9">Car</option>
-                                <option value="11">Bike</option>
+                                <option value="9" {{ old('MenuID') == '9' ? 'selected' : '' }}>Car</option>
+                                <option value="11" {{ old('MenuID') == '11' ? 'selected' : '' }}>Bike</option>
                             </select>
                         </div>
 
                         <!-- ReviewsCategory Dropdown -->
                         <div class="space-y-2">
-                            <label for="ReviewsCategoryID" class="block text-sm font-semibold text-gray-700">Select Reviews Category</label>
-                            <select name="ReviewsCategoryID" id="ReviewsCategoryID" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <label for="ReviewsCategoryID" class="block text-sm font-semibold text-gray-700">Select
+                                Reviews Category</label>
+                            <select name="ReviewsCategoryID" id="ReviewsCategoryID"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
                                 <option value="" selected disabled>Select Review Category</option>
                             </select>
                         </div>
@@ -47,37 +58,49 @@
                         <!-- Title -->
                         <div class="space-y-2">
                             <label for="ReviewsTitle" class="block text-sm font-semibold text-gray-700">Title</label>
-                            <input type="text" name="ReviewsTitle" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Title" required>
+                            <input type="text" name="ReviewsTitle" value="{{ old('ReviewsTitle') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Title" required>
                         </div>
                     </div>
                 </div>
 
                 <!-- Section: Additional Information -->
                 <div class="space-y-6">
-                    <h3 class="text-xl font-semibold leading-6 text-gray-900 border-b pb-2 mb-4">Additional Information</h3>
+                    <h3 class="text-xl font-semibold leading-6 text-gray-900 border-b pb-2 mb-4">Additional Information
+                    </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Rating -->
                         <div class="space-y-2">
-                            <label for="Rating" class="block text-sm font-semibold text-gray-700">Rating (Max Value 10)</label>
-                            <input type="number" name="Rating" max="10" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Rating">
+                            <label for="Rating" class="block text-sm font-semibold text-gray-700">Rating (Max Value
+                                10)</label>
+                            <input type="number" name="Rating" max="10" value="{{ old('Rating') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Rating">
                         </div>
 
                         <!-- Punch Line -->
                         <div class="space-y-2">
                             <label for="PunchLine" class="block text-sm font-semibold text-gray-700">Punch Line</label>
-                            <input type="text" name="PunchLine" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Punch Line">
+                            <input type="text" name="PunchLine" value="{{ old('PunchLine') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Punch Line">
                         </div>
 
                         <!-- Good Stuff -->
                         <div class="space-y-2">
                             <label for="GoodStuff" class="block text-sm font-semibold text-gray-700">Good Stuff</label>
-                            <input type="text" name="GoodStuff" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Good Stuff" >
+                            <input type="text" name="GoodStuff" value="{{ old('GoodStuff') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Good Stuff">
                         </div>
 
                         <!-- Bad Stuff -->
                         <div class="space-y-2">
                             <label for="BadStuff" class="block text-sm font-semibold text-gray-700">Bad Stuff</label>
-                            <input type="text" name="BadStuff" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Bad Stuff" >
+                            <input type="text" name="BadStuff" value="{{ old('BadStuff') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Bad Stuff">
                         </div>
                     </div>
                 </div>
@@ -88,22 +111,35 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Featured Image -->
                         <div class="space-y-2">
-                            <label for="Thumbimage" class="block text-sm font-semibold text-gray-700">Upload Featured Image <span class="text-gray-500 text-sm">(Recommended: 1900 x 1064, Max: 3.5MB)</span></label>
-                            <input type="file" name="Thumbimage" id="Thumbimage" class="block w-full text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <label for="Thumbimage" class="block text-sm font-semibold text-gray-700">
+                                Upload Featured Image <span class="text-gray-500 text-sm">(Min: 1700 x 950, Max: 3.5MB)</span>
+                            </label>
+                            <input type="file" name="Thumbimage" id="Thumbimage"
+                                class="block w-full text-sm text-gray-900 border @error('Thumbimage') border-red-500 @else border-gray-300 @enderror rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                             <div id="featuredImagePreview" class="mt-3"></div>
+                            @error('Thumbimage')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <!-- Slider Images -->
                         <div class="space-y-2">
-                            <label for="Image" class="block text-sm font-semibold text-gray-700">Slider Images (Upload multiple) <span class="text-gray-500 text-sm">(Recommended: 1900 x 1064, Max: 3.5MB per image, up to 30 images)</span></label>
-                            <input type="file" name="Image[]" id="Image" multiple class="block w-full text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <p class="text-xs text-blue-600 mt-1">💡 Note: After submitting, you can rearrange the images in the edit page.</p>
+                            <label for="Image" class="block text-sm font-semibold text-gray-700">
+                                Slider Images (Upload multiple) <span class="text-gray-500 text-sm">(Min: 1400 x 800, Max: 3.5MB per image)</span>
+                            </label>
+                            <input type="file" name="Image[]" id="Image" multiple
+                                class="block w-full text-sm text-gray-900 border @error('Image.*') border-red-500 @else border-gray-300 @enderror rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <p class="text-xs text-blue-600 mt-1">💡 Note: After submitting, you can rearrange the
+                                images in the edit page.</p>
                             <div id="imagePreview" class="mt-3 flex flex-wrap gap-4"></div>
+                            @error('Image.*')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                 </div>
 
-                  <!-- Tabs Navigation and Content -->
+                <!-- Tabs Navigation and Content -->
                 <div>
                     <h3 class="text-xl font-semibold leading-6 text-gray-900 border-b pb-2 mb-4">Content Tabs</h3>
                     <ul class="flex border-b" id="tab-list"></ul>
@@ -121,38 +157,53 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Meta Title -->
                         <div class="space-y-2">
-                            <label for="MetaTitle" class="block text-sm font-semibold text-gray-700">Meta Title <span id="metaTitleCounter" class="text-gray-500 text-xs">(0/60)</span></label>
-                            <input type="text" name="MetaTitle" id="MetaTitle" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Meta Title">
+                            <label for="MetaTitle" class="block text-sm font-semibold text-gray-700">Meta Title <span
+                                    id="metaTitleCounter" class="text-gray-500 text-xs">(0/60)</span></label>
+                            <input type="text" name="MetaTitle" id="MetaTitle" value="{{ old('MetaTitle') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Meta Title">
                         </div>
 
                         <!-- Meta Description -->
                         <div class="space-y-2">
-                            <label for="MetaDescription" class="block text-sm font-semibold text-gray-700">Meta Description <span id="metaDescriptionCounter" class="text-gray-500 text-xs">(0/160)</span></label>
-                            <input type="text" name="MetaDescription" id="MetaDescription" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Meta Description">
+                            <label for="MetaDescription" class="block text-sm font-semibold text-gray-700">Meta
+                                Description <span id="metaDescriptionCounter"
+                                    class="text-gray-500 text-xs">(0/160)</span></label>
+                            <input type="text" name="MetaDescription" id="MetaDescription" value="{{ old('MetaDescription') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Meta Description">
                         </div>
 
                         <!-- Meta Keywords -->
                         <div class="space-y-2">
                             <label for="Keyword" class="block text-sm font-semibold text-gray-700">Meta Keywords</label>
-                            <input type="text" name="Keyword" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Meta Keywords">
+                            <input type="text" name="Keyword" value="{{ old('Keyword') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Meta Keywords">
                         </div>
                     </div>
                 </div>
 
                 <!-- Section: Publish Information -->
                 <div class="space-y-6">
-                    <h3 class="text-xl font-semibold leading-6 text-gray-900 border-b pb-2 mb-4">Publish Information</h3>
+                    <h3 class="text-xl font-semibold leading-6 text-gray-900 border-b pb-2 mb-4">Publish Information
+                    </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Author Name -->
                         <div class="space-y-2">
                             <label for="Author" class="block text-sm font-semibold text-gray-700">Author Name</label>
-                            <input type="text" name="Author" value="{{ Auth::user()->name }}" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Author Name" required>
+                            <input type="text" name="Author" value="{{ old('Author', Auth::user()->name) }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Author Name" required>
                         </div>
 
                         <!-- Publish Date -->
                         <div class="space-y-2">
-                            <label for="PublishDate" class="block text-sm font-semibold text-gray-700">Publish Date</label>
-                            <input type="date" name="PublishDate" class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <label for="PublishDate" class="block text-sm font-semibold text-gray-700">Publish
+                                Date</label>
+                            <input type="date" name="PublishDate" value="{{ old('PublishDate') }}"
+                                class="block w-full px-3 py-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
                         </div>
 
                         <!-- Status -->
@@ -160,10 +211,10 @@
                             <label class="block text-sm font-semibold text-gray-700">Status</label>
                             <div class="flex items-center space-x-4">
                                 <label class="inline-flex items-center">
-                                    <input type="radio" name="IsActive" value="1" class="form-radio text-indigo-600" checked> Active
+                                    <input type="radio" name="IsActive" value="1" class="form-radio text-indigo-600" {{ old('IsActive', '1') == '1' ? 'checked' : '' }}> Active
                                 </label>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" name="IsActive" value="0" class="form-radio text-indigo-600"> Inactive
+                                    <input type="radio" name="IsActive" value="0" class="form-radio text-indigo-600" {{ old('IsActive') == '0' ? 'checked' : '' }}> Inactive
                                 </label>
                             </div>
                         </div>
@@ -171,16 +222,21 @@
                 </div>
 
                 <!-- Tabs Navigation and Content -->
-                
+
 
                 <!-- Submit Button -->
                 <div class="text-center pt-6">
-                    <button type="submit" id="submit-btn" class="inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <button type="submit" id="submit-btn"
+                        class="inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
                         <span id="submit-text">Create</span>
                         <span id="submit-loading" class="hidden">
-                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
                             </svg>
                             Creating...
                         </span>
@@ -191,16 +247,16 @@
     </div>
 
     <!-- Add TinyMCE Local -->
-<script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-<script>
-    // Test if TinyMCE loaded
-    window.addEventListener('load', function() {
-        console.log('Page loaded. TinyMCE available:', typeof tinymce !== 'undefined');
-        if (typeof tinymce !== 'undefined') {
-            console.log('TinyMCE version:', tinymce.majorVersion + '.' + tinymce.minorVersion);
-        }
-    });
-</script>
+    <script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        // Test if TinyMCE loaded
+        window.addEventListener('load', function () {
+            console.log('Page loaded. TinyMCE available:', typeof tinymce !== 'undefined');
+            if (typeof tinymce !== 'undefined') {
+                console.log('TinyMCE version:', tinymce.majorVersion + '.' + tinymce.minorVersion);
+            }
+        });
+    </script>
 
     <!-- Meta Title and Meta Description Character Counter Script -->
     <script>
@@ -224,12 +280,12 @@
             console.log('Initializing TinyMCE...');
             console.log('TinyMCE available:', typeof tinymce !== 'undefined');
             console.log('Textareas found:', document.querySelectorAll('.tiny-editor').length);
-            
+
             if (typeof tinymce === 'undefined') {
                 console.error('TinyMCE is not loaded!');
                 return;
             }
-            
+
             tinymce.remove('.tiny-editor'); // Remove any existing instances
             tinymce.init({
                 selector: '.tiny-editor',
@@ -291,7 +347,7 @@
                         } else if (url.indexOf('youtube.com/embed/') !== -1) {
                             videoId = url.split('embed/')[1].split('?')[0];
                         }
-                        
+
                         if (videoId) {
                             var embedHtml = '<iframe src="https://www.youtube.com/embed/' + videoId + '" width="560" height="315" frameborder="0" allowfullscreen></iframe>';
                             resolve({ html: embedHtml });
@@ -304,7 +360,7 @@
                 },
                 setup: function (editor) {
                     console.log('TinyMCE editor initialized for:', editor.id);
-                    
+
                     // Add custom button for YouTube
                     editor.ui.registry.addButton('youtube', {
                         text: 'YouTube',
@@ -321,7 +377,7 @@
                                 } else if (url.indexOf('youtube.com/embed/') !== -1) {
                                     videoId = url.split('embed/')[1].split('?')[0];
                                 }
-                                
+
                                 if (videoId) {
                                     var embedHtml = '<iframe src="https://www.youtube.com/embed/' + videoId + '" width="560" height="315" frameborder="0" allowfullscreen></iframe>';
                                     editor.insertContent(embedHtml);
@@ -338,7 +394,7 @@
         document.getElementById('MenuID').addEventListener('change', function () {
             const menuId = this.value;
             const categoryDropdown = document.getElementById('ReviewsCategoryID');
-    
+
             // Fetch categories based on MenuID
             fetch('/adminreviews/fetch-category', {
                 method: 'POST',
@@ -348,15 +404,20 @@
                 },
                 body: JSON.stringify({ menu_id: menuId })
             })
-            .then(response => response.json())
-            .then(data => {
-                categoryDropdown.innerHTML = '';
-                data.forEach(category => {
-                    categoryDropdown.innerHTML += `<option value="${category.ID}">${category.Name}</option>`;
-                });
-            })
-            .catch(error => console.error('Error fetching categories:', error));
-    
+                .then(response => response.json())
+                .then(data => {
+                    categoryDropdown.innerHTML = '';
+                    data.forEach(category => {
+                        categoryDropdown.innerHTML += `<option value="${category.ID}">${category.Name}</option>`;
+                    });
+                    const oldCat = document.getElementById('oldReviewsCategoryID').value;
+                    if(oldCat) {
+                        let option = categoryDropdown.querySelector(`option[value="${oldCat}"]`);
+                        if(option) categoryDropdown.value = oldCat;
+                    }
+                })
+                .catch(error => console.error('Error fetching categories:', error));
+
             // Fetch tabs based on MenuID
             fetch('/adminreviews/fetch-tabs', {
                 method: 'POST',
@@ -366,34 +427,34 @@
                 },
                 body: JSON.stringify({ menu_id: menuId })
             })
-            .then(response => response.json())
-            .then(tabs => {
-                const tabList = document.getElementById('tab-list');
-                const tabContent = document.getElementById('tab-content');
-                const tabPlaceholder = document.getElementById('tab-placeholder');
-    
-                // Clear previous tabs and content
-                tabList.innerHTML = '';
-                tabContent.innerHTML = '';
-                
-                // Remove placeholder
-                if (tabPlaceholder) {
-                    tabPlaceholder.remove();
-                }
-    
-                // Check if we have tabs
-                if (!tabs || tabs.length === 0) {
-                    tabContent.innerHTML = '<div class="text-center text-gray-500 py-8"><p>No tabs available for this category.</p></div>';
-                    return;
-                }
-    
-                // Loop through the fetched tabs and create the tab navigation and content
-                console.log('Creating tabs:', tabs);
-                tabs.forEach((tab, index) => {
-                    console.log('Creating tab:', tab.Name, 'ID:', tab.TabID);
-                    // Create Tab Navigation Button with remove icon
-                    const isActive = index === 0 ? 'active' : ''; // Set the first tab as active by default
-                    tabList.innerHTML += `
+                .then(response => response.json())
+                .then(tabs => {
+                    const tabList = document.getElementById('tab-list');
+                    const tabContent = document.getElementById('tab-content');
+                    const tabPlaceholder = document.getElementById('tab-placeholder');
+
+                    // Clear previous tabs and content
+                    tabList.innerHTML = '';
+                    tabContent.innerHTML = '';
+
+                    // Remove placeholder
+                    if (tabPlaceholder) {
+                        tabPlaceholder.remove();
+                    }
+
+                    // Check if we have tabs
+                    if (!tabs || tabs.length === 0) {
+                        tabContent.innerHTML = '<div class="text-center text-gray-500 py-8"><p>No tabs available for this category.</p></div>';
+                        return;
+                    }
+
+                    // Loop through the fetched tabs and create the tab navigation and content
+                    console.log('Creating tabs:', tabs);
+                    tabs.forEach((tab, index) => {
+                        console.log('Creating tab:', tab.Name, 'ID:', tab.TabID);
+                        // Create Tab Navigation Button with remove icon
+                        const isActive = index === 0 ? 'active' : ''; // Set the first tab as active by default
+                        tabList.innerHTML += `
                         <li class="-mb-px mr-1">
                             <a class="tab-btn ${isActive} bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold relative" 
                                data-tab="${tab.TabID}" href="#tab_${tab.TabID}">
@@ -402,80 +463,84 @@
                             </a>
                         </li>
                     `;
-    
-                    // Create Tab Content (Textarea for each tab)
-                    tabContent.innerHTML += `
+
+                        let content = '';
+                        if (typeof oldTabsContent !== 'undefined' && oldTabsContent[tab.TabID]) {
+                            content = oldTabsContent[tab.TabID];
+                        }
+                        // Create Tab Content (Textarea for each tab)
+                        tabContent.innerHTML += `
                         <div class="tab-content-item ${isActive}" id="tab_${tab.TabID}" style="${index === 0 ? 'display: block;' : 'display: none;'}">
-                            <textarea name="tabscontent[${tab.TabID}]" class="tiny-editor" id="editor_${tab.TabID}"></textarea>
+                            <textarea name="tabscontent[${tab.TabID}]" class="tiny-editor" id="editor_${tab.TabID}">${content}</textarea>
                         </div>
                     `;
-                });
-                
-                console.log('Tabs created. Total textareas:', document.querySelectorAll('.tiny-editor').length);
-    
-                // Reinitialize TinyMCE editors for dynamically added textareas
-                // Wait for TinyMCE to be available and DOM to be ready
-                waitForTinyMCE(() => {
-                    setTimeout(() => {
-                        initializeTinyMCE();
-                    }, 100);
-                });
-    
-                // Add tab switching functionality
-                document.querySelectorAll('.tab-btn').forEach(tabBtn => {
-                    tabBtn.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        const targetTabId = this.getAttribute('data-tab');
-    
-                        // Remove active class from all tabs and hide all content
-                        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-                        document.querySelectorAll('.tab-content-item').forEach(content => content.style.display = 'none');
-    
-                        // Activate the clicked tab and show corresponding content
-                        this.classList.add('active');
-                        document.getElementById(`tab_${targetTabId}`).style.display = 'block';
                     });
-                });
-    
-                // Add functionality to remove a tab and its content
-                document.querySelectorAll('.remove-tab').forEach(removeBtn => {
-                    removeBtn.addEventListener('click', function (event) {
-                        event.stopPropagation(); // Prevent triggering the tab switch event
-                        const tabId = this.getAttribute('data-remove');
-    
-                        // Get the tab content element to remove its TinyMCE instance
-                        const tabContentElement = document.getElementById(`tab_${tabId}`);
-                        if (tabContentElement) {
-                            const textarea = tabContentElement.querySelector('textarea');
-                            if (textarea && textarea.id) {
-                                tinymce.remove(`#${textarea.id}`);
-                            }
-                        }
 
-                        // Remove the tab and its content
-                        document.querySelector(`[data-tab="${tabId}"]`).parentElement.remove(); // Remove tab from list
-                        document.getElementById(`tab_${tabId}`).remove(); // Remove content
-    
-                        // If the removed tab was active, activate the first tab if it exists
-                        const firstTab = document.querySelector('.tab-btn');
-                        if (firstTab) {
-                            firstTab.classList.add('active');
-                            const firstTabId = firstTab.getAttribute('data-tab');
-                            const firstTabContent = document.getElementById(`tab_${firstTabId}`);
-                            if (firstTabContent) {
-                                firstTabContent.style.display = 'block';
-                            }
-                        }
+                    console.log('Tabs created. Total textareas:', document.querySelectorAll('.tiny-editor').length);
+
+                    // Reinitialize TinyMCE editors for dynamically added textareas
+                    // Wait for TinyMCE to be available and DOM to be ready
+                    waitForTinyMCE(() => {
+                        setTimeout(() => {
+                            initializeTinyMCE();
+                        }, 100);
                     });
+
+                    // Add tab switching functionality
+                    document.querySelectorAll('.tab-btn').forEach(tabBtn => {
+                        tabBtn.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            const targetTabId = this.getAttribute('data-tab');
+
+                            // Remove active class from all tabs and hide all content
+                            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                            document.querySelectorAll('.tab-content-item').forEach(content => content.style.display = 'none');
+
+                            // Activate the clicked tab and show corresponding content
+                            this.classList.add('active');
+                            document.getElementById(`tab_${targetTabId}`).style.display = 'block';
+                        });
+                    });
+
+                    // Add functionality to remove a tab and its content
+                    document.querySelectorAll('.remove-tab').forEach(removeBtn => {
+                        removeBtn.addEventListener('click', function (event) {
+                            event.stopPropagation(); // Prevent triggering the tab switch event
+                            const tabId = this.getAttribute('data-remove');
+
+                            // Get the tab content element to remove its TinyMCE instance
+                            const tabContentElement = document.getElementById(`tab_${tabId}`);
+                            if (tabContentElement) {
+                                const textarea = tabContentElement.querySelector('textarea');
+                                if (textarea && textarea.id) {
+                                    tinymce.remove(`#${textarea.id}`);
+                                }
+                            }
+
+                            // Remove the tab and its content
+                            document.querySelector(`[data-tab="${tabId}"]`).parentElement.remove(); // Remove tab from list
+                            document.getElementById(`tab_${tabId}`).remove(); // Remove content
+
+                            // If the removed tab was active, activate the first tab if it exists
+                            const firstTab = document.querySelector('.tab-btn');
+                            if (firstTab) {
+                                firstTab.classList.add('active');
+                                const firstTabId = firstTab.getAttribute('data-tab');
+                                const firstTabContent = document.getElementById(`tab_${firstTabId}`);
+                                if (firstTabContent) {
+                                    firstTabContent.style.display = 'block';
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching tabs:', error);
+                    const tabContent = document.getElementById('tab-content');
+                    tabContent.innerHTML = '<div class="text-center text-red-500 py-8"><p>Error loading tabs. Please try again.</p></div>';
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching tabs:', error);
-                const tabContent = document.getElementById('tab-content');
-                tabContent.innerHTML = '<div class="text-center text-red-500 py-8"><p>Error loading tabs. Please try again.</p></div>';
-            });
         });
-        document.getElementById('MetaTitle').addEventListener('input', function() {
+        document.getElementById('MetaTitle').addEventListener('input', function () {
             let counter = document.getElementById('metaTitleCounter');
             let length = this.value.length;
             counter.textContent = `(${length}/60)`;
@@ -489,7 +554,7 @@
             }
         });
 
-        document.getElementById('MetaDescription').addEventListener('input', function() {
+        document.getElementById('MetaDescription').addEventListener('input', function () {
             let counter = document.getElementById('metaDescriptionCounter');
             let length = this.value.length;
             counter.textContent = `(${length}/160)`;
@@ -504,12 +569,12 @@
         });
 
         // Image Preview Script
-        document.getElementById('Thumbimage').addEventListener('change', function() {
+        document.getElementById('Thumbimage').addEventListener('change', function () {
             let preview = document.getElementById('featuredImagePreview');
             preview.innerHTML = ''; // Clear previous content
 
             let reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 let img = document.createElement('img');
                 img.src = e.target.result;
                 img.classList.add('rounded-md', 'shadow-md', 'mt-2', 'max-w-full', 'h-auto');
@@ -519,12 +584,12 @@
         });
 
         // Multiple Image Preview Script
-        document.getElementById('Image').addEventListener('change', function() {
+        document.getElementById('Image').addEventListener('change', function () {
             let preview = document.getElementById('imagePreview');
             preview.innerHTML = ''; // Clear previous content
             Array.from(this.files).forEach(file => {
                 let reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     let img = document.createElement('img');
                     img.src = e.target.result;
                     img.classList.add('rounded-md', 'shadow-md', 'mt-2', 'max-w-full', 'h-auto', 'object-cover');
@@ -537,17 +602,22 @@
             });
         });
 
+        // Trigger menu change if we have an old value
+        if(document.getElementById('MenuID').value) {
+            document.getElementById('MenuID').dispatchEvent(new Event('change'));
+        }
+
         // Handle form submission with loading indicator
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('form').addEventListener('submit', function (e) {
             const submitBtn = document.getElementById('submit-btn');
             const submitText = document.getElementById('submit-text');
             const submitLoading = document.getElementById('submit-loading');
-            
+
             // Show loading state
             submitBtn.disabled = true;
             submitText.classList.add('hidden');
             submitLoading.classList.remove('hidden');
-            
+
             // Optional: Add a timeout to re-enable button if form takes too long
             setTimeout(() => {
                 if (submitBtn.disabled) {
@@ -560,49 +630,51 @@
     </script>
     <style>
         /* Active Tab Styling */
-    .tab-btn.active {
-        background-color: #4f46e5; /* Tailwind Indigo-600 */
-        color: white;
-        border-bottom: 2px solid #4f46e5;
-    }
-    
-    /* Remove Tab Button */
-    .remove-tab {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        font-size: 16px;
-        background: transparent;
-        cursor: pointer;
-    }
-    
-    .remove-tab:hover {
-        color: #dc2626; /* Tailwind Red-600 */
-    }
-    
-    /* Loading Animation */
-    @keyframes spin {
-        from {
-            transform: rotate(0deg);
+        .tab-btn.active {
+            background-color: #4f46e5;
+            /* Tailwind Indigo-600 */
+            color: white;
+            border-bottom: 2px solid #4f46e5;
         }
-        to {
-            transform: rotate(360deg);
+
+        /* Remove Tab Button */
+        .remove-tab {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 16px;
+            background: transparent;
+            cursor: pointer;
         }
-    }
-    
-    .animate-spin {
-        animation: spin 1s linear infinite;
-    }
-    
-    /* Submit Button Loading State */
-    #submit-btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-    
-    #submit-btn:disabled:hover {
-        background-color: #4f46e5;
-    }
-    
+
+        .remove-tab:hover {
+            color: #dc2626;
+            /* Tailwind Red-600 */
+        }
+
+        /* Loading Animation */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Submit Button Loading State */
+        #submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #submit-btn:disabled:hover {
+            background-color: #4f46e5;
+        }
     </style>
 </x-app-layout>

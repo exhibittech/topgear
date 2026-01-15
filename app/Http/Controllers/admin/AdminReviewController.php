@@ -33,19 +33,19 @@ class AdminReviewController extends Controller
     public function create()
     {
         // return the view for creating a review
-            // Fetch Review Categories (these can be fetched similarly)
-            $categories = ReviewCategory::where('IsActive', 1)->get();
+        // Fetch Review Categories (these can be fetched similarly)
+        $categories = ReviewCategory::where('IsActive', 1)->get();
 
-            // Initially, set $tabs as empty
-            $tabs = [];
-        
-            return view('admin.reviews.create', compact('categories', 'tabs'));
+        // Initially, set $tabs as empty
+        $tabs = [];
+
+        return view('admin.reviews.create', compact('categories', 'tabs'));
     }
 
     public function fetchCategory(Request $request)
     {
         $menuID = $request->input('menu_id');
-        
+
         // Fetch categories based on MenuID
         $categories = ReviewCategory::where('IsActive', 1)
             ->where(function ($query) use ($menuID) {
@@ -53,22 +53,22 @@ class AdminReviewController extends Controller
                     ->orWhere('MenuID', '9,11'); // for both Car and Bike
             })
             ->get();
-    
+
         return response()->json($categories);
     }
-    
+
     public function fetchTabsByMenuID(Request $request)
     {
         $menuID = $request->input('menu_id');
-    
+
         // Fetch Tabs based on MenuID
-        $tabs = Tab::where(function($query) use ($menuID) {
+        $tabs = Tab::where(function ($query) use ($menuID) {
             $query->where('MenuID', $menuID)
-                  ->orWhere('MenuID', '9,11'); // For both Car and Bike tabs
+                ->orWhere('MenuID', '9,11'); // For both Car and Bike tabs
         })
-        ->where('IsActive', 1)
-        ->get();
-    
+            ->where('IsActive', 1)
+            ->get();
+
         return response()->json($tabs);
     }
 
@@ -89,14 +89,14 @@ class AdminReviewController extends Controller
             'Author' => 'required|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950',
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950 |dimensions:max_width=1920,max_height=1080',
             'Image' => 'nullable|array|max:30',
-            'Image.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800',
+            'Image.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800 | dimensions:max_width=1920,max_height=1080',
             'tabscontent.*' => 'nullable|string'
         ], [
             'Image.max' => 'You can upload up to 30 slider images per review.',
-            'Thumbimage.dimensions' => 'Featured image must be at least 1900px wide and 1064px tall.',
-            'Image.*.dimensions' => 'Slider images must be at least 1900px wide and 1064px tall.'
+            'Thumbimage.dimensions' => 'Featured image must be at least 1920px wide and 1080px tall.',
+            'Image.*.dimensions' => 'Slider images must be at least 1920px wide and 1080px tall.'
         ]);
 
 
@@ -220,24 +220,24 @@ class AdminReviewController extends Controller
     public function edit($id)
     {
         $review = Review::findOrFail($id);
-    
+
         // Retrieve related images ordered by DisplayOrder
         $images = ReviewImage::where('ReviewsID', $review->ReviewsID)
             ->orderBy('DisplayOrder', 'asc')
             ->get();
-        
+
         // Retrieve tab contents for the review
         $tabContents = ReviewContent::where('ReviewsID', $review->ReviewsID)->get();
-        
+
         // Fetch review categories
         $categories = ReviewCategory::where('IsActive', 1)->get();
-        
+
         // Fetch tabs based on the review's MenuID
-        $tabs = Tab::where(function($query) use ($review) {
+        $tabs = Tab::where(function ($query) use ($review) {
             $query->where('MenuID', $review->MenuID)
-                  ->orWhere('MenuID', '9,11'); // For both Car and Bike tabs
+                ->orWhere('MenuID', '9,11'); // For both Car and Bike tabs
         })->where('IsActive', 1)->get();
-    
+
         // Return the edit view with the review data
         return view('admin.reviews.edit', compact('review', 'categories', 'images', 'tabContents', 'tabs'));
     }
@@ -268,14 +268,14 @@ class AdminReviewController extends Controller
             'Thumbimage.dimensions' => 'Featured image must be at least 1900px wide and 1064px tall.',
             'Image.*.dimensions' => 'Slider images must be at least 1900px wide and 1064px tall.'
         ]);
-    
+
         // Fetch the existing review
         $review = Review::findOrFail($id);
         $validatedData['Author'] = $review->Author; // Keep old value
 
         // Update review data
         $review->fill($validatedData);
-    
+
         // Handle Featured Image (Thumbimage)
         if ($request->hasFile('Thumbimage')) {
             $thumbImage = $request->file('Thumbimage');
@@ -294,15 +294,15 @@ class AdminReviewController extends Controller
                 $review->ImagePath = 'uploads/Reviewsthumb/Image/' . $thumbImageName;
             }
         }
-    
+
         // Save the updated review
         $review->save();
-    
+
         // Handle Slider Images
         if ($request->hasFile('Image')) {
             // Remove old images
             ReviewImage::where('ReviewsID', $review->ReviewsID)->delete();
-            
+
             $order = 0;
             foreach ($request->file('Image') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
@@ -328,12 +328,12 @@ class AdminReviewController extends Controller
                 ]);
             }
         }
-    
+
         // Handle Tab Contents
         if ($request->has('tabscontent')) {
             // Delete old tab content
             ReviewContent::where('ReviewsID', $review->ReviewsID)->delete();
-            
+
             foreach ($request->input('tabscontent') as $tabID => $content) {
                 // Only save tabs with non-empty content
                 if (!empty(trim($content))) {
@@ -345,7 +345,7 @@ class AdminReviewController extends Controller
                 }
             }
         }
-    
+
         // Flash success message and redirect
         Session::flash('succ_msg', 'Review updated successfully.');
         return redirect()->route('adminreviews.index');
@@ -384,7 +384,7 @@ class AdminReviewController extends Controller
         return str_replace(DIRECTORY_SEPARATOR, '/', $relative);
     }
 
-    protected function generateWebpVariant(string $absolutePath, int $quality = 100): ?string
+    protected function generateWebpVariant(string $absolutePath, int $quality = 70): ?string
     {
         if (!function_exists('imagewebp') || !file_exists($absolutePath)) {
             Log::warning('WebP conversion skipped: missing imagewebp support or source file.', ['path' => $absolutePath]);

@@ -190,18 +190,123 @@
 
     <script>
         tinymce.init({
-        selector: '#description',
-        plugins: 'link image code',
-        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-        convert_urls: false,
-        relative_urls: false,
-        remove_script_host: false,
-        link_assume_external_targets: false,
-        default_link_target: '_blank', 
-        entity_encoding: 'raw',
-        allow_script_urls: true,
-        height: 300
-    });
+            selector: '#description',
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'help', 'wordcount', 'emoticons',
+                'codesample', 'autosave', 'save', 'directionality', 'visualchars',
+                'nonbreaking', 'pagebreak', 'quickbars'
+            ],
+            toolbar: [
+                'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media youtube table link anchor codesample | ltr rtl'
+            ].join(' | '),
+            toolbar_mode: 'sliding',
+            contextmenu: 'link image imagetools table spellchecker configurepermanentpen',
+            menubar: 'file edit view insert format tools table help',
+            menu: {
+                file: { title: 'File', items: 'newdocument restoredraft | preview | export print | deleteallconversations' },
+                edit: { title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall | searchreplace' },
+                view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen | showcomments' },
+                insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor | insertdatetime' },
+                format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | blocks fontfamily fontsize align lineheight | forecolor backcolor | removeformat' },
+                tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | a11ycheck code wordcount' },
+                table: { title: 'Table', items: 'inserttable | cell row column | advtablesort | tableprops deletetable' },
+                help: { title: 'Help', items: 'help' }
+            },
+            content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; }',
+            convert_urls: false,
+            relative_urls: false,
+            remove_script_host: false,
+            link_assume_external_targets: false,
+            default_link_target: '_blank',
+            entity_encoding: 'raw',
+            allow_script_urls: true,
+            allow_html_in_named_anchor: true,
+            allow_unsafe_link_target: true,
+            height: 400,
+            branding: false,
+            promotion: false,
+            resize: true,
+            autosave_ask_before_unload: true,
+            autosave_interval: '30s',
+            autosave_prefix: '{path}{query}-{id}-',
+            autosave_retention: '2m',
+            image_advtab: true,
+            image_caption: true,
+            image_description: true,
+            image_title: true,
+            media_live_embeds: true,
+            media_url_resolver: function (data, resolve) {
+                var url = data.url;
+                if (url.indexOf('youtube.com') !== -1 || url.indexOf('youtu.be') !== -1) {
+                    // Convert YouTube URLs to embed format
+                    var videoId = '';
+                    if (url.indexOf('youtu.be/') !== -1) {
+                        videoId = url.split('youtu.be/')[1].split('?')[0];
+                    } else if (url.indexOf('youtube.com/watch?v=') !== -1) {
+                        videoId = url.split('v=')[1].split('&')[0];
+                    } else if (url.indexOf('youtube.com/embed/') !== -1) {
+                        videoId = url.split('embed/')[1].split('?')[0];
+                    }
+                    
+                    if (videoId) {
+                        var embedHtml = '<iframe src="https://www.youtube.com/embed/' + videoId + '" width="560" height="315" frameborder="0" allowfullscreen></iframe>';
+                        resolve({ html: embedHtml });
+                    } else {
+                        resolve({ html: '' });
+                    }
+                } else {
+                    resolve({ html: '' });
+                }
+            },
+            setup: function (editor) {
+                console.log('TinyMCE editor initialized for:', editor.id);
+                
+                // Sync content to textarea on change and keyup to ensure data is sent on submit
+                editor.on('change keyup', function () {
+                    editor.save(); // Updates the underlying textarea
+                    // Trigger input event to update progress bar
+                    var event = new Event('input', {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                     // Check if the element exists before dispatching
+                    var textarea = document.getElementById('description');
+                    if(textarea) {
+                        textarea.dispatchEvent(event);
+                    }
+                });
+
+                // Add custom button for YouTube
+                editor.ui.registry.addButton('youtube', {
+                    text: 'YouTube',
+                    tooltip: 'Insert YouTube Video',
+                    onAction: function () {
+                        var url = prompt('Enter YouTube URL:');
+                        if (url) {
+                            // Convert YouTube URLs to embed format
+                            var videoId = '';
+                            if (url.indexOf('youtu.be/') !== -1) {
+                                videoId = url.split('youtu.be/')[1].split('?')[0];
+                            } else if (url.indexOf('youtube.com/watch?v=') !== -1) {
+                                videoId = url.split('v=')[1].split('&')[0];
+                            } else if (url.indexOf('youtube.com/embed/') !== -1) {
+                                videoId = url.split('embed/')[1].split('?')[0];
+                            }
+                            
+                            if (videoId) {
+                                var embedHtml = '<iframe src="https://www.youtube.com/embed/' + videoId + '" width="560" height="315" frameborder="0" allowfullscreen></iframe>';
+                                editor.insertContent(embedHtml);
+                                editor.save(); // Save after inserting content
+                            } else {
+                                alert('Invalid YouTube URL. Please enter a valid YouTube link.');
+                            }
+                        }
+                    }
+                });
+            }
+        });
 
 
     
