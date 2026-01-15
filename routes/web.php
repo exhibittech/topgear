@@ -122,6 +122,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/update-image-order', [AdminReviewController::class, 'updateImageOrder'])->name('adminreviews.updateImageOrder');
     });
 
+    // Voting Results Page (Admin Access)
+    Route::get('/voting-results', [VotingController::class, 'showResults'])->name('voting.results');
+
 });
 
 Route::get('news/{category}/{code}', [NewsController::class, 'details'])->name('news.details');
