@@ -25,7 +25,18 @@ class Feature extends Model
     const UPDATED_AT = 'ModifiedDateTime';
 
     protected $fillable = [
-        'MenuID', 'Name', 'Code', 'Description', 'MetaTitle', 'MetaDescription', 'Keyword', 'Author', 'PublishDate', 'IsActive', 'Ip', 'ImagePath',
+        'MenuID',
+        'Name',
+        'Code',
+        'Description',
+        'MetaTitle',
+        'MetaDescription',
+        'Keyword',
+        'Author',
+        'PublishDate',
+        'IsActive',
+        'Ip',
+        'ImagePath',
     ];
 
     public function category()
@@ -40,6 +51,6 @@ class Feature extends Model
 
     public function images()
     {
-        return $this->hasMany(FeatureImage::class, 'FeatureID', 'FeatureID');
+        return $this->hasMany(FeatureImage::class, 'FeatureID', 'FeatureID')->orderBy('DisplayOrder', 'asc');
     }
 }

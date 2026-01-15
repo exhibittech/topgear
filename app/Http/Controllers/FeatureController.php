@@ -35,7 +35,7 @@ class FeatureController extends Controller
         $menu = MenuController::loadMenu();
 
         $record = Feature::where('Code', $code)->firstOrFail();
-        $images = FeatureImage::where('FeatureID', $record->FeatureID)->get();
+        $images = FeatureImage::where('FeatureID', $record->FeatureID)->orderBy('DisplayOrder', 'asc')->get();
 
         $increment = rand(1, 15);
         DB::table('Features')
