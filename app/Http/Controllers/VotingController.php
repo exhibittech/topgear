@@ -49,8 +49,8 @@ class VotingController extends Controller
         if ($deviceFingerprint) {
             $registrationsFromDevice = VotingUser::where('device_fingerprint', $deviceFingerprint)->count();
             
-            if ($registrationsFromDevice >= 3) {
-                return redirect()->back()->with('error', 'Maximum registration limit (3 accounts) reached from this device. Please login with one of your existing emails.');
+            if ($registrationsFromDevice >= 10) {
+                return redirect()->back()->with('error', 'Maximum registration limit (5 accounts) reached from this device. Please login with one of your existing emails.');
             }
         }
 
