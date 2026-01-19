@@ -111,6 +111,14 @@
                 </label>
         </div>
         </div>
+        <div class="col-lg-3 col-6">
+        <div class="kjchocie-wrap">
+                <input required type="radio" id="bkj08a" name="bcat1" value="Yezdi Roadster" />      
+                <label for="bkj08a"><img src="uploads/awards26/bikes/Yezdi-Roadster.jpg" alt="Yezdi Roadster"/>
+                <p>Yezdi Roadster</p>
+                </label>
+        </div>
+        </div>
     </div>
 <!-- bcat2 -->
 <div class="row">
@@ -474,6 +482,14 @@
                 <input required type="radio" id="bkj50" name="bcat6" value="Harley-Davidson X440T" />      
                 <label for="bkj50"><img src="uploads/awards26/bikes/Harley-Davidson-X440T.jpg" alt="Harley-Davidson X440T"/>
                 <p>Harley-Davidson X440T</p>
+                </label>
+        </div>
+        </div>
+        <div class="col-lg-3 col-6">
+        <div class="kjchocie-wrap">
+                <input required type="radio" id="bkj50a" name="bcat6" value="Yezdi Roadster" />      
+                <label for="bkj50a"><img src="uploads/awards26/bikes/Yezdi-Roadster.jpg" alt="Yezdi Roadster"/>
+                <p>Yezdi Roadster</p>
                 </label>
         </div>
         </div>
