@@ -23,8 +23,18 @@ class News extends Model
     const UPDATED_AT = 'ModifiedDateTime';
 
     protected $fillable = [
-        'MenuID', 'Name', 'Code', 'Description', 'MetaTitle', 'MetaDescription',
-        'Keyword', 'Author', 'PublishDate', 'IsActive', 'Ip', 'ImagePath',
+        'MenuID',
+        'Name',
+        'Code',
+        'Description',
+        'MetaTitle',
+        'MetaDescription',
+        'Keyword',
+        'Author',
+        'PublishDate',
+        'IsActive',
+        'Ip',
+        'ImagePath',
     ];
 
     public function category()
@@ -39,6 +49,6 @@ class News extends Model
 
     public function images()
     {
-        return $this->hasMany(NewsImage::class, 'NewsID', 'NewsID'); // Use correct foreign key and local key
+        return $this->hasMany(NewsImage::class, 'NewsID', 'NewsID')->orderBy('DisplayOrder', 'asc'); // Use correct foreign key and local key
     }
 }

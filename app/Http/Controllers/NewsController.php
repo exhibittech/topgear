@@ -37,17 +37,17 @@ class NewsController extends Controller
 
         $record = News::where('Code', $code)->firstOrFail();
 
-	//if ($record->category->Code !== $category) {
-          //abort(404); // Return 404 if the category doesn't match
-    	//}
-	if ($record->category->Code !== $category) {
-        // Redirect to the correct URL with the right category
-        return redirect()->route('news.details', [
-            'category' => $record->category->Code,
-            'code' => $code,
-        ], 301); // Use 301 for permanent redirection
-    }
-        $images = NewsImage::where('NewsID', $record->NewsID)->get();
+        //if ($record->category->Code !== $category) {
+        //abort(404); // Return 404 if the category doesn't match
+        //}
+        if ($record->category->Code !== $category) {
+            // Redirect to the correct URL with the right category
+            return redirect()->route('news.details', [
+                'category' => $record->category->Code,
+                'code' => $code,
+            ], 301); // Use 301 for permanent redirection
+        }
+        $images = NewsImage::where('NewsID', $record->NewsID)->orderBy('DisplayOrder', 'asc')->get();
 
         $increment = rand(1, 15);
         DB::table('News')
@@ -64,7 +64,7 @@ class NewsController extends Controller
             ->where('ID', $record->ID)
             ->where('NewsID', '!=', $record->NewsID)
             ->where('IsDeleted', 0)
-	->where('IsActive', 1)
+            ->where('IsActive', 1)
             ->orderBy('PublishDate', 'DESC')
             ->take(3)
             ->get();
