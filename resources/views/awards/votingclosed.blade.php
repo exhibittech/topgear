@@ -7,13 +7,13 @@
 @section('content')
 
     <!-- <div class="tg-banner-wrap">
-                        <img src="https://www.topgearmag.in/uploads/awards26/awards26.jpg" width="100%">
-                    </div> -->
+                            <img src="https://www.topgearmag.in/uploads/awards26/awards26.jpg" width="100%">
+                        </div> -->
 
     <div class="tg-voting-wrap">
         <div class="container">
             <div class="kjrow-md-60 text-center">
-                <img src="https://www.topgearmag.in/uploads/awards26/voting26.jpg" width="100%">
+                <img src="https://www.topgearmag.in/uploads/awards26/voting26.jpg" width="90%">
             </div>
         </div>
     </div>

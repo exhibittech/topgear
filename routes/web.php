@@ -61,6 +61,11 @@ Route::get('/votingclosed', [StaticPageController::class, 'votingclosed'])->name
 // Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 //end
 
+//Voting 2026 - Redirects to Closed
+Route::redirect('/voting26', '/votingclosed', 301);
+Route::redirect('/carsvote', '/votingclosed', 301);
+Route::redirect('/bikes', '/votingclosed', 301);
+
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
 Route::get('/career', [StaticPageController::class, 'career'])->name('career');
@@ -145,16 +150,6 @@ Route::get('/magazine', function () {
 Route::get('/awards2026', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfOtGLJQAwViD-mxlnypf0E4Xd2V8D3wolMsUx9uBS6vExgMg/viewform');
 });
-Route::get('/voting26', function () {
-    return redirect()->route('voting.closed');
-});
-Route::get('/carsvote', function () {
-    return redirect()->route('voting.closed');
-});
-Route::get('/bikes', function () {
-    return redirect()->route('voting.closed');
-});
-
 
 // Route::get('/signup', function () {
 //     return redirect()->away('http://www.topgearmag.in/awards');
