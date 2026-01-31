@@ -59,6 +59,9 @@ Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awar
 // Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
 // Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
 //end
+//Voting Closed
+Route::get('/votingclosed', [StaticPageController::class, 'votingclosed'])->name('votingclosed');
+
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
 Route::get('/career', [StaticPageController::class, 'career'])->name('career');

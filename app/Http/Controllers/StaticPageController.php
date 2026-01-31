@@ -17,6 +17,19 @@ class StaticPageController extends Controller
         return view('awards.index', compact('seodata', 'menu'));
     }
 
+    public function votingclosed()
+    {
+        $menu = MenuController::loadMenu();
+
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 Voting Closed',
+            'MetaDescription' => 'Check out the winners and highlights of the TopGear Awards 2026.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards, 2026 Awards',
+        ];
+
+        return view('awards.votingclosed', compact('seodata', 'menu'));
+    }
+
     public function winners23()
     {
         $menu = MenuController::loadMenu();
