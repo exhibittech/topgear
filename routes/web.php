@@ -36,6 +36,8 @@ Route::get('/awards', [StaticPageController::class, 'awards'])->name('awards');
 Route::get('/winners23', [StaticPageController::class, 'winners23'])->name('winners23');
 Route::get('/winners24', [StaticPageController::class, 'winners24'])->name('winners24');
 Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winners25');
+//Voting Closed
+Route::get('/votingclosed', [StaticPageController::class, 'votingclosed'])->name('votingclosed');
 
 //Route::get('/tg-score', [PollResultsController::class, 'showResults'])->name('poll.results');
 
@@ -59,8 +61,6 @@ Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awar
 // Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
 // Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
 //end
-//Voting Closed
-Route::get('/votingclosed', [StaticPageController::class, 'votingclosed'])->name('votingclosed');
 
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
