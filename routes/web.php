@@ -36,6 +36,7 @@ Route::get('/awards', [StaticPageController::class, 'awards'])->name('awards');
 Route::get('/winners23', [StaticPageController::class, 'winners23'])->name('winners23');
 Route::get('/winners24', [StaticPageController::class, 'winners24'])->name('winners24');
 Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winners25');
+Route::get('/winners26', [StaticPageController::class, 'winners26'])->name('winners26');
 //Voting Closed
 Route::get('/votingclosed', [StaticPageController::class, 'votingclosed'])->name('votingclosed');
 

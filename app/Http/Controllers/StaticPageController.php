@@ -9,9 +9,9 @@ class StaticPageController extends Controller
         $menu = MenuController::loadMenu();
 
         $seodata = [
-            'MetaTitle' => 'TopGear Awards 2024',
-            'MetaDescription' => 'Check out the winners and highlights of the TopGear Awards 2024.',
-            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards, 2024 Awards',
+            'MetaTitle' => 'BBC TopGear India Awards',
+            'MetaDescription' => 'Check out the winners and highlights of the BBC TopGear India Awards.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards, Auto Awards',
         ];
 
         return view('awards.index', compact('seodata', 'menu'));
@@ -92,6 +92,19 @@ class StaticPageController extends Controller
         ];
 
         return view('awards.winners25', compact('seodata', 'menu'));
+    }
+
+    public function winners26()
+    {
+        $menu = MenuController::loadMenu();
+
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 Winners',
+            'MetaDescription' => 'Check out the winners and highlights of the TopGear Awards 2026.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards, 2026 Awards',
+        ];
+
+        return view('awards.winners26', compact('seodata', 'menu'));
     }
 
     public function voting()
