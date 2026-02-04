@@ -6,11 +6,11 @@
     @include('partials.banner')
 
     <div class="container">
-        <!-- <div class="my-2 text-center">
-            <a href="/voting26">
-                <img src="/uploads/Banners/votenow.jpg" alt="BBC TopGear India Awards 2026" width="100%">
+        <div class="my-2 text-center">
+            <a href="/winners26">
+                <img src="/uploads/Banners/winners26.jpeg" alt="BBC TopGear India Awards 2026" width="100%">
             </a>
-        </div> -->
+        </div>
     </div>
     <section class="tg-reviews-latest">
         <div class="container">

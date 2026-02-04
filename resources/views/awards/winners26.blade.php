@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="tg-banner-wrap">
-    <img src="/uploads/awards26/awards26.jpg" width="100%">
+    <img src="/uploads/awards26/awards26.jpeg" width="100%">
 </div>
 <div class="container">
 	<div class="row">
