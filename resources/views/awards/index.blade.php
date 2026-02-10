@@ -12,14 +12,37 @@
 
 <div id="tg-awards">
     <div class="container">
-	<div class="tgsection-title kjcat-question">
+        <!-- TG Awards 2026 -->
+         <div class="tgsection-title kjcat-question">
             <h2>TopGear Awards 2025</h2>
         </div>
 	<div class="row">
 		<div class="col-md-4">
                 <div class="kjvideo">
-		<iframe width="100%" height="200" src="https://www.youtube.com/embed/1IL2qSEA-Lw?si=N2chYSFWH1rnpcMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/VntL705O_50?si=ex0KQnEEQHiV1G5f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
 		</div>
+		<div class="col-md-4">
+                <div class="kjvideo">
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/xRCWeVgcm80?si=yh9tfVRl4I4CoFAh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                </div>
+		<div class="col-md-4">
+            <div class="text-center mt-3">
+                <a href="https://www.topgearmag.in/winners26" target="_blank"><img src="https://www.exhibit.co.in/assets/images/logo/tg.png" width="100%" alt="TopGear India Awards 2026"></a>
+                <a class="tg-btn" href="https://www.topgearmag.in/winners26" target="_blank">Winners of 2026</a>
+            </div>
+        </div>
+	</div>
+    <!-- TG Awards 2025 -->
+	    <div class="tgsection-title kjcat-question">
+            <h2>TopGear Awards 2025</h2>
+        </div>
+	<div class="row">
+		<div class="col-md-4">
+                <div class="kjvideo">
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/1IL2qSEA-Lw?si=N2chYSFWH1rnpcMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
 		</div>
 		<div class="col-md-4">
                 <div class="kjvideo">
@@ -27,11 +50,11 @@
                 </div>
                 </div>
 		<div class="col-md-4">
-                <div class="text-center mt-3">
-                    <a href="https://www.topgearmag.in/winners24" target="_blank"><img src="https://www.exhibit.co.in/assets/images/logo/tg.png" width="100%" alt="TopGear India Awards 2025"></a>
-                    <a class="tg-btn" href="https://www.topgearmag.in/winners25" target="_blank">Winners of 2025</a>
-                </div>
+            <div class="text-center mt-3">
+                <a href="https://www.topgearmag.in/winners25" target="_blank"><img src="https://www.exhibit.co.in/assets/images/logo/tg.png" width="100%" alt="TopGear India Awards 2025"></a>
+                <a class="tg-btn" href="https://www.topgearmag.in/winners25" target="_blank">Winners of 2025</a>
             </div>
+        </div>
 	</div>
         <div class="tgsection-title kjcat-question">
             <h2>TopGear Awards 2024</h2>
