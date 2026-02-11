@@ -49,6 +49,14 @@
         </div>
         <div class="col-lg-3 col-6">
         <div class="kjchocie-wrap">
+                <input required type="radio" id="bkj01a" name="bcat1" value="Aprilia Tuono 457" />      
+                <label for="bkj01a"><img src="uploads/awards26/bikes/Aprilia-Tuono-457.jpg" alt="Aprilia Tuono 457"/>
+                <p>Aprilia Tuono 457</p>
+                </label>
+        </div>
+        </div>
+        <div class="col-lg-3 col-6">
+        <div class="kjchocie-wrap">
                 <input required type="radio" id="bkj02" name="bcat1" value="KTM 390 Adventure S" />      
                 <label for="bkj02"><img src="uploads/awards26/bikes/KTM-390-Adventure-S.jpg" alt="KTM 390 Adventure S"/>
                 <p>KTM 390 Adventure S</p>
@@ -100,6 +108,14 @@
                 <input required type="radio" id="bkj08" name="bcat1" value="Yamaha XSR 155" />      
                 <label for="bkj08"><img src="uploads/awards26/bikes/Yamaha-XSR-155.jpg" alt="Yamaha XSR 155"/>
                 <p>Yamaha XSR 155</p>
+                </label>
+        </div>
+        </div>
+        <div class="col-lg-3 col-6">
+        <div class="kjchocie-wrap">
+                <input required type="radio" id="bkj08a" name="bcat1" value="Yezdi Roadster" />      
+                <label for="bkj08a"><img src="uploads/awards26/bikes/Yezdi-Roadster.jpg" alt="Yezdi Roadster"/>
+                <p>Yezdi Roadster</p>
                 </label>
         </div>
         </div>
@@ -466,6 +482,14 @@
                 <input required type="radio" id="bkj50" name="bcat6" value="Harley-Davidson X440T" />      
                 <label for="bkj50"><img src="uploads/awards26/bikes/Harley-Davidson-X440T.jpg" alt="Harley-Davidson X440T"/>
                 <p>Harley-Davidson X440T</p>
+                </label>
+        </div>
+        </div>
+        <div class="col-lg-3 col-6">
+        <div class="kjchocie-wrap">
+                <input required type="radio" id="bkj50a" name="bcat6" value="Yezdi Roadster" />      
+                <label for="bkj50a"><img src="uploads/awards26/bikes/Yezdi-Roadster.jpg" alt="Yezdi Roadster"/>
+                <p>Yezdi Roadster</p>
                 </label>
         </div>
         </div>
@@ -846,116 +870,124 @@
         </div>
         </div>
 </div>
-<!-- bcat11 -->
-<div class="row">
-        <div class="tgsection-title kjcat-question">
-        <h2>Design of the Year</h2>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj95" name="bcat11" value="Triumph Thruxton 400" />      
-                <label for="bkj95"><img src="uploads/awards26/bikes/Triumph-Thruxton-400.jpg" alt="Triumph Thruxton 400"/>
-                <p>Triumph Thruxton 400</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj96" name="bcat11" value="BMW R 1300 GSA" />      
-                <label for="bkj96"><img src="uploads/awards26/bikes/BMW-R-1300-GSA.jpg" alt="BMW R 1300 GSA"/>
-                <p>BMW R 1300 GSA</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj97" name="bcat11" value="BMW S 1000 RR" />      
-                <label for="bkj97"><img src="uploads/awards26/bikes/BMW-S-1000-RR.jpg" alt="BMW S 1000 RR"/>
-                <p>BMW S 1000 RR</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj98" name="bcat11" value="Honda CBR1000RR-R Fireblade" />      
-                <label for="bkj98"><img src="uploads/awards26/bikes/Honda-CBR1000RR-R-Fireblade.jpg" alt="Honda CBR1000RR-R Fireblade"/>
-                <p>Honda CBR1000RR-R Fireblade</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj99" name="bcat11" value="Royal Enfield Meteor 350 Sundowner Orange Special Edition" />      
-                <label for="bkj99"><img src="uploads/awards26/bikes/Royal-Enfield-Meteor-350-Sundowner-Orange-Special-Edition.jpg" alt="Royal Enfield Meteor 350 Sundowner Orange Special Edition"/>
-                <p>Royal Enfield Meteor 350 Sundowner Orange Special Edition</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj100" name="bcat11" value="Yezdi Roadster" />      
-                <label for="bkj100"><img src="uploads/awards26/bikes/Yezdi-Roadster.jpg" alt="Yezdi Roadster"/>
-                <p>Yezdi Roadster</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj101" name="bcat11" value="Yezdi Adventure" />      
-                <label for="bkj101"><img src="uploads/awards26/bikes/Yezdi-Adventure.jpg" alt="Yezdi Adventure"/>
-                <p>Yezdi Adventure</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj102" name="bcat11" value="Yamaha XSR 155" />      
-                <label for="bkj102"><img src="uploads/awards26/bikes/Yamaha-XSR-155.jpg" alt="Yamaha XSR 155"/>
-                <p>Yamaha XSR 155</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj103" name="bcat11" value="VLF Mobster 135" />      
-                <label for="bkj103"><img src="uploads/awards26/bikes/VLF-Mobster-135.jpg" alt="VLF Mobster 135"/>
-                <p>VLF Mobster 135</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj104" name="bcat11" value="TVS Orbiter" />      
-                <label for="bkj104"><img src="uploads/awards26/bikes/TVS-Orbiter.jpg" alt="TVS Orbiter"/>
-                <p>TVS Orbiter</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj105" name="bcat11" value="TVS NTorq 150" />      
-                <label for="bkj105"><img src="uploads/awards26/bikes/TVS-NTorq-150.jpg" alt="TVS NTorq 150"/>
-                <p>TVS NTorq 150</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj106" name="bcat11" value="Hero Xoom 160" />      
-                <label for="bkj106"><img src="uploads/awards26/bikes/Hero-Xoom-160.jpg" alt="Hero Xoom 160"/>
-                <p>Hero Xoom 160</p>
-                </label>
-        </div>
-        </div>
-        <div class="col-lg-3 col-6">
-        <div class="kjchocie-wrap">
-                <input required type="radio" id="bkj107" name="bcat11" value="Hero Xtreme 250R" />      
-                <label for="bkj107"><img src="uploads/awards26/bikes/Hero-Xtreme-250R.jpg" alt="Hero Xtreme 250R"/>
-                <p>Hero Xtreme 250R</p>
-                </label>
-        </div>
-        </div>
-</div>
+        <!-- bcat11 -->
+        <!-- <div class="row">
+                <div class="tgsection-title kjcat-question">
+                <h2>Design of the Year</h2>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj95" name="bcat11" value="Triumph Thruxton 400" />      
+                        <label for="bkj95"><img src="uploads/awards26/bikes/Triumph-Thruxton-400.jpg" alt="Triumph Thruxton 400"/>
+                        <p>Triumph Thruxton 400</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj96" name="bcat11" value="BMW R 1300 GSA" />      
+                        <label for="bkj96"><img src="uploads/awards26/bikes/BMW-R-1300-GSA.jpg" alt="BMW R 1300 GSA"/>
+                        <p>BMW R 1300 GSA</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj97" name="bcat11" value="BMW S 1000 RR" />      
+                        <label for="bkj97"><img src="uploads/awards26/bikes/BMW-S-1000-RR.jpg" alt="BMW S 1000 RR"/>
+                        <p>BMW S 1000 RR</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj98" name="bcat11" value="Honda CBR1000RR-R Fireblade" />      
+                        <label for="bkj98"><img src="uploads/awards26/bikes/Honda-CBR1000RR-R-Fireblade.jpg" alt="Honda CBR1000RR-R Fireblade"/>
+                        <p>Honda CBR1000RR-R Fireblade</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj99" name="bcat11" value="Royal Enfield Meteor 350 Sundowner Orange Special Edition" />      
+                        <label for="bkj99"><img src="uploads/awards26/bikes/Royal-Enfield-Meteor-350-Sundowner-Orange-Special-Edition.jpg" alt="Royal Enfield Meteor 350 Sundowner Orange Special Edition"/>
+                        <p>Royal Enfield Meteor 350 Sundowner Orange Special Edition</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj100" name="bcat11" value="Yezdi Roadster" />      
+                        <label for="bkj100"><img src="uploads/awards26/bikes/Yezdi-Roadster.jpg" alt="Yezdi Roadster"/>
+                        <p>Yezdi Roadster</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj101" name="bcat11" value="Yezdi Adventure" />      
+                        <label for="bkj101"><img src="uploads/awards26/bikes/Yezdi-Adventure.jpg" alt="Yezdi Adventure"/>
+                        <p>Yezdi Adventure</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj102" name="bcat11" value="Yamaha XSR 155" />      
+                        <label for="bkj102"><img src="uploads/awards26/bikes/Yamaha-XSR-155.jpg" alt="Yamaha XSR 155"/>
+                        <p>Yamaha XSR 155</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj103" name="bcat11" value="VLF Mobster 135" />      
+                        <label for="bkj103"><img src="uploads/awards26/bikes/VLF-Mobster-135.jpg" alt="VLF Mobster 135"/>
+                        <p>VLF Mobster 135</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj104" name="bcat11" value="TVS Orbiter" />      
+                        <label for="bkj104"><img src="uploads/awards26/bikes/TVS-Orbiter.jpg" alt="TVS Orbiter"/>
+                        <p>TVS Orbiter</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj105" name="bcat11" value="TVS NTorq 150" />      
+                        <label for="bkj105"><img src="uploads/awards26/bikes/TVS-NTorq-150.jpg" alt="TVS NTorq 150"/>
+                        <p>TVS NTorq 150</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj106" name="bcat11" value="Hero Xoom 160" />      
+                        <label for="bkj106"><img src="uploads/awards26/bikes/Hero-Xoom-160.jpg" alt="Hero Xoom 160"/>
+                        <p>Hero Xoom 160</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj107" name="bcat11" value="Hero Xtreme 250R" />      
+                        <label for="bkj107"><img src="uploads/awards26/bikes/Hero-Xtreme-250R.jpg" alt="Hero Xtreme 250R"/>
+                        <p>Hero Xtreme 250R</p>
+                        </label>
+                </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                <div class="kjchocie-wrap">
+                        <input required type="radio" id="bkj108" name="bcat11" value="Hero Xtreme 250R" />      
+                        <label for="bkj108"><img src="uploads/awards26/bikes/Hero-Xtreme-250R.jpg" alt="Hero Xtreme 250R"/>
+                        <p>Hero Xtreme 250R</p>
+                        </label>
+                </div>
+                </div>
+        </div> -->
 
         <div class="text-center mt-3 mb-5">
         <button class="tg-btn" type="submit">Vote</button>

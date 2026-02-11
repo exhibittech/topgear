@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('adminreviews.index')" :active="request()->routeIs('adminreviews.*')">
                         {{ __('Review Management') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('voting.results')" :active="request()->routeIs('voting.results')">
+                        {{ __('Voting Results') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -95,6 +98,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('adminreviews.index')" :active="request()->routeIs('adminreviews.*')">
                 {{ __('Review Management') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('voting.results')" :active="request()->routeIs('voting.results')">
+                {{ __('Voting Results') }}
             </x-responsive-nav-link>
         </div>
 

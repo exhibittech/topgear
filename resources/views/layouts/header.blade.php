@@ -2,8 +2,8 @@
 
 <div class="container">
     <div class="my-3 text-center">
-        <a href="/voting26" target="_blank">
-            <img src="/uploads/Banners/votenow.jpg" alt="BBC TopGear India Awards 2026" width="100%">
+        <a href="https://vinfastauto.in/en/schedule-a-test-drive?utm_source=topgear&utm_medium=website&utm_campaign=jan" target="_blank">
+            <img src="/uploads/Banners/vinfast.jpg" alt="Vinfast" width="100%">
         </a>
     </div>
 </div>

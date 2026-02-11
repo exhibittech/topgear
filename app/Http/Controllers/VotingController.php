@@ -45,19 +45,19 @@ class VotingController extends Controller
             return redirect()->route('awards.options');
         }
 
-        // Check for existing registration from same device (fingerprint)
+        // Check for existing registrations from same device (fingerprint) - allow up to 3 per device
         if ($deviceFingerprint) {
-            $existingUserByFingerprint = VotingUser::where('device_fingerprint', $deviceFingerprint)->first();
+            $registrationsFromDevice = VotingUser::where('device_fingerprint', $deviceFingerprint)->count();
             
-            if ($existingUserByFingerprint) {
-                return redirect()->back()->with('error', 'A registration from this device already exists. Please login with your existing email: ' . $this->maskEmail($existingUserByFingerprint->email));
+            if ($registrationsFromDevice >= 10) {
+                return redirect()->back()->with('error', 'Maximum registration limit (5 accounts) reached from this device. Please login with one of your existing emails.');
             }
         }
 
         // Check for excessive registrations from same IP (limit to 3 per IP to allow shared networks)
         $registrationsFromIp = VotingUser::where('ip_address', $ipAddress)->count();
         
-        if ($registrationsFromIp >= 100) {
+        if ($registrationsFromIp >= 600) {
             return redirect()->back()->with('error', 'Maximum registration limit reached from this network. If you believe this is an error, please contact support.');
         }
 
@@ -186,4 +186,134 @@ class VotingController extends Controller
 
 
 
+    public function showResults()
+    {
+        $menu = MenuController::loadMenu();
+
+        $seodata = [
+            'MetaTitle' => 'TopGear Awards 2026 - Results',
+            'MetaDescription' => 'View the TopGear Awards 2026 voting results.',
+            'Keyword' => 'TopGear Awards, Car Awards, Bike Awards, Auto Awards 2026 Results',
+        ];
+
+        // Define car categories with their names and image folder
+        $carCategories = [
+            'cat1' => ['name' => 'Car of the Year', 'folder' => 'cars'],
+            'cat2' => ['name' => 'Sedan of the Year', 'folder' => 'cars'],
+            'cat3' => ['name' => 'Compact SUV of the Year', 'folder' => 'cars'],
+            'cat4' => ['name' => 'Sub-Compact SUV of the Year', 'folder' => 'cars'],
+            'cat5' => ['name' => 'Mid-Size SUV of the Year', 'folder' => 'cars'],
+            'cat6' => ['name' => 'MPV of the Year', 'folder' => 'cars'],
+            'cat7' => ['name' => 'Performance Car of the Year', 'folder' => 'cars'],
+            'cat8' => ['name' => 'Sports Car of the Year', 'folder' => 'cars'],
+            'cat9' => ['name' => 'Supercar of the Year', 'folder' => 'cars'],
+            'cat10' => ['name' => 'EV of the Year', 'folder' => 'cars'],
+            'cat11' => ['name' => 'EV SUV of the Year', 'folder' => 'cars'],
+            'cat12' => ['name' => 'Luxury Mid-Size SUV of the Year', 'folder' => 'cars'],
+            'cat13' => ['name' => 'Luxury/Performance SUV of the Year', 'folder' => 'cars'],
+            'cat14' => ['name' => 'Luxury Car of the Year', 'folder' => 'cars'],
+            'cat15' => ['name' => 'SUV of the Year', 'folder' => 'cars'],
+        ];
+
+        // Define bike categories with their names and image folder
+        $bikeCategories = [
+            'bcat1' => ['name' => 'Motorcycle of the Year', 'folder' => 'bikes'],
+            'bcat2' => ['name' => 'Scooter of the Year', 'folder' => 'bikes'],
+            'bcat3' => ['name' => 'EV Two-Wheeler of the Year', 'folder' => 'bikes'],
+            'bcat4' => ['name' => 'Entry-level Motorcycle of the Year (under 150cc)', 'folder' => 'bikes'],
+            'bcat5' => ['name' => 'Motorcycle of the Year (under 200cc or equivalent EV)', 'folder' => 'bikes'],
+            'bcat6' => ['name' => 'Entry-level Performance Motorcycle of the Year', 'folder' => 'bikes'],
+            'bcat7' => ['name' => 'Adventure Motorcycle of the Year', 'folder' => 'bikes'],
+            'bcat8' => ['name' => 'Performance Motorcycle of the Year (under 1000cc)', 'folder' => 'bikes'],
+            'bcat9' => ['name' => 'Performance Motorcycle of the Year (over 1000cc)', 'folder' => 'bikes'],
+            'bcat10' => ['name' => 'Premium Motorcycle of the Year', 'folder' => 'bikes'],
+        ];
+
+        // Calculate car results
+        $carResults = [];
+        foreach ($carCategories as $catKey => $catInfo) {
+            $votes = CarVote::select($catKey)
+                ->whereNotNull($catKey)
+                ->where($catKey, '!=', '')
+                ->get()
+                ->groupBy($catKey)
+                ->map(function ($items) {
+                    return $items->count();
+                });
+
+            $totalVotes = $votes->sum();
+            $results = [];
+
+            foreach ($votes as $nominationName => $voteCount) {
+                if (!empty($nominationName)) {
+                    $percentage = $totalVotes > 0 ? round(($voteCount / $totalVotes) * 100, 1) : 0;
+                    // Generate image filename from nomination name
+                    $imageName = str_replace(' ', '-', $nominationName) . '.jpg';
+                    // Handle special filenames
+                    $imageName = str_replace(['Victoris'], ['Victoris.jpeg'], $imageName);
+                    $imageName = str_replace('.jpeg.jpg', '.jpeg', $imageName);
+                    
+                    $results[] = [
+                        'name' => $nominationName,
+                        'percentage' => $percentage,
+                        'image' => 'uploads/awards26/' . $catInfo['folder'] . '/' . $imageName,
+                    ];
+                }
+            }
+
+            // Sort by percentage descending
+            usort($results, function ($a, $b) {
+                return $b['percentage'] <=> $a['percentage'];
+            });
+
+            $carResults[$catKey] = [
+                'name' => $catInfo['name'],
+                'nominations' => $results,
+                'totalVotes' => $totalVotes,
+            ];
+        }
+
+        // Calculate bike results
+        $bikeResults = [];
+        foreach ($bikeCategories as $catKey => $catInfo) {
+            $votes = BikeVote::select($catKey)
+                ->whereNotNull($catKey)
+                ->where($catKey, '!=', '')
+                ->get()
+                ->groupBy($catKey)
+                ->map(function ($items) {
+                    return $items->count();
+                });
+
+            $totalVotes = $votes->sum();
+            $results = [];
+
+            foreach ($votes as $nominationName => $voteCount) {
+                if (!empty($nominationName)) {
+                    $percentage = $totalVotes > 0 ? round(($voteCount / $totalVotes) * 100, 1) : 0;
+                    // Generate image filename from nomination name
+                    $imageName = str_replace(' ', '-', $nominationName) . '.jpg';
+                    
+                    $results[] = [
+                        'name' => $nominationName,
+                        'percentage' => $percentage,
+                        'image' => 'uploads/awards26/' . $catInfo['folder'] . '/' . $imageName,
+                    ];
+                }
+            }
+
+            // Sort by percentage descending
+            usort($results, function ($a, $b) {
+                return $b['percentage'] <=> $a['percentage'];
+            });
+
+            $bikeResults[$catKey] = [
+                'name' => $catInfo['name'],
+                'nominations' => $results,
+                'totalVotes' => $totalVotes,
+            ];
+        }
+
+        return view('admin.voting-results', compact('seodata', 'menu', 'carResults', 'bikeResults'));
+    }
 }

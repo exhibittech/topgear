@@ -86,6 +86,15 @@
                                                 </div>
                                                 <div class="col-lg-3 col-6">
                                                         <div class="kjchocie-wrap">
+                                                                <input type="radio" id="kj6a" name="cat1" value="Hyundai Creta Electric" />
+                                                                <label for="kj6a"><img src="uploads/awards26/cars/Hyundai-Creta-Electric.jpg"
+                                                                                alt="Hyundai Creta Electric" />
+                                                                        <p>Hyundai Creta Electric</p>
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-3 col-6">
+                                                        <div class="kjchocie-wrap">
                                                                 <input type="radio" id="kj06" name="cat1" value="Mahindra XEV 9e" />
                                                                 <label for="kj06"><img src="uploads/awards26/cars/Mahindra-XEV-9e.jpg"
                                                                                 alt="Mahindra XEV 9e" />
@@ -187,6 +196,15 @@
                                                                 <label for="kj15"><img src="uploads/awards26/cars/Tata-Sierra.jpg"
                                                                                 alt="Tata Sierra" />
                                                                         <p>Tata Sierra</p>
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-3 col-6">
+                                                        <div class="kjchocie-wrap">
+                                                                <input type="radio" id="kj15a" name="cat3" value="Hyundai Creta Electric" />
+                                                                <label for="kj15a"><img src="uploads/awards26/cars/Hyundai-Creta-Electric.jpg"
+                                                                                alt="Hyundai Creta Electric" />
+                                                                        <p>Hyundai Creta Electric</p>
                                                                 </label>
                                                         </div>
                                                 </div>
@@ -472,11 +490,11 @@
                                                 <div class="col-lg-3 col-6">
                                                         <div class="kjchocie-wrap">
                                                                 <input type="radio" id="kj41" name="cat9"
-                                                                        value="Lamborghini Temarario" />
+                                                                        value="Lamborghini Temerario" />
                                                                 <label for="kj41"><img
                                                                                 src="uploads/awards26/cars/Lamborghini-Temarario.jpg"
-                                                                                alt="Lamborghini Temarario" />
-                                                                        <p>Lamborghini Temarario</p>
+                                                                                alt="Lamborghini Temerario" />
+                                                                        <p>Lamborghini Temerario</p>
                                                                 </label>
                                                         </div>
                                                 </div>
@@ -558,6 +576,15 @@
                                                 </div>
                                                 <div class="col-lg-3 col-6">
                                                         <div class="kjchocie-wrap">
+                                                                <input type="radio" id="kj48a" name="cat10" value="Hyundai Creta Electric" />
+                                                                <label for="kj48a"><img src="uploads/awards26/cars/Hyundai-Creta-Electric.jpg"
+                                                                                alt="Hyundai Creta Electric" />
+                                                                        <p>Hyundai Creta Electric</p>
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-3 col-6">
+                                                        <div class="kjchocie-wrap">
                                                                 <input type="radio" id="kj49" name="cat10" value="Mahindra BE 6" />
                                                                 <label for="kj49"><img src="uploads/awards26/cars/Mahindra-BE-6.jpg"
                                                                                 alt="Mahindra BE 6" />
@@ -617,6 +644,15 @@
                                         <div class="row">
                                                 <div class="tgsection-title kjcat-question">
                                                         <h2>EV SUV of the Year</h2>
+                                                </div>
+                                                <div class="col-lg-3 col-6">
+                                                        <div class="kjchocie-wrap">
+                                                                <input type="radio" id="kj55a" name="cat11" value="Hyundai Creta Electric" />
+                                                                <label for="kj55a"><img src="uploads/awards26/cars/Hyundai-Creta-Electric.jpg"
+                                                                                alt="Hyundai Creta Electric" />
+                                                                        <p>Hyundai Creta Electric</p>
+                                                                </label>
+                                                        </div>
                                                 </div>
                                                 <div class="col-lg-3 col-6">
                                                         <div class="kjchocie-wrap">
@@ -1142,6 +1178,33 @@
                                                                         src="uploads/awards26/cars/Range-Rover-Sport-SV.jpg"
                                                                         alt="Range Rover Sport SV" />
                                                                 <p>Range Rover Sport SV</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj104" name="cat15" value="Hyundai Creta Electric" />
+                                                        <label for="kj104"><img src="uploads/awards26/cars/Hyundai-Creta-Electric.jpg"
+                                                                        alt="Hyundai Creta Electric" />
+                                                                <p>Hyundai Creta Electric</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj105" name="cat15" value="Volkswagen Tiguan R Line" />
+                                                        <label for="kj105"><img src="uploads/awards26/cars/Volkswagen-Tiguan-R-Line.jpg"
+                                                                        alt="Volkswagen Tiguan R Line" />
+                                                                <p>Volkswagen Tiguan R Line</p>
+                                                        </label>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                                <div class="kjchocie-wrap">
+                                                        <input type="radio" id="kj106" name="cat15" value="Skoda Kodiaq" />
+                                                        <label for="kj106"><img src="uploads/awards26/cars/Skoda-Kodiaq.jpg"
+                                                                        alt="Skoda Kodiaq" />
+                                                                <p>Skoda Kodiaq</p>
                                                         </label>
                                                 </div>
                                         </div>
