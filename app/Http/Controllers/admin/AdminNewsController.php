@@ -58,12 +58,12 @@ class AdminNewsController extends Controller
             'Author' => 'required|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=950',
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=738',
             'Images' => 'nullable|array|max:30',
-            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1400,min_height=800',
+            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:min_width=1700,min_height=738',
         ], [
             'Images.max' => 'You can upload up to 30 slider images per news.',
-            'Thumbimage.dimensions' => 'Featured image must be at least 1700px wide and 950px tall.',
+            'Thumbimage.dimensions' => 'Featured image must be at least 1700px wide and 738px tall.',
             'Images.*.dimensions' => 'Slider images must be at least 1400px wide and 800px tall.'
         ]);
 
@@ -221,12 +221,12 @@ class AdminNewsController extends Controller
             'Keyword' => 'nullable|string|max:255',
             'PublishDate' => 'required|date',
             'IsActive' => 'required|boolean',
-            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:max_width=1920,max_height=1080',
+            'Thumbimage' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:max_width=1700,max_height=738',
             'Images' => 'nullable|array|max:30',
-            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:max_width=1920,max_height=1080',
+            'Images.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3584|dimensions:max_width=1700,max_height=738',
         ], [
             'Images.max' => 'You can upload up to 30 slider images per news.',
-            'Thumbimage.dimensions' => 'Featured image must be Max 1920px wide and 1080px tall.',
+            'Thumbimage.dimensions' => 'Featured image must be Max 1700px wide and 738px tall.',
             'Images.*.dimensions' => 'Slider images must be Max 1920px wide and 1080px tall.'
         ]);
 
