@@ -144,8 +144,8 @@
                 <div class="col-md-4">
                     <div class="wrap-ad sticky-top">
                         <a href="https://www.exhibitstore.in/" target="_blank">
-                            <img src="https://www.topgearmag.in/uploads/Banners/tgissue-dec2025.jpg" width="100%"
-                                alt="TopGear Magazine December 2025" />
+                            <img src="https://www.topgearmag.in/uploads/Banners/tgissue-feb2026.jpg" width="100%"
+                                alt="TopGear Magazine February 2026" />
                         </a>
                         <div style="padding-top: 20px;">
                             <!-- Google Ads code begin -->
@@ -162,33 +162,6 @@
                         </div>
     </div>
 </section>
-
-<section class="tg-review-body">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                {!! $record->Description !!}
-                <!-- Latest magazine banner and YT playlist -->
-            </div>
-            <div class="col-md-4">
-                <div class="wrap-ad sticky-top">
-                    <a href="https://www.exhibitstore.in/" target="_blank">
-                        <img src="https://www.topgearmag.in/uploads/Banners/tgissue-jan2026.jpg" width="100%" alt="TopGear Magazine January 2026" />
-                    </a>
-                    <div style="padding-top: 20px;">
-                        <!-- Google Ads code begin -->
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2979269950522014" crossorigin="anonymous"></script>
-                        <!-- Topgear vertical ad -->
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2979269950522014" data-ad-slot="9681431780" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                        <!-- Google Ads code end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 

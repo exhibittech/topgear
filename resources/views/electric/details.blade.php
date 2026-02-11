@@ -81,8 +81,9 @@
             <div class="col-md-4">
                 <div class="wrap-ad sticky-top">
                     <a href="https://www.exhibitstore.in/" target="_blank">
-                        <img src="https://www.topgearmag.in/uploads/Banners/tgissue-jan2026.jpg" width="100%" alt="TopGear Magazine January 2026" />
-                    </a>
+                            <img src="https://www.topgearmag.in/uploads/Banners/tgissue-feb2026.jpg" width="100%"
+                                alt="TopGear Magazine February 2026" />
+                        </a>
                     <div style="padding-top: 20px;">
                         <!-- Google Ads code begin -->
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2979269950522014" crossorigin="anonymous"></script>

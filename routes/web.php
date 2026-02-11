@@ -36,6 +36,9 @@ Route::get('/awards', [StaticPageController::class, 'awards'])->name('awards');
 Route::get('/winners23', [StaticPageController::class, 'winners23'])->name('winners23');
 Route::get('/winners24', [StaticPageController::class, 'winners24'])->name('winners24');
 Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winners25');
+Route::get('/winners26', [StaticPageController::class, 'winners26'])->name('winners26');
+//Voting Closed
+Route::get('/votingclosed', [StaticPageController::class, 'votingclosed'])->name('votingclosed');
 
 //Route::get('/tg-score', [PollResultsController::class, 'showResults'])->name('poll.results');
 
@@ -44,21 +47,26 @@ Route::get('/winners25', [StaticPageController::class, 'winners25'])->name('winn
 // Route::get('/tgcars', [VotingController::class, 'showVoting'])->name('awards.voting');
 // Route::post('/tgcars', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
-Route::get('/voting26', [VotingController::class, 'showSignup'])->name('signup');
-Route::post('/voting26', [VotingController::class, 'storeUser'])->name('signup.store');
 
-Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
-Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');
-
-Route::get('/options', [VotingController::class, 'showOptions'])->name('awards.options');
-
-Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
-Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 
 //Voting 2026
 // Route::get('/voting26', [StaticPageController::class, 'voting26'])->name('voting26');
 // Route::get('/bikes26', [StaticPageController::class, 'bikes26'])->name('bikes26');
+
+// Route::get('/options', [VotingController::class, 'showOptions'])->name('awards.options');
+// Route::get('/voting26', [VotingController::class, 'showSignup'])->name('signup');
+// Route::post('/voting26', [VotingController::class, 'storeUser'])->name('signup.store');
+// Route::get('/bikes', [VotingController::class, 'showBikes'])->name('awards.bikes');
+// Route::post('/bikes', [VotingController::class, 'storeBikeVotes'])->name('awards.bikes.store');
+// Route::get('/carsvote', [VotingController::class, 'showVoting'])->name('awards.voting26');
+// Route::post('/carsvote', [VotingController::class, 'storeCarVotes'])->name('awards.voting.store');
 //end
+
+//Voting 2026 - Redirects to Closed
+Route::redirect('/voting26', '/votingclosed', 301);
+Route::redirect('/carsvote', '/votingclosed', 301);
+Route::redirect('/bikes', '/votingclosed', 301);
+
 Route::get('/contact-us', [StaticPageController::class, 'contact'])->name('contact');
 Route::get('/about-us', [StaticPageController::class, 'about'])->name('about');
 Route::get('/career', [StaticPageController::class, 'career'])->name('career');
@@ -143,6 +151,7 @@ Route::get('/magazine', function () {
 Route::get('/awards2026', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfOtGLJQAwViD-mxlnypf0E4Xd2V8D3wolMsUx9uBS6vExgMg/viewform');
 });
+
 // Route::get('/signup', function () {
 //     return redirect()->away('http://www.topgearmag.in/awards');
 // });
