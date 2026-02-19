@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 @font-face {
     font-family: 'industry_tg';
     src: url('fonts/industry_tg_book.otf') format('opentype');
@@ -6,6 +7,7 @@
     font-style: normal;
 
 }
+
 @font-face {
     font-family: 'industry_tg_bold';
     src: url('fonts/industry_tg_bold.otf') format('opentype');
@@ -13,6 +15,7 @@
     font-style: normal;
 
 }
+
 @font-face {
     font-family: 'industry_tg_ultra';
     src: url('fonts/industry_tg_ultra.otf') format('opentype');
@@ -20,6 +23,7 @@
     font-style: normal;
 
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -37,34 +41,55 @@ body {
     font-family: 'industry_tg', sans-serif;
     font-size: 15px;
 }
-h1, h2, h3, h4, h5, h6, p.tg-review-title{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p.tg-review-title {
     font-family: 'industry_tg_bold', sans-serif;
 }
-iframe{
+
+iframe {
     width: 100%;
 }
-a{
+
+a {
     text-decoration: none;
     color: inherit;
 }
-a:hover{
+
+a:hover {
     color: inherit;
 }
-b, strong{
+
+b,
+strong {
     font-family: 'industry_tg_bold';
 }
-table{
+
+table {
     width: 100%;
     border: 1px solid;
 }
-tbody, td, tfoot, th, thead, tr{
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
     border-right: 1px solid;
     border-bottom: 1px solid;
     padding: 2px 5px;
 }
+
 nav.bg-dark {
     background-color: rgb(13, 46, 61) !important;
 }
+
 .navbar-dark .navbar-brand {
     position: relative;
     padding: 0 2rem 0 3.5rem;
@@ -74,68 +99,80 @@ nav.bg-dark {
     display: inline-block;
     justify-self: start;
 }
-.navbar{
+
+.navbar {
     flex-direction: column;
     border-bottom: 1px solid rgba(157, 157, 157, 0.2);
     padding: 0;
 }
-.tg-header-banner{
+
+.tg-header-banner {
     width: 100%;
     height: 160px;
     position: relative;
 }
-.kjgearstripes-wrap{
+
+.kjgearstripes-wrap {
     height: 100%;
     width: 100%;
     position: absolute;
 }
-.tg-stripes{
+
+.tg-stripes {
     background: url(https://topgearmag.in/assets/imgs/stripes.svg) right top / contain no-repeat;
     width: 100%;
     height: 100%;
     position: absolute;
     right: 0px;
 }
-.tg-gear-wrap{
+
+.tg-gear-wrap {
     max-width: 1280px;
     display: flex;
     position: relative;
     margin: auto;
 }
-.tg-gear-wrap img{
+
+.tg-gear-wrap img {
     width: 745px;
     transform: translateX(-87px);
 }
-.tg-header-banner .container{
+
+.tg-header-banner .container {
     display: flex;
     height: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.tg-brand-wrap{
+
+.tg-brand-wrap {
     width: 100%;
     height: 100%;
     position: absolute;
     background: linear-gradient(rgba(9, 31, 41, 0) 0%, rgb(9, 31, 41) 100%);
     /* background-image: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/header-banner.jpg"); */
 }
-.tg-subscribe{
+
+.tg-subscribe {
     position: relative;
     width: 300px;
 }
-.tg-subscribe div{
+
+.tg-subscribe div {
     font-size: 1.5rem;
     margin-bottom: 10px;
     line-height: 1.75rem;
     letter-spacing: -0.03em;
     font-family: 'industry_tg_bold', sans-serif;
 }
-.tg-subscribe p{
+
+.tg-subscribe p {
     font-size: 14px;
     font-family: ReithSans, Helvetica, Arial, sans-serif;
 }
-.tg-subscribe a{
+
+.tg-subscribe a {
     text-transform: uppercase;
     font-weight: bold;
     background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
@@ -148,54 +185,68 @@ nav.bg-dark {
     font-size: 12px;
     border-radius: 30px;
 }
-.navbar>.container{
+
+.navbar>.container {
     flex-direction: column;
     align-items: initial;
 }
-#navbar-menu .nav-item{
+
+#navbar-menu .nav-item {
     margin-right: 10px;
 }
-.tg-nav-container{
+
+.tg-nav-container {
     width: 100%;
     height: 100%;
     border-top: 1px solid rgba(157, 157, 157, 0.2);
 }
-.nav-search .tg-search{
+
+.nav-search .tg-search {
     background-color: transparent;
     border: none;
     color: #fff;
 }
+
 .dropdown-menu {
     min-width: max-content;
     width: 100%;
 }
-.kjmulti-dropdown:hover ul.dropdown-menu{
-	display: block;
+
+.kjmulti-dropdown:hover ul.dropdown-menu {
+    display: block;
 }
-.kjmulti-dropdown:hover ul.dropdown-menu li{
-	display: block;
-	float: none;
+
+.kjmulti-dropdown:hover ul.dropdown-menu li {
+    display: block;
+    float: none;
 }
-.tg-searchform{
+
+.tg-searchform {
     visibility: hidden;
     position: absolute;
     left: 0px;
     width: 100%;
     transition: visibility 0.6s ease .6s;
 }
-.tg-searchform.show{
+
+.tg-searchform.show {
     visibility: visible;
     transition: visibility 0.6s ease 0s;
 }
-.tg-searchform .container{
+
+.tg-searchform .container {
     display: flex;
     padding-top: 10px;
 }
-.tg-searchform input{
+
+.tg-searchform input {
     border: 2px solid rgb(121, 214, 242);
     border-radius: unset;
 }
-.tg-searchform button, .tg-newsletter .btn, .tg-btn {
+
+.tg-searchform button,
+.tg-newsletter .btn,
+.tg-btn {
     height: 40px;
     border: none;
     border-radius: unset;
@@ -211,105 +262,135 @@ nav.bg-dark {
     background-position: right bottom;
     transition: all .3s ease-out;
 }
-.tg-searchform button:hover, .tg-newsletter .btn:hover, .tg-subscribe a:hover, .tg-btn:hover{
+
+.tg-searchform button:hover,
+.tg-newsletter .btn:hover,
+.tg-subscribe a:hover,
+.tg-btn:hover {
     background-position: left bottom;
     color: #fff;
 }
-.navbar-dark .navbar-nav .nav-link, .tgrev-tab .nav-link{
+
+.navbar-dark .navbar-nav .nav-link,
+.tgrev-tab .nav-link {
     font-family: 'industry_tg_bold', sans-serif;
     color: #fff;
     font-size: 1.1rem;
 }
+
 .dropdown-menu li {
     position: relative;
-    }
-    .dropdown-menu .dropdown-submenu {
+}
+
+.dropdown-menu .dropdown-submenu {
     display: none;
     position: absolute;
-    }
-    .dropdown-menu .dropdown-submenu-left {
+}
+
+.dropdown-menu .dropdown-submenu-left {
     right: 100%;
     left: auto;
-    }
-    .dropdown-menu>li:hover div.dropdown-submenu{
+}
+
+.dropdown-menu>li:hover div.dropdown-submenu {
     display: block !important;
-    }
-    .tg-dropdown-wrap{
-        height: 0px;
-        transition: height 0.6s ease 0s;
-    }
-    .tg-dropdown-wrap.active{
-        height: 65px;
-    }
+}
+
+.tg-dropdown-wrap {
+    height: 0px;
+    transition: height 0.6s ease 0s;
+}
+
+.tg-dropdown-wrap.active {
+    height: 65px;
+}
+
 @media only screen and (min-width: 992px) {
     .tg-reviews-latest .row>* {
         padding-right: calc(var(--bs-gutter-x) * .2);
         padding-left: calc(var(--bs-gutter-x) * .2);
     }
+
     .dropdown .dropdown-menu li {
         display: inline;
         float: left;
     }
-    .tg-nav-container{
+
+    .tg-nav-container {
         height: 45px;
     }
 }
-.tgrev-tab{
+
+.tgrev-tab {
     border-top: 1px solid #79d6f2;
     border-bottom: 1px solid #79d6f2;
 }
-.tgrev-tab .nav-link{
+
+.tgrev-tab .nav-link {
     margin: 5px 10px;
 }
-.tgrev-tab .nav-link.tg-k{
+
+.tgrev-tab .nav-link.tg-k {
     background-color: #79d6f2;
     color: #091f29;
 }
-.tgrev-tab .nav-link:hover{
+
+.tgrev-tab .nav-link:hover {
     background-color: #0d2e3d;
     color: #fff;
 }
-.kjwrap{
+
+.kjwrap {
     margin: 20px 5px;
     overflow: hidden;
 }
-.kjwrap img, .tgrelated-article img{
+
+.kjwrap img,
+.tgrelated-article img {
     transition: transform 0.2s ease 0s, opacity 0.5s ease 0s, background-color 0.2s ease-in-out 0s;
 }
-.kjwrap:hover img, .tgrelated-article:hover img{
+
+.kjwrap:hover img,
+.tgrelated-article:hover img {
     opacity: 0.5;
 }
-.kjwrap:hover .tg-txt h2.tg-review-title, .tgrelated-article:hover .tg-reltxt p{
+
+.kjwrap:hover .tg-txt h2.tg-review-title,
+.tgrelated-article:hover .tg-reltxt p {
     color: #79d6f2;
     text-decoration: underline;
 }
-.tg-reltxt{
-	color: #fff;
-	padding: 10px 0;
-	text-transform: none;
-	position: relative;
+
+.tg-reltxt {
+    color: #fff;
+    padding: 10px 0;
+    text-transform: none;
+    position: relative;
 }
-	
+
 /*.kjads-wrap .col-lg-4:nth-child(6) {
     display: none;
 }
 
 Banner */
-.hero-slider{
+.hero-slider {
     margin: 25px 0 0;
 }
+
 .hero-slider .carousel-item {
     height: 480px;
     min-height: 300px;
     max-height: 800px;
 }
-.hero-slider .tg-magazine{
-	position: relative;
-	bottom: 17.5%;
+
+.hero-slider .tg-magazine {
+    position: relative;
+    bottom: 17.5%;
 }
+
 .carousel-caption {
     bottom: 0px;
-    background: linear-gradient(to top, #0d2e3d, 65%, transparent );
+    background: linear-gradient(to top, #0d2e3d, 65%, transparent);
     width: 100%;
     right: 0;
     left: 0;
@@ -344,21 +425,28 @@ Banner */
     background-position: right bottom;
     transition: all .3s ease-out;
 }
-.carousel-control-prev-icon{
+
+.carousel-control-prev-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' stroke='currentColor' fill='white' stroke-width='0' width='1em' height='1em' data-testid='SvgGelIconChevronLeft'%3E%3Cpath d='M10.4 14.3L26.5 31h-6.4L5.5 16 20.1 1h6.4L10.4 17.7v-3.4z' stroke='none'%3E%3C/path%3E%3C/svg%3E");
 }
-.carousel-control-next-icon{
+
+.carousel-control-next-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' stroke='currentColor' fill='white' stroke-width='0' width='1em' height='1em' data-testid='SvgGelIconChevronRight'%3E%3Cpath d='M21.6 14.3L5.5 31h6.4l14.6-15L11.9 1H5.5l16.1 16.7v-3.4z' stroke='none'%3E%3C/path%3E%3C/svg%3E");
 }
-.carousel-control-prev-icon, .carousel-control-next-icon{
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 0px 4px);
     transition: all 0.2s ease-out 0s;
     height: 45px;
 }
-.carousel-control-prev-icon:hover, .carousel-control-next-icon:hover{
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
     background-color: rgb(9, 31, 41);
     color: rgb(121, 214, 242);
 }
+
 .w-100 {
     height: auto;
 }
@@ -366,18 +454,25 @@ Banner */
 section {
     padding: 3rem 2rem 0;
 }
+
 .tg-media a:first-child {
     height: 227px;
     display: flex !important;
     align-items: center;
 }
-.article-item img, .tab-content img, .tg-media img {
+
+.article-item img,
+.tab-content img,
+.tg-media img {
     width: 100%;
 }
-.article-item img, .tg-media img {
-	height: inherit;
+
+.article-item img,
+.tg-media img {
+    height: inherit;
     object-fit: cover;
 }
+
 .title {
     margin-bottom: 35px;
 }
@@ -390,22 +485,25 @@ section {
     color: #aaa;
     font-size: 14px;
 }
-.tgsection-title{
-	display: flex;
+
+.tgsection-title {
+    display: flex;
     justify-content: space-between;
     border-top: 0.8px solid rgb(121, 214, 242);
     padding: 0 !important;
     margin: 2rem 15px 1.6rem;
     text-transform: uppercase;
 }
-.tgsection-title h2{
+
+.tgsection-title h2 {
     width: fit-content;
     border-top: 8px solid rgb(121, 214, 242);
-	font-size: 38px;
+    font-size: 38px;
 }
-.tgsection-title a{
-	margin-top: 15px;
-	font-family: 'industry_tg_bold';
+
+.tgsection-title a {
+    margin-top: 15px;
+    font-family: 'industry_tg_bold';
 }
 
 /*
@@ -453,7 +551,8 @@ section {
     .popup {
         width: 320px;
     }
-    .tgsection-title{
+
+    .tgsection-title {
         width: 95%;
     }
 }
@@ -506,22 +605,34 @@ input {
     color: #eee;
 }
 
-.wrap-form, .tg-car-review-form {
+.wrap-form,
+.tg-car-review-form {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 25px 40px 40px;
     margin-top: 5rem;
 }
 
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus{
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
     box-shadow: rgb(9 31 41) 0px 0px 0px 100px inset;
     -webkit-text-fill-color: #fff;
 }
 
-::placeholder{
+::placeholder {
     color: #ccc !important;
-    opacity: 1; /* Firefox */
+    opacity: 1;
+    /* Firefox */
 }
-select, input{
+
+select,
+input {
     width: 100%;
     font-size: 18px;
     color: #fff;
@@ -529,17 +640,21 @@ select, input{
     background: transparent;
     border-bottom: 1px solid #aaa;
 }
-select{
+
+select {
     margin-bottom: 20px;
 
 }
-select:focus-visible{
+
+select:focus-visible {
     outline: 1px solid #aaa;
     border-bottom: none;
 }
-option{
+
+option {
     color: rgb(1, 1, 1);
 }
+
 .form {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -574,53 +689,65 @@ option{
 .form input {
     height: 30px;
 }
-.kjformoption{
+
+.kjformoption {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.form [type="submit"]{
+
+.form [type="submit"] {
     width: 200px;
     color: #fff;
     margin: 15px 0;
 }
+
 input[type="submit"] {
     width: 200px;
     color: #fff;
     margin: 35px auto;
 }
+
 input:disabled {
     background: #333;
     cursor: no-drop;
 }
+
 [type="checkbox"],
 [type="radio"] {
     width: auto;
     height: 13px !important;
     margin-right: 5px;
 }
-#car-review #variant{
+
+#car-review #variant {
     display: none;
 }
+
 /* Compare Cars */
-.tg_wrap_form .tg_compare_car_form{
+.tg_wrap_form .tg_compare_car_form {
     box-shadow: 1px 1px 5px 0 #79d6f275, 0px 0px 5px #79d6f278;
     padding: 20px 20px 5px;
     margin: 0 0 15px;
     background: linear-gradient(rgba(9, 31, 41, 0) 0%, rgb(13 46 61) 100%);
 }
-.kjsticky-title tbody, .kjsticky-title tr{
-	border: none;
+
+.kjsticky-title tbody,
+.kjsticky-title tr {
+    border: none;
 }
-#branddata td:first-child{
-	border: none;
+
+#branddata td:first-child {
+    border: none;
 }
+
 #branddata td {
     width: 20%;
-	border: 1px solid;
-	padding: 10px;
+    border: 1px solid;
+    padding: 10px;
 }
-.kjsticky-title{
+
+.kjsticky-title {
     display: none;
     width: 97%;
     margin: auto;
@@ -631,69 +758,91 @@ input:disabled {
     padding: 0 2px;
     color: #79d6f2;
     font-family: 'industry_tg_bold';
-  }
-  .kjsticky-title.pin{
-    display: block;
-  }
-  .kjsticky-title table{
-    border: none;
-  }
-.tg_compare_car_form + .kjprice{
-	display:none;
 }
-.tg_cars_spec_wrap{
+
+.kjsticky-title.pin {
+    display: block;
+}
+
+.kjsticky-title table {
+    border: none;
+}
+
+.tg_compare_car_form+.kjprice {
+    display: none;
+}
+
+.tg_cars_spec_wrap {
     display: none;
     transition: display 0.6s ease 0s;
 }
-.tg_cars_spec_wrap.active{
+
+.tg_cars_spec_wrap.active {
     display: block;
 }
-.tg-spec-table-wrap .accordion-body{
+
+.tg-spec-table-wrap .accordion-body {
     padding: 0;
 }
-.tg-spec-table-wrap table{
+
+.tg-spec-table-wrap table {
     border: none;
 }
+
 .accordion-body tr:nth-child(2n) {
     background-color: rgb(13 46 61);
 }
-.tg-spec-table-wrap tbody, .tg-spec-table-wrap td, .tg-spec-table-wrap tr{
+
+.tg-spec-table-wrap tbody,
+.tg-spec-table-wrap td,
+.tg-spec-table-wrap tr {
     border-right: none;
     border-bottom: none;
     padding: 14px 18px;
 }
-.tg-spec-table-wrap th{
+
+.tg-spec-table-wrap th {
     width: 20%;
     font-family: 'industry_tg_bold';
     border-right-color: #79d6f2;
     border-bottom: none;
     padding: 14px 18px;
 }
-.tg-spec-table-wrap td{
+
+.tg-spec-table-wrap td {
     width: 20%;
 }
-.accordion-item{
+
+.accordion-item {
     /* box-shadow: 3px 3px 15px rgb(85 85 85 / 50%), -3px -3px 15px rgb(85 85 85 / 50%); */
     border: 1px solid #264351 !important;
     margin: 35px 0px;
 }
-.accordion-button:not(.collapsed), .accordion-item, .accordion-button{
+
+.accordion-button:not(.collapsed),
+.accordion-item,
+.accordion-button {
     background-color: transparent;
 }
-.accordion-button{
+
+.accordion-button {
     color: #eee;
 }
-.accordion-button:not(.collapsed){
+
+.accordion-button:not(.collapsed) {
     border-bottom: 1px solid #79d6f2;
     color: #79d6f2;
 }
-.accordion-button:focus{
+
+.accordion-button:focus {
     box-shadow: 0 0 0 0.25rem rgb(121 214 242 / 25%);
 }
-.accordion-button::after{
+
+.accordion-button::after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' stroke='white' fill='currentColor' stroke-width='0' width='2em' height='2em' focusable='false' aria-hidden='true' data-testid='Add'%3E%3Cline x1='20' y1='50' x2='80' y2='50' stroke-width='5'%3E%3C/line%3E%3Cline x1='50' y1='20' x2='50' y2='80' stroke-width='5'%3E%3C/line%3E%3C/svg%3E");
 }
-.accordion-button:not(.collapsed)::after{
+
+.accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' stroke='white' fill='currentColor' stroke-width='0' width='2em' height='2em' focusable='false' aria-hidden='true' data-testid='Minus'%3E%3Cline x1='20' y1='50' x2='80' y2='50' stroke-width='5'%3E%3C/line%3E%3C/svg%3E");
 }
 
@@ -701,7 +850,8 @@ input:disabled {
     color: #79d6f2;
     font-weight: 600;
 }
-.kjnewsletter{
+
+.kjnewsletter {
     background: url(https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg) 115% 30px / 35% no-repeat;
     border-width: 0.5rem;
     border-style: solid;
@@ -712,10 +862,12 @@ input:disabled {
     border-image-slice: 1;
     border-image-source: linear-gradient(rgb(121 214 242), rgb(41, 80, 99));
 }
-.tg-newsletter-wrap{
+
+.tg-newsletter-wrap {
     display: flex;
 }
-.newsletter-header{
+
+.newsletter-header {
     position: relative;
     top: -20px;
     left: -10px;
@@ -723,10 +875,12 @@ input:disabled {
     padding-right: 20px;
     flex: 3;
 }
-.newsletter-form{
+
+.newsletter-form {
     padding: 10px 15px 1.5rem;
     flex: 2;
 }
+
 .tg-newsletter input {
     margin-bottom: 10px;
     color: #fff;
@@ -734,80 +888,98 @@ input:disabled {
     border: none;
     border-bottom: 1px solid #ced4da;
 }
+
 #footer {
     border-top: 2px solid #222;
     background-color: #fff;
     padding: 20px 0px 0px;
     color: #000;
 }
-#footer a{
+
+#footer a {
     color: #091f29;
     padding: 20px 15px 0 0px;
     display: inline-block;
     font-weight: 600;
 }
-.bbc-wrap h5{
+
+.bbc-wrap h5 {
     font-size: 14px;
 }
-.bbc-wrap h5 img{
+
+.bbc-wrap h5 img {
     margin-right: 15px;
 }
-#footer a i{
+
+#footer a i {
     font-size: 16px;
 }
+
 #footer i {
     margin: 0 10px;
     padding-right: 5px;
     color: #000;
     font-size: 20px;
 }
-.tg-bottom{
+
+.tg-bottom {
     background-color: #eee;
     margin-top: 20px;
     padding: 11px 15px 15px;
 }
-.footer-bottom{
+
+.footer-bottom {
     max-width: 1320px;
     margin: auto;
 }
-#footer .tg-social{
+
+#footer .tg-social {
     margin-top: -10px;
 }
+
 /* section{
     padding-left: 0;
     padding-right: 0;
 } */
-.tg-review-form-wrap{
+.tg-review-form-wrap {
     padding: 0;
     background-image: url("../imgs/reviews.jpg");
     background-size: cover;
     height: 30vh;
     background-position: center;
 }
-.kjgradient{
-    background: linear-gradient(to bottom right, #0d2e3d, 50%, transparent );
+
+.kjgradient {
+    background: linear-gradient(to bottom right, #0d2e3d, 50%, transparent);
     padding: 0 0 4rem;
     height: 100%;
 }
-.tg-car-review-form h1{
+
+.tg-car-review-form h1 {
     color: #091f29;
     margin: 0 0 35px 10px;
 }
-.tg-reviews-latest, .tgnews-latest{
+
+.tg-reviews-latest,
+.tgnews-latest {
     padding: 2rem 0;
 }
-.tg-media{
+
+.tg-media {
     position: relative;
     overflow: hidden;
     background-color: rgb(9, 31, 41);
 }
-.tg-txt .tg-review-tag, .tg-media .tgnews-tag{
+
+.tg-txt .tg-review-tag,
+.tg-media .tgnews-tag {
     font-size: 12px;
     margin: 0 0 5px;
     display: inline-block;
     text-transform: uppercase;
 }
-.tgbrand-item{
+
+.tgbrand-item {
     text-align: center;
     color: #79d6f2;
     font-size: 18px;
@@ -818,12 +990,15 @@ input:disabled {
     bottom: 0;
     width: 100%;
 }
-.tg-txt{
+
+.tg-txt {
     background-image: linear-gradient(to bottom, rgb(13 46 61), #091f29);
     padding: 10px 10px 20px;
     position: relative;
 }
-.tg-txt::after, .tg-reltxt::after{
+
+.tg-txt::after,
+.tg-reltxt::after {
     content: "";
     position: absolute;
     display: block;
@@ -834,41 +1009,50 @@ input:disabled {
     height: 2px;
     background-color: rgb(121, 214, 242);
 }
-.tg-reltxt::after{
-	left: 0px;
+
+.tg-reltxt::after {
+    left: 0px;
 }
+
 .tg-reltxt .tg-author a {
-	margin-left: 0px;
+    margin-left: 0px;
 }
-.tgnews-tag{
+
+.tgnews-tag {
     font-size: 12px;
     color: rgb(121, 214, 242);
     margin: 5px 0;
     display: inline-block;
     text-transform: uppercase;
 }
-.tg-review-tag{
+
+.tg-review-tag {
     color: rgb(121, 214, 242);
     font-size: 16px;
     font-weight: bold;
     margin: 0 5px;
 }
-#trending .tg-review-tag{
+
+#trending .tg-review-tag {
     margin: 0;
 }
-.kjtrending{
+
+.kjtrending {
     display: flex;
 }
+
 #trending .tg-number {
     width: 100px;
     flex: inherit;
 }
+
 .tg-trending {
     counter-reset: kjnumber;
 }
-.tg-number::before{
+
+.tg-number::before {
     counter-increment: kjnumber;
-    content: "0"counter(kjnumber);
+    content: "0" counter(kjnumber);
     font-size: 70px;
     position: relative;
     bottom: 25px;
@@ -877,27 +1061,39 @@ input:disabled {
     text-shadow: rgb(255 255 255) -2px 0px, rgb(255 255 255) 0px 2px, rgb(255 255 255) 2px 0px, rgb(255 255 255) 0px -2px;
     font-weight: 600;
 }
-.tg-review-tag:hover,.tg-author a:hover, .tg-article-link:hover, .tg-share a i:hover, h2.tg-review-title:hover{
+
+.tg-review-tag:hover,
+.tg-author a:hover,
+.tg-article-link:hover,
+.tg-share a i:hover,
+h2.tg-review-title:hover {
     color: rgb(121, 214, 242) !important;
 }
-.tg-price{
+
+.tg-price {
     font-size: 1.6rem;
     font-weight: bold;
     color: rgb(121, 214, 242);
 }
-.tg-metadata-wrap{
+
+.tg-metadata-wrap {
     display: flex;
     justify-content: space-between;
     margin: 30px 0 10px;
 }
-.tg-title{
+
+.tg-title {
     font-size: 2.75rem;
     text-transform: uppercase;
 }
-h1.tg-review-title{
+
+h1.tg-review-title {
     display: block;
 }
-h1.tg-review-title::after, h1.tg-title::after, h2.tg-title::after {
+
+h1.tg-review-title::after,
+h1.tg-title::after,
+h2.tg-title::after {
     content: "";
     position: relative;
     display: block;
@@ -909,12 +1105,15 @@ h1.tg-review-title::after, h1.tg-title::after, h2.tg-title::after {
     background-color: rgb(121, 214, 242);
     margin-bottom: 40px;
 }
-h2.tg-review-title, p.tg-review-title{
+
+h2.tg-review-title,
+p.tg-review-title {
     font-size: 20px;
     margin-bottom: 20px;
     color: #fff;
     line-height: 1.75rem;
 }
+
 .tg-txt .tg-tooltip {
     visibility: hidden;
     width: 95%;
@@ -926,44 +1125,54 @@ h2.tg-review-title, p.tg-review-title{
     position: absolute;
     z-index: 9999;
     bottom: 110px;
-  }
+}
 
-.tg-txt .tg-review-title:hover + .tg-tooltip {
+.tg-txt .tg-review-title:hover+.tg-tooltip {
     visibility: visible;
-  }
-.tg-author a, .tg-article-link{
+}
+
+.tg-author a,
+.tg-article-link {
     color: #fff;
     font-weight: bold;
 }
-.tg-share a i, .tg-share i{
+
+.tg-share a i,
+.tg-share i {
     color: #ccc;
     padding: 0 5px;
 }
-.carousel-item{
+
+.carousel-item {
     height: auto;
 }
-#carousel-thumbnail .carousel-indicators{
+
+#carousel-thumbnail .carousel-indicators {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
     position: relative;
 }
-.carousel .thumbnail{
+
+.carousel .thumbnail {
     width: 100%;
     height: auto;
     background-color: #000;
     max-width: 200px;
 }
-.tg-heading h2{
+
+.tg-heading h2 {
     margin-bottom: 20px;
 }
-.tg-heading h2 span{
-color: rgb(137, 150, 159);
+
+.tg-heading h2 span {
+    color: rgb(137, 150, 159);
     font-size: 2rem;
     font-family: 'industry_tg_bold';
     text-transform: uppercase;
 }
-.nav-tabs .nav-link.active{
+
+.nav-tabs .nav-link.active {
     color: #fff;
     background-color: #0d2e3d;
     padding: 12px 15px;
@@ -971,15 +1180,21 @@ color: rgb(137, 150, 159);
     border: none;
     font-family: 'industry_tg_bold';
 }
-.tg-review-body h3, .tg-review-body h2{
+
+.tg-review-body h3,
+.tg-review-body h2 {
     margin-bottom: 25px;
     color: #0d2e3d;
 }
-.tg-subheading h3{
+
+.tg-subheading h3 {
     margin-bottom: 25px;
     color: #fff;
 }
-.tg-subheading h3::after, .tg-subheading p::after, .tg-review-body h2::after{
+
+.tg-subheading h3::after,
+.tg-subheading p::after,
+.tg-review-body h2::after {
     content: "";
     position: relative;
     display: block;
@@ -988,71 +1203,88 @@ color: rgb(137, 150, 159);
     background-color: rgb(121, 214, 242);
     margin: 15px 0 5px;
 }
-.tg-highlight-wrap{
-    background: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg") -20.8rem 2rem no-repeat, linear-gradient(to top, rgb(41, 80, 99) 0%, rgb(0, 121, 139) 100%) 0px 0px;
+
+.tg-highlight-wrap {
+    background: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg") -20.8rem 2rem no-repeat, linear-gradient(to top, #295063 0%, #091f29 100%) 0px 0px;
     color: #fff;
     padding: 40px 0;
 }
-.tg-highlight-wrap .tg-subheading p{
+
+.tg-highlight-wrap .tg-subheading p {
     color: inherit;
     text-align: center;
-	font-family: 'industry_tg_bold';
-	font-size: 28px;
+    font-family: 'industry_tg_bold';
+    font-size: 28px;
 }
-.tg-highlight-wrap .tg-subheading p::after{
+
+.tg-highlight-wrap .tg-subheading p::after {
     margin: 15px auto 5px;
 }
-.tg-highlight{
+
+.tg-highlight {
     display: flex;
     justify-content: space-between;
 }
-.tg-highlight .good-stuff, .tg-highlight .bad-stuff{
+
+.tg-highlight .good-stuff,
+.tg-highlight .bad-stuff {
     display: flex;
     flex: 1;
     margin-top: 25px;
 }
-.tg-sicon img{
+
+.tg-sicon img {
     width: 60px;
     margin: 0px 15px 0 0;
 }
-.tg-review-body, .tg-rel-reviews{
+
+.tg-review-body,
+.tg-rel-reviews {
     background-color: #fff;
     color: #4b4b4b;
-	font-size: 16px;
+    font-size: 16px;
 }
+
 .tg-review-body img {
     width: 100%;
     height: auto;
     margin: 5px 0;
 }
-.tg-review-body p span img{
+
+.tg-review-body p span img {
     width: unset;
 }
-.tg-review-body div p a{
-	font-weight: 600;
-	color: #091f29;
-	border-bottom: 2px solid #091f29;
-	background: linear-gradient(#25252500, #25252500 50%, #091f29 50%, #091f29);
-	background-size: 100% 200%;
-	transition: background 0.3s;
+
+.tg-review-body div p a {
+    font-weight: 600;
+    color: #091f29;
+    border-bottom: 2px solid #091f29;
+    background: linear-gradient(#25252500, #25252500 50%, #091f29 50%, #091f29);
+    background-size: 100% 200%;
+    transition: background 0.3s;
 }
-.tg-review-body div p a:hover{
-	background-position: 100% 100%;
-	color: rgb(121, 214, 242);
-	
+
+.tg-review-body div p a:hover {
+    background-position: 100% 100%;
+    color: rgb(121, 214, 242);
+
 }
-.tg-review-body .tab-content{
-	background-color: unset;
+
+.tg-review-body .tab-content {
+    background-color: unset;
 }
-.tg-review-body .wrap-ad{
+
+.tg-review-body .wrap-ad {
     top: 20px !important;
     margin-bottom: 20px;
-	padding: 0 5%;
+    padding: 0 5%;
 }
-.tg-nextprev{
+
+.tg-nextprev {
     text-transform: uppercase;
 }
-.tg-nextprev .kjnext a{
+
+.tg-nextprev .kjnext a {
     display: block;
     width: 45%;
     background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
@@ -1065,114 +1297,148 @@ color: rgb(137, 150, 159);
     background-position: right bottom;
     transition: all .2s ease-out;
 }
-.tg-nextprev .kjnext a:hover, .caption p a:hover{
+
+.tg-nextprev .kjnext a:hover,
+.caption p a:hover {
     background-position: left bottom;
     color: #fff;
 }
-.tg-prev{
+
+.tg-prev {
     padding-right: 25px;
 }
-.tg-next{
+
+.tg-next {
     padding-left: 25px;
 }
-.tg-rel-reviews .nav-link{
+
+.tg-rel-reviews .nav-link {
     color: #0d2e3d;
     font-size: 16px;
     font-family: 'industry_tg_bold';
 }
-.tab-content{
+
+.tab-content {
     background-color: #0d2e3d;
     padding: 2rem 0;
 }
-#more-articles .carousel-item{
+
+#more-articles .carousel-item {
     min-height: unset;
 }
-.carousel-item .card{
+
+.carousel-item .card {
     background-color: transparent;
     margin: 15px;
 }
-#tg-awards{
+
+#tg-awards {
     padding: 3rem 2rem;
 }
-#tg-awards .kjvideo{
+
+#tg-awards .kjvideo {
     margin: 20px 10px;
 }
-@media (max-width: 1399px) and (min-width: 1200px){
-    .tg-media a:first-child{
+
+@media (max-width: 1399px) and (min-width: 1200px) {
+    .tg-media a:first-child {
         height: 200px;
     }
 }
-@media (max-width: 1199px) and (min-width: 992px){
-    .tg-media a:first-child{
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .tg-media a:first-child {
         height: 170px;
     }
 }
-@media( max-width: 991px){
+
+@media(max-width: 991px) {
     .hero-slider .carousel-item {
         height: auto;
         min-height: 280px;
     }
-    .tg-media a:first-child{
+
+    .tg-media a:first-child {
         height: auto;
     }
-    .tg-header-banner{
+
+    .tg-header-banner {
         height: auto;
     }
-    .tg-gear-wrap img{
+
+    .tg-gear-wrap img {
         width: 165px;
         transform: translateX(40px);
     }
-    .navbar-brand img{
+
+    .navbar-brand img {
         width: 110px;
     }
-    .tg-stripes, .tg-subscribe h2, .tg-subscribe p{
+
+    .tg-stripes,
+    .tg-subscribe h2,
+    .tg-subscribe p {
         display: none;
     }
 }
+
 @media (max-width: 767px) {
-    section{
+    section {
         padding: 2rem 0;
     }
-    .carousel-caption{
+
+    .carousel-caption {
         padding: 40px 30px 50px;
     }
+
     .carousel-caption h5 {
         font-size: 15px;
     }
+
     .carousel-caption a {
         padding: 10px 15px;
         font-size: 15px;
     }
-    .caption p a{
+
+    .caption p a {
         font-size: 12px;
         padding: 10px 20px;
     }
+
     .w-100 {
         height: auto;
     }
-    .kjrev{
+
+    .kjrev {
         flex-direction: column-reverse;
     }
-    #carousel-thumbnail .carousel-indicators{
+
+    #carousel-thumbnail .carousel-indicators {
         overflow: scroll;
         justify-content: unset;
     }
-    .carousel .thumbnail{
+
+    .carousel .thumbnail {
         min-width: 80px;
     }
-    #more-articles .carousel-inner .carousel-item > div {
+
+    #more-articles .carousel-inner .carousel-item>div {
         display: none;
     }
-    #more-articles .carousel-inner .carousel-item > div:first-child {
+
+    #more-articles .carousel-inner .carousel-item>div:first-child {
         display: block;
     }
-    .tg-newsletter-wrap{
+
+    .tg-newsletter-wrap {
         flex-direction: column;
     }
-	.tg-reltxt{
-		margin-bottom: 30px;
-	}
+
+    .tg-reltxt {
+        margin-bottom: 30px;
+    }
 }
+
 #more-articles .carousel-inner .carousel-item.active,
 #more-articles .carousel-inner .carousel-item-next,
 #more-articles .carousel-inner .carousel-item-prev {
@@ -1181,115 +1447,140 @@ color: rgb(137, 150, 159);
 
 /* medium and up screens */
 @media (min-width: 768px) {
+
     #more-articles .carousel-inner .carousel-item-end.active,
     #more-articles .carousel-inner .carousel-item-next {
         transform: translateX(33%);
     }
+
     #more-articles .carousel-inner .carousel-item-start.active,
     #more-articles .carousel-inner .carousel-item-prev {
         transform: translateX(-33%);
     }
 }
+
 #more-articles .carousel-inner .carousel-item-end,
 #more-articles .carousel-inner .carousel-item-start {
     transform: translateX(0);
 }
 
-@media only screen and (max-width: 450px){
-    .tg-metadata-wrap{
+@media only screen and (max-width: 450px) {
+    .tg-metadata-wrap {
         flex-direction: column;
     }
-    .tg-car-review-form{
+
+    .tg-car-review-form {
         padding: 25px 20px;
     }
-    .tg-number::before{
+
+    .tg-number::before {
         font-size: 60px;
         bottom: 20px;
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .carousel-item{
+    .carousel-item {
         min-height: unset;
     }
-    .tg-highlight, .kjformoption{
+
+    .tg-highlight,
+    .kjformoption {
         flex-direction: column;
     }
-    .kjsticky-title{
+
+    .kjsticky-title {
         width: 100%;
         margin-left: 0;
         text-align: center;
     }
-    .tg-spec-table-wrap th{
-        display: block!important;
+
+    .tg-spec-table-wrap th {
+        display: block !important;
         padding: 15px 0;
-        width: 100%!important;
+        width: 100% !important;
         text-align: center;
         border: none;
     }
-    .tg-spec-table-wrap td{
+
+    .tg-spec-table-wrap td {
         text-align: center;
-        width: 33%!important;
-        display: inline-block!important;
+        width: 33% !important;
+        display: inline-block !important;
         padding: 10px 5px;
     }
-	.tg_compare_cars .kjform4, .tg-spec-table-wrap td:nth-child(5), #branddata td:first-child{
-    	display: none !important;
-	}
-	.kjsticky-title tr {
-		display: flex;
-	}
-	#branddata td{
-		width: 33.33%;
-	}
-    .tg_cars_spec_wrap{
+
+    .tg_compare_cars .kjform4,
+    .tg-spec-table-wrap td:nth-child(5),
+    #branddata td:first-child {
+        display: none !important;
+    }
+
+    .kjsticky-title tr {
+        display: flex;
+    }
+
+    #branddata td {
+        width: 33.33%;
+    }
+
+    .tg_cars_spec_wrap {
         padding: 3rem 0.5rem 0;
     }
 }
+
 /*Galeery css*/
-.kjwrap{
+.kjwrap {
     cursor: pointer;
 }
-.tg-media .fullscreen-icon-wrap{
+
+.tg-media .fullscreen-icon-wrap {
     height: 227px;
 }
-.tg-media svg{
+
+.tg-media svg {
     visibility: hidden;
     position: absolute;
     font-size: 80px;
     opacity: .8;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     transition: visibility 0.3s ease-in 0s;
 }
-.kjwrap:hover .tg-media svg{
+
+.kjwrap:hover .tg-media svg {
     visibility: visible;
 }
-.kjload-more{
+
+.kjload-more {
     display: flex;
     justify-content: center;
 }
-.tg-gallery-slider{
+
+.tg-gallery-slider {
     display: none;
     position: fixed;
     background-color: rgba(0, 0, 0);
     width: 100%;
     height: 100vh;
     top: 0;
-    transition: display  0.3s ease-in 0s;
+    transition: display 0.3s ease-in 0s;
 }
-.tg-gallery-slider.show{
+
+.tg-gallery-slider.show {
     display: block;
 }
-.kjgallery-slider{
+
+.kjgallery-slider {
     position: relative;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 100%;
 }
-.fullscreen-icon-close{
+
+.fullscreen-icon-close {
     width: 44px;
     height: 44px;
     margin: 0.5rem;
@@ -1304,21 +1595,25 @@ color: rgb(137, 150, 159);
     border: 0px;
     outline: none;
 }
-.fullscreen-icon-close:hover{
+
+.fullscreen-icon-close:hover {
     background-color: rgb(9, 31, 41);
     color: rgb(121, 214, 242);
 }
-.fullscreen-icon-close svg{
+
+.fullscreen-icon-close svg {
     width: 100%;
     height: 100%;
 }
-@media (max-width: 1400px) and (min-width: 992px){
-    .tg-media .fullscreen-icon-wrap{
+
+@media (max-width: 1400px) and (min-width: 992px) {
+    .tg-media .fullscreen-icon-wrap {
         height: 160px;
     }
 }
-@media( max-width: 991px){
-.tg-media .fullscreen-icon-wrap{
-    height: auto;
-}
+
+@media(max-width: 991px) {
+    .tg-media .fullscreen-icon-wrap {
+        height: auto;
+    }
 }

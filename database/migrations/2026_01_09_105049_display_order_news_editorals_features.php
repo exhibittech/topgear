@@ -10,10 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('newsimage', function (Blueprint $table) {
+        Schema::table('NewsImage', function (Blueprint $table) {
             $table->integer('DisplayOrder')->nullable()->after('Title');
         });
-        Schema::table('featuresimage', function (Blueprint $table) {
+        Schema::table('FeaturesImage', function (Blueprint $table) {
             $table->integer('DisplayOrder')->nullable()->after('Title');
         });
     }
@@ -23,10 +23,10 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('newsimage', function (Blueprint $table) {
+        Schema::table('NewsImage', function (Blueprint $table) {
             $table->dropColumn('DisplayOrder');
         });
-        Schema::table('featuresimage', function (Blueprint $table) {
+        Schema::table('FeaturesImage', function (Blueprint $table) {
             $table->dropColumn('DisplayOrder');
         });
     }
