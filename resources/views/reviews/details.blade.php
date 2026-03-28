@@ -136,16 +136,17 @@
             </div>
         </div>
     </section>
-    @if(date('Y', strtotime($record->PublishDate)) >= 2025)
-        <section class="tg-highlight-wrap" style="background: #091f29; padding-bottom: 0; padding-top: 0;">
+    <!--Kunjal commented 
+     @if(date('Y', strtotime($record->PublishDate)) >= 2025) 
+         <section class="tg-highlight-wrap" style="background: #091f29; padding-bottom: 0; padding-top: 0;">
             <div class="container">
                 <div class="tg-subheading d-flex justify-content-between align-items-center">
                     <h1 class="m-0" style="color: #fff;"><?=$record->PunchLine?></h1>
                     <h1 class="tg-review-title m-0" style="color: #fff; font-size: 5rem" ;>{{ $record->Rating }}/10</h1>
                 </div>
             </div>
-        </section>
-        <section class="tg-highlight-wrap" style="padding-top: 0;">
+        </section> -->
+        <!-- <section class="tg-highlight-wrap" style="padding-top: 0;">
             <div class="container">
                 <div class="tg-highlight">
                     <div class="good-stuff">
@@ -169,8 +170,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-    @endif
+        </section> -->
+    <!-- @endif -->
     <!-- RATINGS <h1 class="tg-review-title">{{ $record->Rating }}/10</h1> -->
     <div class="tgrev-tab">
         <nav class="navbar-expand-lg">
@@ -213,7 +214,8 @@
         </div>
     </section>
 
-    <<<<<<< HEAD <<<<<<< HEAD <style>
+    <!--Kunjal commented 
+     <<<<<<< HEAD <<<<<<< HEAD <style>
         /* Scrollable Thumbnail Navigation Styling */
         .thumbnail-navigation-wrapper {
         position: relative;
@@ -223,7 +225,7 @@
         gap: 12px;
         padding: 10px 0;
         }
-        =======
+        ======= -->
         <section class="tg-review-body">
             <div class="container">
                 <div class="row">
@@ -247,7 +249,7 @@
                 </div>
             </div>
         </section>
-        >>>>>>> bbcb91a99ef431602923c34812cfd9833cd5209d
+        <!-- >>>>>>> bbcb91a99ef431602923c34812cfd9833cd5209d -->
 
         <section class="tg-review-body">
             <div class="container">
@@ -272,6 +274,7 @@
                 </div>
             </div>
         </section>
+        <!--  Kunjal commented 
         >>>>>>> 28edaa54fe3fda41378d5933f5093f75c101bbb3
 
         .carousel-indicators-scrollable {
@@ -461,7 +464,7 @@
         position: static;
         }
         }
-        </style>
+        </style> -->
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {

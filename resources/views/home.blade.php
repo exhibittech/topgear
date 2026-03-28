@@ -5,13 +5,13 @@
     <h1 class="d-none">Car and Bike Reviews, News & Auto Magazine in India</h1>
     @include('partials.banner')
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="my-2 text-center">
             <a href="/winners26">
                 <img src="/uploads/Banners/winners26.jpeg" alt="BBC TopGear India Awards 2026" width="100%">
             </a>
         </div>
-    </div>
+    </div> -->
     <section class="tg-reviews-latest">
         <div class="container">
             <div class="row">
