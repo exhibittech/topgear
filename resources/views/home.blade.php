@@ -5,13 +5,13 @@
     <h1 class="d-none">Car and Bike Reviews, News & Auto Magazine in India</h1>
     @include('partials.banner')
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="my-2 text-center">
             <a href="/winners26">
                 <img src="/uploads/Banners/winners26.jpeg" alt="BBC TopGear India Awards 2026" width="100%">
             </a>
         </div>
-    </div>
+    </div> -->
     <section class="tg-reviews-latest">
         <div class="container">
             <div class="row">
@@ -47,8 +47,8 @@
                 @endforeach
             </div>
             <div class="mt-5">
-                <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/2330879" target="_blank"><img
-                        alt="TopGear Magazine February 2026" src="/uploads/Banners/tgmagzter-feb2026.jpg" width="100%" /></a>
+                <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/" target="_blank"><img
+                        alt="TopGear Magazine Annual Issue 2026" src="/uploads/Banners/tgmagzter-annual2026.jpg" width="100%" /></a>
             </div>
         </div>
     </section>

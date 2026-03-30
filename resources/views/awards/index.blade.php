@@ -14,7 +14,7 @@
     <div class="container">
         <!-- TG Awards 2026 -->
          <div class="tgsection-title kjcat-question">
-            <h2>TopGear Awards 2025</h2>
+            <h2>TopGear Awards 2026</h2>
         </div>
 	<div class="row">
 		<div class="col-md-4">
