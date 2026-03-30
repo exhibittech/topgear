@@ -5,7 +5,7 @@
 @section('keywords', $seodata['Keyword'])
 
 @section('content')
-    <section style="max-height: 700px;">
+    <section>
         <div class="container">
             <div class="row">
                 <div class="">
@@ -114,7 +114,7 @@
                     </div>
 
                     <!-- Ads Column (Right) -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="wrap-ad-sidebar">
                             <!-- Google AdSense Ad Unit 1 -->
                             <div class="ad-unit" style="margin-bottom: 15px;">
