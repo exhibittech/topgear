@@ -148,8 +148,8 @@ Route::get('/magazine', function () {
     return redirect()->away('https://exhibitstore.in');
 });
 
-Route::get('/awards2026', function () {
-    return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfOtGLJQAwViD-mxlnypf0E4Xd2V8D3wolMsUx9uBS6vExgMg/viewform');
+Route::get('/redlineclub', function () {
+    return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLScPmW8XGcEhsjY42rafL5Zyz96dDsfO3ixTh-Ya6mzGrIy89A/viewform?usp=dialog');
 });
 
 // Route::get('/signup', function () {
@@ -158,5 +158,8 @@ Route::get('/awards2026', function () {
 Route::get('/rsvp', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeFi5LAJDBavK4SXAaOGn7LhBad6gkTL0jto2EbEfo8YTHfbg/viewform?usp=header');
 });
+
+Route::get('/redline', [App\Http\Controllers\RedlineController::class, 'index'])->name('redline.index');
+Route::post('/redline', [App\Http\Controllers\RedlineController::class, 'store'])->name('redline.store');
 
 require __DIR__ . '/auth.php';
