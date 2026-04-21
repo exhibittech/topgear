@@ -13,6 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         // Trust all proxies to get real client IP (useful for Cloudflare, AWS ELB, etc.)
         $middleware->trustProxies(at: '*');
+
+        // Exclude Razorpay webhook from CSRF verification
+        $middleware->validateCsrfTokens(except: [
+            'redline/webhook',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

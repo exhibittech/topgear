@@ -161,5 +161,9 @@ Route::get('/rsvp', function () {
 
 Route::get('/redline', [App\Http\Controllers\RedlineController::class, 'index'])->name('redline.index');
 Route::post('/redline', [App\Http\Controllers\RedlineController::class, 'store'])->name('redline.store');
+Route::post('/redline/save-details', [App\Http\Controllers\RedlineController::class, 'saveDetails'])->name('redline.saveDetails');
+Route::post('/redline/create-order', [App\Http\Controllers\RedlineController::class, 'createOrder'])->name('redline.createOrder');
+Route::post('/redline/verify-payment', [App\Http\Controllers\RedlineController::class, 'verifyPayment'])->name('redline.verifyPayment');
+Route::post('/redline/webhook', [App\Http\Controllers\RedlineController::class, 'webhook'])->name('redline.webhook');
 
 require __DIR__ . '/auth.php';
