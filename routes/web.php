@@ -164,6 +164,7 @@ Route::post('/redline', [App\Http\Controllers\RedlineController::class, 'store']
 Route::post('/redline/save-details', [App\Http\Controllers\RedlineController::class, 'saveDetails'])->name('redline.saveDetails');
 Route::post('/redline/create-order', [App\Http\Controllers\RedlineController::class, 'createOrder'])->name('redline.createOrder');
 Route::post('/redline/verify-payment', [App\Http\Controllers\RedlineController::class, 'verifyPayment'])->name('redline.verifyPayment');
+Route::post('/redline/check-payment-status', [App\Http\Controllers\RedlineController::class, 'checkPaymentStatus'])->name('redline.checkPaymentStatus');
 Route::post('/redline/webhook', [App\Http\Controllers\RedlineController::class, 'webhook'])->name('redline.webhook');
 
 require __DIR__ . '/auth.php';

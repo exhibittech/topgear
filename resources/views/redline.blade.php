@@ -125,6 +125,51 @@
                 return data;
             }
 
+            // Poll server to check if payment was captured (fallback mechanism)
+            function pollPaymentStatus(maxAttempts = 10) {
+                razorpayBtn.disabled = true;
+                razorpayBtn.textContent = "Verifying payment...";
+
+                let attempts = 0;
+
+                const interval = setInterval(() => {
+                    attempts++;
+                    console.log('Polling payment status, attempt', attempts);
+
+                    fetch("{{ route('redline.checkPaymentStatus') }}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({ member_id: memberId })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('Poll result:', data);
+                        if (data.paid) {
+                            clearInterval(interval);
+                            alert(data.message || "Payment verified successfully! Welcome to the Redline Club.");
+                            window.location.href = "{{ route('redline.index') }}";
+                        } else if (attempts >= maxAttempts) {
+                            clearInterval(interval);
+                            razorpayBtn.disabled = false;
+                            razorpayBtn.textContent = "Pay ₹1";
+                            alert("We couldn't confirm your payment yet. If you already paid, please wait a few minutes and refresh the page, or contact us.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Poll error:', err);
+                        if (attempts >= maxAttempts) {
+                            clearInterval(interval);
+                            razorpayBtn.disabled = false;
+                            razorpayBtn.textContent = "Pay ₹1";
+                        }
+                    });
+                }, 3000); // Check every 3 seconds
+            }
+
             // STEP 1: Save details to DB, then show payment section
             if (proceedBtn) {
                 proceedBtn.addEventListener("click", function () {
@@ -241,6 +286,9 @@
 
                                 console.log('Sending verification payload:', payload);
 
+                                razorpayBtn.disabled = true;
+                                razorpayBtn.textContent = "Verifying payment...";
+
                                 fetch("{{ route('redline.verifyPayment') }}", {
                                     method: "POST",
                                     headers: {
@@ -266,21 +314,24 @@
                                         alert(data.message);
                                         window.location.href = "{{ route('redline.index') }}";
                                     } else {
-                                        alert("Verification failed: " + (data.message || 'Unknown error'));
-                                        razorpayBtn.disabled = false;
-                                        razorpayBtn.textContent = "Pay ₹1";
+                                        // Verification failed, try polling as fallback
+                                        console.log('Verify failed, falling back to polling...');
+                                        pollPaymentStatus();
                                     }
                                 })
                                 .catch(err => {
                                     console.error('Verification error:', err);
-                                    alert("Payment received! If you don't see a confirmation, please contact us.");
-                                    window.location.href = "{{ route('redline.index') }}";
+                                    // Verify call failed, try polling as fallback
+                                    console.log('Verify errored, falling back to polling...');
+                                    pollPaymentStatus();
                                 });
                             },
                             modal: {
                                 ondismiss: function () {
-                                    razorpayBtn.disabled = false;
-                                    razorpayBtn.textContent = "Pay ₹1";
+                                    console.log('Razorpay modal dismissed, checking if payment was made...');
+                                    // User closed the modal — maybe they completed UPI payment
+                                    // Poll to check if payment was actually captured
+                                    pollPaymentStatus(5); // fewer attempts for dismiss case
                                 }
                             }
                         };
