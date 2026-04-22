@@ -66,7 +66,7 @@ class RedlineController extends Controller
 
             $order = $api->order->create([
                 'receipt'         => 'redline_' . $memberId . '_' . time(),
-                'amount'          => 100, // ₹1 in paise
+                'amount'          => 3000000, // ₹30,000 in paise
                 'currency'        => 'INR',
                 'payment_capture' => 1,
                 'notes'           => [
