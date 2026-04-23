@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RedlineWelcomeMail;
 use App\Models\RedlineMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Razorpay\Api\Api;
 
 class RedlineController extends Controller
@@ -31,15 +33,15 @@ class RedlineController extends Controller
     public function saveDetails(Request $request)
     {
         $validated = $request->validate([
-            'name'           => 'required|string|max:255',
-            'mobile'         => 'required|string|digits:10',
-            'email'          => 'required|email|max:255',
-            'car_brand'      => 'required|string|max:255',
-            'car_model'      => 'required|string|max:255',
-            'car_number'     => 'required|string|min:9|max:10',
+            'name' => 'required|string|max:255',
+            'mobile' => 'required|string|digits:10',
+            'email' => 'required|email|max:255',
+            'car_brand' => 'required|string|max:255',
+            'car_model' => 'required|string|max:255',
+            'car_number' => 'required|string|min:9|max:10',
             'instagram_link' => 'nullable|url|max:255',
-            'linkedin_link'  => 'nullable|url|max:255',
-            'tshirt_size'    => 'required|string|in:XS,S,M,L,XL,XXL,XXXL',
+            'linkedin_link' => 'nullable|url|max:255',
+            'tshirt_size' => 'required|string|in:XS,S,M,L,XL,XXL,XXXL',
         ]);
 
         $member = RedlineMember::create(array_merge($validated, [
@@ -49,7 +51,7 @@ class RedlineController extends Controller
         Log::info('Redline member saved', ['member_id' => $member->id, 'email' => $member->email]);
 
         return response()->json([
-            'success'   => true,
+            'success' => true,
             'member_id' => $member->id,
         ]);
     }
@@ -65,11 +67,11 @@ class RedlineController extends Controller
             $api = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
 
             $order = $api->order->create([
-                'receipt'         => 'redline_' . $memberId . '_' . time(),
-                'amount'          => 3000000, // ₹30,000 in paise
-                'currency'        => 'INR',
+                'receipt' => 'redline_' . $memberId . '_' . time(),
+                'amount' => 3000000, // ₹30,000 in paise
+                'currency' => 'INR',
                 'payment_capture' => 1,
-                'notes'           => [
+                'notes' => [
                     'member_id' => $memberId,
                 ],
             ]);
@@ -83,7 +85,7 @@ class RedlineController extends Controller
 
             return response()->json([
                 'order_id' => $order['id'],
-                'amount'   => $order['amount'],
+                'amount' => $order['amount'],
                 'currency' => $order['currency'],
             ]);
         } catch (\Exception $e) {
@@ -102,10 +104,10 @@ class RedlineController extends Controller
         Log::info('Razorpay verifyPayment called', $input);
 
         $validated = $request->validate([
-            'member_id'               => 'required|integer|exists:redline_members,id',
-            'razorpay_payment_id'     => 'required|string',
-            'razorpay_order_id'       => 'required|string',
-            'razorpay_signature'      => 'required|string',
+            'member_id' => 'required|integer|exists:redline_members,id',
+            'razorpay_payment_id' => 'required|string',
+            'razorpay_order_id' => 'required|string',
+            'razorpay_signature' => 'required|string',
         ]);
 
         // Verify the payment signature
@@ -113,25 +115,28 @@ class RedlineController extends Controller
             $api = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
 
             $attributes = [
-                'razorpay_order_id'   => $validated['razorpay_order_id'],
+                'razorpay_order_id' => $validated['razorpay_order_id'],
                 'razorpay_payment_id' => $validated['razorpay_payment_id'],
-                'razorpay_signature'  => $validated['razorpay_signature'],
+                'razorpay_signature' => $validated['razorpay_signature'],
             ];
 
             $api->utility->verifyPaymentSignature($attributes);
 
             // Signature valid — update member as paid
             RedlineMember::where('id', $validated['member_id'])->update([
-                'payment_status'      => 'paid',
+                'payment_status' => 'paid',
                 'razorpay_payment_id' => $validated['razorpay_payment_id'],
-                'razorpay_signature'  => $validated['razorpay_signature'],
-                'paid_at'             => now(),
+                'razorpay_signature' => $validated['razorpay_signature'],
+                'paid_at' => now(),
             ]);
 
             Log::info('Razorpay payment verified & member updated', [
-                'member_id'  => $validated['member_id'],
+                'member_id' => $validated['member_id'],
                 'payment_id' => $validated['razorpay_payment_id'],
             ]);
+
+            // Send welcome email
+            $this->sendWelcomeEmail($validated['member_id']);
 
         } catch (\Exception $e) {
             Log::error('Razorpay Signature Verification Failed: ' . $e->getMessage());
@@ -171,7 +176,7 @@ class RedlineController extends Controller
         if ($member->payment_status === 'paid') {
             return response()->json([
                 'success' => true,
-                'paid'    => true,
+                'paid' => true,
                 'message' => 'Payment verified successfully! Welcome to the Redline Club.',
             ]);
         }
@@ -180,20 +185,20 @@ class RedlineController extends Controller
         if (!$member->razorpay_order_id) {
             return response()->json([
                 'success' => true,
-                'paid'    => false,
+                'paid' => false,
                 'message' => 'No order found.',
             ]);
         }
 
         // Query Razorpay API for the order status
         try {
-            $api   = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
+            $api = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
             $order = $api->order->fetch($member->razorpay_order_id);
 
             Log::info('Razorpay order status check', [
                 'member_id' => $memberId,
-                'order_id'  => $member->razorpay_order_id,
-                'status'    => $order['status'],
+                'order_id' => $member->razorpay_order_id,
+                'status' => $order['status'],
             ]);
 
             if ($order['status'] === 'paid') {
@@ -210,26 +215,29 @@ class RedlineController extends Controller
                 }
 
                 $member->update([
-                    'payment_status'      => 'paid',
+                    'payment_status' => 'paid',
                     'razorpay_payment_id' => $paymentId,
-                    'paid_at'             => now(),
+                    'paid_at' => now(),
                 ]);
 
                 Log::info('Payment confirmed via API polling', [
-                    'member_id'  => $memberId,
+                    'member_id' => $memberId,
                     'payment_id' => $paymentId,
                 ]);
 
+                // Send welcome email
+                $this->sendWelcomeEmail($memberId);
+
                 return response()->json([
                     'success' => true,
-                    'paid'    => true,
+                    'paid' => true,
                     'message' => 'Payment verified successfully! Welcome to the Redline Club.',
                 ]);
             }
 
             return response()->json([
                 'success' => true,
-                'paid'    => false,
+                'paid' => false,
                 'message' => 'Payment not yet captured. Status: ' . $order['status'],
             ]);
 
@@ -237,7 +245,7 @@ class RedlineController extends Controller
             Log::error('Razorpay order status check failed: ' . $e->getMessage());
             return response()->json([
                 'success' => false,
-                'paid'    => false,
+                'paid' => false,
                 'message' => 'Could not check payment status.',
             ], 500);
         }
@@ -250,9 +258,9 @@ class RedlineController extends Controller
      */
     public function webhook(Request $request)
     {
-        $payload   = $request->getContent();
+        $payload = $request->getContent();
         $signature = $request->header('X-Razorpay-Signature');
-        $secret    = env('RAZORPAY_WEBHOOK_SECRET');
+        $secret = env('RAZORPAY_WEBHOOK_SECRET');
 
         // Verify webhook signature (skip if secret is not configured)
         if (!empty($secret)) {
@@ -271,7 +279,7 @@ class RedlineController extends Controller
             Log::warning('RAZORPAY_WEBHOOK_SECRET is not set — skipping signature verification. Set it in .env for production!');
         }
 
-        $data  = json_decode($payload, true);
+        $data = json_decode($payload, true);
         $event = $data['event'] ?? '';
 
         Log::info('Razorpay Webhook Received', ['event' => $event]);
@@ -283,16 +291,21 @@ class RedlineController extends Controller
                 $orderId = $payment['order_id'] ?? null;
 
                 if ($orderId) {
-                    RedlineMember::where('razorpay_order_id', $orderId)->update([
-                        'payment_status'      => 'paid',
-                        'razorpay_payment_id' => $payment['id'] ?? null,
-                        'paid_at'             => now(),
-                    ]);
+                    $member = RedlineMember::where('razorpay_order_id', $orderId)->first();
+                    if ($member) {
+                        $member->update([
+                            'payment_status' => 'paid',
+                            'razorpay_payment_id' => $payment['id'] ?? null,
+                            'paid_at' => now(),
+                        ]);
+                        // Send welcome email
+                        $this->sendWelcomeEmail($member->id);
+                    }
                 }
 
                 Log::info('Razorpay Payment ' . ($event === 'payment.captured' ? 'Captured' : 'Authorized') . ' via Webhook', [
                     'payment_id' => $payment['id'] ?? null,
-                    'order_id'   => $orderId,
+                    'order_id' => $orderId,
                 ]);
                 break;
 
@@ -308,7 +321,7 @@ class RedlineController extends Controller
 
                 Log::warning('Razorpay Payment Failed via Webhook', [
                     'payment_id' => $payment['id'] ?? null,
-                    'order_id'   => $orderId,
+                    'order_id' => $orderId,
                 ]);
                 break;
 
@@ -335,5 +348,40 @@ class RedlineController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Thank you for joining the Redline Club! We will get back to you soon.');
+    }
+
+    /**
+     * Send welcome email to a member after successful payment.
+     * Guarded by welcome_email_sent flag to prevent duplicate emails.
+     */
+    private function sendWelcomeEmail(int $memberId): void
+    {
+        try {
+            $member = RedlineMember::find($memberId);
+
+            if (!$member) {
+                Log::warning('sendWelcomeEmail: member not found', ['member_id' => $memberId]);
+                return;
+            }
+
+            // Prevent duplicate emails
+            if ($member->welcome_email_sent) {
+                Log::info('sendWelcomeEmail: already sent, skipping', ['member_id' => $memberId]);
+                return;
+            }
+
+            Mail::to($member->email)->send(new RedlineWelcomeMail($member));
+
+            $member->update(['welcome_email_sent' => true]);
+
+            Log::info('Welcome email sent to member', [
+                'member_id' => $memberId,
+                'email' => $member->email,
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Failed to send welcome email: ' . $e->getMessage(), [
+                'member_id' => $memberId,
+            ]);
+        }
     }
 }
