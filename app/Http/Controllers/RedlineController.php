@@ -32,11 +32,11 @@ class RedlineController extends Controller
     {
         $validated = $request->validate([
             'name'           => 'required|string|max:255',
-            'mobile'         => 'required|string|max:15',
+            'mobile'         => 'required|string|digits:10',
             'email'          => 'required|email|max:255',
             'car_brand'      => 'required|string|max:255',
             'car_model'      => 'required|string|max:255',
-            'car_number'     => 'required|string|max:20',
+            'car_number'     => 'required|string|min:9|max:10',
             'instagram_link' => 'nullable|url|max:255',
             'linkedin_link'  => 'nullable|url|max:255',
             'tshirt_size'    => 'required|string|in:XS,S,M,L,XL,XXL,XXXL',

@@ -50,7 +50,7 @@
 
                         <div class="col-md-4">
                             <label class="form-label">Mobile</label>
-                            <input type="text" name="mobile" class="form-control" required="">
+                            <input type="tel" name="mobile" class="form-control" required="" pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number">
                         </div>
 
                         <div class="col-md-4">
@@ -71,7 +71,7 @@
 
                         <div class="col-md-4">
                             <label class="form-label">Car Number</label>
-                            <input type="text" name="car_number" class="form-control" required="">
+                            <input type="text" name="car_number" class="form-control" required="" minlength="9" maxlength="10" title="Car number must be 9 or 10 characters">
                         </div>
 
                         <!-- Row 3 -->
