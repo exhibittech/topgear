@@ -19,25 +19,25 @@
             <div class="tgsection-title">
                 <h2>Redline Club</h2>
             </div>
-            <p>Congratulations! You’ve just been invited to something rather special. Welcome to TopGear India’s new and
-                exclusive enthusiasts’ community - Top Gear India Red Line Club.</p>
-
-            <p>Our inaugural event, set for May 16, 2026, is strictly invite-only and reserved for a select group of
-                India’s most passionate drivers and their high-performance machines. This is your chance to take your
-                car to the Aamby Valley Airstrip and run it flat out, completely unrestricted. No crowds. No
-                interruptions. Just you, your car, and a perfectly laid-out quarter mile, as many times as you dare.</p>
-
-            <p>Think of it as an unlimited drag day with your inner circle, set against one of the country’s most
-                iconic driving venues, backed by TopGear hospitality and surrounded by people who understand exactly why
-                you care about that extra tenth of a second.</p>
-
-            <p>To be part of it, enter your details below and secure your place on the early bird list. Entries are
-                strictly limited to 50 cars, each with a plus-one invite. And yes, entry is car-dependent, because here,
-                the machine always comes first.</p>
-
-            <p>We’ll see you at the Red Line.</p>
             <!-- STEP 1 : FORM -->
             <div id="formSection" class="sign-up form-container">
+                <p>Congratulations! You’ve just been invited to something rather special. Welcome to TopGear India’s new and
+                    exclusive enthusiasts’ community - Top Gear India Red Line Club.</p>
+
+                <p>Our inaugural event, set for May 16, 2026, is strictly invite-only and reserved for a select group of
+                    India’s most passionate drivers and their high-performance machines. This is your chance to take your
+                    car to the Aamby Valley Airstrip and run it flat out, completely unrestricted. No crowds. No
+                    interruptions. Just you, your car, and a perfectly laid-out quarter mile, as many times as you dare.</p>
+
+                <p>Think of it as an unlimited drag day with your inner circle, set against one of the country’s most
+                    iconic driving venues, backed by TopGear hospitality and surrounded by people who understand exactly why
+                    you care about that extra tenth of a second.</p>
+
+                <p>To be part of it, enter your details below and secure your place on the early bird list. Entries are
+                    strictly limited to 50 cars, each with a plus-one invite. And yes, entry is car-dependent, because here,
+                    the machine always comes first.</p>
+
+                <p>We’ll see you at the Red Line.</p>
                 <form class="" method="POST" autocomplete="off" action="#" id="redline-form">
 
                     <div class="row g-3">
@@ -50,7 +50,8 @@
 
                         <div class="col-md-4">
                             <label class="form-label">Mobile</label>
-                            <input type="tel" name="mobile" class="form-control" required="" pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number">
+                            <input type="tel" name="mobile" class="form-control" required="" pattern="[0-9]{10}"
+                                maxlength="10" title="Please enter a valid 10-digit mobile number">
                         </div>
 
                         <div class="col-md-4">
@@ -71,7 +72,8 @@
 
                         <div class="col-md-4">
                             <label class="form-label">Car Number</label>
-                            <input type="text" name="car_number" class="form-control" required="" minlength="9" maxlength="10" title="Car number must be 9 or 10 characters">
+                            <input type="text" name="car_number" class="form-control" required="" minlength="9"
+                                maxlength="10" title="Car number must be 9 or 10 characters">
                         </div>
 
                         <!-- Row 3 -->
@@ -111,13 +113,15 @@
             </div>
             <!-- STEP 2 : PAYMENT -->
             <div id="paymentSection">
-                <h2 class="text-center mb-4">Complete Payment</h2>
+                <p>An entry fee of INR 30,000 (inclusive of F&B and taxes) confirms your spot for 1 Car & 2 Pax.</p>
+
+                <!-- <h2 class="text-center mb-4">Complete Payment</h2> -->
 
                 <div class="row g-3">
 
                     <div class="col-12 mt-4">
                         <div class="d-grid">
-                            <button type="button" id="razorpayBtn" class="btn tg-btn">Pay ₹30,000</button>
+                            <button type="button" id="razorpayBtn" class="btn tg-btn">Pay Now</button>
                         </div>
                     </div>
 
@@ -175,7 +179,7 @@
                             } else if (attempts >= maxAttempts) {
                                 clearInterval(interval);
                                 razorpayBtn.disabled = false;
-                                razorpayBtn.textContent = "Pay ₹30,000";
+                                razorpayBtn.textContent = "Pay Now";
                                 alert("We couldn't confirm your payment yet. If you already paid, please wait a few minutes and refresh the page, or contact us.");
                             }
                         })
@@ -184,7 +188,7 @@
                             if (attempts >= maxAttempts) {
                                 clearInterval(interval);
                                 razorpayBtn.disabled = false;
-                                razorpayBtn.textContent = "Pay ₹30,000";
+                                razorpayBtn.textContent = "Pay Now";
                             }
                         });
                 }, 3000); // Check every 3 seconds
@@ -372,7 +376,7 @@
                             console.error(err);
                             alert("Could not initiate payment. Please try again.");
                             razorpayBtn.disabled = false;
-                            razorpayBtn.textContent = "Pay ₹30,000";
+                            razorpayBtn.textContent = "Pay Now";
                         });
                 });
             }
