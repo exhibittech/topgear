@@ -83,17 +83,7 @@
                                 We'll see you at the Red Line. 🏁
                             </p>
 
-                            {{-- CTA --}}
-                            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px;">
-                                <tr>
-                                    <td align="center" style="background-color:#e21b22;border-radius:4px;">
-                                        <a href="https://topgearmag.in/redline"
-                                           style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.5px;">
-                                            Visit Red Line Club
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
+
 
                         </td>
                     </tr>

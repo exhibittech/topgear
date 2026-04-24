@@ -357,22 +357,24 @@ class RedlineController extends Controller
     private function sendWelcomeEmail(int $memberId): void
     {
         try {
-            $member = RedlineMember::find($memberId);
+            // Atomically check and update the flag to prevent race conditions from webhook + polling + frontend all arriving at once
+            $updatedRows = RedlineMember::where('id', $memberId)
+                ->where('welcome_email_sent', false)
+                ->update(['welcome_email_sent' => true]);
 
-            if (!$member) {
-                Log::warning('sendWelcomeEmail: member not found', ['member_id' => $memberId]);
+            if ($updatedRows === 0) {
+                Log::info('sendWelcomeEmail: email already sent or claimed by another process, skipping', ['member_id' => $memberId]);
                 return;
             }
 
-            // Prevent duplicate emails
-            if ($member->welcome_email_sent) {
-                Log::info('sendWelcomeEmail: already sent, skipping', ['member_id' => $memberId]);
+            $member = RedlineMember::find($memberId);
+
+            if (!$member) {
+                Log::warning('sendWelcomeEmail: member not found after claiming email send', ['member_id' => $memberId]);
                 return;
             }
 
             Mail::to($member->email)->send(new RedlineWelcomeMail($member));
-
-            $member->update(['welcome_email_sent' => true]);
 
             Log::info('Welcome email sent to member', [
                 'member_id' => $memberId,
