@@ -35,6 +35,10 @@ html {
     scroll-behavior: smooth;
 }
 
+:root {
+    --secondary-color: #26CAD3;
+}
+
 body {
     background-color: #091F29;
     color: #eee;
@@ -175,7 +179,7 @@ nav.bg-dark {
 .tg-subscribe a {
     text-transform: uppercase;
     font-weight: bold;
-    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    background: linear-gradient(to right, #0d2e3d 50%, var(--secondary-color) 50%);
     padding: 4px 40px;
     display: inline-block;
     color: #000;
@@ -240,7 +244,7 @@ nav.bg-dark {
 }
 
 .tg-searchform input {
-    border: 2px solid rgb(121, 214, 242);
+    border: 2px solid var(--secondary-color);
     border-radius: unset;
 }
 
@@ -253,7 +257,7 @@ nav.bg-dark {
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
-    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    background: linear-gradient(to right, #0d2e3d 50%, var(--secondary-color) 50%);
     padding: 5px 30px;
     display: inline-block;
     color: #000;
@@ -322,8 +326,8 @@ nav.bg-dark {
 }
 
 .tgrev-tab {
-    border-top: 1px solid #79d6f2;
-    border-bottom: 1px solid #79d6f2;
+    border-top: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 .tgrev-tab .nav-link {
@@ -331,7 +335,7 @@ nav.bg-dark {
 }
 
 .tgrev-tab .nav-link.tg-k {
-    background-color: #79d6f2;
+    background-color: var(--secondary-color);
     color: #091f29;
 }
 
@@ -357,7 +361,7 @@ nav.bg-dark {
 
 .kjwrap:hover .tg-txt h2.tg-review-title,
 .tgrelated-article:hover .tg-reltxt p {
-    color: #79d6f2;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
@@ -416,7 +420,7 @@ Banner */
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
-    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    background: linear-gradient(to right, #0d2e3d 50%, var(--secondary-color) 50%);
     padding: 12px 30px;
     display: inline-block;
     color: #000;
@@ -444,7 +448,7 @@ Banner */
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover {
     background-color: rgb(9, 31, 41);
-    color: rgb(121, 214, 242);
+    color: var(--secondary-color);
 }
 
 .w-100 {
@@ -489,7 +493,7 @@ section {
 .tgsection-title {
     display: flex;
     justify-content: space-between;
-    border-top: 0.8px solid rgb(121, 214, 242);
+    border-top: 0.8px solid var(--secondary-color);
     padding: 0 !important;
     margin: 2rem 15px 1.6rem;
     text-transform: uppercase;
@@ -497,7 +501,7 @@ section {
 
 .tgsection-title h2 {
     width: fit-content;
-    border-top: 8px solid rgb(121, 214, 242);
+    border-top: 8px solid var(--secondary-color);
     font-size: 38px;
 }
 
@@ -677,7 +681,7 @@ option {
 .sign-up,
 .sign-in {
     width: 100%;
-    box-shadow: 1px 1px 5px 0 #79d6f275, 0px 0px 5px #79d6f278;
+    box-shadow: 1px 1px 5px 0 var(--secondary-color)75, 0px 0px 5px var(--secondary-color)78;
     background: linear-gradient(rgba(9, 31, 41, 0) 0%, rgb(13 46 61) 100%);
     display: block;
     align-items: center;
@@ -726,7 +730,7 @@ input:disabled {
 
 /* Compare Cars */
 .tg_wrap_form .tg_compare_car_form {
-    box-shadow: 1px 1px 5px 0 #79d6f275, 0px 0px 5px #79d6f278;
+    box-shadow: 1px 1px 5px 0 var(--secondary-color)75, 0px 0px 5px var(--secondary-color)78;
     padding: 20px 20px 5px;
     margin: 0 0 15px;
     background: linear-gradient(rgba(9, 31, 41, 0) 0%, rgb(13 46 61) 100%);
@@ -756,7 +760,7 @@ input:disabled {
     z-index: 9;
     background-color: #091F29;
     padding: 0 2px;
-    color: #79d6f2;
+    color: var(--secondary-color);
     font-family: 'industry_tg_bold';
 }
 
@@ -804,7 +808,7 @@ input:disabled {
 .tg-spec-table-wrap th {
     width: 20%;
     font-family: 'industry_tg_bold';
-    border-right-color: #79d6f2;
+    border-right-color: var(--secondary-color);
     border-bottom: none;
     padding: 14px 18px;
 }
@@ -830,8 +834,8 @@ input:disabled {
 }
 
 .accordion-button:not(.collapsed) {
-    border-bottom: 1px solid #79d6f2;
-    color: #79d6f2;
+    border-bottom: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .accordion-button:focus {
@@ -847,7 +851,7 @@ input:disabled {
 }
 
 .form a {
-    color: #79d6f2;
+    color: var(--secondary-color);
     font-weight: 600;
 }
 
@@ -860,7 +864,7 @@ input:disabled {
     border-image-outset: initial;
     border-image-repeat: initial;
     border-image-slice: 1;
-    border-image-source: linear-gradient(rgb(121 214 242), rgb(41, 80, 99));
+    border-image-source: linear-gradient(var(--secondary-color), rgb(41, 80, 99));
 }
 
 .tg-newsletter-wrap {
@@ -981,7 +985,7 @@ input:disabled {
 
 .tgbrand-item {
     text-align: center;
-    color: #79d6f2;
+    color: var(--secondary-color);
     font-size: 18px;
     font-family: 'industry_tg_bold';
     border-bottom: 3px solid;
@@ -1007,7 +1011,7 @@ input:disabled {
     width: 60px;
     max-width: 96px;
     height: 2px;
-    background-color: rgb(121, 214, 242);
+    background-color: var(--secondary-color);
 }
 
 .tg-reltxt::after {
@@ -1020,14 +1024,14 @@ input:disabled {
 
 .tgnews-tag {
     font-size: 12px;
-    color: rgb(121, 214, 242);
+    color: var(--secondary-color);
     margin: 5px 0;
     display: inline-block;
     text-transform: uppercase;
 }
 
 .tg-review-tag {
-    color: rgb(121, 214, 242);
+    color: var(--secondary-color);
     font-size: 16px;
     font-weight: bold;
     margin: 0 5px;
@@ -1056,7 +1060,7 @@ input:disabled {
     font-size: 70px;
     position: relative;
     bottom: 25px;
-    border-bottom: 3px solid rgb(121, 214, 242);
+    border-bottom: 3px solid var(--secondary-color);
     -webkit-text-fill-color: #091f29;
     text-shadow: rgb(255 255 255) -2px 0px, rgb(255 255 255) 0px 2px, rgb(255 255 255) 2px 0px, rgb(255 255 255) 0px -2px;
     font-weight: 600;
@@ -1067,13 +1071,13 @@ input:disabled {
 .tg-article-link:hover,
 .tg-share a i:hover,
 h2.tg-review-title:hover {
-    color: rgb(121, 214, 242) !important;
+    color: var(--secondary-color) !important;
 }
 
 .tg-price {
     font-size: 1.6rem;
     font-weight: bold;
-    color: rgb(121, 214, 242);
+    color: var(--secondary-color);
 }
 
 .tg-metadata-wrap {
@@ -1102,7 +1106,7 @@ h2.tg-title::after {
     width: 100px;
     max-width: 120px;
     height: 2px;
-    background-color: rgb(121, 214, 242);
+    background-color: var(--secondary-color);
     margin-bottom: 40px;
 }
 
@@ -1200,7 +1204,7 @@ p.tg-review-title {
     display: block;
     max-width: 96px;
     height: 2px;
-    background-color: rgb(121, 214, 242);
+    background-color: var(--secondary-color);
     margin: 15px 0 5px;
 }
 
@@ -1266,7 +1270,7 @@ p.tg-review-title {
 
 .tg-review-body div p a:hover {
     background-position: 100% 100%;
-    color: rgb(121, 214, 242);
+    color: var(--secondary-color);
 
 }
 
@@ -1287,7 +1291,7 @@ p.tg-review-title {
 .tg-nextprev .kjnext a {
     display: block;
     width: 45%;
-    background: linear-gradient(to right, #0d2e3d 50%, #79d6f2 50%);
+    background: linear-gradient(to right, #0d2e3d 50%, var(--secondary-color) 50%);
     min-width: 200px;
     padding: 10px 15px;
     text-align: center;
@@ -1598,7 +1602,7 @@ p.tg-review-title {
 
 .fullscreen-icon-close:hover {
     background-color: rgb(9, 31, 41);
-    color: rgb(121, 214, 242);
+    color: var(--secondary-color);
 }
 
 .fullscreen-icon-close svg {

@@ -1,3 +1,7 @@
+:root {
+    --secondary-color: #26CAD3;
+}
+
 @media only screen and (min-width: 1024px) {
     .kjrow-md-60 {
         margin: auto;
@@ -24,7 +28,7 @@
 }
 
 .kjbar-wrap .kjleft div.active {
-    background-color: rgb(121, 214, 242);
+    background-color: var(--secondary-color);
     color: #000;
 }
 
@@ -76,7 +80,7 @@
 }
 
 .kjchocie-wrap input:checked+label {
-    border: 2px solid rgb(121, 214, 242);
+    border: 2px solid var(--secondary-color);
 }
 
 .kjchocie-wrap input:checked+label:after {
@@ -93,7 +97,7 @@
 }
 
 .kjchocie-wrap input:checked+label p {
-    background-color: rgb(121, 214, 242);
+    background-color: var(--secondary-color);
     color: #000;
 }
 
@@ -138,7 +142,7 @@
 }
 
 .progress-bar {
-    background-color: rgb(121, 214, 242);
+    background-color: var(--secondary-color);
     color: #000;
     font-size: 14px;
     font-family: 'industry_tg_bold';
