@@ -1,1 +1,1 @@
-<img src="{{ asset('assets/imgs/tg-logo-black.png') }}" {{ $attributes }} alt="TopGear Logo">
+<img src="{{ asset('assets/imgs/logo-black.png') }}" {{ $attributes }} alt="TopGear Logo">
