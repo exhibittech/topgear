@@ -6,12 +6,12 @@
     @include('partials.banner')
 
     <!-- <div class="container">
-        <div class="my-2 text-center">
-            <a href="/winners26">
-                <img src="/uploads/Banners/winners26.jpeg" alt="BBC TopGear India Awards 2026" width="100%">
-            </a>
-        </div>
-    </div> -->
+            <div class="my-2 text-center">
+                <a href="/winners26">
+                    <img src="/uploads/Banners/winners26.jpeg" alt="BBC TopGear India Awards 2026" width="100%">
+                </a>
+            </div>
+        </div> -->
     <section class="tg-reviews-latest">
         <div class="container">
             <div class="row">
@@ -23,7 +23,7 @@
                     $imageName = preg_replace('/_/', ' ', pathinfo($news->images->first()->ImagePath ?? $news->ImagePath, PATHINFO_FILENAME));
                     $altText = ucwords(trim(preg_replace('/\bNewsthumb\b/i', '', $imageName)));
                     $altText = substr($altText, 0, -10);
-                            ?>
+                                            ?>
                             <div class="col-lg-4">
                                 <div class="kjwrap tg-article-item">
                                     <div class="tg-media">
@@ -48,7 +48,7 @@
             </div>
             <div class="mt-5">
                 <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/" target="_blank"><img
-                        alt="TopGear Magazine Annual Issue 2026" src="/uploads/Banners/tgmagzter-annual2026.jpg" width="100%" /></a>
+                        alt="TopGear Magazine May 2026" src="/uploads/Banners/tgmagzter-may2026.jpg" width="100%" /></a>
             </div>
         </div>
     </section>
@@ -160,7 +160,7 @@
                     $imageName = preg_replace('/_/', ' ', pathinfo($feature->ImagePath ?? $feature->ImagePath, PATHINFO_FILENAME));
                     $altText = ucwords(trim(preg_replace('/\bFeaturesthumb\b/i', '', $imageName)));
                     $altText = substr($altText, 0, -10);
-                                ?>
+                                                ?>
                             <div class="col-lg-4">
                                 <div class="kjwrap tg-article-item">
                                     <div class="tg-media">
@@ -262,13 +262,13 @@
     </div>
     <!-- Popup Here -->
     <!--<div id="tgoverlay">
-        <div id="kjpopup">
-          <button id="close-btn">&times;</button>
-          <a href="https://www.topgearmag.in/votenow" target="_blank">
-            <img src="https://topgearmag.in/uploads/awards25/popup-banner.webp" alt="Vote Now">
-          </a>
-        </div>
-      </div>-->
+            <div id="kjpopup">
+              <button id="close-btn">&times;</button>
+              <a href="https://www.topgearmag.in/votenow" target="_blank">
+                <img src="https://topgearmag.in/uploads/awards25/popup-banner.webp" alt="Vote Now">
+              </a>
+            </div>
+          </div>-->
 
     {{--
     <script>

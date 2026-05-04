@@ -1363,6 +1363,19 @@ p.tg-review-title {
 }
 
 @media(max-width: 991px) {
+    .tg-header-banner .container {
+        flex-direction: column;
+    }
+
+    .navbar-dark .navbar-brand {
+        padding: 0.5rem;
+        margin-right: 0;
+    }
+
+    .tgsection-title {
+        margin: 2rem 0 15px 1.6rem;
+    }
+
     .hero-slider .carousel-item {
         height: auto;
         min-height: 280px;
@@ -1382,7 +1395,7 @@ p.tg-review-title {
     }
 
     .navbar-brand img {
-        width: 110px;
+        width: 220px;
     }
 
     .tg-stripes,
