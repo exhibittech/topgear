@@ -207,7 +207,7 @@ body {
     padding: 50px;
     margin: 20px;
     height: 125vh;
-    background-color: #091F29 ;
+    background-color: #001024 ;
       margin-top: 80px;
     padding: 30px;
 	font-family: 'Open Sans', sans-serif;
@@ -232,11 +232,11 @@ body {
 }
 
 .navbar a:hover {
-  background-color: #091F29;
+  background-color: #001024;
 }
 
 .active {
-  background-color: #091F29 ;
+  background-color: #001024 ;
 }
 
 .subnav {
@@ -244,7 +244,7 @@ body {
   overflow: hidden;
 }
 .subnav .active {
-  background-color: #091F29 ;
+  background-color: #001024 ;
 }
 
 
@@ -260,7 +260,7 @@ body {
   
 }
 .subnav .subnavbtn .active {
-  background-color: #091F29 ;
+  background-color: #001024 ;
 }
 
 .navbar a:hover, .subnav:hover .subnavbtn {
@@ -297,7 +297,7 @@ body {
   overflow: hidden;
 }
 .subnav1 .active {
-  background-color: #091F29 ;
+  background-color: #001024 ;
 }
 .subnav1 .subnavbtn1 {
   font-size: 16px;  
@@ -309,7 +309,7 @@ body {
   margin: 0; font-family: 'industry_tgbold';
 }
 .subnav1 .subnavbtn1 .active {
-  background-color: #091F29 ;
+  background-color: #001024 ;
 }
 
 .navbar a:hover, .subnav:hover .subnavbtn {

@@ -171,7 +171,7 @@
     padding: 10px 15px 5px;
     position: absolute;
     bottom: -50px;
-    background: #091f29;
+    background: #001024;
     width: max-content;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -196,7 +196,7 @@
     transform: translate(-50%, 0%);
     align-content: flex-end;
     flex-wrap: wrap;
-    background-color: #091f29;
+    background-color: #001024;
     height: 60px;
     padding: 0px 10px 10px;
     text-align: center;
@@ -257,7 +257,7 @@
 
 .kj-option-card {
     display: block;
-    background: linear-gradient(145deg, #0d2e3d, #091f29);
+    background: linear-gradient(145deg, #0d2e3d, #001024);
     border: 3px solid #79d6f2;
     border-radius: 15px;
     padding: 40px 20px;

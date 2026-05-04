@@ -1,13 +1,13 @@
 <!-- resources/views/layouts/header.blade.php -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="my-3 text-center">
         <a href="https://vinfastauto.in/en/schedule-a-test-drive?utm_source=topgear&utm_medium=website&utm_campaign=jan"
             target="_blank">
             <img src="/uploads/Banners/vinfast.jpg" alt="Vinfast" width="100%">
         </a>
     </div>
-</div>
+</div> -->
 
 
 

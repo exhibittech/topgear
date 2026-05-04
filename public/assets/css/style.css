@@ -40,7 +40,7 @@ html {
 }
 
 body {
-    background-color: #091F29;
+    background-color: #001024;
     color: #eee;
     font-family: 'industry_tg', sans-serif;
     font-size: 15px;
@@ -342,7 +342,7 @@ nav.bg-dark {
 
 .tgrev-tab .nav-link.tg-k {
     background-color: var(--secondary-color);
-    color: #091f29;
+    color: #001024;
 }
 
 .tgrev-tab .nav-link:hover {
@@ -764,7 +764,7 @@ input:disabled {
     position: sticky;
     top: 0;
     z-index: 9;
-    background-color: #091F29;
+    background-color: #001024;
     padding: 0 2px;
     color: var(--secondary-color);
     font-family: 'industry_tg_bold';
@@ -881,7 +881,7 @@ input:disabled {
     position: relative;
     top: -20px;
     left: -10px;
-    background: linear-gradient(to right, #091f29 228px, transparent 228px);
+    background: linear-gradient(to right, #001024 228px, transparent 228px);
     padding-right: 20px;
     flex: 3;
 }
@@ -907,7 +907,7 @@ input:disabled {
 }
 
 #footer a {
-    color: #091f29;
+    color: #001024;
     padding: 20px 15px 0 0px;
     display: inline-block;
     font-weight: 600;
@@ -966,7 +966,7 @@ input:disabled {
 }
 
 .tg-car-review-form h1 {
-    color: #091f29;
+    color: #001024;
     margin: 0 0 35px 10px;
 }
 
@@ -1002,7 +1002,7 @@ input:disabled {
 }
 
 .tg-txt {
-    background-image: linear-gradient(to bottom, rgb(13 46 61), #091f29);
+    background-image: linear-gradient(to bottom, rgb(13 46 61), #001024);
     padding: 10px 10px 20px;
     position: relative;
 }
@@ -1067,7 +1067,7 @@ input:disabled {
     position: relative;
     bottom: 25px;
     border-bottom: 3px solid var(--secondary-color);
-    -webkit-text-fill-color: #091f29;
+    -webkit-text-fill-color: #001024;
     text-shadow: rgb(255 255 255) -2px 0px, rgb(255 255 255) 0px 2px, rgb(255 255 255) 2px 0px, rgb(255 255 255) 0px -2px;
     font-weight: 600;
 }
@@ -1215,7 +1215,7 @@ p.tg-review-title {
 }
 
 .tg-highlight-wrap {
-    background: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg") -20.8rem 2rem no-repeat, linear-gradient(to top, #295063 0%, #091f29 100%) 0px 0px;
+    background: url("https://www.topgearmag.in/assets/front/template/top-gear-1.0/imgs/cog_outline.svg") -20.8rem 2rem no-repeat, linear-gradient(to top, #295063 0%, #001024 100%) 0px 0px;
     color: #fff;
     padding: 40px 0;
 }
@@ -1267,9 +1267,9 @@ p.tg-review-title {
 
 .tg-review-body div p a {
     font-weight: 600;
-    color: #091f29;
-    border-bottom: 2px solid #091f29;
-    background: linear-gradient(#25252500, #25252500 50%, #091f29 50%, #091f29);
+    color: #001024;
+    border-bottom: 2px solid #001024;
+    background: linear-gradient(#25252500, #25252500 50%, #001024 50%, #001024);
     background-size: 100% 200%;
     transition: background 0.3s;
 }

@@ -17,7 +17,6 @@
         TopGear and BBC (word marks and logos) are trademarks of the British Broadcasting Corporation and are used under
         licence. TopGear and BBC logos © BBC.</p>
       <!--<p><a href="https://www.bbcstudios.com/about-us/about-bbc-studios/" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i> More about BBC Studios</a></p>-->
-      <!-- Rebranded -->
       <p></p>
     </div>
     <hr />
@@ -64,6 +63,7 @@
         </div>
       </div>
     </div>
+    <!-- Designed By Kunjal -->
   </div>
 </footer>
 <!-- Anchor Ad Banner -->
