@@ -20,6 +20,10 @@ use App\Http\Controllers\PollResultsController;
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RedlineClubController;
+
+Route::get('/redlineclub', [RedlineClubController::class, 'redlineclub']);
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('features/{category}', [FeatureController::class, 'category']);
@@ -148,9 +152,6 @@ Route::get('/magazine', function () {
     return redirect()->away('https://exhibitstore.in');
 });
 
-Route::get('/redlineclub', function () {
-    return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLScPmW8XGcEhsjY42rafL5Zyz96dDsfO3ixTh-Ya6mzGrIy89A/viewform?usp=dialog');
-});
 
 // Route::get('/signup', function () {
 //     return redirect()->away('http://www.topgearmag.in/awards');
