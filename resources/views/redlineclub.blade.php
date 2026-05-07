@@ -204,7 +204,7 @@
                     const formData = getFormData();
 
                     // Send data to n8n webhook
-                    fetch("https://n8n.exhibit.social/webhook/acea76e1-6d95-4a2c-80fe-c0d9e3bb5373", {
+                    fetch("https://n8n.exhibit.social/webhook/18f7224a-647d-4883-97a6-a7f33283811x", {
 
                         method: "POST",
 
