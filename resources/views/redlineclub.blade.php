@@ -37,7 +37,9 @@
                     <p>To be part of it, enter your details below and join the waiting list. Entries are strictly limited to
                         50 cars, each with a plus-one invite. And yes, entry is car-dependent, because here, the machine
                         always comes first.</p>
-                    <p>We’ll see you at the Red Line.</p>
+                    <p><b>Event Cost:</b> ₹40,000 per car - inclusive driver + 1 passenger (inclusive of breakfast, lunch
+                        and refreshments). Hospitality will include a large air conditioned waiting area for invited guests.
+                    </p>
 
                 </div>
 
