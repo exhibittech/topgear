@@ -26,7 +26,8 @@
                 <div id="introText">
                     <p>Welcome to TopGear India’s new and exclusive enthusiasts’ community - Top Gear India Red Line Club.
                     </p>
-                    <p>Our inaugural event, set for May 16, 2026, is strictly invite-only and reserved for a select group of
+                    <p>Our inaugural event, set for June 07, 2026, is strictly invite-only and reserved for a select group
+                        of
                         India’s most passionate drivers and their high-performance machines. This is your chance to take
                         your car to the Aamby Valley Airstrip and run it flat out, completely unrestricted. No crowds. No
                         interruptions. Just you, your car, and a perfectly laid-out quarter mile, as many times as you dare.

@@ -1373,7 +1373,8 @@ p.tg-review-title {
     }
 
     .tgsection-title {
-        margin: 2rem 0 15px 1.6rem;
+        margin: 2rem 0 15px 1rem;
+        width: -webkit-fill-available;
     }
 
     .hero-slider .carousel-item {
