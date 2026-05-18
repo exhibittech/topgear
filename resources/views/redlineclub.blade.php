@@ -41,6 +41,7 @@
                     <p><b>Event Cost:</b> ₹40,000 per car - inclusive driver + 1 passenger (inclusive of breakfast, lunch
                         and refreshments). Hospitality will include a large air conditioned waiting area for invited guests.
                     </p>
+                    <p>We’ll see you at the Red Line.</p>
 
                 </div>
 

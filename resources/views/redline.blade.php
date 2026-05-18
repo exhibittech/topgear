@@ -28,7 +28,6 @@
                     India’s most passionate drivers and their high-performance machines. This is your chance to take your
                     car to the Aamby Valley Airstrip and run it flat out, completely unrestricted. No crowds. No
                     interruptions. Just you, your car, and a perfectly laid-out quarter mile, as many times as you dare.</p>
-
                 <p>Think of it as an unlimited drag day with your inner circle, set against one of the country’s most
                     iconic driving venues, backed by TopGear hospitality and surrounded by people who understand exactly why
                     you care about that extra tenth of a second.</p>
@@ -36,7 +35,9 @@
                 <p>To be part of it, enter your details below and secure your place on the early bird list. Entries are
                     strictly limited to 50 cars, each with a plus-one invite. And yes, entry is car-dependent, because here,
                     the machine always comes first.</p>
-
+                <p><b>Event Cost:</b> ₹30,000 per car - inclusive driver + 1 passenger (inclusive of breakfast, lunch
+                    and refreshments). Hospitality will include a large air conditioned waiting area for invited guests.
+                </p>
                 <p>We’ll see you at the Red Line.</p>
                 <form class="" method="POST" autocomplete="off" action="#" id="redline-form">
 
@@ -104,7 +105,7 @@
                         <!-- Submit -->
                         <div class="col-12 mt-4">
                             <div class="d-grid">
-                                <button type="button" id="proceedBtn" class="btn tg-btn">Proceed</button>
+                                <button type="button" id="proceedBtn" class="btn tg-btn">Proceed To Payment Link</button>
                             </div>
                         </div>
 
