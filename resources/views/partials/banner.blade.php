@@ -3,44 +3,44 @@
         <div class="carousel-inner">
             @php $firstItem = true; @endphp <!-- Variable to track the first item -->
             @foreach($mergedBanner->sortByDesc('PublishDate')->take(7) as $item)
-                        <?php
+                                    <?php
                 $imageName = preg_replace('/_/', ' ', pathinfo($item->ImagePath ?? $item->ImagePath, PATHINFO_FILENAME));
                 $altText = ucwords(trim(preg_replace('/\bNewsthumb\b/i', '', $imageName)));
                 $altText = substr($altText, 0, -10);
-                            ?>
-                        <div class="carousel-item {{ $firstItem ? 'active' : '' }}">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <a href="{{ url($item->menu->PageLink . '/' . $item->category->Code . '/' . $item->Code) }}">
-                                        <img alt="{{ $altText }}" class="w-100"
-                                            src="{{ url($item->ImagePath ?? $item->ImagePath) }}">
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="caption">
-                                        <a href="{{ url($item->menu->PageLink . '/' . $item->category->Code) }}"
-                                            class="tgnews-tag">{{ strtoupper($item->category->Name) }}</a>
-                                        <h2 class="tg-review-title">
-                                            <a
-                                                href="{{ url($item->menu->PageLink . '/' . $item->category->Code . '/' . $item->Code) }}">
-                                                {{ $item->Name ?? $item->ReviewsTitle }}
-                                            </a>
-                                        </h2>
-                                        <span class="tg-article-date">{{ date('F j, Y', strtotime($item->PublishDate)) }}</span>
-                                        <p><a
-                                                href="{{ url($item->menu->PageLink . '/' . $item->category->Code . '/' . $item->Code) }}">Learn
-                                                More</a></p>
+                                                    ?>
+                                    <div class="carousel-item {{ $firstItem ? 'active' : '' }}">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <a href="{{ url($item->menu->PageLink . '/' . $item->category->Code . '/' . $item->Code) }}">
+                                                    <img alt="{{ $altText }}" class="w-100"
+                                                        src="{{ url($item->ImagePath ?? $item->ImagePath) }}">
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="caption">
+                                                    <a href="{{ url($item->menu->PageLink . '/' . $item->category->Code) }}"
+                                                        class="tgnews-tag">{{ strtoupper($item->category->Name) }}</a>
+                                                    <h2 class="tg-review-title">
+                                                        <a
+                                                            href="{{ url($item->menu->PageLink . '/' . $item->category->Code . '/' . $item->Code) }}">
+                                                            {{ $item->Name ?? $item->ReviewsTitle }}
+                                                        </a>
+                                                    </h2>
+                                                    <span class="tg-article-date">{{ date('F j, Y', strtotime($item->PublishDate)) }}</span>
+                                                    <p><a
+                                                            href="{{ url($item->menu->PageLink . '/' . $item->category->Code . '/' . $item->Code) }}">Learn
+                                                            More</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        @php $firstItem = false; @endphp <!-- Set the first item to false after the first iteration -->
+                                    @php $firstItem = false; @endphp <!-- Set the first item to false after the first iteration -->
             @endforeach
 
             <!-- Custom Banner -->
             <div class="carousel-item">
-                <img alt="TopGear India Magazine May 2026" class="d-block w-100"
-                    src="https://www.topgearmag.in/uploads/Banners/tgbanner-may2026.jpg">
+                <img alt="TopGear India Magazine June 2026" class="d-block w-100"
+                    src="https://www.topgearmag.in/uploads/Banners/tgbanner-jun2026.jpg">
                 <div class="caption tg-magazine">
                     <p class="text-center"><a href="https://www.exhibitstore.in" target="_blank">Buy Now</a></p>
                 </div>
