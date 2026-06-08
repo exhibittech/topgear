@@ -20,9 +20,9 @@ use App\Http\Controllers\PollResultsController;
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\RedlineClubController;
+// use App\Http\Controllers\RedlineClubController;
 
-Route::get('/redlineclub', [RedlineClubController::class, 'redlineclub']);
+// Route::get('/redlineclub', [RedlineClubController::class, 'redlineclub']);
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -160,12 +160,12 @@ Route::get('/rsvp', function () {
     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeFi5LAJDBavK4SXAaOGn7LhBad6gkTL0jto2EbEfo8YTHfbg/viewform?usp=header');
 });
 
-Route::get('/redline', [App\Http\Controllers\RedlineController::class, 'index'])->name('redline.index');
-Route::post('/redline', [App\Http\Controllers\RedlineController::class, 'store'])->name('redline.store');
-Route::post('/redline/save-details', [App\Http\Controllers\RedlineController::class, 'saveDetails'])->name('redline.saveDetails');
-Route::post('/redline/create-order', [App\Http\Controllers\RedlineController::class, 'createOrder'])->name('redline.createOrder');
-Route::post('/redline/verify-payment', [App\Http\Controllers\RedlineController::class, 'verifyPayment'])->name('redline.verifyPayment');
-Route::post('/redline/check-payment-status', [App\Http\Controllers\RedlineController::class, 'checkPaymentStatus'])->name('redline.checkPaymentStatus');
-Route::post('/redline/webhook', [App\Http\Controllers\RedlineController::class, 'webhook'])->name('redline.webhook');
+// Route::get('/redline', [App\Http\Controllers\RedlineController::class, 'index'])->name('redline.index');
+// Route::post('/redline', [App\Http\Controllers\RedlineController::class, 'store'])->name('redline.store');
+// Route::post('/redline/save-details', [App\Http\Controllers\RedlineController::class, 'saveDetails'])->name('redline.saveDetails');
+// Route::post('/redline/create-order', [App\Http\Controllers\RedlineController::class, 'createOrder'])->name('redline.createOrder');
+// Route::post('/redline/verify-payment', [App\Http\Controllers\RedlineController::class, 'verifyPayment'])->name('redline.verifyPayment');
+// Route::post('/redline/check-payment-status', [App\Http\Controllers\RedlineController::class, 'checkPaymentStatus'])->name('redline.checkPaymentStatus');
+// Route::post('/redline/webhook', [App\Http\Controllers\RedlineController::class, 'webhook'])->name('redline.webhook');
 
 require __DIR__ . '/auth.php';

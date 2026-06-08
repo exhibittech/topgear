@@ -5,13 +5,13 @@
     <h1 class="d-none">Car and Bike Reviews, News & Auto Magazine in India</h1>
     @include('partials.banner')
 
-    <div class="container">
-        <div class="my-2 text-center">
-            <a href="/redlineclub">
-                <img src="/uploads/Banners/redlineclub.jpg" alt="Redline Club" width="100%">
-            </a>
-        </div>
-    </div>
+    <!-- <div class="container">
+            <div class="my-2 text-center">
+                <a href="/redlineclub">
+                    <img src="/uploads/Banners/redlineclub.jpg" alt="Redline Club" width="100%">
+                </a>
+            </div>
+        </div> -->
     <section class="tg-reviews-latest">
         <div class="container">
             <div class="row">
@@ -23,7 +23,7 @@
                     $imageName = preg_replace('/_/', ' ', pathinfo($news->images->first()->ImagePath ?? $news->ImagePath, PATHINFO_FILENAME));
                     $altText = ucwords(trim(preg_replace('/\bNewsthumb\b/i', '', $imageName)));
                     $altText = substr($altText, 0, -10);
-                                                                                                                                            ?>
+                                                                                                                                                            ?>
                             <div class="col-lg-4">
                                 <div class="kjwrap tg-article-item">
                                     <div class="tg-media">
@@ -160,7 +160,7 @@
                     $imageName = preg_replace('/_/', ' ', pathinfo($feature->ImagePath ?? $feature->ImagePath, PATHINFO_FILENAME));
                     $altText = ucwords(trim(preg_replace('/\bFeaturesthumb\b/i', '', $imageName)));
                     $altText = substr($altText, 0, -10);
-                                                                                                                                                ?>
+                                                                                                                                                                ?>
                             <div class="col-lg-4">
                                 <div class="kjwrap tg-article-item">
                                     <div class="tg-media">
@@ -262,13 +262,13 @@
     </div>
     <!-- Popup Here -->
     <!--<div id="tgoverlay">
-                                    <div id="kjpopup">
-                                      <button id="close-btn">&times;</button>
-                                      <a href="https://www.topgearmag.in/votenow" target="_blank">
-                                        <img src="https://topgearmag.in/uploads/awards25/popup-banner.webp" alt="Vote Now">
-                                      </a>
-                                    </div>
-                                  </div>-->
+                                        <div id="kjpopup">
+                                          <button id="close-btn">&times;</button>
+                                          <a href="https://www.topgearmag.in/votenow" target="_blank">
+                                            <img src="https://topgearmag.in/uploads/awards25/popup-banner.webp" alt="Vote Now">
+                                          </a>
+                                        </div>
+                                      </div>-->
 
     {{--
     <script>
