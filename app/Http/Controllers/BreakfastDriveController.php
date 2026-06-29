@@ -33,24 +33,47 @@ class BreakfastDriveController extends Controller
     public function saveDetails(Request $request)
     {
         $validated = $request->validate([
-            'name'          => 'required|string|max:255',
-            'mobile'        => 'required|string|digits:10',
-            'email'         => 'required|email|max:255',
-            'car_brand'     => 'required|string|max:255',
-            'car_model'     => 'required|string|max:255',
-            'car_number'    => 'required|string|min:9|max:10',
-            'instagram_link'=> 'nullable|url|max:255',
+            'name'            => 'required|string|max:255',
+            'mobile'          => 'required|string|digits:10',
+            'email'           => 'required|email|max:255',
+            'car_brand'       => 'required|string|max:255',
+            'car_model'       => 'required|string|max:255',
+            'car_number'      => 'required|string|min:9|max:10',
+            'instagram_link'  => 'nullable|url|max:255',
+            'guests_count'    => 'required|integer|in:0,1,2,3',
+            'guests'          => 'nullable|array',
+            'guests.*.name'   => 'required_if:guests_count,1|required_if:guests_count,2|required_if:guests_count,3|string|max:255',
+            'guests.*.mobile' => 'required_if:guests_count,1|required_if:guests_count,2|required_if:guests_count,3|string|digits:10',
         ]);
 
-        $member = BreakfastDriveMember::create(array_merge($validated, [
-            'payment_status' => 'pending',
-        ]));
+        $guestsCount = (int) ($validated['guests_count'] ?? 0);
+        $amountPaise = 150000 * ($guestsCount + 1); // ₹1,500 per person in paise
 
-        Log::info('Breakfast Drive member saved', ['member_id' => $member->id, 'email' => $member->email]);
+        $member = BreakfastDriveMember::create([
+            'name'           => $validated['name'],
+            'mobile'         => $validated['mobile'],
+            'email'          => $validated['email'],
+            'car_brand'      => $validated['car_brand'],
+            'car_model'      => $validated['car_model'],
+            'car_number'     => $validated['car_number'],
+            'instagram_link' => $validated['instagram_link'] ?? null,
+            'guests_count'   => $guestsCount,
+            'guests'         => $guestsCount > 0 ? array_slice($validated['guests'] ?? [], 0, min($guestsCount, 3)) : null,
+            'amount_paise'   => $amountPaise,
+            'payment_status' => 'pending',
+        ]);
+
+        Log::info('Breakfast Drive member saved', [
+            'member_id'    => $member->id,
+            'email'        => $member->email,
+            'guests_count' => $guestsCount,
+            'amount_paise' => $amountPaise,
+        ]);
 
         return response()->json([
-            'success'   => true,
-            'member_id' => $member->id,
+            'success'      => true,
+            'member_id'    => $member->id,
+            'amount_paise' => $amountPaise,
         ]);
     }
 
@@ -64,13 +87,18 @@ class BreakfastDriveController extends Controller
 
             $api = new Api(env('RAZORPAY_KEY_ID'), env('RAZORPAY_KEY_SECRET'));
 
+            // Fetch amount from DB — never trust frontend for pricing
+            $member = BreakfastDriveMember::find($memberId);
+            $amountPaise = $member ? $member->amount_paise : 150000;
+
             $order = $api->order->create([
                 'receipt'         => 'breakfast_' . $memberId . '_' . time(),
-                'amount'          => 150000, // ₹1,500 in paise
+                'amount'          => $amountPaise,
                 'currency'        => 'INR',
                 'payment_capture' => 1,
                 'notes'           => [
-                    'member_id' => $memberId,
+                    'member_id'    => $memberId,
+                    'guests_count' => $member ? $member->guests_count : 0,
                 ],
             ]);
 

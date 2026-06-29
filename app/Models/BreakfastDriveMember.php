@@ -14,6 +14,9 @@ class BreakfastDriveMember extends Model
         'car_model',
         'car_number',
         'instagram_link',
+        'guests_count',
+        'guests',
+        'amount_paise',
         'payment_status',
         'razorpay_order_id',
         'razorpay_payment_id',
@@ -23,6 +26,9 @@ class BreakfastDriveMember extends Model
     ];
 
     protected $casts = [
-        'paid_at' => 'datetime',
+        'paid_at'      => 'datetime',
+        'guests'       => 'array',
+        'guests_count' => 'integer',
+        'amount_paise' => 'integer',
     ];
 }

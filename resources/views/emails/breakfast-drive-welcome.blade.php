@@ -36,7 +36,8 @@
                             <p style="margin:0 0 16px;font-size:16px;color:#cccccc;line-height:1.7;">
                                 You're officially confirmed for the <strong style="color:#e21b22;">TopGear India
                                     Breakfast Drive</strong>. Your registration and payment of
-                                <strong style="color:#ffffff;">INR 1,500</strong> have been received.
+                                <strong style="color:#ffffff;">INR {{ number_format($member->amount_paise / 100, 0) }}</strong>
+                                for <strong style="color:#ffffff;">{{ $member->guests_count + 1 }} person{{ $member->guests_count > 0 ? 's' : '' }}</strong> have been received.
                             </p>
 
                             {{-- Event Details Box --}}
@@ -85,6 +86,27 @@
                                     </td>
                                 </tr>
                             </table>
+
+                            {{-- Guests Box (only if guests were added) --}}
+                            @if($member->guests_count > 0 && $member->guests)
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="margin:0 0 28px;background-color:#1a1a1a;border-radius:4px;">
+                                <tr>
+                                    <td style="padding:20px 24px;">
+                                        <p style="margin:0 0 12px;font-size:11px;font-weight:700;color:#888888;letter-spacing:2px;text-transform:uppercase;">
+                                            Guests</p>
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            @foreach($member->guests as $index => $guest)
+                                            <tr>
+                                                <td style="padding:4px 0;font-size:14px;color:#888888;width:80px;">Guest {{ $index + 1 }}</td>
+                                                <td style="padding:4px 0;font-size:14px;color:#ffffff;font-weight:600;">{{ $guest['name'] }}</td>
+                                            </tr>
+                                            @endforeach
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            @endif
 
                             <p style="margin:0 0 16px;font-size:16px;color:#cccccc;line-height:1.7;">
                                 Please ensure you arrive with your registered vehicle. Further details about the route,
