@@ -168,4 +168,12 @@ Route::get('/rsvp', function () {
 // Route::post('/redline/check-payment-status', [App\Http\Controllers\RedlineController::class, 'checkPaymentStatus'])->name('redline.checkPaymentStatus');
 // Route::post('/redline/webhook', [App\Http\Controllers\RedlineController::class, 'webhook'])->name('redline.webhook');
 
+// Breakfast Drive Routes
+Route::get('/breakfast-drive', [App\Http\Controllers\BreakfastDriveController::class, 'index'])->name('breakfast-drive.index');
+Route::post('/breakfast-drive/save-details', [App\Http\Controllers\BreakfastDriveController::class, 'saveDetails'])->name('breakfast-drive.saveDetails');
+Route::post('/breakfast-drive/create-order', [App\Http\Controllers\BreakfastDriveController::class, 'createOrder'])->name('breakfast-drive.createOrder');
+Route::post('/breakfast-drive/verify-payment', [App\Http\Controllers\BreakfastDriveController::class, 'verifyPayment'])->name('breakfast-drive.verifyPayment');
+Route::post('/breakfast-drive/check-payment-status', [App\Http\Controllers\BreakfastDriveController::class, 'checkPaymentStatus'])->name('breakfast-drive.checkPaymentStatus');
+Route::post('/breakfast-drive/webhook', [App\Http\Controllers\BreakfastDriveController::class, 'webhook'])->name('breakfast-drive.webhook');
+
 require __DIR__ . '/auth.php';
