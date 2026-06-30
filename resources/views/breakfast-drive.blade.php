@@ -571,6 +571,20 @@
                 });
             }
 
+            // ── Payment status webhook (fires ONLY after Razorpay modal opened) ───
+            function sendPaymentStatus(email, status, amountPaise) {
+                fetch("https://n8n.exhibit.social/webhook/95b1f83e-6569-47d5-8982-721b7cc12754", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        event:        "Breakfast Drive",
+                        email:        email,
+                        status:       status,
+                        amount:  amountPaise ? "₹" + (amountPaise / 100).toLocaleString("en-IN") : ""
+                    })
+                }).catch(err => console.error("Status webhook error:", err));
+            }
+
             // ── STEP 2: Razorpay Checkout ─────────────────────────────────
             if (razorpayBtn) {
                 razorpayBtn.addEventListener("click", function () {
@@ -633,16 +647,24 @@
                                 })
                                 .then(data => {
                                     if (data.success) {
+                                        sendPaymentStatus(getFormData().email, "paid", totalPaise);
                                         alert(data.message + "\nA confirmation has been sent to your registered email.");
                                         window.location.href = "{{ route('breakfast-drive.index') }}";
                                     } else {
+                                        sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
                                         pollPaymentStatus();
                                     }
                                 })
-                                .catch(() => pollPaymentStatus());
+                                .catch(() => {
+                                    sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
+                                    pollPaymentStatus();
+                                });
                             },
                             modal: {
                                 ondismiss: function () {
+                                    // Only send 'payment failed' if they opened the modal (razorpayOpened = true)
+                                    // but closed without completing payment
+                                    sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
                                     pollPaymentStatus(5);
                                 }
                             }
