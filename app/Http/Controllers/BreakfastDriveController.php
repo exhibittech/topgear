@@ -11,19 +11,28 @@ use Razorpay\Api\Api;
 
 class BreakfastDriveController extends Controller
 {
+    private const CAPACITY = 40;
+
     public function index()
     {
         $menu = MenuController::loadMenu();
 
         $seodata = [
-            'MetaTitle' => 'Breakfast Drive | TopGear India',
+            'MetaTitle'       => 'Breakfast Drive | TopGear India',
             'MetaDescription' => 'Join TopGear India\'s Breakfast Drive – 5th July 2026 at JW Marriott Sahar, Mumbai.',
-            'Keyword' => 'Breakfast Drive, TopGear India, Car Enthusiasts, Mumbai Drive'
+            'Keyword'         => 'Breakfast Drive, TopGear India, Car Enthusiasts, Mumbai Drive'
         ];
 
         $razorpayKey = env('RAZORPAY_KEY_ID');
 
-        return view('breakfast-drive', compact('seodata', 'menu', 'razorpayKey'));
+        // Count confirmed (paid) persons including guests
+        $confirmedPersons = BreakfastDriveMember::where('payment_status', 'paid')
+            ->selectRaw('SUM(guests_count + 1) as total')
+            ->value('total') ?? 0;
+
+        $remainingSpots = max(0, self::CAPACITY - $confirmedPersons);
+
+        return view('breakfast-drive', compact('seodata', 'menu', 'razorpayKey', 'remainingSpots'));
     }
 
     /**
@@ -46,8 +55,24 @@ class BreakfastDriveController extends Controller
             'guests.*.mobile' => 'required_if:guests_count,1|required_if:guests_count,2|required_if:guests_count,3|string|digits:10',
         ]);
 
-        $guestsCount = (int) ($validated['guests_count'] ?? 0);
-        $amountPaise = 150000 * ($guestsCount + 1); // ₹1,500 per person in paise
+        $guestsCount  = (int) ($validated['guests_count'] ?? 0);
+        $newPersons   = $guestsCount + 1;
+        $amountPaise  = 150000 * $newPersons; // ₹1,500 per person in paise
+
+        // ── Capacity check ────────────────────────────────────────────────
+        $confirmedPersons = BreakfastDriveMember::where('payment_status', 'paid')
+            ->selectRaw('SUM(guests_count + 1) as total')
+            ->value('total') ?? 0;
+
+        $remainingSpots = max(0, self::CAPACITY - $confirmedPersons);
+
+        if ($newPersons > $remainingSpots) {
+            $msg = $remainingSpots === 0
+                ? 'Sorry, this event is fully booked.'
+                : "Only {$remainingSpots} spot" . ($remainingSpots === 1 ? '' : 's') . " remaining. Please reduce your guest count.";
+
+            return response()->json(['success' => false, 'message' => $msg], 422);
+        }
 
         $member = BreakfastDriveMember::create([
             'name'           => $validated['name'],

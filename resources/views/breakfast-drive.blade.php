@@ -143,6 +143,41 @@
 
                 <span class="bd-badge" style="display:inline-block;background:#e21b22;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:16px;">TopGear India</span>
 
+                @if($remainingSpots <= 0)
+                {{-- SOLD OUT --}}
+                <div style="text-align:center;padding:40px 20px;background:#1a1a1a;border-radius:8px;margin:24px 0;">
+                    <div style="font-size:40px;margin-bottom:12px;">🚫</div>
+                    <p style="font-size:20px;font-weight:700;color:#fff;margin:0 0 8px;">This event is fully booked</p>
+                    <p style="font-size:15px;color:#aaa;margin:0;">All 40 spots have been filled. Thank you for your interest!</p>
+                </div>
+                @else
+
+                {{-- Spots progress bar --}}
+                @php
+                    $spotsTotal = 40;
+                    $spotsTaken = $spotsTotal - $remainingSpots;
+                    $fillPct    = round(($spotsTaken / $spotsTotal) * 100);
+                @endphp
+                <div style="margin-bottom:24px;">
+                    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+                        <span style="font-size:13px;font-weight:600;color:#fff;">Spots Filled</span>
+                        <span style="font-size:13px;color:#aaa;">
+                            <strong style="color:#e21b22;">{{ $spotsTaken }}</strong> / {{ $spotsTotal }}
+                            &nbsp;&middot;&nbsp;
+                            @if($remainingSpots <= 5)
+                                <span style="color:#e21b22;font-weight:700;">Only {{ $remainingSpots }} left!</span>
+                            @elseif($remainingSpots <= 10)
+                                <span style="color:#f59e0b;font-weight:600;">{{ $remainingSpots }} spots remaining</span>
+                            @else
+                                <span style="color:#aaa;">{{ $remainingSpots }} spots remaining</span>
+                            @endif
+                        </span>
+                    </div>
+                    <div style="background:#2a2a2a;border-radius:999px;height:10px;overflow:hidden;">
+                        <div style="background:linear-gradient(90deg,#e21b22,#ff4444);height:100%;width:{{ $fillPct }}%;border-radius:999px;transition:width 0.6s ease;"></div>
+                    </div>
+                </div>
+
                 <p>You've been invited to join TopGear India for an exclusive morning out — the <strong>Breakfast Drive</strong>. Start your Sunday with fellow enthusiasts on an early morning drive through the city, followed by a sit-down breakfast.</p>
 
                 <p>This is a private, invite-only affair for a select group of drivers. No crowds, no compromises — just good roads, great company, and an outstanding breakfast.</p>
@@ -161,6 +196,9 @@
                 </div>
 
                 <form method="POST" autocomplete="off" action="#" id="breakfast-drive-form">
+
+                    {{-- Pass remaining spots to JS --}}
+                    <input type="hidden" id="remainingSpotsInput" value="{{ $remainingSpots }}">
 
                     <div class="row g-3">
 
@@ -297,6 +335,7 @@
                     </div>
                 </form>
             </div>
+            @endif {{-- end @else (not sold out) --}}
 
             {{-- STEP 2: PAYMENT --}}
             <div id="paymentSection">
@@ -353,10 +392,29 @@
                 });
             }
 
+            const remainingSpots = parseInt(document.getElementById("remainingSpotsInput")?.value ?? "40", 10);
+
             function updateGuestUI(count) {
-                // Update button states
+                // Clamp to max allowed by remaining spots
+                const maxGuests = Math.min(3, remainingSpots - 1);
+                if (count > maxGuests) count = maxGuests;
+
+                // Update button states — disable options exceeding capacity
                 guestBtns.forEach(btn => {
-                    btn.classList.toggle("active", parseInt(btn.dataset.guests) === count);
+                    const g = parseInt(btn.dataset.guests);
+                    const personsNeeded = g + 1;
+                    if (personsNeeded > remainingSpots) {
+                        btn.disabled = true;
+                        btn.title    = "Not enough spots remaining";
+                        btn.style.opacity = "0.4";
+                        btn.style.cursor  = "not-allowed";
+                    } else {
+                        btn.disabled = false;
+                        btn.title    = "";
+                        btn.style.opacity = "";
+                        btn.style.cursor  = "";
+                    }
+                    btn.classList.toggle("active", g === count);
                 });
 
                 guestsCountInput.value = count;
@@ -534,12 +592,9 @@
                         },
                         body: JSON.stringify(formData)
                     })
-                    .then(res => {
-                        if (!res.ok) return res.text().then(t => { throw new Error(t); });
-                        return res.json();
-                    })
-                    .then(data => {
-                        if (data.success) {
+                    .then(res => res.json().then(data => ({ ok: res.ok, data })))
+                    .then(({ ok, data }) => {
+                        if (ok && data.success) {
                             memberId   = data.member_id;
                             totalPaise = data.amount_paise;
 
@@ -548,16 +603,18 @@
 
                             // Update payment section summary
                             document.getElementById("paymentSummaryText").innerHTML =
-                                "An entry fee of <strong>₹" + totalRs.toLocaleString("en-IN") +
+                                "An entry fee of <strong>\u20b9" + totalRs.toLocaleString("en-IN") +
                                 "</strong> for " + persons + " person" + (persons > 1 ? "s" : "") +
                                 " (inclusive of breakfast) secures your spot.";
 
-                            razorpayBtn.textContent = "Pay ₹" + totalRs.toLocaleString("en-IN") + " Now";
+                            razorpayBtn.textContent = "Pay \u20b9" + totalRs.toLocaleString("en-IN") + " Now";
 
                             document.getElementById("formSection").style.display    = "none";
                             document.getElementById("paymentSection").style.display = "block";
                         } else {
-                            alert("Could not save your details. Please try again.");
+                            // Show server message (capacity / validation error)
+                            const msg = data.message || "Could not save your details. Please try again.";
+                            alert(msg);
                             proceedBtn.disabled    = false;
                             proceedBtn.textContent = "Proceed To Payment";
                         }
