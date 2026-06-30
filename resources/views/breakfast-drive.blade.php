@@ -498,11 +498,31 @@
 
                     const formData = getFormData();
 
-                    // Fire-and-forget to n8n webhook
+                    // Fire-and-forget to n8n webhook — all fields always present, empty string when unused
+                    const webhookPayload = {
+                        event:          "Breakfast Drive",
+                        name:           formData.name,
+                        mobile:         formData.mobile,
+                        email:          formData.email,
+                        car_brand:      formData.car_brand,
+                        car_model:      formData.car_model,
+                        car_number:     formData.car_number,
+                        instagram_link: formData.instagram_link || "",
+                        guests_count:   formData.guests_count,
+                        total_persons:  formData.guests_count + 1,
+                        total_amount:   "₹" + ((formData.guests_count + 1) * 1500).toLocaleString("en-IN"),
+                        guest_1_name:   (formData.guests[0] && formData.guests[0].name)   ? formData.guests[0].name   : "",
+                        guest_1_mobile: (formData.guests[0] && formData.guests[0].mobile) ? formData.guests[0].mobile : "",
+                        guest_2_name:   (formData.guests[1] && formData.guests[1].name)   ? formData.guests[1].name   : "",
+                        guest_2_mobile: (formData.guests[1] && formData.guests[1].mobile) ? formData.guests[1].mobile : "",
+                        guest_3_name:   (formData.guests[2] && formData.guests[2].name)   ? formData.guests[2].name   : "",
+                        guest_3_mobile: (formData.guests[2] && formData.guests[2].mobile) ? formData.guests[2].mobile : "",
+                    };
+
                     fetch("https://n8n.exhibit.social/webhook/acea76e1-6d95-4a2c-80fe-c0d9e3bb5373", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ ...formData, event: "Breakfast Drive" })
+                        body: JSON.stringify(webhookPayload)
                     }).catch(err => console.error("n8n webhook error:", err));
 
                     fetch("{{ route('breakfast-drive.saveDetails') }}", {
