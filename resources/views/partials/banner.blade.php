@@ -7,7 +7,7 @@
                 $imageName = preg_replace('/_/', ' ', pathinfo($item->ImagePath ?? $item->ImagePath, PATHINFO_FILENAME));
                 $altText = ucwords(trim(preg_replace('/\bNewsthumb\b/i', '', $imageName)));
                 $altText = substr($altText, 0, -10);
-                                                    ?>
+                                                                            ?>
                                     <div class="carousel-item {{ $firstItem ? 'active' : '' }}">
                                         <div class="row">
                                             <div class="col-lg-8">
@@ -39,8 +39,8 @@
 
             <!-- Custom Banner -->
             <div class="carousel-item">
-                <img alt="TopGear India Magazine June 2026" class="d-block w-100"
-                    src="https://www.topgearmag.in/uploads/Banners/tgbanner-jun2026.jpg">
+                <img alt="TopGear India Magazine July 2026" class="d-block w-100"
+                    src="https://www.topgearmag.in/uploads/Banners/tgbanner-jul2026.jpg">
                 <div class="caption tg-magazine">
                     <p class="text-center"><a href="https://www.exhibitstore.in" target="_blank">Buy Now</a></p>
                 </div>
