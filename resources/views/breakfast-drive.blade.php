@@ -370,7 +370,7 @@
             <div id="paymentSection">
                 <div class="bd-event-card" style="margin-bottom:24px;">
                     <div class="bd-label">Confirm Your Spot</div>
-                    <div class="bd-row">📅 &nbsp;<span>Sunday, 5th July 2026 · JW Marriott Sahar, Mumbai</span></div>
+                    <div class="bd-row">📅 &nbsp;<span>July 2026 · JW Marriott Sahar, Mumbai</span></div>
                     <div class="bd-row">🚗 &nbsp;<span>Drive: 7:00 AM &nbsp;|&nbsp; 🍳 Breakfast: 9:00 AM</span></div>
                 </div>
 
