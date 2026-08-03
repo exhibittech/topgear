@@ -6,12 +6,12 @@
     @include('partials.banner')
 
     <!-- <div class="container">
-                <div class="my-2 text-center">
-                    <a href="/redlineclub">
-                        <img src="/uploads/Banners/redlineclub.jpg" alt="Redline Club" width="100%">
-                    </a>
-                </div>
-            </div> -->
+                    <div class="my-2 text-center">
+                        <a href="/redlineclub">
+                            <img src="/uploads/Banners/redlineclub.jpg" alt="Redline Club" width="100%">
+                        </a>
+                    </div>
+                </div> -->
     <section class="tg-reviews-latest">
         <div class="container">
             <div class="row">
@@ -19,36 +19,36 @@
                     <h2>LATEST NEWS</h2>
                 </div>
                 @foreach($homecontent as $news)
-                            <?php
+                                            <?php
                     $imageName = preg_replace('/_/', ' ', pathinfo($news->images->first()->ImagePath ?? $news->ImagePath, PATHINFO_FILENAME));
                     $altText = ucwords(trim(preg_replace('/\bNewsthumb\b/i', '', $imageName)));
                     $altText = substr($altText, 0, -10);
-                                                                                                                                                                            ?>
-                            <div class="col-lg-4">
-                                <div class="kjwrap tg-article-item">
-                                    <div class="tg-media">
-                                        <a class="d-block" href="{{ url('news/' . $news->category->Code . '/' . $news->Code) }}">
-                                            <img src="{{ url($news->ImagePath) }}" alt="{{ $altText }}">
-                                        </a>
-                                    </div>
-                                    <div class="tg-txt">
-                                        <a class="tg-review-tag"
-                                            href="{{ url($news->menu->PageLink . '/' . $news->category->Code) }}">{{ strtoupper($news->category->Name) }}</a>
-                                        <h2 class="tg-review-title"><a
-                                                href="{{ url('news/' . $news->category->Code . '/' . $news->Code) }}">{{ substr($news->Name, 0, 65) }}...</a>
-                                        </h2>
-                                        <span class="tg-tooltip">{{ $news->Name }}</span>
-                                        <span class="tg-author"><a
-                                                href="{{ url('author/' . $news->Author) }}">{{ $news->Author }}</a></span> -
-                                        <span class="tg-article-date">{{ date('F j, Y', strtotime($news->PublishDate)) }}</span>
-                                    </div>
-                                </div>
-                            </div>
+                                                                                                                                                                                                            ?>
+                                            <div class="col-lg-4">
+                                                <div class="kjwrap tg-article-item">
+                                                    <div class="tg-media">
+                                                        <a class="d-block" href="{{ url('news/' . $news->category->Code . '/' . $news->Code) }}">
+                                                            <img src="{{ url($news->ImagePath) }}" alt="{{ $altText }}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="tg-txt">
+                                                        <a class="tg-review-tag"
+                                                            href="{{ url($news->menu->PageLink . '/' . $news->category->Code) }}">{{ strtoupper($news->category->Name) }}</a>
+                                                        <h2 class="tg-review-title"><a
+                                                                href="{{ url('news/' . $news->category->Code . '/' . $news->Code) }}">{{ substr($news->Name, 0, 65) }}...</a>
+                                                        </h2>
+                                                        <span class="tg-tooltip">{{ $news->Name }}</span>
+                                                        <span class="tg-author"><a
+                                                                href="{{ url('author/' . $news->Author) }}">{{ $news->Author }}</a></span> -
+                                                        <span class="tg-article-date">{{ date('F j, Y', strtotime($news->PublishDate)) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                 @endforeach
             </div>
             <div class="mt-5">
                 <a href="https://www.magzter.com/IN/Exhibit/BBC-TopGear-India/Automotive/" target="_blank"><img
-                        alt="TopGear Magazine July 2026" src="/uploads/Banners/tgmagzter-jul2026.jpg" width="100%" /></a>
+                        alt="TopGear Magazine August 2026" src="/uploads/Banners/tgmagzter-aug2026.jpg" width="100%" /></a>
             </div>
         </div>
     </section>
@@ -155,33 +155,33 @@
                     <h2>LATEST FEATURES</h2>
                 </div>
                 @foreach($featurelisthome as $feature)
-                            <?php
+                                            <?php
 
                     $imageName = preg_replace('/_/', ' ', pathinfo($feature->ImagePath ?? $feature->ImagePath, PATHINFO_FILENAME));
                     $altText = ucwords(trim(preg_replace('/\bFeaturesthumb\b/i', '', $imageName)));
                     $altText = substr($altText, 0, -10);
-                                                                                                                                                                                ?>
-                            <div class="col-lg-4">
-                                <div class="kjwrap tg-article-item">
-                                    <div class="tg-media">
-                                        <a class="d-block"
-                                            href="{{ url('features/' . $feature->category->Code . '/' . $feature->Code) }}">
-                                            <img src="{{ url($feature->ImagePath ?? $feature->ImagePath) }}" alt="{{ $altText }}">
-                                        </a>
-                                    </div>
-                                    <div class="tg-txt">
-                                        <a class="tg-review-tag"
-                                            href="{{ url($feature->menu->PageLink . '/' . $feature->category->Code) }}">{{ strtoupper($feature->category->Name) }}</a>
-                                        <h2 class="tg-review-title"><a
-                                                href="{{ url('features/' . $feature->category->Code . '/' . $feature->Code) }}">{{ substr($feature->Name, 0, 65) }}...</a>
-                                        </h2>
-                                        <span class="tg-tooltip">{{ $feature->Name }}</span>
-                                        <span class="tg-author"><a
-                                                href="{{ url('author/' . $feature->Author) }}">{{ $feature->Author }}</a></span> -
-                                        <span class="tg-article-date">{{ date('F j, Y', strtotime($feature->PublishDate)) }}</span>
-                                    </div>
-                                </div>
-                            </div>
+                                                                                                                                                                                                                ?>
+                                            <div class="col-lg-4">
+                                                <div class="kjwrap tg-article-item">
+                                                    <div class="tg-media">
+                                                        <a class="d-block"
+                                                            href="{{ url('features/' . $feature->category->Code . '/' . $feature->Code) }}">
+                                                            <img src="{{ url($feature->ImagePath ?? $feature->ImagePath) }}" alt="{{ $altText }}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="tg-txt">
+                                                        <a class="tg-review-tag"
+                                                            href="{{ url($feature->menu->PageLink . '/' . $feature->category->Code) }}">{{ strtoupper($feature->category->Name) }}</a>
+                                                        <h2 class="tg-review-title"><a
+                                                                href="{{ url('features/' . $feature->category->Code . '/' . $feature->Code) }}">{{ substr($feature->Name, 0, 65) }}...</a>
+                                                        </h2>
+                                                        <span class="tg-tooltip">{{ $feature->Name }}</span>
+                                                        <span class="tg-author"><a
+                                                                href="{{ url('author/' . $feature->Author) }}">{{ $feature->Author }}</a></span> -
+                                                        <span class="tg-article-date">{{ date('F j, Y', strtotime($feature->PublishDate)) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                 @endforeach
             </div>
         </div>
@@ -262,13 +262,13 @@
     </div>
     <!-- Popup Here -->
     <!--<div id="tgoverlay">
-                                            <div id="kjpopup">
-                                              <button id="close-btn">&times;</button>
-                                              <a href="https://www.topgearmag.in/votenow" target="_blank">
-                                                <img src="https://topgearmag.in/uploads/awards25/popup-banner.webp" alt="Vote Now">
-                                              </a>
-                                            </div>
-                                          </div>-->
+                                                <div id="kjpopup">
+                                                  <button id="close-btn">&times;</button>
+                                                  <a href="https://www.topgearmag.in/votenow" target="_blank">
+                                                    <img src="https://topgearmag.in/uploads/awards25/popup-banner.webp" alt="Vote Now">
+                                                  </a>
+                                                </div>
+                                              </div>-->
 
     {{--
     <script>
