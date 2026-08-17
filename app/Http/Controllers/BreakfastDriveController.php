@@ -19,7 +19,7 @@ class BreakfastDriveController extends Controller
 
         $seodata = [
             'MetaTitle'       => 'Breakfast Drive | TopGear India',
-            'MetaDescription' => 'Join TopGear India\'s Breakfast Drive – 5th July 2026 at JW Marriott Sahar, Mumbai.',
+            'MetaDescription' => 'Join TopGear India\'s Breakfast Drive – 23rd August 2026 at JW Marriott Sahar, Mumbai.',
             'Keyword'         => 'Breakfast Drive, TopGear India, Car Enthusiasts, Mumbai Drive'
         ];
 

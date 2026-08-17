@@ -364,13 +364,183 @@
                             </div>
                         </form>
                     </div>
+<<<<<<< HEAD
                 @endif {{-- end @else (not sold out) --}}
+=======
+                    <div style="background:#2a2a2a;border-radius:999px;height:10px;overflow:hidden;">
+                        <div style="background:linear-gradient(90deg,#e21b22,#ff4444);height:100%;width:{{ $fillPct }}%;border-radius:999px;transition:width 0.6s ease;"></div>
+                    </div>
+                </div>
+
+                <p>You've been invited to join TopGear India for an exclusive morning out — the <strong>Breakfast Drive</strong>. Start your Sunday with fellow enthusiasts on an early morning drive through the city, followed by a sit-down breakfast.</p>
+
+                <p>This is a private, invite-only affair for a select group of drivers. No crowds, no compromises — just good roads, great company, and an outstanding breakfast.</p>
+
+                {{-- Event Info Card --}}
+                <div class="bd-event-card">
+                    <div class="bd-label">Event Details</div>
+                    <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026</span></div>
+                    <div class="bd-row">📍 &nbsp;<span>JW Marriott Sahar, Mumbai</span></div>
+                    <div class="bd-row">🚗 &nbsp;<span>Drive begins at <strong>7:00 AM</strong></span></div>
+                    <div class="bd-row">🍳 &nbsp;<span>Breakfast at <strong>9:00 AM</strong></span></div>
+                </div>
+
+                <div class="bd-price-tag">
+                    ₹1,500 <span style="font-size:14px;font-weight:400;color:#888;">per person · inclusive of breakfast</span>
+                </div>
+
+                <form method="POST" autocomplete="off" action="#" id="breakfast-drive-form">
+
+                    {{-- Pass remaining spots to JS --}}
+                    <input type="hidden" id="remainingSpotsInput" value="{{ $remainingSpots }}">
+
+                    <div class="row g-3">
+
+                        {{-- Row 1 --}}
+                        <div class="col-md-4">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" required="">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Mobile</label>
+                            <input type="tel" name="mobile" class="form-control" required="" pattern="[0-9]{10}"
+                                maxlength="10" title="Please enter a valid 10-digit mobile number">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" required="">
+                        </div>
+
+                        {{-- Row 2 --}}
+                        <div class="col-md-4">
+                            <label class="form-label">Car Brand</label>
+                            <input type="text" name="car_brand" class="form-control" required="">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Car Model</label>
+                            <input type="text" name="car_model" class="form-control" required="">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Car Number</label>
+                            <input type="text" name="car_number" class="form-control" required="" minlength="9"
+                                maxlength="10" title="Car number must be 9 or 10 characters">
+                        </div>
+
+                        {{-- Row 3 --}}
+                        <div class="col-md-6">
+                            <label class="form-label">Instagram Link <small>(Optional)</small></label>
+                            <input type="url" name="instagram_link" class="form-control" placeholder="https://instagram.com/yourhandle">
+                        </div>
+
+                        {{-- Guest Selector --}}
+                        <div class="col-12 mt-4">
+                            <label class="form-label d-block" style="font-weight:600;margin-bottom:10px;">
+                                Bringing someone along?
+                            </label>
+                            <div class="bd-guest-selector">
+                                <button type="button" class="bd-guest-btn active" data-guests="0">Just me</button>
+                                <button type="button" class="bd-guest-btn" data-guests="1">+1 Guest</button>
+                                <button type="button" class="bd-guest-btn" data-guests="2">+2 Guests</button>
+                                <button type="button" class="bd-guest-btn" data-guests="3">+3 Guests</button>
+                            </div>
+                            {{-- Hidden input tracks the count --}}
+                            <input type="hidden" name="guests_count" id="guestsCountInput" value="0">
+                        </div>
+
+                        {{-- Guest 1 fields --}}
+                        <div class="col-12" id="guest1Block">
+                            <div class="bd-guest-block" id="guest1Fields">
+                                <div class="bd-guest-title">Guest 1</div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guest 1 Name</label>
+                                        <input type="text" name="guests[0][name]" class="form-control" id="guest1Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guest 1 Mobile</label>
+                                        <input type="tel" name="guests[0][mobile]" class="form-control"
+                                            pattern="[0-9]{10}" maxlength="10" id="guest1Mobile"
+                                            title="Please enter a valid 10-digit mobile number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Guest 2 fields --}}
+                        <div class="col-12" id="guest2Block">
+                            <div class="bd-guest-block" id="guest2Fields">
+                                <div class="bd-guest-title">Guest 2</div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guest 2 Name</label>
+                                        <input type="text" name="guests[1][name]" class="form-control" id="guest2Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guest 2 Mobile</label>
+                                        <input type="tel" name="guests[1][mobile]" class="form-control"
+                                            pattern="[0-9]{10}" maxlength="10" id="guest2Mobile"
+                                            title="Please enter a valid 10-digit mobile number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Guest 3 fields --}}
+                        <div class="col-12" id="guest3Block">
+                            <div class="bd-guest-block" id="guest3Fields">
+                                <div class="bd-guest-title">Guest 3</div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guest 3 Name</label>
+                                        <input type="text" name="guests[2][name]" class="form-control" id="guest3Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Guest 3 Mobile</label>
+                                        <input type="tel" name="guests[2][mobile]" class="form-control"
+                                            pattern="[0-9]{10}" maxlength="10" id="guest3Mobile"
+                                            title="Please enter a valid 10-digit mobile number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Live Total --}}
+                        <div class="col-12">
+                            <div class="bd-total-display">
+                                <div>
+                                    <div class="bd-total-label">Total Amount</div>
+                                    <div class="bd-total-amount" id="bdTotalDisplay">₹1,500</div>
+                                    <div class="bd-total-breakdown" id="bdBreakdownDisplay">1 person × ₹1,500</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Submit --}}
+                        <div class="col-12 mt-2">
+                            <div class="d-grid">
+                                <button type="button" id="bdProceedBtn" class="btn tg-btn">Proceed To Payment</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            @endif {{-- end @else (not sold out) --}}
+>>>>>>> 3cb766f5 (breakfast drive date updated)
 
             {{-- STEP 2: PAYMENT --}}
             <div id="paymentSection">
                 <div class="bd-event-card" style="margin-bottom:24px;">
                     <div class="bd-label">Confirm Your Spot</div>
+<<<<<<< HEAD
                     <div class="bd-row">📅 &nbsp;<span>July 2026 · JW Marriott Sahar, Mumbai</span></div>
+=======
+                    <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026 · JW Marriott Sahar, Mumbai</span></div>
+>>>>>>> 3cb766f5 (breakfast drive date updated)
                     <div class="bd-row">🚗 &nbsp;<span>Drive: 7:00 AM &nbsp;|&nbsp; 🍳 Breakfast: 9:00 AM</span></div>
                 </div>
 
@@ -697,6 +867,7 @@
                             const formData = getFormData();
                             const mobile = (formData.mobile || "").replace(/\D/g, "");
 
+<<<<<<< HEAD
                             const options = {
                                 key: "{{ $razorpayKey }}",
                                 amount: order.amount,
@@ -713,6 +884,24 @@
                                 handler: function (response) {
                                     razorpayBtn.disabled = true;
                                     razorpayBtn.textContent = "Verifying payment...";
+=======
+                        const options = {
+                            key:         "{{ $razorpayKey }}",
+                            amount:      order.amount,
+                            currency:    order.currency,
+                            name:        "TopGear India",
+                            description: "Breakfast Drive – 23rd August 2026",
+                            order_id:    order.order_id,
+                            prefill: {
+                                name:    formData.name  || "",
+                                email:   formData.email || "",
+                                contact: mobile
+                            },
+                            theme: { color: "#e21b22" },
+                            handler: function (response) {
+                                razorpayBtn.disabled    = true;
+                                razorpayBtn.textContent = "Verifying payment...";
+>>>>>>> 3cb766f5 (breakfast drive date updated)
 
                                     fetch("{{ route('breakfast-drive.verifyPayment') }}", {
                                         method: "POST",
