@@ -212,7 +212,7 @@
                         {{-- Event Info Card --}}
                         <div class="bd-event-card">
                             <div class="bd-label">Event Details</div>
-                            <div class="bd-row">📅 &nbsp;<span> July 2026</span></div>
+                            <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026</span></div>
                             <div class="bd-row">📍 &nbsp;<span>JW Marriott Sahar, Mumbai</span></div>
                             <div class="bd-row">🚗 &nbsp;<span>Drive begins at <strong>7:00 AM</strong></span></div>
                             <div class="bd-row">🍳 &nbsp;<span>Breakfast at <strong>9:00 AM</strong></span></div>
