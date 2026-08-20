@@ -178,7 +178,7 @@
                         @php
                             $spotsTotal      = 40;
                             $spotsTaken      = $spotsTotal - $remainingSpots;
-                            $minDisplay      = 15; // show at least this many filled for social proof
+                            $minDisplay      = 30; // show at least this many filled for social proof
                             $displayTaken    = max($spotsTaken, $minDisplay);
                             $displayRemaining = $spotsTotal - $displayTaken;
                             $fillPct         = round(($displayTaken / $spotsTotal) * 100);
