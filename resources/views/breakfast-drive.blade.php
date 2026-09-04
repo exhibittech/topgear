@@ -176,22 +176,25 @@
 
                         {{-- Spots progress bar --}}
                         @php
-                            $spotsTotal = 40;
-                            $spotsTaken = $spotsTotal - $remainingSpots;
-                            $fillPct = round(($spotsTaken / $spotsTotal) * 100);
+                            $spotsTotal      = 40;
+                            $spotsTaken      = $spotsTotal - $remainingSpots;
+                            $minDisplay      = 30; // show at least this many filled for social proof
+                            $displayTaken    = max($spotsTaken, $minDisplay);
+                            $displayRemaining = $spotsTotal - $displayTaken;
+                            $fillPct         = round(($displayTaken / $spotsTotal) * 100);
                         @endphp
                         <div style="margin-bottom:24px;">
                             <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
                                 <span style="font-size:13px;font-weight:600;color:#fff;">Spots Filled</span>
                                 <span style="font-size:13px;color:#aaa;">
-                                    <strong style="color:#e21b22;">{{ $spotsTaken }}</strong> / {{ $spotsTotal }}
+                                    <strong style="color:#e21b22;">{{ $displayTaken }}</strong> / {{ $spotsTotal }}
                                     &nbsp;&middot;&nbsp;
-                                    @if($remainingSpots <= 5)
-                                        <span style="color:#e21b22;font-weight:700;">Only {{ $remainingSpots }} left!</span>
-                                    @elseif($remainingSpots <= 10)
-                                        <span style="color:#f59e0b;font-weight:600;">{{ $remainingSpots }} spots remaining</span>
+                                    @if($displayRemaining <= 5)
+                                        <span style="color:#e21b22;font-weight:700;">Only {{ $displayRemaining }} left!</span>
+                                    @elseif($displayRemaining <= 10)
+                                        <span style="color:#f59e0b;font-weight:600;">{{ $displayRemaining }} spots remaining</span>
                                     @else
-                                        <span style="color:#aaa;">{{ $remainingSpots }} spots remaining</span>
+                                        <span style="color:#aaa;">{{ $displayRemaining }} spots remaining</span>
                                     @endif
                                 </span>
                             </div>
@@ -212,10 +215,10 @@
                         {{-- Event Info Card --}}
                         <div class="bd-event-card">
                             <div class="bd-label">Event Details</div>
-                            <div class="bd-row">📅 &nbsp;<span> July 2026</span></div>
+                            <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026</span></div>
                             <div class="bd-row">📍 &nbsp;<span>JW Marriott Sahar, Mumbai</span></div>
-                            <div class="bd-row">🚗 &nbsp;<span>Drive begins at <strong>7:00 AM</strong></span></div>
-                            <div class="bd-row">🍳 &nbsp;<span>Breakfast at <strong>9:00 AM</strong></span></div>
+                            <div class="bd-row">🚗 &nbsp;<span>Drive begins at <strong>8:00 AM</strong></span></div>
+                            <div class="bd-row">🍳 &nbsp;<span>Breakfast at <strong>10:00 AM</strong></span></div>
                         </div>
 
                         <div class="bd-price-tag">
@@ -370,8 +373,8 @@
             <div id="paymentSection">
                 <div class="bd-event-card" style="margin-bottom:24px;">
                     <div class="bd-label">Confirm Your Spot</div>
-                    <div class="bd-row">📅 &nbsp;<span>July 2026 · JW Marriott Sahar, Mumbai</span></div>
-                    <div class="bd-row">🚗 &nbsp;<span>Drive: 7:00 AM &nbsp;|&nbsp; 🍳 Breakfast: 9:00 AM</span></div>
+                    <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026 · JW Marriott Sahar, Mumbai</span></div>
+                    <div class="bd-row">🚗 &nbsp;<span>Drive: 8:00 AM &nbsp;|&nbsp; 🍳 Breakfast: 10:00 AM</span></div>
                 </div>
 
                 <p id="paymentSummaryText">An entry fee of <strong>₹1,500</strong> (inclusive of breakfast) secures your
@@ -702,7 +705,7 @@
                                 amount: order.amount,
                                 currency: order.currency,
                                 name: "TopGear India",
-                                description: "Breakfast Drive – 5th July 2026",
+                                description: "Breakfast Drive – 23rd August 2026",
                                 order_id: order.order_id,
                                 prefill: {
                                     name: formData.name || "",

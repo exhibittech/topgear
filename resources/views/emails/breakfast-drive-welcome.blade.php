@@ -50,10 +50,10 @@
                                             Event Details</p>
                                         <p style="margin:0 0 12px;font-size:20px;font-weight:700;color:#ffffff;">
                                             Breakfast Drive — TopGear India</p>
-                                        <p style="margin:0 0 6px;font-size:15px;color:#cccccc;">📅 &nbsp;Sunday, 5th July 2026</p>
+                                        <p style="margin:0 0 6px;font-size:15px;color:#cccccc;">📅 &nbsp;Sunday, 23rd August 2026</p>
                                         <p style="margin:0 0 6px;font-size:15px;color:#cccccc;">📍 &nbsp;JW Marriott Sahar, Mumbai</p>
-                                        <p style="margin:0 0 6px;font-size:15px;color:#cccccc;">🚗 &nbsp;Drive begins at <strong style="color:#ffffff;">7:00 AM</strong></p>
-                                        <p style="margin:0;font-size:15px;color:#cccccc;">🍳 &nbsp;Breakfast at <strong style="color:#ffffff;">9:00 AM</strong></p>
+                                        <p style="margin:0 0 6px;font-size:15px;color:#cccccc;">🚗 &nbsp;Drive begins at <strong style="color:#ffffff;">8:00 AM</strong></p>
+                                        <p style="margin:0;font-size:15px;color:#cccccc;">🍳 &nbsp;Breakfast at <strong style="color:#ffffff;">10:00 AM</strong></p>
                                     </td>
                                 </tr>
                             </table>
