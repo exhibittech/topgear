@@ -146,8 +146,8 @@
                 <div class="col-md-4">
                     <div class="wrap-ad sticky-top">
                         <a href="https://www.exhibitstore.in/" target="_blank">
-                            <img src="https://www.topgearmag.in/uploads/Banners/tgissue-aug2026.jpg" width="100%"
-                                alt="TopGear Magazine August 2026" />
+                            <img src="https://www.topgearmag.in/uploads/Banners/tgissue.jpg" width="100%"
+                                alt="TopGear Magazine September 2026" />
                         </a>
                         <div style="padding-top: 20px;">
                             <script async
