@@ -151,628 +151,628 @@
             alt="TopGear India Breakfast Drive">
     </div>
 
-    <div class="container">
-        <div class="offset-lg-1 offset-md-1 col-lg-10 col-md-10 form">
-            <div class="tgsection-title">
-                <h1>Breakfast Drive</h1>
-            </div>
-
-            {{-- STEP 1: FORM --}}
-            <div id="formSection" class="sign-up form-container">
-
-                <span class="bd-badge"
-                    style="display:inline-block;background:#e21b22;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:16px;">TopGear
-                    India</span>
-
-                @if($remainingSpots <= 0)
-                    {{-- SOLD OUT --}}
-                    <div style="text-align:center;padding:40px 20px;background:#1a1a1a;border-radius:8px;margin:24px 0;">
-                        <div style="font-size:40px;margin-bottom:12px;">🚫</div>
-                        <p style="font-size:20px;font-weight:700;color:#fff;margin:0 0 8px;">This event is fully booked</p>
-                        <p style="font-size:15px;color:#aaa;margin:0;">All 40 spots have been filled. Thank you for your
-                            interest!</p>
-                    </div>
-                @else
-
-                        {{-- Spots progress bar --}}
-                        @php
-                            $spotsTotal      = 40;
-                            $spotsTaken      = $spotsTotal - $remainingSpots;
-                            $minDisplay      = 30; // show at least this many filled for social proof
-                            $displayTaken    = max($spotsTaken, $minDisplay);
-                            $displayRemaining = $spotsTotal - $displayTaken;
-                            $fillPct         = round(($displayTaken / $spotsTotal) * 100);
-                        @endphp
-                        <div style="margin-bottom:24px;">
-                            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
-                                <span style="font-size:13px;font-weight:600;color:#fff;">Spots Filled</span>
-                                <span style="font-size:13px;color:#aaa;">
-                                    <strong style="color:#e21b22;">{{ $displayTaken }}</strong> / {{ $spotsTotal }}
-                                    &nbsp;&middot;&nbsp;
-                                    @if($displayRemaining <= 5)
-                                        <span style="color:#e21b22;font-weight:700;">Only {{ $displayRemaining }} left!</span>
-                                    @elseif($displayRemaining <= 10)
-                                        <span style="color:#f59e0b;font-weight:600;">{{ $displayRemaining }} spots remaining</span>
-                                    @else
-                                        <span style="color:#aaa;">{{ $displayRemaining }} spots remaining</span>
-                                    @endif
-                                </span>
-                            </div>
-                            <div style="background:#2a2a2a;border-radius:999px;height:10px;overflow:hidden;">
-                                <div
-                                    style="background:linear-gradient(90deg,#e21b22,#ff4444);height:100%;width:{{ $fillPct }}%;border-radius:999px;transition:width 0.6s ease;">
-                                </div>
-                            </div>
-                        </div>
-
-                        <p>You've been invited to join TopGear India for an exclusive morning out — the <strong>Breakfast
-                                Drive</strong>. Start your Sunday with fellow enthusiasts on an early morning drive through the
-                            city, followed by a sit-down breakfast.</p>
-
-                        <p>This is a private, invite-only affair for a select group of drivers. No crowds, no compromises — just
-                            good roads, great company, and an outstanding breakfast.</p>
-
-                        {{-- Event Info Card --}}
-                        <div class="bd-event-card">
-                            <div class="bd-label">Event Details</div>
-                            <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026</span></div>
-                            <div class="bd-row">📍 &nbsp;<span>JW Marriott Sahar, Mumbai</span></div>
-                            <div class="bd-row">🚗 &nbsp;<span>Drive begins at <strong>8:00 AM</strong></span></div>
-                            <div class="bd-row">🍳 &nbsp;<span>Breakfast at <strong>10:00 AM</strong></span></div>
-                        </div>
-
-                        <div class="bd-price-tag">
-                            ₹1,500 <span style="font-size:14px;font-weight:400;color:#888;">per person · inclusive of
-                                breakfast</span>
-                        </div>
-
-                        <form method="POST" autocomplete="off" action="#" id="breakfast-drive-form">
-
-                            {{-- Pass remaining spots to JS --}}
-                            <input type="hidden" id="remainingSpotsInput" value="{{ $remainingSpots }}">
-
-                            <div class="row g-3">
-
-                                {{-- Row 1 --}}
-                                <div class="col-md-4">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" name="name" class="form-control" required="">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Mobile</label>
-                                    <input type="tel" name="mobile" class="form-control" required="" pattern="[0-9]{10}"
-                                        maxlength="10" title="Please enter a valid 10-digit mobile number">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" required="">
-                                </div>
-
-                                {{-- Row 2 --}}
-                                <div class="col-md-4">
-                                    <label class="form-label">Car Brand</label>
-                                    <input type="text" name="car_brand" class="form-control" required="">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Car Model</label>
-                                    <input type="text" name="car_model" class="form-control" required="">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Car Number</label>
-                                    <input type="text" name="car_number" class="form-control" required="" minlength="9"
-                                        maxlength="10" title="Car number must be 9 or 10 characters">
-                                </div>
-
-                                {{-- Row 3 --}}
-                                <div class="col-md-6">
-                                    <label class="form-label">Instagram Link <small>(Optional)</small></label>
-                                    <input type="url" name="instagram_link" class="form-control"
-                                        placeholder="https://instagram.com/yourhandle">
-                                </div>
-
-                                {{-- Guest Selector --}}
-                                <div class="col-12 mt-4">
-                                    <label class="form-label d-block" style="font-weight:600;margin-bottom:10px;">
-                                        Bringing someone along?
-                                    </label>
-                                    <div class="bd-guest-selector">
-                                        <button type="button" class="bd-guest-btn active" data-guests="0">Just me</button>
-                                        <button type="button" class="bd-guest-btn" data-guests="1">+1 Guest</button>
-                                        <button type="button" class="bd-guest-btn" data-guests="2">+2 Guests</button>
-                                        <button type="button" class="bd-guest-btn" data-guests="3">+3 Guests</button>
-                                    </div>
-                                    {{-- Hidden input tracks the count --}}
-                                    <input type="hidden" name="guests_count" id="guestsCountInput" value="0">
-                                </div>
-
-                                {{-- Guest 1 fields --}}
-                                <div class="col-12" id="guest1Block">
-                                    <div class="bd-guest-block" id="guest1Fields">
-                                        <div class="bd-guest-title">Guest 1</div>
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Guest 1 Name</label>
-                                                <input type="text" name="guests[0][name]" class="form-control" id="guest1Name">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Guest 1 Mobile</label>
-                                                <input type="tel" name="guests[0][mobile]" class="form-control" pattern="[0-9]{10}"
-                                                    maxlength="10" id="guest1Mobile"
-                                                    title="Please enter a valid 10-digit mobile number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- Guest 2 fields --}}
-                                <div class="col-12" id="guest2Block">
-                                    <div class="bd-guest-block" id="guest2Fields">
-                                        <div class="bd-guest-title">Guest 2</div>
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Guest 2 Name</label>
-                                                <input type="text" name="guests[1][name]" class="form-control" id="guest2Name">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Guest 2 Mobile</label>
-                                                <input type="tel" name="guests[1][mobile]" class="form-control" pattern="[0-9]{10}"
-                                                    maxlength="10" id="guest2Mobile"
-                                                    title="Please enter a valid 10-digit mobile number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- Guest 3 fields --}}
-                                <div class="col-12" id="guest3Block">
-                                    <div class="bd-guest-block" id="guest3Fields">
-                                        <div class="bd-guest-title">Guest 3</div>
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Guest 3 Name</label>
-                                                <input type="text" name="guests[2][name]" class="form-control" id="guest3Name">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Guest 3 Mobile</label>
-                                                <input type="tel" name="guests[2][mobile]" class="form-control" pattern="[0-9]{10}"
-                                                    maxlength="10" id="guest3Mobile"
-                                                    title="Please enter a valid 10-digit mobile number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- Live Total --}}
-                                <div class="col-12">
-                                    <div class="bd-total-display">
-                                        <div>
-                                            <div class="bd-total-label">Total Amount</div>
-                                            <div class="bd-total-amount" id="bdTotalDisplay">₹1,500</div>
-                                            <div class="bd-total-breakdown" id="bdBreakdownDisplay">1 person × ₹1,500</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- Submit --}}
-                                <div class="col-12 mt-2">
-                                    <div class="d-grid">
-                                        <button type="button" id="bdProceedBtn" class="btn tg-btn">Proceed To Payment</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-                @endif {{-- end @else (not sold out) --}}
-
-            {{-- STEP 2: PAYMENT --}}
-            <div id="paymentSection">
-                <div class="bd-event-card" style="margin-bottom:24px;">
-                    <div class="bd-label">Confirm Your Spot</div>
-                    <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026 · JW Marriott Sahar, Mumbai</span></div>
-                    <div class="bd-row">🚗 &nbsp;<span>Drive: 8:00 AM &nbsp;|&nbsp; 🍳 Breakfast: 10:00 AM</span></div>
+    <!-- <div class="container">
+            <div class="offset-lg-1 offset-md-1 col-lg-10 col-md-10 form">
+                <div class="tgsection-title">
+                    <h1>Breakfast Drive</h1>
                 </div>
 
-                <p id="paymentSummaryText">An entry fee of <strong>₹1,500</strong> (inclusive of breakfast) secures your
-                    spot.</p>
+                {{-- STEP 1: FORM --}}
+                <div id="formSection" class="sign-up form-container">
 
-                <div class="row g-3">
-                    <div class="col-12 mt-2">
-                        <div class="d-grid">
-                            <button type="button" id="bdRazorpayBtn" class="btn tg-btn">Pay Now</button>
+                    <span class="bd-badge"
+                        style="display:inline-block;background:#e21b22;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:16px;">TopGear
+                        India</span>
+
+                    @if($remainingSpots <= 0)
+                        {{-- SOLD OUT --}}
+                        <div style="text-align:center;padding:40px 20px;background:#1a1a1a;border-radius:8px;margin:24px 0;">
+                            <div style="font-size:40px;margin-bottom:12px;">🚫</div>
+                            <p style="font-size:20px;font-weight:700;color:#fff;margin:0 0 8px;">This event is fully booked</p>
+                            <p style="font-size:15px;color:#aaa;margin:0;">All 40 spots have been filled. Thank you for your
+                                interest!</p>
+                        </div>
+                    @else
+
+                            {{-- Spots progress bar --}}
+                            @php
+                                $spotsTotal      = 40;
+                                $spotsTaken      = $spotsTotal - $remainingSpots;
+                                $minDisplay      = 30; // show at least this many filled for social proof
+                                $displayTaken    = max($spotsTaken, $minDisplay);
+                                $displayRemaining = $spotsTotal - $displayTaken;
+                                $fillPct         = round(($displayTaken / $spotsTotal) * 100);
+                            @endphp
+                            <div style="margin-bottom:24px;">
+                                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+                                    <span style="font-size:13px;font-weight:600;color:#fff;">Spots Filled</span>
+                                    <span style="font-size:13px;color:#aaa;">
+                                        <strong style="color:#e21b22;">{{ $displayTaken }}</strong> / {{ $spotsTotal }}
+                                        &nbsp;&middot;&nbsp;
+                                        @if($displayRemaining <= 5)
+                                            <span style="color:#e21b22;font-weight:700;">Only {{ $displayRemaining }} left!</span>
+                                        @elseif($displayRemaining <= 10)
+                                            <span style="color:#f59e0b;font-weight:600;">{{ $displayRemaining }} spots remaining</span>
+                                        @else
+                                            <span style="color:#aaa;">{{ $displayRemaining }} spots remaining</span>
+                                        @endif
+                                    </span>
+                                </div>
+                                <div style="background:#2a2a2a;border-radius:999px;height:10px;overflow:hidden;">
+                                    <div
+                                        style="background:linear-gradient(90deg,#e21b22,#ff4444);height:100%;width:{{ $fillPct }}%;border-radius:999px;transition:width 0.6s ease;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>You've been invited to join TopGear India for an exclusive morning out — the <strong>Breakfast
+                                    Drive</strong>. Start your Sunday with fellow enthusiasts on an early morning drive through the
+                                city, followed by a sit-down breakfast.</p>
+
+                            <p>This is a private, invite-only affair for a select group of drivers. No crowds, no compromises — just
+                                good roads, great company, and an outstanding breakfast.</p>
+
+                            {{-- Event Info Card --}}
+                            <div class="bd-event-card">
+                                <div class="bd-label">Event Details</div>
+                                <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026</span></div>
+                                <div class="bd-row">📍 &nbsp;<span>JW Marriott Sahar, Mumbai</span></div>
+                                <div class="bd-row">🚗 &nbsp;<span>Drive begins at <strong>8:00 AM</strong></span></div>
+                                <div class="bd-row">🍳 &nbsp;<span>Breakfast at <strong>10:00 AM</strong></span></div>
+                            </div>
+
+                            <div class="bd-price-tag">
+                                ₹1,500 <span style="font-size:14px;font-weight:400;color:#888;">per person · inclusive of
+                                    breakfast</span>
+                            </div>
+
+                            <form method="POST" autocomplete="off" action="#" id="breakfast-drive-form">
+
+                                {{-- Pass remaining spots to JS --}}
+                                <input type="hidden" id="remainingSpotsInput" value="{{ $remainingSpots }}">
+
+                                <div class="row g-3">
+
+                                    {{-- Row 1 --}}
+                                    <div class="col-md-4">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" name="name" class="form-control" required="">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Mobile</label>
+                                        <input type="tel" name="mobile" class="form-control" required="" pattern="[0-9]{10}"
+                                            maxlength="10" title="Please enter a valid 10-digit mobile number">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" required="">
+                                    </div>
+
+                                    {{-- Row 2 --}}
+                                    <div class="col-md-4">
+                                        <label class="form-label">Car Brand</label>
+                                        <input type="text" name="car_brand" class="form-control" required="">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Car Model</label>
+                                        <input type="text" name="car_model" class="form-control" required="">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Car Number</label>
+                                        <input type="text" name="car_number" class="form-control" required="" minlength="9"
+                                            maxlength="10" title="Car number must be 9 or 10 characters">
+                                    </div>
+
+                                    {{-- Row 3 --}}
+                                    <div class="col-md-6">
+                                        <label class="form-label">Instagram Link <small>(Optional)</small></label>
+                                        <input type="url" name="instagram_link" class="form-control"
+                                            placeholder="https://instagram.com/yourhandle">
+                                    </div>
+
+                                    {{-- Guest Selector --}}
+                                    <div class="col-12 mt-4">
+                                        <label class="form-label d-block" style="font-weight:600;margin-bottom:10px;">
+                                            Bringing someone along?
+                                        </label>
+                                        <div class="bd-guest-selector">
+                                            <button type="button" class="bd-guest-btn active" data-guests="0">Just me</button>
+                                            <button type="button" class="bd-guest-btn" data-guests="1">+1 Guest</button>
+                                            <button type="button" class="bd-guest-btn" data-guests="2">+2 Guests</button>
+                                            <button type="button" class="bd-guest-btn" data-guests="3">+3 Guests</button>
+                                        </div>
+                                        {{-- Hidden input tracks the count --}}
+                                        <input type="hidden" name="guests_count" id="guestsCountInput" value="0">
+                                    </div>
+
+                                    {{-- Guest 1 fields --}}
+                                    <div class="col-12" id="guest1Block">
+                                        <div class="bd-guest-block" id="guest1Fields">
+                                            <div class="bd-guest-title">Guest 1</div>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Guest 1 Name</label>
+                                                    <input type="text" name="guests[0][name]" class="form-control" id="guest1Name">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Guest 1 Mobile</label>
+                                                    <input type="tel" name="guests[0][mobile]" class="form-control" pattern="[0-9]{10}"
+                                                        maxlength="10" id="guest1Mobile"
+                                                        title="Please enter a valid 10-digit mobile number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Guest 2 fields --}}
+                                    <div class="col-12" id="guest2Block">
+                                        <div class="bd-guest-block" id="guest2Fields">
+                                            <div class="bd-guest-title">Guest 2</div>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Guest 2 Name</label>
+                                                    <input type="text" name="guests[1][name]" class="form-control" id="guest2Name">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Guest 2 Mobile</label>
+                                                    <input type="tel" name="guests[1][mobile]" class="form-control" pattern="[0-9]{10}"
+                                                        maxlength="10" id="guest2Mobile"
+                                                        title="Please enter a valid 10-digit mobile number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Guest 3 fields --}}
+                                    <div class="col-12" id="guest3Block">
+                                        <div class="bd-guest-block" id="guest3Fields">
+                                            <div class="bd-guest-title">Guest 3</div>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Guest 3 Name</label>
+                                                    <input type="text" name="guests[2][name]" class="form-control" id="guest3Name">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Guest 3 Mobile</label>
+                                                    <input type="tel" name="guests[2][mobile]" class="form-control" pattern="[0-9]{10}"
+                                                        maxlength="10" id="guest3Mobile"
+                                                        title="Please enter a valid 10-digit mobile number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Live Total --}}
+                                    <div class="col-12">
+                                        <div class="bd-total-display">
+                                            <div>
+                                                <div class="bd-total-label">Total Amount</div>
+                                                <div class="bd-total-amount" id="bdTotalDisplay">₹1,500</div>
+                                                <div class="bd-total-breakdown" id="bdBreakdownDisplay">1 person × ₹1,500</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Submit --}}
+                                    <div class="col-12 mt-2">
+                                        <div class="d-grid">
+                                            <button type="button" id="bdProceedBtn" class="btn tg-btn">Proceed To Payment</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    @endif {{-- end @else (not sold out) --}}
+
+                {{-- STEP 2: PAYMENT --}}
+                <div id="paymentSection">
+                    <div class="bd-event-card" style="margin-bottom:24px;">
+                        <div class="bd-label">Confirm Your Spot</div>
+                        <div class="bd-row">📅 &nbsp;<span>Sunday, 23rd August 2026 · JW Marriott Sahar, Mumbai</span></div>
+                        <div class="bd-row">🚗 &nbsp;<span>Drive: 8:00 AM &nbsp;|&nbsp; 🍳 Breakfast: 10:00 AM</span></div>
+                    </div>
+
+                    <p id="paymentSummaryText">An entry fee of <strong>₹1,500</strong> (inclusive of breakfast) secures your
+                        spot.</p>
+
+                    <div class="row g-3">
+                        <div class="col-12 mt-2">
+                            <div class="d-grid">
+                                <button type="button" id="bdRazorpayBtn" class="btn tg-btn">Pay Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
 
-    {{-- Razorpay Checkout Script --}}
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        {{-- Razorpay Checkout Script --}}
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
 
-            const proceedBtn = document.getElementById("bdProceedBtn");
-            const razorpayBtn = document.getElementById("bdRazorpayBtn");
-            let memberId = null;
-            let totalPaise = 150000; // tracks the server-confirmed total
+                const proceedBtn = document.getElementById("bdProceedBtn");
+                const razorpayBtn = document.getElementById("bdRazorpayBtn");
+                let memberId = null;
+                let totalPaise = 150000; // tracks the server-confirmed total
 
-            const PRICE_PER_PERSON = 1500;
+                const PRICE_PER_PERSON = 1500;
 
-            // ── Guest selector logic ─────────────────────────────────────
-            const guestBtns = document.querySelectorAll(".bd-guest-btn");
-            const guestsCountInput = document.getElementById("guestsCountInput");
-            const guest1Fields = document.getElementById("guest1Fields");
-            const guest2Fields = document.getElementById("guest2Fields");
-            const guest3Fields = document.getElementById("guest3Fields");
-            const totalDisplay = document.getElementById("bdTotalDisplay");
-            const breakdownDisplay = document.getElementById("bdBreakdownDisplay");
+                // ── Guest selector logic ─────────────────────────────────────
+                const guestBtns = document.querySelectorAll(".bd-guest-btn");
+                const guestsCountInput = document.getElementById("guestsCountInput");
+                const guest1Fields = document.getElementById("guest1Fields");
+                const guest2Fields = document.getElementById("guest2Fields");
+                const guest3Fields = document.getElementById("guest3Fields");
+                const totalDisplay = document.getElementById("bdTotalDisplay");
+                const breakdownDisplay = document.getElementById("bdBreakdownDisplay");
 
-            function setGuestRequired(fields, required) {
-                fields.querySelectorAll("input").forEach(inp => {
-                    if (required) {
-                        inp.setAttribute("required", "");
+                function setGuestRequired(fields, required) {
+                    fields.querySelectorAll("input").forEach(inp => {
+                        if (required) {
+                            inp.setAttribute("required", "");
+                        } else {
+                            inp.removeAttribute("required");
+                            inp.value = "";
+                        }
+                    });
+                }
+
+                const remainingSpots = parseInt(document.getElementById("remainingSpotsInput")?.value ?? "40", 10);
+
+                function updateGuestUI(count) {
+                    // Clamp to max allowed by remaining spots
+                    const maxGuests = Math.min(3, remainingSpots - 1);
+                    if (count > maxGuests) count = maxGuests;
+
+                    // Update button states — disable options exceeding capacity
+                    guestBtns.forEach(btn => {
+                        const g = parseInt(btn.dataset.guests);
+                        const personsNeeded = g + 1;
+                        if (personsNeeded > remainingSpots) {
+                            btn.disabled = true;
+                            btn.title = "Not enough spots remaining";
+                            btn.style.opacity = "0.4";
+                            btn.style.cursor = "not-allowed";
+                        } else {
+                            btn.disabled = false;
+                            btn.title = "";
+                            btn.style.opacity = "";
+                            btn.style.cursor = "";
+                        }
+                        btn.classList.toggle("active", g === count);
+                    });
+
+                    guestsCountInput.value = count;
+
+                    // Show/hide guest blocks with animation
+                    if (count >= 1) {
+                        guest1Fields.style.display = "block";
+                        setGuestRequired(guest1Fields, true);
                     } else {
-                        inp.removeAttribute("required");
-                        inp.value = "";
+                        guest1Fields.style.display = "none";
+                        setGuestRequired(guest1Fields, false);
                     }
-                });
-            }
 
-            const remainingSpots = parseInt(document.getElementById("remainingSpotsInput")?.value ?? "40", 10);
+                    if (count >= 2) {
+                        guest2Fields.style.display = "block";
+                        setGuestRequired(guest2Fields, true);
+                    } else {
+                        guest2Fields.style.display = "none";
+                        setGuestRequired(guest2Fields, false);
+                    }
 
-            function updateGuestUI(count) {
-                // Clamp to max allowed by remaining spots
-                const maxGuests = Math.min(3, remainingSpots - 1);
-                if (count > maxGuests) count = maxGuests;
+                    if (count >= 3) {
+                        guest3Fields.style.display = "block";
+                        setGuestRequired(guest3Fields, true);
+                    } else {
+                        guest3Fields.style.display = "none";
+                        setGuestRequired(guest3Fields, false);
+                    }
 
-                // Update button states — disable options exceeding capacity
+                    // Update live total
+                    const persons = count + 1;
+                    const total = persons * PRICE_PER_PERSON;
+                    totalDisplay.textContent = "₹" + total.toLocaleString("en-IN");
+                    breakdownDisplay.textContent = persons + " person" + (persons > 1 ? "s" : "") + " × ₹" + PRICE_PER_PERSON.toLocaleString("en-IN");
+
+                    // Update pay button text
+                    razorpayBtn.textContent = "Pay ₹" + total.toLocaleString("en-IN") + " Now";
+                }
+
                 guestBtns.forEach(btn => {
-                    const g = parseInt(btn.dataset.guests);
-                    const personsNeeded = g + 1;
-                    if (personsNeeded > remainingSpots) {
-                        btn.disabled = true;
-                        btn.title = "Not enough spots remaining";
-                        btn.style.opacity = "0.4";
-                        btn.style.cursor = "not-allowed";
-                    } else {
-                        btn.disabled = false;
-                        btn.title = "";
-                        btn.style.opacity = "";
-                        btn.style.cursor = "";
-                    }
-                    btn.classList.toggle("active", g === count);
+                    btn.addEventListener("click", () => updateGuestUI(parseInt(btn.dataset.guests)));
                 });
 
-                guestsCountInput.value = count;
+                // Init UI
+                updateGuestUI(0);
 
-                // Show/hide guest blocks with animation
-                if (count >= 1) {
-                    guest1Fields.style.display = "block";
-                    setGuestRequired(guest1Fields, true);
-                } else {
-                    guest1Fields.style.display = "none";
-                    setGuestRequired(guest1Fields, false);
-                }
-
-                if (count >= 2) {
-                    guest2Fields.style.display = "block";
-                    setGuestRequired(guest2Fields, true);
-                } else {
-                    guest2Fields.style.display = "none";
-                    setGuestRequired(guest2Fields, false);
-                }
-
-                if (count >= 3) {
-                    guest3Fields.style.display = "block";
-                    setGuestRequired(guest3Fields, true);
-                } else {
-                    guest3Fields.style.display = "none";
-                    setGuestRequired(guest3Fields, false);
-                }
-
-                // Update live total
-                const persons = count + 1;
-                const total = persons * PRICE_PER_PERSON;
-                totalDisplay.textContent = "₹" + total.toLocaleString("en-IN");
-                breakdownDisplay.textContent = persons + " person" + (persons > 1 ? "s" : "") + " × ₹" + PRICE_PER_PERSON.toLocaleString("en-IN");
-
-                // Update pay button text
-                razorpayBtn.textContent = "Pay ₹" + total.toLocaleString("en-IN") + " Now";
-            }
-
-            guestBtns.forEach(btn => {
-                btn.addEventListener("click", () => updateGuestUI(parseInt(btn.dataset.guests)));
-            });
-
-            // Init UI
-            updateGuestUI(0);
-
-            // ── Helpers ──────────────────────────────────────────────────
-            function getFormData() {
-                const form = document.getElementById("breakfast-drive-form");
-                const count = parseInt(guestsCountInput.value);
-                const data = {
-                    name: form.querySelector("[name=name]").value,
-                    mobile: form.querySelector("[name=mobile]").value,
-                    email: form.querySelector("[name=email]").value,
-                    car_brand: form.querySelector("[name=car_brand]").value,
-                    car_model: form.querySelector("[name=car_model]").value,
-                    car_number: form.querySelector("[name=car_number]").value,
-                    instagram_link: form.querySelector("[name=instagram_link]").value,
-                    guests_count: count,
-                    guests: []
-                };
-
-                if (count >= 1) {
-                    data.guests.push({
-                        name: document.getElementById("guest1Name").value,
-                        mobile: document.getElementById("guest1Mobile").value
-                    });
-                }
-                if (count >= 2) {
-                    data.guests.push({
-                        name: document.getElementById("guest2Name").value,
-                        mobile: document.getElementById("guest2Mobile").value
-                    });
-                }
-                if (count >= 3) {
-                    data.guests.push({
-                        name: document.getElementById("guest3Name").value,
-                        mobile: document.getElementById("guest3Mobile").value
-                    });
-                }
-
-                return data;
-            }
-
-            function pollPaymentStatus(maxAttempts = 10) {
-                razorpayBtn.disabled = true;
-                razorpayBtn.textContent = "Verifying payment...";
-
-                let attempts = 0;
-
-                const interval = setInterval(() => {
-                    attempts++;
-
-                    fetch("{{ route('breakfast-drive.checkPaymentStatus') }}", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                            "Accept": "application/json"
-                        },
-                        body: JSON.stringify({ member_id: memberId })
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.paid) {
-                                clearInterval(interval);
-                                alert(data.message || "Payment confirmed! Your spot for the Breakfast Drive is secured.\nA confirmation has been sent to your email.");
-                                window.location.href = "{{ route('breakfast-drive.index') }}";
-                            } else if (attempts >= maxAttempts) {
-                                clearInterval(interval);
-                                razorpayBtn.disabled = false;
-                                razorpayBtn.textContent = "Pay ₹" + (totalPaise / 100).toLocaleString("en-IN") + " Now";
-                                alert("We couldn't confirm your payment yet. If you already paid, please wait a few minutes or contact us at info@topgearmag.in.");
-                            }
-                        })
-                        .catch(err => {
-                            console.error("Poll error:", err);
-                            if (attempts >= maxAttempts) {
-                                clearInterval(interval);
-                                razorpayBtn.disabled = false;
-                                razorpayBtn.textContent = "Pay ₹" + (totalPaise / 100).toLocaleString("en-IN") + " Now";
-                            }
-                        });
-                }, 3000);
-            }
-
-            // ── STEP 1: Save details → show payment ───────────────────────
-            if (proceedBtn) {
-                proceedBtn.addEventListener("click", function () {
+                // ── Helpers ──────────────────────────────────────────────────
+                function getFormData() {
                     const form = document.getElementById("breakfast-drive-form");
-
-                    if (!form.checkValidity()) {
-                        form.reportValidity();
-                        return;
-                    }
-
-                    proceedBtn.disabled = true;
-                    proceedBtn.textContent = "Saving...";
-
-                    const formData = getFormData();
-
-                    // Fire-and-forget to n8n webhook — all fields always present, empty string when unused
-                    const webhookPayload = {
-                        event: "Breakfast Drive",
-                        name: formData.name,
-                        mobile: formData.mobile,
-                        email: formData.email,
-                        car_brand: formData.car_brand,
-                        car_model: formData.car_model,
-                        car_number: formData.car_number,
-                        instagram_link: formData.instagram_link || "",
-                        guests_count: formData.guests_count,
-                        total_persons: formData.guests_count + 1,
-                        total_amount: "₹" + ((formData.guests_count + 1) * 1500).toLocaleString("en-IN"),
-                        guest_1_name: (formData.guests[0] && formData.guests[0].name) ? formData.guests[0].name : "",
-                        guest_1_mobile: (formData.guests[0] && formData.guests[0].mobile) ? formData.guests[0].mobile : "",
-                        guest_2_name: (formData.guests[1] && formData.guests[1].name) ? formData.guests[1].name : "",
-                        guest_2_mobile: (formData.guests[1] && formData.guests[1].mobile) ? formData.guests[1].mobile : "",
-                        guest_3_name: (formData.guests[2] && formData.guests[2].name) ? formData.guests[2].name : "",
-                        guest_3_mobile: (formData.guests[2] && formData.guests[2].mobile) ? formData.guests[2].mobile : "",
+                    const count = parseInt(guestsCountInput.value);
+                    const data = {
+                        name: form.querySelector("[name=name]").value,
+                        mobile: form.querySelector("[name=mobile]").value,
+                        email: form.querySelector("[name=email]").value,
+                        car_brand: form.querySelector("[name=car_brand]").value,
+                        car_model: form.querySelector("[name=car_model]").value,
+                        car_number: form.querySelector("[name=car_number]").value,
+                        instagram_link: form.querySelector("[name=instagram_link]").value,
+                        guests_count: count,
+                        guests: []
                     };
 
-                    fetch("https://n8n.exhibit.social/webhook/acea76e1-6d95-4a2c-80fe-c0d9e3bb5373", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(webhookPayload)
-                    }).catch(err => console.error("n8n webhook error:", err));
+                    if (count >= 1) {
+                        data.guests.push({
+                            name: document.getElementById("guest1Name").value,
+                            mobile: document.getElementById("guest1Mobile").value
+                        });
+                    }
+                    if (count >= 2) {
+                        data.guests.push({
+                            name: document.getElementById("guest2Name").value,
+                            mobile: document.getElementById("guest2Mobile").value
+                        });
+                    }
+                    if (count >= 3) {
+                        data.guests.push({
+                            name: document.getElementById("guest3Name").value,
+                            mobile: document.getElementById("guest3Mobile").value
+                        });
+                    }
 
-                    fetch("{{ route('breakfast-drive.saveDetails') }}", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                            "Accept": "application/json"
-                        },
-                        body: JSON.stringify(formData)
-                    })
-                        .then(res => res.json().then(data => ({ ok: res.ok, data })))
-                        .then(({ ok, data }) => {
-                            if (ok && data.success) {
-                                memberId = data.member_id;
-                                totalPaise = data.amount_paise;
+                    return data;
+                }
 
-                                const persons = formData.guests_count + 1;
-                                const totalRs = totalPaise / 100;
+                function pollPaymentStatus(maxAttempts = 10) {
+                    razorpayBtn.disabled = true;
+                    razorpayBtn.textContent = "Verifying payment...";
 
-                                // Update payment section summary
-                                document.getElementById("paymentSummaryText").innerHTML =
-                                    "An entry fee of <strong>\u20b9" + totalRs.toLocaleString("en-IN") +
-                                    "</strong> for " + persons + " person" + (persons > 1 ? "s" : "") +
-                                    " (inclusive of breakfast) secures your spot.";
+                    let attempts = 0;
 
-                                razorpayBtn.textContent = "Pay \u20b9" + totalRs.toLocaleString("en-IN") + " Now";
+                    const interval = setInterval(() => {
+                        attempts++;
 
-                                document.getElementById("formSection").style.display = "none";
-                                document.getElementById("paymentSection").style.display = "block";
-                            } else {
-                                // Show server message (capacity / validation error)
-                                const msg = data.message || "Could not save your details. Please try again.";
-                                alert(msg);
+                        fetch("{{ route('breakfast-drive.checkPaymentStatus') }}", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify({ member_id: memberId })
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.paid) {
+                                    clearInterval(interval);
+                                    alert(data.message || "Payment confirmed! Your spot for the Breakfast Drive is secured.\nA confirmation has been sent to your email.");
+                                    window.location.href = "{{ route('breakfast-drive.index') }}";
+                                } else if (attempts >= maxAttempts) {
+                                    clearInterval(interval);
+                                    razorpayBtn.disabled = false;
+                                    razorpayBtn.textContent = "Pay ₹" + (totalPaise / 100).toLocaleString("en-IN") + " Now";
+                                    alert("We couldn't confirm your payment yet. If you already paid, please wait a few minutes or contact us at info@topgearmag.in.");
+                                }
+                            })
+                            .catch(err => {
+                                console.error("Poll error:", err);
+                                if (attempts >= maxAttempts) {
+                                    clearInterval(interval);
+                                    razorpayBtn.disabled = false;
+                                    razorpayBtn.textContent = "Pay ₹" + (totalPaise / 100).toLocaleString("en-IN") + " Now";
+                                }
+                            });
+                    }, 3000);
+                }
+
+                // ── STEP 1: Save details → show payment ───────────────────────
+                if (proceedBtn) {
+                    proceedBtn.addEventListener("click", function () {
+                        const form = document.getElementById("breakfast-drive-form");
+
+                        if (!form.checkValidity()) {
+                            form.reportValidity();
+                            return;
+                        }
+
+                        proceedBtn.disabled = true;
+                        proceedBtn.textContent = "Saving...";
+
+                        const formData = getFormData();
+
+                        // Fire-and-forget to n8n webhook — all fields always present, empty string when unused
+                        const webhookPayload = {
+                            event: "Breakfast Drive",
+                            name: formData.name,
+                            mobile: formData.mobile,
+                            email: formData.email,
+                            car_brand: formData.car_brand,
+                            car_model: formData.car_model,
+                            car_number: formData.car_number,
+                            instagram_link: formData.instagram_link || "",
+                            guests_count: formData.guests_count,
+                            total_persons: formData.guests_count + 1,
+                            total_amount: "₹" + ((formData.guests_count + 1) * 1500).toLocaleString("en-IN"),
+                            guest_1_name: (formData.guests[0] && formData.guests[0].name) ? formData.guests[0].name : "",
+                            guest_1_mobile: (formData.guests[0] && formData.guests[0].mobile) ? formData.guests[0].mobile : "",
+                            guest_2_name: (formData.guests[1] && formData.guests[1].name) ? formData.guests[1].name : "",
+                            guest_2_mobile: (formData.guests[1] && formData.guests[1].mobile) ? formData.guests[1].mobile : "",
+                            guest_3_name: (formData.guests[2] && formData.guests[2].name) ? formData.guests[2].name : "",
+                            guest_3_mobile: (formData.guests[2] && formData.guests[2].mobile) ? formData.guests[2].mobile : "",
+                        };
+
+                        fetch("https://n8n.exhibit.social/webhook/acea76e1-6d95-4a2c-80fe-c0d9e3bb5373", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(webhookPayload)
+                        }).catch(err => console.error("n8n webhook error:", err));
+
+                        fetch("{{ route('breakfast-drive.saveDetails') }}", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify(formData)
+                        })
+                            .then(res => res.json().then(data => ({ ok: res.ok, data })))
+                            .then(({ ok, data }) => {
+                                if (ok && data.success) {
+                                    memberId = data.member_id;
+                                    totalPaise = data.amount_paise;
+
+                                    const persons = formData.guests_count + 1;
+                                    const totalRs = totalPaise / 100;
+
+                                    // Update payment section summary
+                                    document.getElementById("paymentSummaryText").innerHTML =
+                                        "An entry fee of <strong>\u20b9" + totalRs.toLocaleString("en-IN") +
+                                        "</strong> for " + persons + " person" + (persons > 1 ? "s" : "") +
+                                        " (inclusive of breakfast) secures your spot.";
+
+                                    razorpayBtn.textContent = "Pay \u20b9" + totalRs.toLocaleString("en-IN") + " Now";
+
+                                    document.getElementById("formSection").style.display = "none";
+                                    document.getElementById("paymentSection").style.display = "block";
+                                } else {
+                                    // Show server message (capacity / validation error)
+                                    const msg = data.message || "Could not save your details. Please try again.";
+                                    alert(msg);
+                                    proceedBtn.disabled = false;
+                                    proceedBtn.textContent = "Proceed To Payment";
+                                }
+                            })
+                            .catch(err => {
+                                console.error("Save details failed:", err);
+                                alert("Something went wrong. Please try again.");
                                 proceedBtn.disabled = false;
                                 proceedBtn.textContent = "Proceed To Payment";
-                            }
-                        })
-                        .catch(err => {
-                            console.error("Save details failed:", err);
-                            alert("Something went wrong. Please try again.");
-                            proceedBtn.disabled = false;
-                            proceedBtn.textContent = "Proceed To Payment";
-                        });
-                });
-            }
+                            });
+                    });
+                }
 
-            // ── Payment status webhook (fires ONLY after Razorpay modal opened) ───
-            function sendPaymentStatus(email, status, amountPaise) {
-                fetch("https://n8n.exhibit.social/webhook/95b1f83e-6569-47d5-8982-721b7cc12754", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        event: "Breakfast Drive",
-                        email: email,
-                        status: status,
-                        amount: amountPaise ? "₹" + (amountPaise / 100).toLocaleString("en-IN") : ""
-                    })
-                }).catch(err => console.error("Status webhook error:", err));
-            }
-
-            // ── STEP 2: Razorpay Checkout ─────────────────────────────────
-            if (razorpayBtn) {
-                razorpayBtn.addEventListener("click", function () {
-
-                    razorpayBtn.disabled = true;
-                    razorpayBtn.textContent = "Processing...";
-
-                    fetch("{{ route('breakfast-drive.createOrder') }}", {
+                // ── Payment status webhook (fires ONLY after Razorpay modal opened) ───
+                function sendPaymentStatus(email, status, amountPaise) {
+                    fetch("https://n8n.exhibit.social/webhook/95b1f83e-6569-47d5-8982-721b7cc12754", {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                            "Accept": "application/json"
-                        },
-                        body: JSON.stringify({ member_id: memberId })
-                    })
-                        .then(res => {
-                            if (!res.ok) return res.text().then(t => { throw new Error(t); });
-                            return res.json();
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            event: "Breakfast Drive",
+                            email: email,
+                            status: status,
+                            amount: amountPaise ? "₹" + (amountPaise / 100).toLocaleString("en-IN") : ""
                         })
-                        .then(order => {
+                    }).catch(err => console.error("Status webhook error:", err));
+                }
 
-                            const formData = getFormData();
-                            const mobile = (formData.mobile || "").replace(/\D/g, "");
+                // ── STEP 2: Razorpay Checkout ─────────────────────────────────
+                if (razorpayBtn) {
+                    razorpayBtn.addEventListener("click", function () {
 
-                            const options = {
-                                key: "{{ $razorpayKey }}",
-                                amount: order.amount,
-                                currency: order.currency,
-                                name: "TopGear India",
-                                description: "Breakfast Drive – 23rd August 2026",
-                                order_id: order.order_id,
-                                prefill: {
-                                    name: formData.name || "",
-                                    email: formData.email || "",
-                                    contact: mobile
-                                },
-                                theme: { color: "#e21b22" },
-                                handler: function (response) {
-                                    razorpayBtn.disabled = true;
-                                    razorpayBtn.textContent = "Verifying payment...";
+                        razorpayBtn.disabled = true;
+                        razorpayBtn.textContent = "Processing...";
 
-                                    fetch("{{ route('breakfast-drive.verifyPayment') }}", {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                                            "Accept": "application/json"
-                                        },
-                                        body: JSON.stringify({
-                                            member_id: memberId,
-                                            razorpay_payment_id: response.razorpay_payment_id,
-                                            razorpay_order_id: response.razorpay_order_id,
-                                            razorpay_signature: response.razorpay_signature
+                        fetch("{{ route('breakfast-drive.createOrder') }}", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify({ member_id: memberId })
+                        })
+                            .then(res => {
+                                if (!res.ok) return res.text().then(t => { throw new Error(t); });
+                                return res.json();
+                            })
+                            .then(order => {
+
+                                const formData = getFormData();
+                                const mobile = (formData.mobile || "").replace(/\D/g, "");
+
+                                const options = {
+                                    key: "{{ $razorpayKey }}",
+                                    amount: order.amount,
+                                    currency: order.currency,
+                                    name: "TopGear India",
+                                    description: "Breakfast Drive – 23rd August 2026",
+                                    order_id: order.order_id,
+                                    prefill: {
+                                        name: formData.name || "",
+                                        email: formData.email || "",
+                                        contact: mobile
+                                    },
+                                    theme: { color: "#e21b22" },
+                                    handler: function (response) {
+                                        razorpayBtn.disabled = true;
+                                        razorpayBtn.textContent = "Verifying payment...";
+
+                                        fetch("{{ route('breakfast-drive.verifyPayment') }}", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                                "Accept": "application/json"
+                                            },
+                                            body: JSON.stringify({
+                                                member_id: memberId,
+                                                razorpay_payment_id: response.razorpay_payment_id,
+                                                razorpay_order_id: response.razorpay_order_id,
+                                                razorpay_signature: response.razorpay_signature
+                                            })
                                         })
-                                    })
-                                        .then(res => {
-                                            if (!res.ok) return res.text().then(t => { throw new Error(t); });
-                                            return res.json();
-                                        })
-                                        .then(data => {
-                                            if (data.success) {
-                                                sendPaymentStatus(getFormData().email, "paid", totalPaise);
-                                                alert(data.message + "\nA confirmation has been sent to your registered email.");
-                                                window.location.href = "{{ route('breakfast-drive.index') }}";
-                                            } else {
+                                            .then(res => {
+                                                if (!res.ok) return res.text().then(t => { throw new Error(t); });
+                                                return res.json();
+                                            })
+                                            .then(data => {
+                                                if (data.success) {
+                                                    sendPaymentStatus(getFormData().email, "paid", totalPaise);
+                                                    alert(data.message + "\nA confirmation has been sent to your registered email.");
+                                                    window.location.href = "{{ route('breakfast-drive.index') }}";
+                                                } else {
+                                                    sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
+                                                    pollPaymentStatus();
+                                                }
+                                            })
+                                            .catch(() => {
                                                 sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
                                                 pollPaymentStatus();
-                                            }
-                                        })
-                                        .catch(() => {
+                                            });
+                                    },
+                                    modal: {
+                                        ondismiss: function () {
+                                            // Only send 'payment failed' if they opened the modal (razorpayOpened = true)
+                                            // but closed without completing payment
                                             sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
-                                            pollPaymentStatus();
-                                        });
-                                },
-                                modal: {
-                                    ondismiss: function () {
-                                        // Only send 'payment failed' if they opened the modal (razorpayOpened = true)
-                                        // but closed without completing payment
-                                        sendPaymentStatus(getFormData().email, "payment failed", totalPaise);
-                                        pollPaymentStatus(5);
+                                            pollPaymentStatus(5);
+                                        }
                                     }
-                                }
-                            };
+                                };
 
-                            const rzp = new Razorpay(options);
-                            rzp.open();
-                        })
-                        .catch(err => {
-                            console.error(err);
-                            alert("Could not initiate payment. Please try again.");
-                            razorpayBtn.disabled = false;
-                            razorpayBtn.textContent = "Pay ₹" + (totalPaise / 100).toLocaleString("en-IN") + " Now";
-                        });
-                });
-            }
+                                const rzp = new Razorpay(options);
+                                rzp.open();
+                            })
+                            .catch(err => {
+                                console.error(err);
+                                alert("Could not initiate payment. Please try again.");
+                                razorpayBtn.disabled = false;
+                                razorpayBtn.textContent = "Pay ₹" + (totalPaise / 100).toLocaleString("en-IN") + " Now";
+                            });
+                    });
+                }
 
-        });
-    </script>
+            });
+        </script> -->
 
 @endsection
